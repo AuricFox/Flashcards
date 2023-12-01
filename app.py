@@ -1,19 +1,12 @@
 from flask import Flask, request, redirect, render_template, url_for, send_file, flash
 
-import os, sys, logging
+import os, sys
+sys.path.append('./src/')
+import utils
 
+LOGGER = utils.LOGGER
 app = Flask(__name__, static_folder='static')
 app.secret_key = 'my_super_secret_totaly_unbreakable_key'
-
-PATH = os.path.dirname(os.path.abspath(__file__))
-
-logging.basicConfig(
-    filename=os.path.join(PATH, './output/app.log'),
-    level=logging.INFO,
-    format='%(asctime)s [%(levelname)s]: %(message)s'
-)
-
-LOGGER = logging.getLogger(__name__)
 
 @app.route("/")
 @app.route("/home")
