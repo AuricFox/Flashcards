@@ -1,14 +1,24 @@
 import sqlite3
 
-# Connection to the database
-CONN = sqlite3.connect('flashcards.db')
+def create_tables():
+    
+    conn = sqlite3.connect('flashcards.db')     # Connection to the database
+    c = conn.cursor()                           # Allows entries to the database
 
-# Allows commands to the database
-C = CONN.cursor()
+    # Main flashcard elements
+    c.execute("""CREATE TABLE Flashcards(
+              category TEXT NOT NULL,
+              question TEXT NOT NULL,
+              code TEXT.
+              image_path TEXT,
+              answer TEXT NOT NULL
+    )""")
 
-C.execute("""CREATE TABLE flashcards (
-          question TEXT,
-          code TEXT.
-          image_path TEXT,
-          answer TEXT
-)""")    
+    # Track the number of questions in each category
+    c.execute("""CREATE TABLE Category(
+              category TEXT NOT NULL,
+              count INTEGER
+    )""")
+
+    conn.commit()                               # Commit changes to database
+    conn.close()                                # Close connection to the database
