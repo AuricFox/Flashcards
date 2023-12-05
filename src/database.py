@@ -2,12 +2,6 @@ import sqlite3, utils
 
 LOGGER = utils.LOGGER
 
-def Create_Table(table:str, items:[str], types:[str]):
-
-    if len(items) != len(types):
-        return 
-    return
-
 # ==============================================================================================================
 def add_card(category:str, question:str, code:str, image:str, answer:str):
     '''
@@ -43,7 +37,7 @@ def view_card(question):
     Retrieves the flashcard data with the queried question from the database.
 
     Parameter(s):
-        question (str): information being asked
+        question (str): variable being queried from the database
 
     Output(s):
         returns a tuple of the Flashcard data if found, None otherwise
@@ -125,7 +119,7 @@ def delete_card(question:str):
     Deletes the flashcard data from the database.
 
     Parameter(s):
-        question (str): information being asked
+        question (str): variable being queried from the database for deletion
 
     Output(s):
         bool: True if the delete was successful, False otherwise
@@ -136,7 +130,6 @@ def delete_card(question:str):
 
             c = conn.cursor()
             c.execute("DELETE FROM Flashcards WHERE question = ?", (question,))
-            data = c.fetchone()
             conn.commit()
 
         return True
