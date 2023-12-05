@@ -40,7 +40,7 @@ def add_card(category:str, question:str, code:str, image:str, answer:str):
 # ==============================================================================================================
 def view_card(question):
     '''
-    Adds the flashcard data to the database.
+    Retrieves the flashcard data with the queried question from the database.
 
     Parameter(s):
         question (str): information being asked
@@ -55,16 +55,39 @@ def view_card(question):
             c = conn.cursor()
             c.execute("SELECT * FROM Flashcards WHERE question = ?", (question,))
             data = c.fetchone()
-            conn.commit()
 
         return data
     
     except sqlite3.Error as e:
         LOGGER.error(f"An error occured when searching the database: {e}")
         return None
+    
+# ==============================================================================================================
+def view_allcards():
+    '''
+    Retrieves all the flashcard data from the database.
+
+    Parameter(s): None
+
+    Output(s):
+        list: List of tuples containing flashcard data if successful, an empty list otherwise
+    '''
+    try:
+        with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
+            LOGGER.info(f"Retrieving all flashcards from the database.")
+
+            c = conn.cursor()
+            c.execute("SELECT * FROM Flashcards ORDER BY category")
+            data = c.fetchall()
+
+        return data
+    
+    except sqlite3.Error as e:
+        LOGGER.error(f"An error occured when retrieving from the database: {e}")
+        return []
 
 # ==============================================================================================================
-def update_card(old_question: str, new_data: dict):
+def update_card(old_question:str, new_data:dict):
     '''
     Updates flashcard data in the database.
 
@@ -97,10 +120,27 @@ def update_card(old_question: str, new_data: dict):
         return False
 
 # ==============================================================================================================
-def delete_card():
-    conn = sqlite3.connect('flashcards.db')     # Connection to the database
-    c = conn.cursor()
+def delete_card(question:str):
+    '''
+    Deletes the flashcard data from the database.
 
-    conn.commit()                               # Commit changes to database
-    conn.close()                                # Close connection to the database
-    return
+    Parameter(s):
+        question (str): information being asked
+
+    Output(s):
+        bool: True if the delete was successful, False otherwise
+    '''
+    try:
+        with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
+            LOGGER.info(f"Deleting the following question from the database:\n{question}")
+
+            c = conn.cursor()
+            c.execute("DELETE FROM Flashcards WHERE question = ?", (question,))
+            data = c.fetchone()
+            conn.commit()
+
+        return True
+    
+    except sqlite3.Error as e:
+        LOGGER.error(f"An error occured when deleting the question from the database: {e}")
+        return False
