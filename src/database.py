@@ -81,21 +81,29 @@ def view_allcategories():
         return []
        
 # ==============================================================================================================
-def view_allcards():
+def view_allcards(category:str=None):
     '''
-    Retrieves all the flashcard data from the database.
+    Retrieves all the flashcard data from the database in a specified category.
 
-    Parameter(s): None
+    Parameter(s):
+        category (str, defualt=None): specifies which group of cards to retrieve
 
     Output(s):
         list: List of tuples containing flashcard data if successful, an empty list otherwise
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
-            LOGGER.info(f"Retrieving all flashcards from the database.")
-
             c = conn.cursor()
-            c.execute("SELECT * FROM Flashcards ORDER BY category")
+
+            # Retrieve all cards in a specified category
+            if category:
+                LOGGER.info(f"Retrieving {category} flashcards from the database.")
+                c.execute("SELECT * FROM Flashcards WHERE category = ?", (category,))
+            # Retrieve all cards in the database
+            else:
+                LOGGER.info(f"Retrieving all flashcards from the database.")
+                c.execute("SELECT * FROM Flashcards")
+
             data = c.fetchall()
 
         return data
