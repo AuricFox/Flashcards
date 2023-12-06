@@ -4,6 +4,12 @@
 
 {% block content %}
 
-Hello World
+<div class="categories">
+    {% for category in data %}
+    <a class="category" href="{{ url_for('flashcard_route', category=category) }}">
+        {{ category }}
+    </a>
+    {% endfor %}
+</div>
 
 {% endblock %}

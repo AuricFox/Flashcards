@@ -11,9 +11,16 @@ app.secret_key = 'my_super_secret_totaly_unbreakable_key'
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', nav_id="home-page")
+    data = ['categories','test', 'test2']
+
+    return render_template('home.html', nav_id="home-page", data=data)
 
 #TODO: Manage Main Page, CRUD Pages
+
+@app.route("/flashcards/<path:category>")
+def flashcard_route(category):
+    return render_template('home.html', nav_id="home-page")
+
 
 if __name__ == "__main__":
     app.run()
