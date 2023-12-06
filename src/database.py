@@ -55,7 +55,31 @@ def view_card(question):
     except sqlite3.Error as e:
         LOGGER.error(f"An error occured when searching the database: {e}")
         return None
+
+# ==============================================================================================================
+def view_allcategories():
+    '''
+    Retrieves all the categories from the database.
+
+    Parameter(s): None
+
+    Output(s):
+        list: List of tuples containing the question category and its count if successful, an empty list otherwise
+    '''
+    try:
+        with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
+            LOGGER.info(f"Retrieving all categories from the database.")
+
+            c = conn.cursor()
+            c.execute("SELECT category, COUNT(*) as count FROM Flashcards GROUP BY category")
+            data = c.fetchall()
+
+        return data
     
+    except sqlite3.Error as e:
+        LOGGER.error(f"An error occured when retrieving from the database: {e}")
+        return []
+       
 # ==============================================================================================================
 def view_allcards():
     '''
