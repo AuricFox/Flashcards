@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="title" content="">
+        <meta name="keywords" content="">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div id="nav-bar">
+            <ul class="nav">
+                <li><a href="{{  url_for('home')  }}" class="{% if nav_id == 'home-page' %}active{% endif %}">Home</a></li>
+                <li><div id="manage-page" class="{% if nav_id == 'manage-page' %}active{% endif %}">Manage Cards</div></li>
+                <li><div id="add-page" class="{% if nav_id == 'add-page' %}active{% endif %}">Add Card</div></li>
+            </ul>
+        </div>
+
+        <!--Contains All Content Tiles-->
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>
