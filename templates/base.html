@@ -14,8 +14,8 @@
         <div id="nav-bar">
             <ul class="nav">
                 <li><a href="{{  url_for('home')  }}" class="{% if nav_id == 'home-page' %}active{% endif %}">Home</a></li>
-                <li><div id="manage-page" class="{% if nav_id == 'manage-page' %}active{% endif %}">Manage Cards</div></li>
-                <li><div id="add-page" class="{% if nav_id == 'add-page' %}active{% endif %}">Add Card</div></li>
+                <li><a href="{{  url_for('home')  }}" class="{% if nav_id == 'manage-page' %}active{% endif %}">Manage Cards</div></li>
+                <li><a href="{{  url_for('home')  }}" class="{% if nav_id == 'add-page' %}active{% endif %}">Add Card</div></li>
             </ul>
         </div>
 

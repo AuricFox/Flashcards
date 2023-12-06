@@ -11,7 +11,7 @@ app.secret_key = 'my_super_secret_totaly_unbreakable_key'
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', active='')
+    return render_template('home.html', nav_id="home-page")
 
 #TODO: Manage Main Page, CRUD Pages
 
