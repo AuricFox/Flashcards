@@ -36,13 +36,6 @@ body {
 
 /* ========== Nav Bar ========== */
 
-.nav-tile {
-    min-height: 40vh;
-    position: relative;
-    background-position: center;
-    background-size: cover;
-}
-
 #nav-bar {
     color: rgb(255, 255, 255);
     font-size: 15px;
@@ -65,24 +58,22 @@ body {
 .nav li {
     display: inline;
     float: left;
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.nav li div,
-.nav li a {
+.nav-tile {
     display: block;
     color: rgb(255, 255, 255);
     text-align: center;
     padding: 14px;
     text-decoration: none;
+    border-radius: 4px;
 }
 
 .active {
     background: rgb(247, 7, 7);
 }
 
-.nav li div:hover,
-.nav li a:hover {
+.nav-tile:hover {
     background: rgb(247, 7, 7);
     cursor: pointer;
 }
