@@ -43,6 +43,7 @@ body {
     font-weight: bold;
     font-style: italic;
     padding: 10px 0px 10px 5px;
+    margin-bottom: 2rem;
     background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: row;
@@ -76,4 +77,34 @@ body {
 .nav-tile:hover {
     background: rgb(247, 7, 7);
     cursor: pointer;
+}
+
+/* ========== Category Content ========== */
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 15px;
+    color: white;
+    background-color: rgb(247, 7, 7);
+    border-radius: 4px;
+    padding: 14px;
+    min-width: 12rem;
+}
+
+.category div:first-child {
+    margin-bottom: 0.5rem;
+}
+
+.category:hover {
+    background-color: rgba(247, 7, 7, 0.5);
 }

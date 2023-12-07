@@ -11,7 +11,7 @@ app.secret_key = 'my_super_secret_totaly_unbreakable_key'
 @app.route("/")
 @app.route("/home")
 def home():
-    data = ['categories','test', 'test2']
+    data = [('categories', 2), ('test', 3), ('test2', 1)]
 
     return render_template('home.html', nav_id="home-page", data=data)
 
