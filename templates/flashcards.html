@@ -16,7 +16,9 @@
 </div>
 
 <script>
-    var flashcards = "{{ data | tojson | e }}";
+    var flashcards = "{{ data | tojson | safe | e }}";
+    console.log("Flashcards:", flashcards);
+
 </script>
 
 {% endblock %}
