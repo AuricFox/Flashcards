@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Flashcards{% endblock %}
+
+{% block content %}
+
+<div class="flashcard-container">
+    <div id="flashcard-content"></div>
+
+    <div class="buttons">
+        <button id="previous-button" onclick="showPreviousFlashcard()">Previous</button>
+        <button id="shuffle-button" onclick="shuffleFlashcards()">Shuffle</button>
+        <button id="next-button" onclick="showNextFlashcard()">Next</button>
+    </div>
+    
+</div>
+
+<script>
+    var flashcards = "{{ data | tojson | e }}";
+</script>
+
+{% endblock %}

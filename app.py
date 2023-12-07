@@ -19,7 +19,10 @@ def home():
 
 @app.route("/flashcards/<path:category>")
 def flashcard_route(category):
-    return render_template('home.html', nav_id="home-page")
+    # Get all questions related to specified category
+    data = [(category, 'question', 'code', 'image', 'answer')]
+
+    return render_template('flashcards.html', nav_id="home-page", data=data)
 
 
 if __name__ == "__main__":
