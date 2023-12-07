@@ -294,3 +294,625 @@
 2023-12-06 23:53:10,397 [INFO]: 127.0.0.1 - - [06/Dec/2023 23:53:10] "GET /flashcards/categories HTTP/1.1" 200 -
 2023-12-06 23:53:10,489 [INFO]: 127.0.0.1 - - [06/Dec/2023 23:53:10] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
 2023-12-06 23:53:10,498 [INFO]: 127.0.0.1 - - [06/Dec/2023 23:53:10] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 12:57:37,007 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 12:57:37,008 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 12:57:42,991 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:57:42] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 12:57:43,088 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:57:43] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 12:57:43,088 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:57:43] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 12:57:46,734 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:57:46] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 12:58:09,814 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 12:58:09,814 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 12:58:13,805 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:13] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 12:58:13,916 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:13] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 12:58:13,917 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:13] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 12:58:17,004 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:17] "GET /home HTTP/1.1" 200 -
+2023-12-07 12:58:17,032 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:17] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 12:58:17,040 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:17] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 12:58:18,268 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:18] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 12:58:18,299 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 12:58:18,307 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 12:58:46,910 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 12:58:46,910 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 12:58:50,732 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:50] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 12:58:50,861 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:50] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 12:58:50,866 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:50] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 12:58:51,728 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:51] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 12:58:51,751 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:51] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 12:58:51,752 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:58:51] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 12:59:27,948 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 12:59:27,948 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 12:59:30,763 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:59:30] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 12:59:30,866 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:59:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 12:59:30,872 [INFO]: 127.0.0.1 - - [07/Dec/2023 12:59:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:03:13,513 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:03:13,513 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:03:16,034 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:03:16] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:03:16,163 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:03:16] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:03:16,164 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:03:16] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:04:58,045 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:04:58,046 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:05:03,407 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:05:03] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:05:03,526 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:05:03] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:05:03,528 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:05:03] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:05:40,638 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:05:40,638 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:05:43,121 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:05:43] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:05:43,223 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:05:43] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:05:43,225 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:05:43] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:08:14,501 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:08:14,501 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:08:18,779 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:08:18] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:08:18,880 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:08:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:08:18,881 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:08:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:08:20,327 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:08:20] "GET /home HTTP/1.1" 200 -
+2023-12-07 13:08:20,357 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:08:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:08:20,365 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:08:20] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:08:22,127 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:08:22] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:08:22,160 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:08:22] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:08:22,167 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:08:22] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:08:58,996 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:08:58,996 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:09:01,695 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:09:01] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:09:01,787 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:09:01] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:09:01,799 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:09:01] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:10:27,735 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:10:27,735 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:10:30,709 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:10:30] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:10:30,808 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:10:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:10:30,809 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:10:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:10:56,408 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:10:56,408 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:10:59,203 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:10:59] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:10:59,301 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:10:59] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:10:59,307 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:10:59] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:11:28,194 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:11:28,194 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:11:30,871 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:11:30] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:11:30,967 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:11:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:11:30,968 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:11:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:12:15,378 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:12:15,378 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:12:18,567 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:12:18] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:12:18,681 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:12:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:12:18,682 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:12:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:16:01,643 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:16:01,644 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:16:04,426 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:16:04] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:16:04,535 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:16:04] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:16:04,536 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:16:04] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:18:07,001 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:18:07,001 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:18:10,970 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:18:10] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:18:11,065 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:18:11] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:18:11,073 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:18:11] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:23:47,200 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:23:47,200 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:23:52,228 [ERROR]: Exception on /flashcards/categories [GET]
+Traceback (most recent call last):
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\app.py", line 26, in flashcard_route
+    return render_template('flashcards.html', nav_id="home-page", data=jsonify(data))
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 133, in _render
+    rv = template.render(context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\base.html", line 23, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 19, in block 'content'
+    var flashcards = "{{ data | tojson | safe | e }}";
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Response is not JSON serializable
+2023-12-07 13:23:52,268 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:23:52] "[35m[1mGET /flashcards/categories HTTP/1.1[0m" 500 -
+2023-12-07 13:24:06,817 [ERROR]: Exception on /flashcards/categories [GET]
+Traceback (most recent call last):
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\app.py", line 26, in flashcard_route
+    return render_template('flashcards.html', nav_id="home-page", data=jsonify(data))
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 133, in _render
+    rv = template.render(context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\base.html", line 23, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 19, in block 'content'
+    var flashcards = "{{ data | tojson | safe | e }}";
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Response is not JSON serializable
+2023-12-07 13:24:06,818 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:24:06] "[35m[1mGET /flashcards/categories HTTP/1.1[0m" 500 -
+2023-12-07 13:24:19,061 [ERROR]: Exception on /flashcards/categories [GET]
+Traceback (most recent call last):
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\app.py", line 26, in flashcard_route
+    return render_template('flashcards.html', nav_id="home-page", data=jsonify(data))
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 133, in _render
+    rv = template.render(context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\base.html", line 23, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 19, in block 'content'
+    var flashcards = "{{ data | tojson | safe | e }}";
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Response is not JSON serializable
+2023-12-07 13:24:19,063 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:24:19] "[35m[1mGET /flashcards/categories HTTP/1.1[0m" 500 -
+2023-12-07 13:24:19,829 [ERROR]: Exception on /flashcards/categories [GET]
+Traceback (most recent call last):
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\app.py", line 26, in flashcard_route
+    return render_template('flashcards.html', nav_id="home-page", data=jsonify(data))
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 133, in _render
+    rv = template.render(context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\base.html", line 23, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 19, in block 'content'
+    var flashcards = "{{ data | tojson | safe | e }}";
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Response is not JSON serializable
+2023-12-07 13:24:19,829 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:24:19] "[35m[1mGET /flashcards/categories HTTP/1.1[0m" 500 -
+2023-12-07 13:24:56,703 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:24:56,703 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:25:01,991 [ERROR]: Exception on /flashcards/categories [GET]
+Traceback (most recent call last):
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\app.py", line 26, in flashcard_route
+    return render_template('flashcards.html', nav_id="home-page", data=jsonify(fdata))
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 133, in _render
+    rv = template.render(context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\base.html", line 23, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 19, in block 'content'
+    var flashcards = "{{ data | tojson | safe | e }}";
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Response is not JSON serializable
+2023-12-07 13:25:02,006 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:02] "[35m[1mGET /flashcards/categories HTTP/1.1[0m" 500 -
+2023-12-07 13:25:04,516 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:04] "GET /home HTTP/1.1" 200 -
+2023-12-07 13:25:04,617 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:04] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:25:04,617 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:04] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:25:05,429 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:05] "GET /home HTTP/1.1" 200 -
+2023-12-07 13:25:05,447 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:05] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:25:05,449 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:05] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:25:05,930 [ERROR]: Exception on /flashcards/categories [GET]
+Traceback (most recent call last):
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\app.py", line 26, in flashcard_route
+    return render_template('flashcards.html', nav_id="home-page", data=jsonify(fdata))
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 133, in _render
+    rv = template.render(context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\base.html", line 23, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 19, in block 'content'
+    var flashcards = "{{ data | tojson | safe | e }}";
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Response is not JSON serializable
+2023-12-07 13:25:05,932 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:05] "[35m[1mGET /flashcards/categories HTTP/1.1[0m" 500 -
+2023-12-07 13:25:15,917 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:25:15,917 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:25:18,772 [ERROR]: Exception on /flashcards/categories [GET]
+Traceback (most recent call last):
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\app.py", line 26, in flashcard_route
+    return render_template('flashcards.html', nav_id="home-page")
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 133, in _render
+    rv = template.render(context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\base.html", line 23, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 19, in block 'content'
+    var flashcards = "{{ data | tojson | safe | e }}";
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Undefined is not JSON serializable
+2023-12-07 13:25:18,804 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:18] "[35m[1mGET /flashcards/categories HTTP/1.1[0m" 500 -
+2023-12-07 13:25:20,847 [ERROR]: Exception on /flashcards/categories [GET]
+Traceback (most recent call last):
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\app.py", line 26, in flashcard_route
+    return render_template('flashcards.html', nav_id="home-page")
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 133, in _render
+    rv = template.render(context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\base.html", line 23, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\flashcards.html", line 19, in block 'content'
+    var flashcards = "{{ data | tojson | safe | e }}";
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\filters.py", line 1688, in do_tojson
+    return htmlsafe_json_dumps(value, dumps=dumps, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\utils.py", line 658, in htmlsafe_json_dumps
+    dumps(obj, **kwargs)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 180, in dumps
+    return json.dumps(obj, **kwargs)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Users\sskit\AppData\Local\Programs\Python\Python310\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\json\provider.py", line 120, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Undefined is not JSON serializable
+2023-12-07 13:25:20,849 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:20] "[35m[1mGET /flashcards/categories HTTP/1.1[0m" 500 -
+2023-12-07 13:25:39,579 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:25:39,579 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:25:42,476 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:42] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:25:42,688 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:42] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:25:42,773 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:25:42] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:27:00,923 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:27:00,923 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:27:05,371 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:27:05] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:27:05,494 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:27:05] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:27:05,514 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:27:05] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:29:41,031 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:29:41,031 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:29:46,581 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:29:46] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:29:46,691 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:29:46] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:29:46,693 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:29:46] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:34:03,808 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:34:03,808 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:34:07,839 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:34:07] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:34:07,952 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:34:07] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:34:07,954 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:34:07] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:37:10,304 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:37:10,304 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:37:14,648 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:37:14] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:37:14,758 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:37:14] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:37:14,764 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:37:14] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:40:02,734 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:02] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:40:02,762 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:02] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:40:02,771 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:02] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:40:22,165 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:22] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:40:22,195 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:22] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:40:22,199 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:22] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:40:41,551 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:41] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:40:41,583 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:41] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:40:41,588 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:41] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:40:56,065 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:56] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:40:56,091 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:56] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:40:56,092 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:56] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:40:57,203 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:57] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:40:57,222 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:57] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:40:57,224 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:57] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:40:57,375 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:57] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:40:57,391 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:57] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:40:57,391 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:40:57] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:41:09,204 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:09] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:41:09,245 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:09] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:41:09,246 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:09] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:41:43,876 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:43] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:41:43,899 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:43] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:41:43,905 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:43] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:41:44,224 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:41:44,244 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:41:44,245 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:41:44,411 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:41:44,429 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:41:44,430 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:41:44,599 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:41:44,618 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:41:44,618 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:41:44,776 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:41:44,792 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:41:44,795 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:41:44,923 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:41:44,950 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:41:44,950 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:41:45,076 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:45] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:41:45,102 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:45] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:41:45,102 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:41:45] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:42:17,772 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:17] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:42:17,802 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:17] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:42:17,803 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:17] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:42:30,173 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:42:30,193 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:42:30,202 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:42:30,585 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:42:30,604 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:42:30,606 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:42:30,756 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:42:30,760 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:42:30,760 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:42:30,900 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:42:30,920 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:42:30,921 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:42:42,859 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:42] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:42:42,891 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:42] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:42:42,892 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:42:42] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:43:30,361 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:43:30] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:43:30,387 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:43:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:43:30,388 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:43:30] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:44:54,069 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:44:54] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:44:54,087 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:44:54] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:44:54,087 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:44:54] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:45:31,742 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:45:31] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:45:31,767 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:45:31] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 13:45:31,769 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:45:31] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:47:46,541 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:47:46,541 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:47:50,412 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:47:50] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:47:50,525 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:47:50] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:47:50,525 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:47:50] "GET /static/js/base.js HTTP/1.1" 200 -
+2023-12-07 13:48:01,759 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:48:01] "GET /home HTTP/1.1" 200 -
+2023-12-07 13:48:01,792 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:48:01] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:48:01,801 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:48:01] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:48:02,398 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:48:02] "GET /home HTTP/1.1" 200 -
+2023-12-07 13:48:02,445 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:48:02] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:48:02,446 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:48:02] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:48:02,868 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:48:02] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:48:02,899 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:48:02] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:48:02,908 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:48:02] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:49:02,468 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:49:02,468 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:49:05,226 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:49:05] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:49:05,325 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:49:05] "GET /static/js/base.js HTTP/1.1" 200 -
+2023-12-07 13:49:05,325 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:49:05] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:49:58,233 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:49:58] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:49:58,251 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:49:58] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:49:58,254 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:49:58] "GET /static/js/base.js HTTP/1.1" 200 -
+2023-12-07 13:50:06,106 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:06] "GET /home HTTP/1.1" 200 -
+2023-12-07 13:50:06,160 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:06] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:06,186 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:06] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:50:07,203 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:07] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:50:07,230 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:07] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:07,238 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:07] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:50:15,659 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-07 13:50:15,659 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-07 13:50:18,438 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:18] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:50:18,558 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:18,559 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:50:18,836 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:18] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:50:18,854 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:18,856 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:50:18,975 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:18] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:50:18,993 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:18,995 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:50:19,131 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:19] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:50:19,168 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:19] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:19,170 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:19] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:50:19,277 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:19] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:50:19,297 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:19] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:19,299 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:19] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:50:19,746 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:19] "GET /home HTTP/1.1" 200 -
+2023-12-07 13:50:19,785 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:19] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:19,792 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:19] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:50:20,157 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:20] "GET /home HTTP/1.1" 200 -
+2023-12-07 13:50:20,178 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:20,180 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:20] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:50:20,720 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:20] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:50:20,757 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:20,768 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:20] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-07 13:50:58,285 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:58] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:50:58,314 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:58] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:50:58,316 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:50:58] "GET /static/js/base.js HTTP/1.1" 200 -
+2023-12-07 13:51:50,693 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:51:50] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 13:51:50,710 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:51:50] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-07 13:51:50,712 [INFO]: 127.0.0.1 - - [07/Dec/2023 13:51:50] "GET /static/js/base.js HTTP/1.1" 200 -
+2023-12-07 14:27:53,268 [INFO]: 127.0.0.1 - - [07/Dec/2023 14:27:53] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-07 14:27:53,300 [INFO]: 127.0.0.1 - - [07/Dec/2023 14:27:53] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-07 14:27:53,300 [INFO]: 127.0.0.1 - - [07/Dec/2023 14:27:53] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -

@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template, url_for, send_file, flash
+from flask import Flask, request, redirect, render_template, url_for, flash, jsonify
 
 import os, sys, json
 sys.path.append('./src/')
@@ -20,8 +20,8 @@ def home():
 @app.route("/flashcards/<path:category>")
 def flashcard_route(category):
     # Get all questions related to specified category
-    data = json.dumps([("category1", "question1", "code1", "image1", "answer1"),
-            ("category2", "question2", "code2", "image2", "answer2")])
+    data = {"questions": [{"question": "question1", "code": "code1", "image": "image1", "answer": "answer1"},
+                          {"question": "question2", "code": "code2", "image": "image2", "answer": "answer2"}]}
 
     return render_template('flashcards.html', nav_id="home-page", data=data)
 

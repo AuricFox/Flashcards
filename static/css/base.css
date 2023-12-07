@@ -79,7 +79,7 @@ body {
     cursor: pointer;
 }
 
-/* ========== Category Content ========== */
+/* ========== Category Content [Home Page] ========== */
 
 .categories {
     display: flex;
@@ -107,4 +107,13 @@ body {
 
 .category:hover {
     background-color: rgba(247, 7, 7, 0.5);
+}
+
+/* ========== Flashcard Content [Flashcard Page] ========== */
+
+.flashcard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }

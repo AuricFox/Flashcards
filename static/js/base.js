@@ -4,15 +4,17 @@ var currentFlashcardIndex = 0;
 
 function showFlashcard(index) {
     var flashcardContent = document.getElementById("flashcard-content");
+    console.log("Flashcards:", flashcards);
 
     // Ensure the index is within bounds
-    if (index >= 0 && index < flashcards.length) {
-        var currentFlashcard = flashcards[index];
+    if (index >= 0 && index < flashcards['questions'].length) {
+        var currentFlashcard = flashcards['questions'][index];
+        
 
         // Update the content of the flashcard
         flashcardContent.innerHTML = `
-            <h2>${currentFlashcard[0]}</h2>
-            <p>${currentFlashcard[1]}</p>
+            <h2>${currentFlashcard['question']}</h2>
+            <p>${currentFlashcard['answer']}</p>
             <!-- Add more elements as needed -->
         `;
 
