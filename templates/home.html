@@ -5,13 +5,13 @@
 {% block content %}
 
 <div class="categories">
-    {% for category in data %}
-    <a class="category" href="{{ url_for('flashcard_route', category=category[0]) }}">
+    {% for key, value in data.items() %}
+    <a class="category" href="{{ url_for('flashcard_route', category=key) }}">
         <div>
-            {{ category[0] }}
+            {{ key }}
         </div>
         <div>
-            {{ category[1] }}
+            {{ value }}
         </div>        
     </a>
     {% endfor %}

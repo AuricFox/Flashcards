@@ -33,9 +33,9 @@ def home():
     Returns:
         a built html page that displays the categories and their count
     '''
-    # TODO: Query database for categorys
+    # TODO: Query database for categories
 
-    data = [('categories', 2), ('test', 3), ('test2', 1)]
+    data = {'categories': 2, 'test': 3, 'test2': 1}
 
     return render_template('home.html', nav_id="home-page", data=data)
 
