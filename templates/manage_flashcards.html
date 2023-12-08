@@ -19,11 +19,11 @@
         <tbody>
             {% for value in data['questions'] %}
             <tr>
-                <td>{{ value['category'] }}</td>
-                <td>{{ value['question'] }}</td>
-                <td>{{ value['code'] }}</td>
-                <td>{{ value['image'] }}</td>
-                <td>{{ value['answer'] }}</td>
+                <td class="flash-cell">{{ value['category'] }}</td>
+                <td class="flash-cell">{{ value['question'] }}</td>
+                <td class="flash-cell">{{ value['code'] }}</td>
+                <td class="flash-cell">{{ value['image'] }}</td>
+                <td class="flash-cell">{{ value['answer'] }}</td>
                 <td class="action-cell">
                     <div class="action-links">
                         <a class="view-cell" href="{{ url_for('view_flashcard_route', question=value['question']) }}">view</a>

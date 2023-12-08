@@ -210,6 +210,12 @@ tr:last-child td {
     border-bottom: none;
 }
 
+.flash-cell {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .action-cell {
     text-align: center;
     justify-content: space-around;
