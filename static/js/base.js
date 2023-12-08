@@ -48,9 +48,9 @@ function shuffleFlashcards() {
 
 // Fisher-Yates shuffle algorithm
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+    for (let i = array['questions'].length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        [array['questions'][i], array['questions'][j]] = [array['questions'][j], array['questions'][i]];
     }
     return array;
 }
