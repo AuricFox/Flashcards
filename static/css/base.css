@@ -244,3 +244,21 @@ tr:last-child td {
 .delete-cell {
     background-color: red;
 }
+
+/* ========== Flashcard Content [View Flashcard Page] ========== */
+
+.flashcard-content {
+    background-color: white;
+    margin: 0 4rem 4rem 4rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.flashcard-content-inner {
+    margin: 1rem;
+    border-top: 1px solid #ddd;;
+}
+
+.flashcard-content-inner:first-child {
+    border-top: none;
+}

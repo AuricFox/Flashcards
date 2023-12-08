@@ -85,8 +85,9 @@ def view_flashcard_route(question):
         a built html page that displays the flashcard data
     '''
     # TODO: Query database for question
+    data = {"category": "category1", "question": "question1", "code": "code1", "image": "image1", "answer": "answer1"}
     
-    return render_template('manage_flashcards.html', nav_id="manage-page", data=TEST_DATA)
+    return render_template('view_flashcard.html', nav_id="manage-page", data=data)
 
 # ==============================================================================================================
 @app.route("/edit_flashcard/<path:question>")
