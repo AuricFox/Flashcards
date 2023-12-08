@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Flashcard{% endblock %}
+
+{% block content %}
+
+<div class="flashcard-content">
+
+    <form action="{{ url_for('update_flashcard_route', question=data['question']) }}" method="post">
+
+        <div class="flashcard-content-inner">
+            <h2>Category</h2>
+            <textarea id="category" name="category" rows="4">{{ data['category'] }}</textarea>
+        </div>
+
+        <div class="flashcard-content-inner">
+            <h2>Question</h2>
+            <textarea id="question" name="question" rows="4">{{ data['question'] }}</textarea>
+        </div>
+
+        <div class="flashcard-content-inner">
+            <h2>Code</h2>
+            <textarea id="code" name="code" rows="6">{{ data['code'] }}</textarea>
+        </div>
+
+        <div class="flashcard-content-inner">
+            <h2>Answer</h2>
+            <textarea id="answer" name="answer" rows="4">{{ data['answer'] }}</textarea>
+        </div>
+
+        <div class="flashcard-content-inner">
+            <h2>Image</h2>
+            <input type="file" id="image" name="image">
+        </div>
+
+        <button type="submit">Update Flashcard</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

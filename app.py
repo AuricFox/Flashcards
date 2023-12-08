@@ -102,8 +102,49 @@ def edit_flashcard_route(question):
         a built html page that displays the flashcard data for editing
     '''
     # TODO: Query database for question and edit it
+    data = {"category": "category1", "question": "question1", "code": "code1", "image": "image1", "answer": "answer1"}
     
-    return render_template('manage_flashcards.html', nav_id="manage-page", data=TEST_DATA)
+    return render_template('edit_flashcard.html', nav_id="manage-page", data=data)
+
+# ==============================================================================================================
+@app.route("/update_flashcard/<question>", methods=['GET', 'POST'])
+def update_flashcard_route(question):
+    '''
+    Builds and returns an html page based on the specified question category
+
+    Parameters:
+        question (str): the question being edited
+
+    Returns:
+        None, redirects to manage_flashcard page
+    '''
+    try:
+        updated_data = {}
+
+        if request.method == 'POST':
+            # Retrieve updated data from the form
+            updated_data['category'] = request.form['category']
+            updated_data['question'] = request.form['question']
+            updated_data['code'] = request.form['code']
+            updated_data['answer'] = request.form['answer']
+            # TODO: Process image file
+            updated_data['image'] = request.form['image']
+
+            # TODO:Update old question data with new data
+            # success = database.update_card(old_question=question, new_data=updated_data)
+            success = True
+
+            if success:
+                flash("Flashcard updated successfully", "success")
+                return redirect(url_for('manage_flashcards_route'))
+            else:
+                flash("Failed to update flashcard", "error")
+
+        return redirect(url_for('manage_flashcards_route'))
+    
+    except Exception as e:
+        flash(f'An Error occured: {str(e)}', 'error')
+        redirect(url_for('manage_flashcards_route'))
 
 # ==============================================================================================================
 @app.route("/delete_flashcard/<path:question>")

@@ -262,3 +262,20 @@ tr:last-child td {
 .flashcard-content-inner:first-child {
     border-top: none;
 }
+
+/* ========== Flashcard Content [Edit Flashcard Page] ========== */
+
+.flashcard-content-inner textarea,
+.flashcard-content-inner input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    height: 40px;
+    overflow-y: auto;
+}
+
+form button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+}
