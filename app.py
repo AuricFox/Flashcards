@@ -72,6 +72,53 @@ def manage_flashcards_route():
 
 # ==============================================================================================================
 #TODO: Manage Main Page, CRUD Pages
+# ==============================================================================================================
+@app.route("/view_flashcard/<path:question>")
+def view_flashcard_route(question):
+    '''
+    Builds and returns an html page based on the specified question
+
+    Parameters:
+        question (str): the question being queried
+
+    Returns:
+        a built html page that displays the flashcard data
+    '''
+    # TODO: Query database for question
+    
+    return render_template('manage_flashcards.html', nav_id="manage-page", data=TEST_DATA)
+
+# ==============================================================================================================
+@app.route("/edit_flashcard/<path:question>")
+def edit_flashcard_route(question):
+    '''
+    Builds and returns an html page based on the specified question category
+
+    Parameters:
+        question (str): the question being edited
+
+    Returns:
+        a built html page that displays the flashcard data for editing
+    '''
+    # TODO: Query database for question and edit it
+    
+    return render_template('manage_flashcards.html', nav_id="manage-page", data=TEST_DATA)
+
+# ==============================================================================================================
+@app.route("/delete_flashcard/<path:question>")
+def delete_flashcard_route(question):
+    '''
+    Builds and returns an html page based on the specified question category
+
+    Parameters:
+        question (str): the question being deleted from the database
+
+    Returns:
+        None, redirects to the manage page
+    '''
+    # TODO: Query database for question and delete it
+    
+    return render_template('manage_flashcards.html', nav_id="manage-page", data=TEST_DATA)
 
 if __name__ == "__main__":
     app.run()
