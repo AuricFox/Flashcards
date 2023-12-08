@@ -13,7 +13,7 @@
         <div id="nav-bar">
             <ul class="nav">
                 <li><a href="{{  url_for('home')  }}" class="nav-tile {% if nav_id == 'home-page' %}active{% endif %}">Home</a></li>
-                <li><a href="{{  url_for('home')  }}" class="nav-tile {% if nav_id == 'manage-page' %}active{% endif %}">Manage Cards</a></li>
+                <li><a href="{{  url_for('manage_flashcards_route')  }}" class="nav-tile {% if nav_id == 'manage-page' %}active{% endif %}">Manage Cards</a></li>
                 <li><a href="{{  url_for('home')  }}" class="nav-tile {% if nav_id == 'add-page' %}active{% endif %}">Add Card</a></li>
             </ul>
         </div>

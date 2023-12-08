@@ -183,3 +183,58 @@ button {
     cursor: pointer;
     background-color: rgb(123, 123, 253);
 }
+
+/* ========== Flashcard Table [Manage Flashcard Page] ========== */
+
+.questions-table {
+    margin: 0 2rem 2rem 2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: white;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+th, td {
+    width: 25%;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.action-cell {
+    text-align: center;
+    justify-content: space-around;
+}
+
+.action-links {
+    display: flex;
+    justify-content: space-around;
+}
+
+.view-cell, .edit-cell, .delete-cell {
+    text-decoration: none;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.view-cell {
+    background-color: #4CAF50;
+}
+
+.edit-cell {
+    background-color: rgb(73, 73, 255);
+}
+
+.delete-cell {
+    background-color: red;
+}
