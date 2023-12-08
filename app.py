@@ -1,6 +1,6 @@
-from flask import Flask, request, redirect, render_template, url_for, flash, jsonify
+from flask import Flask, request, redirect, render_template, url_for, flash
 
-import os, sys, json
+import os, sys
 sys.path.append('./src/')
 import utils
 

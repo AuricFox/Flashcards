@@ -3,16 +3,16 @@ import sqlite3, utils
 LOGGER = utils.LOGGER
 
 # ==============================================================================================================
-def add_card(category:str, question:str, code:str, image:str, answer:str):
+def add_card(category:str, question:str, answer:str, code:str='NULL', image:str='NULL'):
     '''
     Adds the flashcard data to the database.
 
     Parameter(s):
         category (str): states what the question is related to
         question (str): information being asked
-        code (str): a block of code used to support the question
-        image (str): a filepath to an image that supports the question
         answer (str): the expected response to the question
+        code (str, default='NULL'): a block of code used to support the question
+        image (str, default='NULL'): a filepath to an image that supports the question
 
     Output(s): 
         returns if the data is inserted into the database, else returns false
@@ -40,7 +40,7 @@ def view_card(question):
         question (str): variable being queried from the database
 
     Output(s):
-        returns a tuple of the Flashcard data if found, None otherwise
+        returns a dictionary of the Flashcard data if found, None otherwise
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
@@ -48,7 +48,11 @@ def view_card(question):
 
             c = conn.cursor()
             c.execute("SELECT * FROM Flashcards WHERE question = ?", (question,))
-            data = c.fetchone()
+            # Get the flash data: (category, question, code, image, answer)
+            fd = c.fetchone()
+
+            # Convert the tuple into a dictionary
+            data = {'category': fd[0], 'question': fd[1], 'code': fd[2], 'image': fd[3], 'answer': fd[4]}
 
         return data
     
@@ -64,7 +68,7 @@ def view_allcategories():
     Parameter(s): None
 
     Output(s):
-        list: List of tuples containing the question category and its count if successful, an empty list otherwise
+        a dictionary containing the question category and its count if successful, an empty dictionary otherwise
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
@@ -72,7 +76,12 @@ def view_allcategories():
 
             c = conn.cursor()
             c.execute("SELECT category, COUNT(*) as count FROM Flashcards GROUP BY category")
-            data = c.fetchall()
+            fd = c.fetchall()
+
+            data = {}
+            for x in fd:
+                key = x[0]          # Category type
+                data[key] = x[1]    # Number of question in the category
 
         return data
     
@@ -89,7 +98,7 @@ def view_allcards(category:str=None):
         category (str, defualt=None): specifies which group of cards to retrieve
 
     Output(s):
-        list: List of tuples containing flashcard data if successful, an empty list otherwise
+        a dictionary containing flashcard data if successful, an dictionary with an empty list otherwise
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
@@ -104,7 +113,14 @@ def view_allcards(category:str=None):
                 LOGGER.info(f"Retrieving all flashcards from the database.")
                 c.execute("SELECT * FROM Flashcards")
 
-            data = c.fetchall()
+            flash_data = c.fetchall()
+
+            # Convert the list of tuples into a dictionary
+            data = {'questions': []}
+            for q in flash_data:
+                question = {'category': q[0], 'question': q[1], 'code': q[2], 'image': q[3], 'answer': q[4]}
+                data['questions'].append(question)
+
 
         return data
     
