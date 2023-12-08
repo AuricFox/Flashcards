@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Flashcards{% endblock %}
+
+{% block content %}
+
+<div class="questions-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Question</th>
+                <th>Code</th>
+                <th>Image</th>
+                <th>Answer</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for value in data['questions'] %}
+            <tr>
+                <td>{{ value['category'] }}</td>
+                <td>{{ value['question'] }}</td>
+                <td>{{ value['code'] }}</td>
+                <td>{{ value['image'] }}</td>
+                <td>{{ value['answer'] }}</td>
+                <td>
+                    <a href="{{ url_for('view_flashcard_route', question=value['question']) }}">view</a>
+                    <a href="{{ url_for('edit_flashcard_route', question=value['question']) }}">edit</a>
+                    <a href="{{ url_for('delete_flashcard_route', question=value['question']) }}">delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
