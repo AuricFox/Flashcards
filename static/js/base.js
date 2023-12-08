@@ -3,19 +3,24 @@
 var currentFlashcardIndex = 0;
 
 function showFlashcard(index) {
-    var flashcardContent = document.getElementById("flashcard-content");
+    var flashcardQuestion = document.getElementById("front");
+    var flashcardAnswer = document.getElementById("back");
     console.log("Flashcards:", flashcards);
 
     // Ensure the index is within bounds
     if (index >= 0 && index < flashcards['questions'].length) {
         var currentFlashcard = flashcards['questions'][index];
-        
 
-        // Update the content of the flashcard
-        flashcardContent.innerHTML = `
-            <h2>${currentFlashcard['question']}</h2>
+        // Flashcard question side
+        flashcardQuestion.innerHTML = `
+            <h2>Question</h2>
+            <p>${currentFlashcard['question']}</p>
+        `;
+
+        // Flashcard Answer side
+        flashcardAnswer.innerHTML = `
+            <h2>Answer</h2>
             <p>${currentFlashcard['answer']}</p>
-            <!-- Add more elements as needed -->
         `;
 
         currentFlashcardIndex = index;
@@ -52,3 +57,9 @@ function shuffleArray(array) {
 
 // Show the first flashcard when the page loads
 showFlashcard(0);
+
+// Animate flashcard so it rotates
+document.getElementById('flashcard').addEventListener('click', function () {
+    const cardContent = document.getElementById('cardContent');
+    cardContent.style.transform = cardContent.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+});
