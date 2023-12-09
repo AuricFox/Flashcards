@@ -22,7 +22,7 @@ def save_image_file(file):
         file: the user input file being saved
 
     Output(s):
-        file_path (str): the path to the saved file
+        filename (str): name of the saved file
     '''
 
     # Replace special characters with underscores
@@ -60,10 +60,12 @@ def save_image_file(file):
         new_file_path = os.path.join(path, f'{sanitized_name}_{counter}{file_extension}')
         counter += 1
     
+    filename = f'{sanitized_name}_{counter}{file_extension}'
+
     LOGGER.info(f"Creating file: {new_file_path}")
     file.save(new_file_path)
 
-    return new_file_path
+    return filename
 
 # ========================================================================================================================================
 # Functions used for removing files

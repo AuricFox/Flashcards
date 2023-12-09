@@ -9,16 +9,16 @@ app = Flask(__name__, static_folder='static')
 app.secret_key = 'my_super_secret_totaly_unbreakable_key'
 
 # ==============================================================================================================
-TEST_DATA = {"questions": [{"category": "category1", "question": "question1", "code": "code1", "image": "image1", "answer": "answer1"},
-                        {"category": "category2", "question": "question2", "code": "code2", "image": "image2", "answer": "answer2"},
-                        {"category": "category3", "question": "question3", "code": "code3", "image": "image3", "answer": "answer3"},
-                        {"category": "category4", "question": "question4", "code": "code4", "image": "image4", "answer": "answer4"},
-                        {"category": "category5", "question": "question5", "code": "code5", "image": "image5", "answer": "answer5"},
-                        {"category": "category6", "question": "question6", "code": "code6", "image": "image6", "answer": "answer6"},
-                        {"category": "category7", "question": "question7", "code": "code7", "image": "image7", "answer": "answer7"},
-                        {"category": "category8", "question": "question8", "code": "code8", "image": "image8", "answer": "answer8"},
-                        {"category": "category9", "question": "question9", "code": "code9", "image": "image9", "answer": "answer9"},
-                        {"category": "category10", "question": "question10", "code": "code10", "image": "image10", "answer": "answer10"}]}
+TEST_DATA = {"questions": [{"category": "category1", "question": "question1", "code": "NULL", "image": "NULL", "answer": "answer1"},
+                        {"category": "category2", "question": "question2", "code": "NULL", "image": "NULL", "answer": "answer2"},
+                        {"category": "category3", "question": "question3", "code": "NULL", "image": "NULL", "answer": "answer3"},
+                        {"category": "category4", "question": "question4", "code": "NULL", "image": "NULL", "answer": "answer4"},
+                        {"category": "category5", "question": "question5", "code": "NULL", "image": "NULL", "answer": "answer5"},
+                        {"category": "category6", "question": "question6", "code": "NULL", "image": "NULL", "answer": "answer6"},
+                        {"category": "category7", "question": "question7", "code": "NULL", "image": "NULL", "answer": "answer7"},
+                        {"category": "category8", "question": "question8", "code": "NULL", "image": "NULL", "answer": "answer8"},
+                        {"category": "category9", "question": "question9", "code": "NULL", "image": "NULL", "answer": "answer9"},
+                        {"category": "category10", "question": "question10", "code": "NULL", "image": "NULL", "answer": "answer10"}]}
 
 # ==============================================================================================================
 @app.route("/")
@@ -123,28 +123,46 @@ def update_flashcard_route(question):
 
         if request.method == 'POST':
             # Retrieve updated data from the form
-            updated_data['category'] = request.form['category']
-            updated_data['question'] = request.form['question']
-            updated_data['code'] = request.form['code']
-            updated_data['answer'] = request.form['answer']
-            # TODO: Process image file
-            updated_data['image'] = request.form['image']
+            updated_data['category'] = request.form.get('category', type=str)
+            updated_data['question'] = request.form.get('question', type=str)
+            updated_data['code'] = request.form.get('code', type=str)
+            updated_data['answer'] = request.form.get('answer', type=str)
+            
+            # Get file data from form
+            file = request.files['image']
+            # Save file and get filename
+            updated_data['image'] = 'NULL' if not file or file.filename == 'NULL' else 'NULL'
+            LOGGER.info(f"Editing: {question}\n"
+                        f"Category: {updated_data['category']}\n"
+                        f"Question: {updated_data['question']}\n"
+                        f"Code: {updated_data['code']}\n"
+                        f"Answer: {updated_data['answer']}\n"
+                        f"Image File: {updated_data['image']}")
+
+            # Incorrect file was submitted or file failed to save
+            if updated_data['image'] is None:
+                LOGGER.error(f'{file.filename} is an Invalid File or FileType')
+                flash(f'{file.filename} is an Invalid File or FileType', 'error')
+                return redirect(request.referrer)
 
             # TODO:Update old question data with new data
             # success = database.update_card(old_question=question, new_data=updated_data)
             success = True
 
             if success:
+                LOGGER.info("Flashcard updated successfully")
                 flash("Flashcard updated successfully", "success")
                 return redirect(url_for('manage_flashcards_route'))
             else:
+                LOGGER.error("Failed to update flashcard")
                 flash("Failed to update flashcard", "error")
 
         return redirect(url_for('manage_flashcards_route'))
     
     except Exception as e:
-        flash(f'An Error occured: {str(e)}', 'error')
-        redirect(url_for('manage_flashcards_route'))
+        LOGGER.error(f'An Error occured when updating the flashcard: {str(e)}')
+        flash("Failed to update flashcard", 'error')
+        return redirect(url_for('manage_flashcards_route'))
 
 # ==============================================================================================================
 @app.route("/delete_flashcard/<path:question>")
