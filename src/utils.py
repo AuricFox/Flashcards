@@ -14,7 +14,7 @@ LOGGER = logging.getLogger(__name__)
 # ========================================================================================================================================
 # Functions used for processing files
 # ========================================================================================================================================
-def create_file(file):
+def save_image_file(file):
     '''
     Takes in a file object, sanitizes, validates, and saves it to the temp directory
 
@@ -48,7 +48,7 @@ def create_file(file):
         LOGGER.error(f'{file.filename} extension is not supported! Extension: {file_extension}')
         return None
     
-    path = os.path.join(PATH, "temp")                           # Path where file will be saved
+    path = os.path.join(PATH, "../static/images")               # Path where file will be saved
     os.makedirs(path, exist_ok=True)                            # Create path if it doesn't exist
     
     original_file_path = os.path.join(path, f'{sanitized_name}{file_extension}')
@@ -79,9 +79,9 @@ def remove_file(filename:str):
     '''
 
     try:
-        path = os.path.join(os.path.dirname(__file__), "src/temp")  # Path where file is saved
-        file_path = os.path.join(path, filename)                    # Creating saved file path
-        os.remove(file_path)                                        # File is no longer needed
+        path = os.path.join(os.path.dirname(__file__), "../static/image")   # Path where file is saved
+        file_path = os.path.join(path, filename)                            # Creating saved file path
+        os.remove(file_path)                                                # File is no longer needed
         LOGGER.info(f"Successfully removed {file_path}")
 
     except OSError as e:
