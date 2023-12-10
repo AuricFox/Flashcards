@@ -272,10 +272,17 @@ tr:last-child td {
     min-width: 100%;
     height: 40px;
     overflow-y: auto;
+    padding: 4px;
 }
 
 form button {
     display: block;
     margin: 0 auto;
     padding: 10px;
+    background-color: red;
+}
+
+form button:hover {
+    cursor: pointer;
+    background-color: rgb(253, 60, 60);
 }
