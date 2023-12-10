@@ -73,6 +73,85 @@ def manage_flashcards_route():
 # ==============================================================================================================
 #TODO: Manage Main Page, CRUD Pages
 # ==============================================================================================================
+@app.route("/add_flashcard")
+def add_flashcard_route():
+    '''
+    Builds and returns an html page for adding flashcards to database
+
+    Parameters: None
+
+    Returns:
+        a built html page that enables users to add flashcards to the database
+    '''
+    
+    return render_template('add_flashcard.html', nav_id="add-page")
+
+# ==============================================================================================================
+@app.route("/create_flashcard", methods=['GET', 'POST'])
+def create_flashcard_route():
+    '''
+    Builds and returns an html page based on the specified question category
+
+    Parameters:
+        question (str): the question being edited
+
+    Returns:
+        None, redirects to manage_flashcard page
+    '''
+    try:
+        data = {}
+
+        if request.method == 'POST':
+            # Retrieve updated data from the form
+            data['category'] = request.form.get('category', type=str)
+            data['question'] = request.form.get('question', type=str)
+            data['code'] = request.form.get('code', type=str)
+            data['answer'] = request.form.get('answer', type=str)
+            
+            # Get file data from form
+            file = request.files['image']
+            # Save file and get filename
+            data['image'] = 'NULL' if not file or file.filename == 'NULL' else 'NULL'
+            LOGGER.info(f"Adding flashcard data:\n"
+                        f"Category: {data['category']}\n"
+                        f"Question: {data['question']}\n"
+                        f"Code: {data['code']}\n"
+                        f"Answer: {data['answer']}\n"
+                        f"Image File: {data['image']}")
+
+            # Incorrect file was submitted or file failed to save
+            if data['image'] is None:
+                LOGGER.error(f'{file.filename} is an Invalid File or FileType')
+                flash(f'{file.filename} is an Invalid File or FileType', 'error')
+                return redirect(request.referrer)
+
+            # TODO:Update old question data with new data
+            '''
+            success = database.add_card(
+                category=data['category'], 
+                question=data['question'], 
+                answer=data['answer'], 
+                code=data['code'], 
+                image=data['image'])
+            '''
+            success = True
+
+            if success:
+                LOGGER.info("Flashcard added successfully")
+                flash("Flashcard added successfully", "success")
+                return redirect(url_for('manage_flashcards_route'))
+            else:
+                LOGGER.error("Failed to add flashcard")
+                flash("Failed to add flashcard", "error")
+
+        return redirect(url_for('manage_flashcards_route'))
+    
+    except Exception as e:
+        LOGGER.error(f'An Error occured when adding the flashcard: {str(e)}')
+        flash("Failed to add flashcard", 'error')
+        return redirect(url_for('manage_flashcards_route'))
+
+# ==============================================================================================================
 @app.route("/view_flashcard/<path:question>")
 def view_flashcard_route(question):
     '''
