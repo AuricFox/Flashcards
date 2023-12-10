@@ -69,7 +69,8 @@ document.getElementById('flashcard').addEventListener('click', function () {
 // MANAGE FLASHCARD PAGE
 // ======================================================================================================
 // Confirm deletion of the queried question before deleting it
-function confirmDelete(question) {
+function confirmDelete(element) {
+    var question = $(element).closest('tr').find('#question-cell').text();
     var result = confirm("Are you sure you want to delete this flashcard?");
     if (result) {
         window.location.href ="delete_flashcard/" + encodeURIComponent(question);
