@@ -6,7 +6,6 @@ var currentFlashcardIndex = 0;
 function showFlashcard(index) {
     var flashcardQuestion = document.getElementById("front");
     var flashcardAnswer = document.getElementById("back");
-    console.log("Flashcards:", flashcards);
 
     // Ensure the index is within bounds
     if (index >= 0 && index < flashcards['questions'].length) {
@@ -73,7 +72,7 @@ document.getElementById('flashcard').addEventListener('click', function () {
 function confirmDelete(question) {
     var result = confirm("Are you sure you want to delete this flashcard?");
     if (result) {
-        window.location.href ="{{ url_for('delete_flashcard_route', question=question) }}";
+        window.location.href ="delete_flashcard/" + encodeURIComponent(question);
     }
 };
 

@@ -261,10 +261,10 @@ def delete_flashcard_route(question):
         success = True
 
         if success:
-            LOGGER.info("Flashcard was successfully deleted!")
+            LOGGER.info(f"Flashcard was successfully deleted!\nDeleted Question: {question}")
             flash("Flashcard was successfully deleted!", "success")
         else:
-            LOGGER.info("Failed to delete flashcard!")
+            LOGGER.info(f"Failed to delete flashcard!\nDeleted Question: {question}")
             flash("Failed to delete flashcard", "error")
     
     except Exception as e:
