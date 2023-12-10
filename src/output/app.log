@@ -1,0 +1,201 @@
+2023-12-09 20:15:13,440 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-09 20:15:13,440 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-09 20:15:16,799 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:15:16] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-09 20:15:16,932 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:15:16] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-09 20:15:16,932 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:15:16] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-09 20:15:18,948 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:15:18] "GET /home HTTP/1.1" 200 -
+2023-12-09 20:15:18,971 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:15:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-09 20:15:18,972 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:15:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-09 20:16:28,585 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-09 20:16:28,585 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-09 20:16:31,729 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:16:31] "GET /home HTTP/1.1" 200 -
+2023-12-09 20:16:31,845 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:16:31] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-09 20:16:31,845 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:16:31] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-09 20:16:32,347 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:16:32] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-09 20:16:32,369 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:16:32] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-09 20:16:32,378 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:16:32] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-09 20:16:33,051 [ERROR]: Exception on /add_flashcard [GET]
+Traceback (most recent call last):
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\app.py", line 87, in add_flashcard_route
+    return render_template('view_flashcard.html', nav_id="manage-page")
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 133, in _render
+    rv = template.render(context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\view_flashcard.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\base.html", line 23, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\view_flashcard.html", line 11, in block 'content'
+    <p>{{ data['category'] }}</p>
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 466, in getitem
+    return obj[argument]
+jinja2.exceptions.UndefinedError: 'data' is undefined
+2023-12-09 20:16:33,067 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:16:33] "[35m[1mGET /add_flashcard HTTP/1.1[0m" 500 -
+2023-12-09 20:18:00,526 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-09 20:18:00,526 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-09 20:18:03,936 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:18:03] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-09 20:18:04,016 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:18:04] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-09 20:18:04,016 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:18:04] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-09 20:18:04,734 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:18:04] "GET /add_flashcard HTTP/1.1" 200 -
+2023-12-09 20:18:04,752 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:18:04] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-09 20:18:04,755 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:18:04] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-09 20:18:46,389 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-09 20:18:46,389 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-09 20:18:49,182 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:18:49] "GET /add_flashcard HTTP/1.1" 200 -
+2023-12-09 20:18:49,298 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:18:49] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-09 20:18:49,298 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:18:49] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-09 20:19:17,577 [INFO]: Adding flashcard data:
+Category: test
+Question: test
+Code: test
+Answer: test
+Image File: NULL
+2023-12-09 20:19:17,577 [INFO]: Flashcard added successfully
+2023-12-09 20:19:17,579 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:19:17] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
+2023-12-09 20:19:17,618 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:19:17] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-09 20:19:17,649 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:19:17] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-09 20:19:17,656 [INFO]: 127.0.0.1 - - [09/Dec/2023 20:19:17] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 01:59:53,398 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-10 01:59:53,398 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-10 02:00:01,848 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:00:01] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:00:01,948 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:00:01] "GET /static/js/base.js HTTP/1.1" 200 -
+2023-12-10 02:00:01,948 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:00:01] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:01:01,311 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:01:01] "GET /view_flashcard/question1 HTTP/1.1" 200 -
+2023-12-10 02:01:01,346 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:01:01] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:01:01,348 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:01:01] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:01:28,721 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:01:28] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:01:28,742 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:01:28] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:01:28,745 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:01:28] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:01:30,137 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:01:30] "GET /edit_flashcard/question1 HTTP/1.1" 200 -
+2023-12-10 02:01:30,157 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:01:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:01:30,159 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:01:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:02:13,751 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-10 02:02:13,752 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-10 02:02:16,119 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:16] "GET /home HTTP/1.1" 200 -
+2023-12-10 02:02:16,274 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:16] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:02:16,275 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:16] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:02:18,183 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:18] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-10 02:02:18,200 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:02:18,202 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:02:19,839 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:19] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:02:19,860 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:19] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:02:19,863 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:19] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:02:20,849 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:20] "GET /view_flashcard/question1 HTTP/1.1" 200 -
+2023-12-10 02:02:20,868 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:02:20,870 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:02:20] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:19:09,081 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-10 02:19:09,081 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-10 02:19:12,398 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:12] "GET /home HTTP/1.1" 200 -
+2023-12-10 02:19:12,494 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:12] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:19:12,494 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:12] "GET /static/js/base.js HTTP/1.1" 200 -
+2023-12-10 02:19:28,165 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:28] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:19:28,183 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:28] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:19:28,191 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:28] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:19:30,007 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:30] "GET /view_flashcard/question1 HTTP/1.1" 200 -
+2023-12-10 02:19:30,026 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:19:30,028 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:19:31,752 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:31] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:19:31,769 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:31] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:19:31,771 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:31] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:19:33,049 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:33] "GET /home HTTP/1.1" 200 -
+2023-12-10 02:19:33,069 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:33] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:19:33,071 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:33] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:19:34,181 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:34] "GET /flashcards/categories HTTP/1.1" 200 -
+2023-12-10 02:19:34,199 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:34] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:19:34,200 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:34] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:19:38,057 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:38] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:19:38,076 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:38] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:19:38,084 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:38] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:19:40,098 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:40] "GET /edit_flashcard/question1 HTTP/1.1" 200 -
+2023-12-10 02:19:40,115 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:40] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:19:40,118 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:40] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:19:42,154 [INFO]: Editing: question1
+Category: category1
+Question: question1
+Code: code1
+Answer: answer1
+Image File: NULL
+2023-12-10 02:19:42,154 [INFO]: Flashcard updated successfully
+2023-12-10 02:19:42,154 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:42] "[32mPOST /update_flashcard/question1 HTTP/1.1[0m" 302 -
+2023-12-10 02:19:42,161 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:42] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:19:42,183 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:42] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:19:42,184 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:19:42] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:20:12,359 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:20:12] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:20:12,393 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:20:12] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:20:12,394 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:20:12] "GET /static/js/base.js HTTP/1.1" 200 -
+2023-12-10 02:20:13,818 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:20:13] "GET /edit_flashcard/question1 HTTP/1.1" 200 -
+2023-12-10 02:20:13,837 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:20:13] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:20:13,839 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:20:13] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:20:15,920 [INFO]: Editing: question1
+Category: category1
+Question: question1
+Code: code1
+Answer: answer1
+Image File: NULL
+2023-12-10 02:20:15,920 [INFO]: Flashcard updated successfully
+2023-12-10 02:20:15,921 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:20:15] "[32mPOST /update_flashcard/question1 HTTP/1.1[0m" 302 -
+2023-12-10 02:20:15,926 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:20:15] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:20:15,949 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:20:15] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:20:15,951 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:20:15] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:21:06,087 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:21:06] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:21:06,124 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:21:06] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:21:06,125 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:21:06] "GET /static/js/base.js HTTP/1.1" 200 -
+2023-12-10 02:21:08,971 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:21:08] "GET /edit_flashcard/question1 HTTP/1.1" 200 -
+2023-12-10 02:21:08,989 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:21:08] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:21:08,991 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:21:08] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:21:11,044 [INFO]: Editing: question1
+Category: category1
+Question: question1
+Code: code1
+Answer: answer1
+Image File: NULL
+2023-12-10 02:21:11,044 [INFO]: Flashcard updated successfully
+2023-12-10 02:21:11,045 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:21:11] "[32mPOST /update_flashcard/question1 HTTP/1.1[0m" 302 -
+2023-12-10 02:21:11,051 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:21:11] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:21:11,072 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:21:11] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:21:11,074 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:21:11] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:23:43,378 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:43] "GET /home HTTP/1.1" 200 -
+2023-12-10 02:23:43,401 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:43] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:23:43,402 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:43] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:23:44,627 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:44] "GET /home HTTP/1.1" 200 -
+2023-12-10 02:23:44,642 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:23:44,642 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:23:45,872 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:45] "GET /home HTTP/1.1" 200 -
+2023-12-10 02:23:45,896 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:45] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:23:45,899 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:45] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:23:47,534 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:47] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:23:47,556 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:47] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:23:47,558 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:47] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:23:48,256 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:48] "GET /add_flashcard HTTP/1.1" 200 -
+2023-12-10 02:23:48,297 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:48] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:23:48,297 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:48] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:23:49,208 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:49] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:23:49,227 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:49] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:23:49,229 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:49] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 02:23:53,966 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:23:53] "[33mGET /{{%20url_for('delete_flashcard_route',%20question=question)%20}} HTTP/1.1[0m" 404 -
+2023-12-10 02:26:15,196 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:26:15] "[33mGET /{{%20url_for('delete_flashcard_route',%20question=question)%20}} HTTP/1.1[0m" 404 -
+2023-12-10 02:26:58,729 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:26:58] "[33mGET /{{%20url_for('delete_flashcard_route',%20question=question)%20}} HTTP/1.1[0m" 404 -
+2023-12-10 02:29:02,335 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:29:02] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 02:29:02,361 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:29:02] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 02:29:02,364 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:29:02] "GET /static/js/base.js HTTP/1.1" 200 -
+2023-12-10 02:29:06,097 [INFO]: 127.0.0.1 - - [10/Dec/2023 02:29:06] "[33mGET /{{%20url_for('delete_flashcard_route',%20question=question)%20}} HTTP/1.1[0m" 404 -

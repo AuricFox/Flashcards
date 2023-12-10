@@ -40,7 +40,7 @@ def home():
     return render_template('home.html', nav_id="home-page", data=data)
 
 # ==============================================================================================================
-@app.route("/flashcards/<path:category>")
+@app.route("/flashcards/<category>")
 def flashcard_route(category):
     '''
     Builds and returns an html page based on the specified question category
@@ -152,7 +152,7 @@ def create_flashcard_route():
         return redirect(url_for('manage_flashcards_route'))
 
 # ==============================================================================================================
-@app.route("/view_flashcard/<path:question>")
+@app.route("/view_flashcard/<question>")
 def view_flashcard_route(question):
     '''
     Builds and returns an html page based on the specified question
@@ -169,7 +169,7 @@ def view_flashcard_route(question):
     return render_template('view_flashcard.html', nav_id="manage-page", data=data)
 
 # ==============================================================================================================
-@app.route("/edit_flashcard/<path:question>")
+@app.route("/edit_flashcard/<question>")
 def edit_flashcard_route(question):
     '''
     Builds and returns an html page based on the specified question category
@@ -244,10 +244,10 @@ def update_flashcard_route(question):
         return redirect(url_for('manage_flashcards_route'))
 
 # ==============================================================================================================
-@app.route("/delete_flashcard/<path:question>")
+@app.route("/delete_flashcard/<question>")
 def delete_flashcard_route(question):
     '''
-    Builds and returns an html page based on the specified question category
+    Deletes the queried flashcard from the database and redirects to manage page
 
     Parameters:
         question (str): the question being deleted from the database
@@ -255,9 +255,24 @@ def delete_flashcard_route(question):
     Returns:
         None, redirects to the manage page
     '''
-    # TODO: Query database for question and delete it
-    
-    return render_template('manage_flashcards.html', nav_id="manage-page", data=TEST_DATA)
+    try:
+        # TODO: Query database for question and delete it
+        # success = database.delete_card(question=question)
+        success = True
 
+        if success:
+            LOGGER.info("Flashcard was successfully deleted!")
+            flash("Flashcard was successfully deleted!", "success")
+        else:
+            LOGGER.info("Failed to delete flashcard!")
+            flash("Failed to delete flashcard", "error")
+    
+    except Exception as e:
+        LOGGER.error(f'An Error occured when deleting the flashcard: {str(e)}')
+        flash("Failed to delete flashcard!", 'error')
+    
+    return redirect(url_for('manage_flashcards_route'))
+
+# ==============================================================================================================
 if __name__ == "__main__":
     app.run()
