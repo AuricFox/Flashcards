@@ -280,3 +280,54 @@ Deleted Question: question1
 2023-12-10 13:49:38,900 [INFO]: 127.0.0.1 - - [10/Dec/2023 13:49:38] "GET /manage_flashcards HTTP/1.1" 200 -
 2023-12-10 13:49:38,923 [INFO]: 127.0.0.1 - - [10/Dec/2023 13:49:38] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
 2023-12-10 13:49:38,923 [INFO]: 127.0.0.1 - - [10/Dec/2023 13:49:38] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 23:10:10,256 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-10 23:10:10,256 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-10 23:10:20,651 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:10:20] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:10:20,762 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:10:20] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-10 23:10:20,764 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:10:20] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 23:10:24,002 [INFO]: Flashcard was successfully deleted!
+Deleted Question: question1
+2023-12-10 23:10:24,005 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:10:24] "[32mGET /delete_flashcard/question1 HTTP/1.1[0m" 302 -
+2023-12-10 23:10:24,013 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:10:24] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:10:24,028 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:10:24] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 23:10:24,028 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:10:24] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 23:11:18,869 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:18] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:11:18,894 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:18] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-10 23:11:18,895 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 23:11:22,198 [INFO]: Flashcard was successfully deleted!
+Deleted Question: question1
+2023-12-10 23:11:22,199 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:22] "[32mGET /delete_flashcard/question1 HTTP/1.1[0m" 302 -
+2023-12-10 23:11:22,207 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:22] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:11:22,225 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:22] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 23:11:22,225 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:22] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 23:11:55,724 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:55] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:11:55,761 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:55] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-10 23:11:55,762 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:55] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 23:11:58,873 [INFO]: Flashcard was successfully deleted!
+Deleted Question: question1
+2023-12-10 23:11:58,873 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:58] "[32mGET /delete_flashcard/question1 HTTP/1.1[0m" 302 -
+2023-12-10 23:11:58,883 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:58] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:11:58,904 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:58] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 23:11:58,906 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:11:58] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 23:14:09,284 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:14:09] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:14:09,316 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:14:09] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-10 23:14:09,318 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:14:09] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 23:14:11,956 [INFO]: Flashcard was successfully deleted!
+Deleted Question: question1
+2023-12-10 23:14:11,957 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:14:11] "[32mGET /delete_flashcard/question1 HTTP/1.1[0m" 302 -
+2023-12-10 23:14:11,965 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:14:11] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:14:11,982 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:14:11] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 23:14:11,982 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:14:11] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 23:19:02,841 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:19:02] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:19:02,859 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:19:02] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-10 23:19:02,861 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:19:02] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 23:19:05,058 [INFO]: Flashcard was successfully deleted!
+Deleted Question: question1
+2023-12-10 23:19:05,059 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:19:05] "[32mGET /delete_flashcard/question1 HTTP/1.1[0m" 302 -
+2023-12-10 23:19:05,068 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:19:05] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:19:05,094 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:19:05] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 23:19:05,101 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:19:05] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-10 23:19:08,518 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:19:08] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-10 23:19:08,540 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:19:08] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-10 23:19:08,542 [INFO]: 127.0.0.1 - - [10/Dec/2023 23:19:08] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -

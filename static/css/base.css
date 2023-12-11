@@ -79,6 +79,19 @@ body {
     cursor: pointer;
 }
 
+/* ========== Flash Messages========== */
+
+#flash-messages {
+    margin: 1rem 2rem;
+    padding: 5px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px solid white;
+}
+
 /* ========== Category Content [Home Page] ========== */
 
 .categories {
