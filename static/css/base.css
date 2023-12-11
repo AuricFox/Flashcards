@@ -43,7 +43,7 @@ body {
     font-weight: bold;
     font-style: italic;
     padding: 10px 0px 10px 5px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: row;
@@ -82,7 +82,13 @@ body {
 /* ========== Flash Messages========== */
 
 #flash-messages {
-    margin: 1rem 2rem;
+    margin: 0 4rem 1rem 4rem;
+    height: 2rem;
+    overflow: hidden;
+    border: 1px solid red;
+}
+
+.flash-message {
     padding: 5px;
     background-color: red;
     color: white;
@@ -200,7 +206,7 @@ button {
 /* ========== Flashcard Table [Manage Flashcard Page] ========== */
 
 .questions-table {
-    margin: 0 2rem 2rem 2rem;
+    margin: 0 4rem 2rem 4rem;
     padding: 1rem;
     border-radius: 8px;
     background-color: white;

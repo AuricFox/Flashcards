@@ -1,4 +1,12 @@
 // ======================================================================================================
+// FLASH MESSAGES [ERRORS, WARNINGS, INFO]
+// ======================================================================================================
+// Automatically hide flash messages after 5 seconds (adjust as needed)
+setTimeout(function () {
+    $('.flash-message').fadeOut('slow');
+}, 5000);
+
+// ======================================================================================================
 // FLASHCARD PAGE
 // ======================================================================================================
 var currentFlashcardIndex = 0;
@@ -28,24 +36,24 @@ function showFlashcard(index) {
         // Optionally, handle out-of-bounds case
         flashcardContent.innerHTML = "<p>No more flashcards.</p>";
     }
-}
+};
 
 // Advance to the next flashcard on the page
 function showNextFlashcard() {
     showFlashcard(currentFlashcardIndex + 1);
-}
+};
 
 // Advance to the previous flashcard on the page
 function showPreviousFlashcard() {
     showFlashcard(currentFlashcardIndex - 1);
-}
+};
 
 function shuffleFlashcards() {
     // Shuffle the flashcards array
     flashcards = shuffleArray(flashcards);
     // Show the first flashcard in the shuffled order
     showFlashcard(0);
-}
+};
 
 // Fisher-Yates shuffle algorithm
 function shuffleArray(array) {
@@ -54,7 +62,7 @@ function shuffleArray(array) {
         [array['questions'][i], array['questions'][j]] = [array['questions'][j], array['questions'][i]];
     }
     return array;
-}
+};
 
 // Show the first flashcard when the page loads
 showFlashcard(0);
@@ -76,11 +84,3 @@ function confirmDelete(element) {
         window.location.href ="delete_flashcard/" + encodeURIComponent(question);
     }
 };
-
-// ======================================================================================================
-// FLASH MESSAGES [ERRORS, WARNINGS, INFO]
-// ======================================================================================================
-// Automatically hide flash messages after 5 seconds (adjust as needed)
-setTimeout(function () {
-    document.getElementById('flash-messages').style.display = 'none';
-}, 5000);

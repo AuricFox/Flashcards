@@ -19,16 +19,16 @@
         </div>
 
         <!-- Flash messages -->
+        <div id="flash-messages">
         {% with messages = get_flashed_messages() %}
             {% if messages %}
-                <div id="flash-messages">
                     {% for message in messages %}
                         <div class="flash-message">{{ message }}</div>
                     {% endfor %}
-                </div>
             {% endif %}
         {% endwith %}
-
+        </div>
+        
         <!--Contains All Content Tiles-->
         <div class="content">
             {% block content %}{% endblock %}
