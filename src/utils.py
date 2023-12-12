@@ -121,3 +121,18 @@ class FileNotFound(Exception):
 
 class InvalidInput(Exception):
     pass
+
+# ========================================================================================================================================
+# Functions for processing text
+# ========================================================================================================================================
+def sanintize(text:str):
+    '''
+    Removes special characters from the string.
+
+    Parameter(s):
+        text (str): the string being sanitized
+
+    Output(s):
+        str: a sanitized string
+    '''
+    return re.sub(r'[\\/*?:"<>|]', '_', text)
