@@ -3,18 +3,22 @@
 {% block title %}Flashcards{% endblock %}
 
 {% block content %}
+<div class="use-flashcard">
 
-<div class="flashcard" id="flashcard">
-    <div class="card-content" id="cardContent">
-        <div class="side front" id="front"></div>
-        <div class="side back" id="back"></div>
+    <button class="side-button" id="previous-button" onclick="showPreviousFlashcard()">Prev</button>
+
+    <div class="flashcard" id="flashcard">
+        <div class="card-content" id="cardContent">
+            <div class="side front" id="front"></div>
+            <div class="side back" id="back"></div>
+        </div>
     </div>
-</div>    
 
+    <button class="side-button" id="next-button" onclick="showNextFlashcard()">Next</button>
+
+</div>
 <div class="buttons">
-    <button id="previous-button" onclick="showPreviousFlashcard()">Previous</button>
     <button id="shuffle-button" onclick="shuffleFlashcards()">Shuffle</button>
-    <button id="next-button" onclick="showNextFlashcard()">Next</button>
 </div>
 
 <script>

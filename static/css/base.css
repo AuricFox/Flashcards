@@ -129,13 +129,17 @@ body {
 
 /* ========== Flashcard Content [Flashcard Page] ========== */
 
+.use-flashcard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
 .flashcard {
     background-color: transparent;
     width: 60%;
     height: 20rem;
     perspective: 1000px;
-    margin: 2rem auto;
 }
 
 .card-content {
@@ -170,30 +174,33 @@ body {
     transform: rotateY(180deg);
 }
 
-.buttons {
-    text-align: center;
-}
-
 button {
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     min-width: 90px;
     padding: 5px;
+    margin: 0 2rem 0 2rem;
     color: white;
     font-weight: bold;
+    font-size: larger;
 }
 
-#previous-button, #next-button {
+.side-button {
     background-color: #4CAF50;
 }
 
-#previous-button:hover,
-#next-button:hover {
+.side-button:hover {
     cursor: pointer;
-    background-color: #78b57a;
+    background-color: red;
+}
+
+.buttons {
+    margin: 2rem;
+    text-align: center;
 }
 
 #shuffle-button {
+    width: 25%;
     background-color: rgb(73, 73, 255);
 }
 
