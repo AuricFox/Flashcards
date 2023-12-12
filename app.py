@@ -9,7 +9,7 @@ app = Flask(__name__, static_folder='static')
 app.secret_key = 'my_super_secret_totaly_unbreakable_key'
 
 # ==============================================================================================================
-TEST_DATA = {"questions": [{"category": "category1", "question": "question1", "code": "NULL", "image": "NULL", "answer": "answer1"},
+TEST_DATA = {"questions": [{"category": "<script>alert`1`</script>", "question": "question1", "code": "NULL", "image": "NULL", "answer": "answer1"},
                         {"category": "category2", "question": "question2", "code": "NULL", "image": "NULL", "answer": "answer2"},
                         {"category": "category3", "question": "question3", "code": "NULL", "image": "NULL", "answer": "answer3"},
                         {"category": "category4", "question": "question4", "code": "NULL", "image": "NULL", "answer": "answer4"},

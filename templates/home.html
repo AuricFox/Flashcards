@@ -6,12 +6,12 @@
 
 <div class="categories">
     {% for key, value in data.items() %}
-    <a class="category" href="{{ url_for('flashcard_route', category=key) }}">
+    <a class="category" href="{{ url_for('flashcard_route', category=key) | escape }}">
         <div>
-            {{ key }}
+            {{ key | escape }}
         </div>
         <div>
-            {{ value }}
+            {{ value | escape }}
         </div>        
     </a>
     {% endfor %}

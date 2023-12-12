@@ -10,22 +10,22 @@
 
         <div class="flashcard-content-inner">
             <h2>Category</h2>
-            <textarea id="category" name="category" rows="4">{{ data['category'] }}</textarea>
+            <textarea id="category" name="category" rows="4">{{ data['category'] | escape }}</textarea>
         </div>
 
         <div class="flashcard-content-inner">
             <h2>Question</h2>
-            <textarea id="question" name="question" rows="4">{{ data['question'] }}</textarea>
+            <textarea id="question" name="question" rows="4">{{ data['question'] | escape }}</textarea>
         </div>
 
         <div class="flashcard-content-inner">
             <h2>Code</h2>
-            <textarea id="code" name="code" rows="6">{{ data['code'] }}</textarea>
+            <textarea id="code" name="code" rows="6">{{ data['code'] | escape }}</textarea>
         </div>
 
         <div class="flashcard-content-inner">
             <h2>Answer</h2>
-            <textarea id="answer" name="answer" rows="4">{{ data['answer'] }}</textarea>
+            <textarea id="answer" name="answer" rows="4">{{ data['answer'] | escape }}</textarea>
         </div>
 
         <div class="flashcard-content-inner">

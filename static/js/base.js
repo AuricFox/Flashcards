@@ -7,6 +7,24 @@ setTimeout(function () {
 }, 5000);
 
 // ======================================================================================================
+// MANAGE FLASHCARD PAGE
+// ======================================================================================================
+// Confirm deletion of the queried question before deleting it
+document.querySelectorAll('.delete-cell').forEach(function (element) {
+    element.addEventListener('click', function () {
+        confirmDelete(element.dataset.question);
+    });
+});
+
+function confirmDelete(element) {
+    var question = element;
+    var result = confirm("Are you sure you want to delete this flashcard?");
+    if (result) {
+        window.location.href = "delete_flashcard/" + encodeURIComponent(question);
+    }
+};
+
+// ======================================================================================================
 // FLASHCARD PAGE
 // ======================================================================================================
 var currentFlashcardIndex = 0;
@@ -73,14 +91,3 @@ document.getElementById('flashcard').addEventListener('click', function () {
     cardContent.style.transform = cardContent.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
 });
 
-// ======================================================================================================
-// MANAGE FLASHCARD PAGE
-// ======================================================================================================
-// Confirm deletion of the queried question before deleting it
-function confirmDelete(element) {
-    var question = $(element).closest('tr').find('#question-cell').text();
-    var result = confirm("Are you sure you want to delete this flashcard?");
-    if (result) {
-        window.location.href ="delete_flashcard/" + encodeURIComponent(question);
-    }
-};

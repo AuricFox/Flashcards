@@ -8,15 +8,15 @@
 
     <div class="flashcard-content-inner">
         <h2>Category</h2>
-        <p>{{ data['category'] }}</p>
+        <p>{{ data['category'] | escape }}</p>
     </div>
     <div class="flashcard-content-inner">
         <h2>Question</h2>
-        <p>{{ data['question'] }}</p>
+        <p>{{ data['question'] | escape }}</p>
     </div>
     <div class="flashcard-content-inner">
         <h2>Code</h2>
-        <p>{{ data['code'] }}</p>
+        <p>{{ data['code'] | escape }}</p>
     </div>
     <div class="flashcard-content-inner">
         <!--TODO:Change to image tag-->
@@ -25,7 +25,7 @@
     </div>
     <div class="flashcard-content-inner">
         <h2>Anwser</h2>
-        <p>{{ data['answer'] }}</p>
+        <p>{{ data['answer'] | escape }}</p>
     </div>
 
 </div>
