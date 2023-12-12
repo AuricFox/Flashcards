@@ -2,7 +2,7 @@ from flask import Flask, request, redirect, render_template, url_for, flash
 
 import os, sys
 sys.path.append('./src/')
-import utils
+import utils #,database
 
 LOGGER = utils.LOGGER
 app = Flask(__name__, static_folder='static')
@@ -33,7 +33,8 @@ def home():
     Returns:
         a built html page that displays the categories and their count
     '''
-    # TODO: Query database for categories
+    # TODO: Query database for all categories and their counts
+    # data = database.view_allcategories()
 
     data = {'categories': 2, 'test': 3, 'test2': 1}
 
@@ -43,7 +44,7 @@ def home():
 @app.route("/flashcards/<category>")
 def flashcard_route(category):
     '''
-    Builds and returns an html page based on the specified question category
+    Builds and returns an html page based on the specified question category.
 
     Parameters:
         category (str): the type of questions being queried for the flashcards
@@ -52,14 +53,15 @@ def flashcard_route(category):
         a built html page that displays the flashcards
     '''
     # TODO: Query database for questions related to specified category
-    
+    # data = database.view_allcards(category=category)
+
     return render_template('flashcards.html', nav_id="home-page", data=TEST_DATA)
 
 # ==============================================================================================================
 @app.route("/manage_flashcards")
 def manage_flashcards_route():
     '''
-    Builds and returns an html page where all the flashcard data can be viewed and edited
+    Builds and returns an html page where all the flashcard data can be viewed and edited.
 
     Parameters: None
 
@@ -67,16 +69,16 @@ def manage_flashcards_route():
         a built html page that displays the flashcard data
     '''
     # TODO: Query database for all questions
+    # data = database.view_allcards(category=None)
 
     return render_template('manage_flashcards.html', nav_id="manage-page", data=TEST_DATA)
 
 # ==============================================================================================================
-#TODO: Manage Main Page, CRUD Pages
-# ==============================================================================================================
 @app.route("/add_flashcard")
 def add_flashcard_route():
     '''
-    Builds and returns an html page for adding flashcards to database
+    Builds and returns an html page for adding flashcards to database. 
+    NOTE: flashcard is added to the database in create_flashcard_route.
 
     Parameters: None
 
@@ -90,7 +92,7 @@ def add_flashcard_route():
 @app.route("/create_flashcard", methods=['GET', 'POST'])
 def create_flashcard_route():
     '''
-    Builds and returns an html page based on the specified question category
+    Builds and returns an html page based on the specified question category.
 
     Parameters:
         question (str): the question being edited
@@ -155,7 +157,7 @@ def create_flashcard_route():
 @app.route("/view_flashcard/<question>")
 def view_flashcard_route(question):
     '''
-    Builds and returns an html page based on the specified question
+    Builds and returns an html page based on the specified question.
 
     Parameters:
         question (str): the question being queried
@@ -164,9 +166,9 @@ def view_flashcard_route(question):
         a built html page that displays the flashcard data
     '''
     # TODO: Query database for question
-    data = {"category": "category1", "question": "question1", "code": "code1", "image": "image1", "answer": "answer1"}
+    # data = database.view_card(question=question)
     
-    return render_template('view_flashcard.html', nav_id="manage-page", data=data)
+    return render_template('view_flashcard.html', nav_id="manage-page", data=TEST_DATA["questions"][0])
 
 # ==============================================================================================================
 @app.route("/edit_flashcard/<question>")
@@ -180,10 +182,10 @@ def edit_flashcard_route(question):
     Returns:
         a built html page that displays the flashcard data for editing
     '''
-    # TODO: Query database for question and edit it
-    data = {"category": "category1", "question": "question1", "code": "code1", "image": "image1", "answer": "answer1"}
+    # TODO: Query database for question being edited
+    # data = database.view_card(question=question)
     
-    return render_template('edit_flashcard.html', nav_id="manage-page", data=data)
+    return render_template('edit_flashcard.html', nav_id="manage-page", data=TEST_DATA["questions"][0])
 
 # ==============================================================================================================
 @app.route("/update_flashcard/<question>", methods=['GET', 'POST'])

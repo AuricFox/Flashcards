@@ -32,7 +32,7 @@ def add_card(category:str, question:str, answer:str, code:str='NULL', image:str=
         return False
 
 # ==============================================================================================================
-def view_card(question):
+def view_card(question:str):
     '''
     Retrieves the flashcard data with the queried question from the database.
 
