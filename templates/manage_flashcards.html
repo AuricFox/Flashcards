@@ -26,9 +26,9 @@
                 <td id="answer-cell" class="flash-cell">{{ value['answer'] | escape }}</td>
                 <td class="action-cell">
                     <div class="action-links">
-                        <a class="view-cell" href="{{ url_for('view_flashcard_route', question=value['question']) | escape }}">view</a>
-                        <a class="edit-cell" href="{{ url_for('edit_flashcard_route', question=value['question']) | escape }}">edit</a>
-                        <a class="delete-cell" href="#" data-question="{{ value['question'] | escape }}">delete</a>
+                        <a class="view-cell" href="{{ url_for('view_flashcard_route', key=value['key']) | escape }}">view</a>
+                        <a class="edit-cell" href="{{ url_for('edit_flashcard_route', key=value['key']) | escape }}">edit</a>
+                        <a class="delete-cell" href="#" data-question="{{ value['key'] | escape }}">delete</a>
                     </div>
                 </td>
             </tr>

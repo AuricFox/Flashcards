@@ -18,7 +18,7 @@
 </div>
 
 <script>
-    var flashcards = {{ data | tojson | safe | e }};
+    var flashcards = {{ data | tojson | escape }};
 </script>
 
 {% endblock %}

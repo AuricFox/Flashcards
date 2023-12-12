@@ -9,16 +9,16 @@ app = Flask(__name__, static_folder='static')
 app.secret_key = 'my_super_secret_totaly_unbreakable_key'
 
 # ==============================================================================================================
-TEST_DATA = {"questions": [{"category": "<script>alert`1`</script>", "question": "question1", "code": "NULL", "image": "NULL", "answer": "answer1"},
-                        {"category": "category2", "question": "question2", "code": "NULL", "image": "NULL", "answer": "answer2"},
-                        {"category": "category3", "question": "question3", "code": "NULL", "image": "NULL", "answer": "answer3"},
-                        {"category": "category4", "question": "question4", "code": "NULL", "image": "NULL", "answer": "answer4"},
-                        {"category": "category5", "question": "question5", "code": "NULL", "image": "NULL", "answer": "answer5"},
-                        {"category": "category6", "question": "question6", "code": "NULL", "image": "NULL", "answer": "answer6"},
-                        {"category": "category7", "question": "question7", "code": "NULL", "image": "NULL", "answer": "answer7"},
-                        {"category": "category8", "question": "question8", "code": "NULL", "image": "NULL", "answer": "answer8"},
-                        {"category": "category9", "question": "question9", "code": "NULL", "image": "NULL", "answer": "answer9"},
-                        {"category": "category10", "question": "question10", "code": "NULL", "image": "NULL", "answer": "answer10"}]}
+TEST_DATA = {"questions": [{"key": 1, "category": "<script>alert`1`</script>", "question": "<script>alert`1`</script>", "code": "<script>alert`1`</script>", "image": "NULL", "answer": "<script>alert`1`</script>"},
+                           {"key": 2, "category": "category2", "question": "question2", "code": "NULL", "image": "NULL", "answer": "answer2"},
+                           {"key": 3, "category": "category3", "question": "question3", "code": "NULL", "image": "NULL", "answer": "answer3"},
+                           {"key": 4, "category": "category4", "question": "question4", "code": "NULL", "image": "NULL", "answer": "answer4"},
+                           {"key": 5, "category": "category5", "question": "question5", "code": "NULL", "image": "NULL", "answer": "answer5"},
+                           {"key": 6, "category": "category6", "question": "question6", "code": "NULL", "image": "NULL", "answer": "answer6"},
+                           {"key": 7, "category": "category7", "question": "question7", "code": "NULL", "image": "NULL", "answer": "answer7"},
+                           {"key": 8, "category": "category8", "question": "question8", "code": "NULL", "image": "NULL", "answer": "answer8"},
+                           {"key": 9, "category": "category9", "question": "question9", "code": "NULL", "image": "NULL", "answer": "answer9"},
+                           {"key": 10, "category": "category10", "question": "question10", "code": "NULL", "image": "NULL", "answer": "answer10"}]}
 
 # ==============================================================================================================
 @app.route("/")
@@ -47,7 +47,7 @@ def flashcard_route(category):
     Builds and returns an html page based on the specified question category.
 
     Parameters:
-        category (str): the type of questions being queried for the flashcards
+        category (str): the type of questions being queried from the database
 
     Returns:
         a built html page that displays the flashcards
@@ -154,47 +154,47 @@ def create_flashcard_route():
         return redirect(url_for('manage_flashcards_route'))
 
 # ==============================================================================================================
-@app.route("/view_flashcard/<question>")
-def view_flashcard_route(question):
+@app.route("/view_flashcard/<key>")
+def view_flashcard_route(key):
     '''
     Builds and returns an html page based on the specified question.
 
     Parameters:
-        question (str): the question being queried
+        key (int): the primary key of the question being queried
 
     Returns:
         a built html page that displays the flashcard data
     '''
     # TODO: Query database for question
-    # data = database.view_card(question=question)
+    # data = database.view_card(key=key)
     
     return render_template('view_flashcard.html', nav_id="manage-page", data=TEST_DATA["questions"][0])
 
 # ==============================================================================================================
-@app.route("/edit_flashcard/<question>")
-def edit_flashcard_route(question):
+@app.route("/edit_flashcard/<key>")
+def edit_flashcard_route(key):
     '''
     Builds and returns an html page based on the specified question category
 
     Parameters:
-        question (str): the question being edited
+        key (int): the primary key of the question being edited
 
     Returns:
         a built html page that displays the flashcard data for editing
     '''
     # TODO: Query database for question being edited
-    # data = database.view_card(question=question)
+    # data = database.view_card(key=key)
     
     return render_template('edit_flashcard.html', nav_id="manage-page", data=TEST_DATA["questions"][0])
 
 # ==============================================================================================================
-@app.route("/update_flashcard/<question>", methods=['GET', 'POST'])
-def update_flashcard_route(question):
+@app.route("/update_flashcard/<key>", methods=['GET', 'POST'])
+def update_flashcard_route(key):
     '''
     Builds and returns an html page based on the specified question category
 
     Parameters:
-        question (str): the question being edited
+        key (int): the primary key of the question being edited
 
     Returns:
         None, redirects to manage_flashcard page
@@ -213,7 +213,7 @@ def update_flashcard_route(question):
             file = request.files['image']
             # Save file and get filename
             updated_data['image'] = 'NULL' if not file or file.filename == 'NULL' else 'NULL'
-            LOGGER.info(f"Editing: {question}\n"
+            LOGGER.info(f"Editing: {key}\n"
                         f"Category: {updated_data['category']}\n"
                         f"Question: {updated_data['question']}\n"
                         f"Code: {updated_data['code']}\n"
@@ -227,7 +227,7 @@ def update_flashcard_route(question):
                 return redirect(request.referrer)
 
             # TODO:Update old question data with new data
-            # success = database.update_card(old_question=question, new_data=updated_data)
+            # success = database.update_card(key=key, new_data=updated_data)
             success = True
 
             if success:
@@ -246,27 +246,27 @@ def update_flashcard_route(question):
         return redirect(url_for('manage_flashcards_route'))
 
 # ==============================================================================================================
-@app.route("/delete_flashcard/<question>")
-def delete_flashcard_route(question):
+@app.route("/delete_flashcard/<key>")
+def delete_flashcard_route(key):
     '''
     Deletes the queried flashcard from the database and redirects to manage page
 
     Parameters:
-        question (str): the question being deleted from the database
+        key (int): the primary key of the question being deleted from the database
 
     Returns:
         None, redirects to the manage page
     '''
     try:
         # TODO: Query database for question and delete it
-        # success = database.delete_card(question=question)
+        # success = database.delete_card(key=key)
         success = True
 
         if success:
-            LOGGER.info(f"Flashcard was successfully deleted!\nDeleted Question: {question}")
+            LOGGER.info(f"Flashcard was successfully deleted!\nDeleted Question Key: {key}")
             flash("Flashcard was successfully deleted!", "success")
         else:
-            LOGGER.info(f"Failed to delete flashcard!\nDeleted Question: {question}")
+            LOGGER.info(f"Failed to delete flashcard!\nDeleted Question Key: {key}")
             flash("Failed to delete flashcard", "error")
     
     except Exception as e:
