@@ -82,9 +82,6 @@ function shuffleArray(array) {
     return array;
 };
 
-// Show the first flashcard when the page loads
-showFlashcard(0);
-
 // Animate flashcard so it rotates when clicked
 document.getElementById('flashcard').addEventListener('click', function () {
     const cardContent = document.getElementById('cardContent');

@@ -7,22 +7,33 @@
 
     <button class="side-button" id="previous-button" onclick="showPreviousFlashcard()">Prev</button>
 
-    <div class="flashcard" id="flashcard">
-        <div class="card-content" id="cardContent">
-            <div class="side front" id="front"></div>
-            <div class="side back" id="back"></div>
+    {% for index in range(length) %}
+    <div class="flashcard" id="flashcard-{{ index }}">
+        <div class="card-content" id="cardContent-{{ index }}">
+            <div class="side front" id="front-{{ index }}">
+                <h2>Question</h2>
+                <p>{{ data['questions'][index]['question'] | escape }}</p>
+            </div>
+            <div class="side back" id="back-{{ index }}">
+                <h2>Answer</h2>
+                <p>{{ data['questions'][index]['answer'] | escape }}</p>
+            </div>
         </div>
     </div>
+    {% endfor %}
 
     <button class="side-button" id="next-button" onclick="showNextFlashcard()">Next</button>
 
 </div>
+
 <div class="buttons">
     <button id="shuffle-button" onclick="shuffleFlashcards()">Shuffle</button>
 </div>
 
 <script>
-    var flashcards = {{ data | tojson | escape }};
+    document.addEventListener("DOMContentLoaded", function () {
+            showFlashcard(0);
+        });
 </script>
 
 {% endblock %}
