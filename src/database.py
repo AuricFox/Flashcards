@@ -32,27 +32,27 @@ def add_card(category:str, question:str, answer:str, code:str='NULL', image:str=
         return False
 
 # ==============================================================================================================
-def view_card(question:str):
+def view_card(key:int):
     '''
-    Retrieves the flashcard data with the queried question from the database.
+    Retrieves the flashcard data with the queried primary key from the database.
 
     Parameter(s):
-        question (str): variable being queried from the database
+        key (str): the primary key of the flashcard being queried
 
     Output(s):
         returns a dictionary of the Flashcard data if found, None otherwise
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
-            LOGGER.info(f"Searching the database for the following question:\n{question}")
+            LOGGER.info(f"Searching the database for the following key:\n{key}")
 
             c = conn.cursor()
-            c.execute("SELECT * FROM Flashcards WHERE question = ?", (question,))
+            c.execute("SELECT * FROM Flashcards WHERE key = ?", (key,))
             # Get the flash data: (category, question, code, image, answer)
             fd = c.fetchone()
 
             # Convert the tuple into a dictionary
-            data = {'category': fd[0], 'question': fd[1], 'code': fd[2], 'image': fd[3], 'answer': fd[4]}
+            data = {'key': fd[0], 'category': fd[1], 'question': fd[2], 'code': fd[3], 'image': fd[4], 'answer': fd[5]}
 
         return data
     
@@ -129,12 +129,12 @@ def view_allcards(category:str=None):
         return []
 
 # ==============================================================================================================
-def update_card(old_question:str, new_data:dict):
+def update_card(key:int, new_data:dict):
     '''
     Updates flashcard data in the database.
 
     Parameters:
-        old_question (str): the original question identifying the flashcard to be updated
+        key (int): the primary key of the flashcard being updated
         new_data (dict): a dictionary containing the new data for the flashcard
             {'category': value, 'question': value, 'code', value, 'image': value, 'answer':value}
 
@@ -143,15 +143,15 @@ def update_card(old_question:str, new_data:dict):
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:
-            LOGGER.info(f"Updating the following quetion with new data:\nOld Question: {old_question}\nNew Data: {new_data}")
+            LOGGER.info(f"Updating the database with new data:\nKey: {key}\nNew Data: {new_data}")
 
             c = conn.cursor()
             # Construct the SET clause dynamically based on the new_data dictionary
-            set_clause = ', '.join(f"{key} = ?" for key in new_data.keys())
+            set_clause = ', '.join(f"{var} = ?" for var in new_data.keys())
 
             # Build the query and execute
-            query = f"UPDATE Flashcards SET {set_clause} WHERE question = ?"
-            c.execute(query, (old_question,))
+            query = f"UPDATE Flashcards SET {set_clause} WHERE key = ?"
+            c.execute(query, (key,))
 
             conn.commit()  # Commit changes to the database
 
@@ -162,7 +162,7 @@ def update_card(old_question:str, new_data:dict):
         return False
 
 # ==============================================================================================================
-def delete_card(question:str):
+def delete_card(key:int):
     '''
     Deletes the flashcard data from the database.
 
@@ -174,14 +174,14 @@ def delete_card(question:str):
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
-            LOGGER.info(f"Deleting the following question from the database:\n{question}")
+            LOGGER.info(f"Deleting the following key from the database:\n{key}")
 
             c = conn.cursor()
-            c.execute("DELETE FROM Flashcards WHERE question = ?", (question,))
+            c.execute("DELETE FROM Flashcards WHERE key = ?", (key,))
             conn.commit()
 
         return True
     
     except sqlite3.Error as e:
-        LOGGER.error(f"An error occured when deleting the question from the database: {e}")
+        LOGGER.error(f"An error occured when deleting the flashcard from the database: {e}")
         return False
