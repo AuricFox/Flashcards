@@ -19,6 +19,7 @@ def add_card(category:str, question:str, answer:str, code:str='NULL', image:str=
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:      # Connection to the database
+            category = utils.sanitize(category)             # Sanitizing category before adding
             LOGGER.info(f"Adding the following row to the database:\n{category}, {question}, {code}, {image}, {answer}")
 
             c = conn.cursor()
@@ -146,6 +147,10 @@ def update_card(key:int, new_data:dict):
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:
+            # Check if there is a category and sanitize it
+            if 'category' in new_data:
+                new_data['category'] = utils.sanitize(new_data['category'])
+
             LOGGER.info(f"Updating the database with new data:\nKey: {key}\nNew Data: {new_data}")
 
             c = conn.cursor()
