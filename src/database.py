@@ -15,7 +15,7 @@ def add_card(category:str, question:str, answer:str, code:str='NULL', image:str=
         image (str, default='NULL'): a filepath to an image that supports the question
 
     Output(s): 
-        returns if the data is inserted into the database, else returns false
+        Bool: returns true if the data is inserted into the database, else returns false
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:      # Connection to the database
@@ -40,7 +40,8 @@ def view_card(key:int):
         key (str): the primary key of the flashcard being queried
 
     Output(s):
-        returns a dictionary of the Flashcard data if found, None otherwise
+        data (dict={'key':int, 'category':str, 'question':str, 'code':str, 'image':str, 'answer':str}): returns a 
+        dictionary of the Flashcard data if found, None otherwise
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
@@ -68,7 +69,8 @@ def view_allcategories():
     Parameter(s): None
 
     Output(s):
-        a dictionary containing the question category and its count if successful, an empty dictionary otherwise
+        data (dict = {'category': count}): a dictionary containing the question category and its count if successful, 
+        an empty dictionary otherwise
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
@@ -98,7 +100,8 @@ def view_allcards(category:str=None):
         category (str, defualt=None): specifies which group of cards to retrieve
 
     Output(s):
-        a dictionary containing flashcard data if successful, an dictionary with an empty list otherwise
+        data (dict={'questions':[{'key':int, 'category':str, 'question':str, 'code':str, 'image':str, 'answer':str},...]}): a dictionary 
+        containing flashcard data if successful, an dictionary with an empty list otherwise
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
@@ -139,7 +142,7 @@ def update_card(key:int, new_data:dict):
             {'category': value, 'question': value, 'code', value, 'image': value, 'answer':value}
 
     Returns:
-        bool: True if the update was successful, False otherwise
+        Bool: True if the update was successful, False otherwise
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:
@@ -170,7 +173,7 @@ def delete_card(key:int):
         question (str): variable being queried from the database for deletion
 
     Output(s):
-        bool: True if the delete was successful, False otherwise
+        Bool: True if the delete was successful, False otherwise
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
