@@ -27,64 +27,60 @@ function confirmDelete(element) {
 // ======================================================================================================
 // FLASHCARD PAGE
 // ======================================================================================================
-var currentFlashcardIndex = 0;
+var CURRENT_INDEX = 0;
+var NUM_FLASHCARDS = $('.flashcard').length;
+var CARD_ARRAY = Array.from({ length: NUM_FLASHCARDS }, (_, index) => index);
+
+// Rotate flashcard when clicked
+$('.flashcard').click(function () {
+    var id = $(this).attr('id') + '-content';
+    const cardContent = document.getElementById(id);
+    cardContent.style.transform = cardContent.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+});
 
 function showFlashcard(index) {
-    var flashcardQuestion = document.getElementById("front");
-    var flashcardAnswer = document.getElementById("back");
-
-    // Ensure the index is within bounds
-    if (index >= 0 && index < flashcards['questions'].length) {
-        var currentFlashcard = flashcards['questions'][index];
-
-        // Flashcard question side
-        flashcardQuestion.innerHTML = `
-            <h2>Question</h2>
-            <p>${currentFlashcard['question']}</p>
-        `;
-
-        // Flashcard Answer side
-        flashcardAnswer.innerHTML = `
-            <h2>Answer</h2>
-            <p>${currentFlashcard['answer']}</p>
-        `;
-
-        currentFlashcardIndex = index;
-    } else {
-        // Optionally, handle out-of-bounds case
-        flashcardContent.innerHTML = "<p>No more flashcards.</p>";
+    // Ensure the index is a valid number
+    if (isNaN(index) || index >= NUM_FLASHCARDS) {
+        // Go back to the beginning
+        showFlashcard(0);
+        return;
     }
+    else if (index < 0){
+        // Go back to the end
+        showFlashcard(NUM_FLASHCARDS - 1);
+        return;
+    }
+
+    CURRENT_INDEX = index;
+    var id = '#flashcard-' + CARD_ARRAY[CURRENT_INDEX];
+
+    // Hide everything except current flashcard
+    $('.flashcard').hide();
+    $(id).show();
 };
 
 // Advance to the next flashcard on the page
 function showNextFlashcard() {
-    showFlashcard(currentFlashcardIndex + 1);
+    showFlashcard(CURRENT_INDEX + 1);
 };
 
 // Advance to the previous flashcard on the page
 function showPreviousFlashcard() {
-    showFlashcard(currentFlashcardIndex - 1);
+    showFlashcard(CURRENT_INDEX - 1);
 };
 
 function shuffleFlashcards() {
     // Shuffle the flashcards array
-    flashcards = shuffleArray(flashcards);
+    flashcards = shuffleArray(CARD_ARRAY);
     // Show the first flashcard in the shuffled order
     showFlashcard(0);
 };
 
 // Fisher-Yates shuffle algorithm
 function shuffleArray(array) {
-    for (let i = array['questions'].length - 1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array['questions'][i], array['questions'][j]] = [array['questions'][j], array['questions'][i]];
+        [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
 };
-
-// Animate flashcard so it rotates when clicked
-document.getElementById('flashcard').addEventListener('click', function () {
-    const cardContent = document.getElementById('cardContent');
-    cardContent.style.transform = cardContent.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
-});
-
