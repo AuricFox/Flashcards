@@ -54,9 +54,10 @@ def flashcard_route(category):
     '''
     # TODO: Query database for questions related to specified category
     # data = database.view_allcards(category=category)
-    data=TEST_DATA
+    data = TEST_DATA
+    length = len(data['questions'])
 
-    return render_template('flashcards.html', nav_id="home-page", data=data, length=len(data['questions']))
+    return render_template('flashcards.html', nav_id="home-page", data=data, length=length)
 
 # ==============================================================================================================
 @app.route("/manage_flashcards")
