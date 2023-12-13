@@ -9,12 +9,12 @@
 
     {% for index in range(length) %}
     <div class="flashcard" id="flashcard-{{ index }}">
-        <div class="card-content" id="cardContent-{{ index }}">
-            <div class="side front" id="front-{{ index }}">
+        <div class="card-content" id="flashcard-{{ index }}-content">
+            <div class="side front" id="flashcard-{{ index }}-front">
                 <h2>Question</h2>
                 <p>{{ data['questions'][index]['question'] | escape }}</p>
             </div>
-            <div class="side back" id="back-{{ index }}">
+            <div class="side back" id="flashcard-{{ index }}-back">
                 <h2>Answer</h2>
                 <p>{{ data['questions'][index]['answer'] | escape }}</p>
             </div>
