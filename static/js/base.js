@@ -84,3 +84,18 @@ function shuffleArray(array) {
     }
     return array;
 };
+
+// ======================================================================================================
+// Validate Entered Text
+// ======================================================================================================
+function validateText(id) {
+    // Validate text to ensure it only contains letters and numbers
+    var textarea = document.getElementById(id);
+    var pattern = /^[a-zA-Z0-9]+$/;
+
+    if (!pattern.test(textarea.value)) {
+        textarea.setCustomValidity("Only letters and numbers are allowed");
+    } else {
+        textarea.setCustomValidity("");
+    }
+}
