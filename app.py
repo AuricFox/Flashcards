@@ -9,18 +9,6 @@ app = Flask(__name__, static_folder='static')
 app.secret_key = 'my_super_secret_totaly_unbreakable_key'
 
 # ==============================================================================================================
-TEST_DATA = {"questions": [{"key": 1, "category": "<script>alert`1`</script>", "question": "<script>alert`1`</script>", "code": "<script>alert`1`</script>", "image": "NULL", "answer": "<script>alert`1`</script>"},
-                           {"key": 2, "category": "category2", "question": "question2", "code": "NULL", "image": "NULL", "answer": "answer2"},
-                           {"key": 3, "category": "category3", "question": "question3", "code": "NULL", "image": "NULL", "answer": "answer3"},
-                           {"key": 4, "category": "category4", "question": "question4", "code": "NULL", "image": "NULL", "answer": "answer4"},
-                           {"key": 5, "category": "category5", "question": "question5", "code": "NULL", "image": "NULL", "answer": "answer5"},
-                           {"key": 6, "category": "category6", "question": "question6", "code": "NULL", "image": "NULL", "answer": "answer6"},
-                           {"key": 7, "category": "category7", "question": "question7", "code": "NULL", "image": "NULL", "answer": "answer7"},
-                           {"key": 8, "category": "category8", "question": "question8", "code": "NULL", "image": "NULL", "answer": "answer8"},
-                           {"key": 9, "category": "category9", "question": "question9", "code": "NULL", "image": "NULL", "answer": "answer9"},
-                           {"key": 10, "category": "category10", "question": "question10", "code": "NULL", "image": "NULL", "answer": "answer10"}]}
-
-# ==============================================================================================================
 @app.route("/")
 @app.route("/home")
 def home():
@@ -112,16 +100,16 @@ def create_flashcard_route():
             # Get file data from form
             file = request.files['image']
             # Save file and get filename
-            data['image'] = 'NULL' if not file or file.filename == 'NULL' else 'NULL'
+            data['image_path'] = 'NULL' if not file or file.filename == 'NULL' else 'NULL'
             LOGGER.info(f"Adding flashcard data:\n"
                         f"Category: {data['category']}\n"
                         f"Question: {data['question']}\n"
                         f"Code: {data['code']}\n"
                         f"Answer: {data['answer']}\n"
-                        f"Image File: {data['image']}")
+                        f"Image File: {data['image_path']}")
 
             # Incorrect file was submitted or file failed to save
-            if data['image'] is None:
+            if data['image_path'] is None:
                 LOGGER.error(f'{file.filename} is an Invalid File or FileType')
                 flash(f'{file.filename} is an Invalid File or FileType', 'error')
                 return redirect(request.referrer)
@@ -132,7 +120,7 @@ def create_flashcard_route():
                 question=data['question'], 
                 answer=data['answer'], 
                 code=data['code'], 
-                image=data['image'])
+                image=data['image_path'])
 
             if success:
                 LOGGER.info("Flashcard added successfully")
@@ -208,16 +196,16 @@ def update_flashcard_route(key):
             # Get file data from form
             file = request.files['image']
             # Save file and get filename
-            updated_data['image'] = 'NULL' if not file or file.filename == 'NULL' else 'NULL'
+            updated_data['image_path'] = 'NULL' if not file or file.filename == 'NULL' else 'NULL'
             LOGGER.info(f"Editing: {key}\n"
                         f"Category: {updated_data['category']}\n"
                         f"Question: {updated_data['question']}\n"
                         f"Code: {updated_data['code']}\n"
                         f"Answer: {updated_data['answer']}\n"
-                        f"Image File: {updated_data['image']}")
+                        f"Image File: {updated_data['image_path']}")
 
             # Incorrect file was submitted or file failed to save
-            if updated_data['image'] is None:
+            if updated_data['image_path'] is None:
                 LOGGER.error(f'{file.filename} is an Invalid File or FileType')
                 flash(f'{file.filename} is an Invalid File or FileType', 'error')
                 return redirect(request.referrer)

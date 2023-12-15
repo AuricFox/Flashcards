@@ -3,7 +3,7 @@ import sqlite3, utils
 LOGGER = utils.LOGGER
 
 # ==============================================================================================================
-def add_card(category:str, question:str, answer:str, code:str='NULL', image:str='NULL'):
+def add_card(category:str, question:str, answer:str, code:str='NULL', image_path:str='NULL'):
     '''
     Adds the flashcard data to the database.
 
@@ -12,7 +12,7 @@ def add_card(category:str, question:str, answer:str, code:str='NULL', image:str=
         question (str): information being asked
         answer (str): the expected response to the question
         code (str, default='NULL'): a block of code used to support the question
-        image (str, default='NULL'): a filepath to an image that supports the question
+        image_path (str, default='NULL'): a filepath to an image that supports the question
 
     Output(s): 
         Bool: returns true if the data is inserted into the database, else returns false
@@ -20,10 +20,10 @@ def add_card(category:str, question:str, answer:str, code:str='NULL', image:str=
     try:
         with sqlite3.connect('flashcards.db') as conn:      # Connection to the database
             category = utils.sanitize(category)             # Sanitizing category before adding
-            LOGGER.info(f"Adding the following row to the database:\n{category}, {question}, {code}, {image}, {answer}")
+            LOGGER.info(f"Adding the following row to the database:\n{category}, {question}, {code}, {image_path}, {answer}")
 
             c = conn.cursor()
-            c.execute("INSERT INTO Flashcards (category, question, code, image_path, answer) VALUES (?,?,?,?,?)", (category,question,code,image,answer))
+            c.execute("INSERT INTO Flashcards (category, question, code, image_path, answer) VALUES (?,?,?,?,?)", (category,question,code,image_path,answer))
             conn.commit()                                   # Commit changes to database
 
         return True
@@ -41,7 +41,7 @@ def view_card(key:int):
         key (str): the primary key of the flashcard being queried
 
     Output(s):
-        data (dict={'key':int, 'category':str, 'question':str, 'code':str, 'image':str, 'answer':str}): returns a 
+        data (dict={'key':int, 'category':str, 'question':str, 'code':str, 'image_path':str, 'answer':str}): returns a 
         dictionary of the Flashcard data if found, None otherwise
     '''
     try:
@@ -50,11 +50,11 @@ def view_card(key:int):
 
             c = conn.cursor()
             c.execute("SELECT * FROM Flashcards WHERE key = ?", (key,))
-            # Get the flash data: (category, question, code, image, answer)
+            # Get the flash data: (category, question, code, image_path, answer)
             fd = c.fetchone()
 
             # Convert the tuple into a dictionary
-            data = {'key': fd[0], 'category': fd[1], 'question': fd[2], 'code': fd[3], 'image': fd[4], 'answer': fd[5]}
+            data = {'key': fd[0], 'category': fd[1], 'question': fd[2], 'code': fd[3], 'image_path': fd[4], 'answer': fd[5]}
 
         return data
     
@@ -101,7 +101,7 @@ def view_allcards(category:str=None):
         category (str, defualt=None): specifies which group of cards to retrieve
 
     Output(s):
-        data (dict={'questions':[{'key':int, 'category':str, 'question':str, 'code':str, 'image':str, 'answer':str},...]}): a dictionary 
+        data (dict={'questions':[{'key':int, 'category':str, 'question':str, 'code':str, 'image_path':str, 'answer':str},...]}): a dictionary 
         containing flashcard data if successful, an dictionary with an empty list otherwise
     '''
     try:
@@ -122,7 +122,7 @@ def view_allcards(category:str=None):
             # Convert the list of tuples into a dictionary
             data = {'questions': []}
             for q in flash_data:
-                question = {'key': q[0], 'category': q[1], 'question': q[2], 'code': q[3], 'image': q[4], 'answer': q[5]}
+                question = {'key': q[0], 'category': q[1], 'question': q[2], 'code': q[3], 'image_path': q[4], 'answer': q[5]}
                 data['questions'].append(question)
 
 
@@ -140,7 +140,7 @@ def update_card(key:int, new_data:dict):
     Parameters:
         key (int): the primary key of the flashcard being updated
         new_data (dict): a dictionary containing the new data for the flashcard
-            {'category': value, 'question': value, 'code', value, 'image': value, 'answer':value}
+            {'category': value, 'question': value, 'code', value, 'image_path': value, 'answer':value}
 
     Returns:
         Bool: True if the update was successful, False otherwise
