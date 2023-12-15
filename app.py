@@ -100,7 +100,7 @@ def create_flashcard_route():
             # Get file data from form
             file = request.files['image']
             # Save file and get filename
-            data['image_path'] = 'NULL' if not file or file.filename == 'NULL' else 'NULL'
+            data['image_path'] = '' if not file else utils.save_image_file(file)
             LOGGER.info(f"Adding flashcard data:\n"
                         f"Category: {data['category']}\n"
                         f"Question: {data['question']}\n"
@@ -120,7 +120,7 @@ def create_flashcard_route():
                 question=data['question'], 
                 answer=data['answer'], 
                 code=data['code'], 
-                image=data['image_path'])
+                image_path=data['image_path'])
 
             if success:
                 LOGGER.info("Flashcard added successfully")
@@ -196,7 +196,7 @@ def update_flashcard_route(key):
             # Get file data from form
             file = request.files['image']
             # Save file and get filename
-            updated_data['image_path'] = 'NULL' if not file or file.filename == 'NULL' else 'NULL'
+            updated_data['image_path'] = '' if not file else utils.save_image_file(file)
             LOGGER.info(f"Editing: {key}\n"
                         f"Category: {updated_data['category']}\n"
                         f"Question: {updated_data['question']}\n"

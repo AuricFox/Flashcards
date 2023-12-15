@@ -154,12 +154,20 @@ def update_card(key:int, new_data:dict):
             LOGGER.info(f"Updating the database with new data:\nKey: {key}\nNew Data: {new_data}")
 
             c = conn.cursor()
-            # Construct the SET clause dynamically based on the new_data dictionary
-            set_clause = ', '.join(f"{var} = ?" for var in new_data.keys())
+            # Construct the SET clause based on the new_data dictionary
+            set_clause = 'category = ?, question = ?, code = ?, answer = ?'
+            set_query = (new_data['category'], new_data['question'], new_data['code'], new_data['answer'])
+
+            # Update image file if one has been submitted
+            if new_data['image_path'] != '':
+                set_clause += ', image_path = ?'
+                set_query = (new_data['image_path'],)
+
+            set_query += (key,)
 
             # Build the query and execute
             query = f"UPDATE Flashcards SET {set_clause} WHERE key = ?"
-            c.execute(query, (key,))
+            c.execute(query, set_query)
 
             conn.commit()  # Commit changes to the database
 
