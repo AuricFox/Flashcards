@@ -10,10 +10,13 @@ def create_tables():
               key INTEGER PRIMARY KEY AUTOINCREMENT,
               category TEXT NOT NULL,
               question TEXT NOT NULL,
-              code TEXT.
+              code TEXT,
               image_path TEXT,
               answer TEXT NOT NULL
     )""")
 
     conn.commit()                               # Commit changes to database
     conn.close()                                # Close connection to the database
+
+if __name__ == "__main__":
+    create_tables()
