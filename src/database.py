@@ -3,7 +3,7 @@ import sqlite3, utils
 LOGGER = utils.LOGGER
 
 # ==============================================================================================================
-def add_card(category:str, question:str, answer:str, code:str='NULL', image_path:str='NULL'):
+def add_card(category:str, question:str, answer:str, code:str='', image_path:str=''):
     '''
     Adds the flashcard data to the database.
 
@@ -20,10 +20,15 @@ def add_card(category:str, question:str, answer:str, code:str='NULL', image_path
     try:
         with sqlite3.connect('flashcards.db') as conn:      # Connection to the database
             category = utils.sanitize(category)             # Sanitizing category before adding
-            LOGGER.info(f"Adding the following row to the database:\n{category}, {question}, {code}, {image_path}, {answer}")
+
+            # Build parameterized query
+            query = "INSERT INTO Flashcards (category, question, code, image_path, answer) VALUES (?,?,?,?,?)"
+            query_set = (category, question, code, image_path, answer)
+
+            LOGGER.info(f"{query}\n{query_set}")
 
             c = conn.cursor()
-            c.execute("INSERT INTO Flashcards (category, question, code, image_path, answer) VALUES (?,?,?,?,?)", (category,question,code,image_path,answer))
+            c.execute(query, query_set)
             conn.commit()                                   # Commit changes to database
 
         return True
@@ -46,7 +51,7 @@ def view_card(key:int):
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
-            LOGGER.info(f"Searching the database for the following key:\n{key}")
+            LOGGER.info(f"SELECT * FROM Flashcards WHERE key = {key}")
 
             c = conn.cursor()
             c.execute("SELECT * FROM Flashcards WHERE key = ?", (key,))
@@ -54,7 +59,14 @@ def view_card(key:int):
             fd = c.fetchone()
 
             # Convert the tuple into a dictionary
-            data = {'key': fd[0], 'category': fd[1], 'question': fd[2], 'code': fd[3], 'image_path': fd[4], 'answer': fd[5]}
+            data = {
+                'key': fd[0],
+                'category': fd[1],
+                'question': fd[2], 
+                'code': fd[3],
+                'image_path': fd[4],
+                'answer': fd[5]
+            }
 
         return data
     
@@ -75,7 +87,7 @@ def view_allcategories():
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
-            LOGGER.info(f"Retrieving all categories from the database.")
+            LOGGER.info(f"SELECT category, COUNT(*) as count FROM Flashcards GROUP BY category")
 
             c = conn.cursor()
             c.execute("SELECT category, COUNT(*) as count FROM Flashcards GROUP BY category")
@@ -110,11 +122,11 @@ def view_allcards(category:str=None):
 
             # Retrieve all cards in a specified category
             if category:
-                LOGGER.info(f"Retrieving {category} flashcards from the database.")
+                LOGGER.info(f"SELECT * FROM Flashcards WHERE category = {category}")
                 c.execute("SELECT * FROM Flashcards WHERE category = ?", (category,))
             # Retrieve all cards in the database
             else:
-                LOGGER.info(f"Retrieving all flashcards from the database.")
+                LOGGER.info(f"SELECT * FROM Flashcards")
                 c.execute("SELECT * FROM Flashcards")
 
             flash_data = c.fetchall()
@@ -147,13 +159,9 @@ def update_card(key:int, new_data:dict):
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:
-            # Check if there is a category and sanitize it
-            if 'category' in new_data:
-                new_data['category'] = utils.sanitize(new_data['category'])
+            # Sanitize category of special characters
+            new_data['category'] = utils.sanitize(new_data['category'])
 
-            LOGGER.info(f"Updating the database with new data:\nKey: {key}\nNew Data: {new_data}")
-
-            c = conn.cursor()
             # Construct the SET clause based on the new_data dictionary
             set_clause = 'category = ?, question = ?, code = ?, answer = ?'
             set_query = (new_data['category'], new_data['question'], new_data['code'], new_data['answer'])
@@ -165,6 +173,9 @@ def update_card(key:int, new_data:dict):
 
             set_query += (key,)
 
+            LOGGER.info(f"UPDATE Flashcards SET {set_clause} WHERE key = ?\n{set_query}")
+
+            c = conn.cursor()
             # Build the query and execute
             query = f"UPDATE Flashcards SET {set_clause} WHERE key = ?"
             c.execute(query, set_query)
@@ -190,7 +201,7 @@ def delete_card(key:int):
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
-            LOGGER.info(f"Deleting the following key from the database:\n{key}")
+            LOGGER.info(f"DELETE FROM Flashcards WHERE key = {key}")
 
             c = conn.cursor()
             c.execute("DELETE FROM Flashcards WHERE key = ?", (key,))

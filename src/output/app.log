@@ -1,423 +1,58 @@
-2023-12-14 23:00:19,288 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2023-12-15 01:22:41,777 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2023-12-14 23:00:19,288 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-14 23:00:24,533 [INFO]: Retrieving all categories from the database.
-2023-12-14 23:00:24,533 [ERROR]: An error occured when retrieving from the database: no such table: Flashcards
-2023-12-14 23:00:24,551 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:24] "GET /home HTTP/1.1" 200 -
-2023-12-14 23:00:24,648 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:24] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:00:24,649 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:24] "GET /static/js/base.js HTTP/1.1" 200 -
-2023-12-14 23:00:27,028 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:00:27,028 [ERROR]: An error occured when retrieving from the database: no such table: Flashcards
-2023-12-14 23:00:27,034 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:27] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:00:27,058 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:27] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:00:27,063 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:27] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:00:30,989 [INFO]: Retrieving all categories from the database.
-2023-12-14 23:00:30,990 [ERROR]: An error occured when retrieving from the database: no such table: Flashcards
-2023-12-14 23:00:30,990 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:30] "GET /home HTTP/1.1" 200 -
-2023-12-14 23:00:31,012 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:31] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:00:31,015 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:31] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:00:32,116 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:32] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-14 23:00:32,150 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:32] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:00:32,151 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:00:32] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:01:21,054 [INFO]: Retrieving all categories from the database.
-2023-12-14 23:01:21,055 [ERROR]: An error occured when retrieving from the database: no such table: Flashcards
-2023-12-14 23:01:21,056 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:01:21] "GET /home HTTP/1.1" 200 -
-2023-12-14 23:01:21,081 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:01:21] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:01:21,087 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:01:21] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:01:45,539 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:01:45] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-14 23:01:45,569 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:01:45] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:01:45,580 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:01:45] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:01:49,374 [INFO]: Retrieving all categories from the database.
-2023-12-14 23:01:49,375 [ERROR]: An error occured when retrieving from the database: no such table: Flashcards
-2023-12-14 23:01:49,375 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:01:49] "GET /home HTTP/1.1" 200 -
-2023-12-14 23:01:49,408 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:01:49] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:01:49,408 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:01:49] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:06:16,490 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2023-12-14 23:06:16,490 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-14 23:06:21,074 [INFO]: Retrieving all categories from the database.
-2023-12-14 23:06:21,075 [ERROR]: An error occured when retrieving from the database: no such table: Flashcards
-2023-12-14 23:06:21,085 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:06:21] "GET /home HTTP/1.1" 200 -
-2023-12-14 23:06:21,176 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:06:21] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:06:21,177 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:06:21] "GET /static/js/base.js HTTP/1.1" 200 -
-2023-12-14 23:06:26,250 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:06:26] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-14 23:06:26,273 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:06:26] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:06:26,277 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:06:26] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:10:22,505 [INFO]: Adding flashcard data:
-Category: Computer Science
-Question: What is a data structure?
-Code: 
-Answer: A data structure is a way of organizing and storing data in a computer to facilitate efficient retrieval and manipulation of information.
-Image File: NULL
-2023-12-14 23:10:22,506 [INFO]: Adding the following row to the database:
-Computer Science, What is a data structure?, , NULL, A data structure is a way of organizing and storing data in a computer to facilitate efficient retrieval and manipulation of information.
-2023-12-14 23:10:22,508 [ERROR]: An error occured when adding to the database: no such table: Flashcards
-2023-12-14 23:10:22,509 [ERROR]: Failed to add flashcard
-2023-12-14 23:10:22,513 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:10:22] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
-2023-12-14 23:10:22,521 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:10:22,522 [ERROR]: An error occured when retrieving from the database: no such table: Flashcards
-2023-12-14 23:10:22,528 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:10:22] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:10:22,555 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:10:22] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:10:22,562 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:10:22] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:13:15,866 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2023-12-14 23:13:15,866 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-14 23:13:20,094 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:13:20,114 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:20] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:13:20,214 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:13:20,219 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:20] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:13:22,834 [INFO]: Retrieving all categories from the database.
-2023-12-14 23:13:22,843 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:22] "GET /home HTTP/1.1" 200 -
-2023-12-14 23:13:22,868 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:22] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:13:22,874 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:22] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:13:24,780 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:24] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-14 23:13:24,803 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:24] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:13:24,809 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:24] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:13:59,430 [INFO]: Adding flashcard data:
-Category: Computer Science
-Question: What is a data structure?
-Code: 
-Answer: A data structure is a way of organizing and storing data in a computer to facilitate efficient retrieval and manipulation of information.
-Image File: NULL
-2023-12-14 23:13:59,431 [INFO]: Adding the following row to the database:
-Computer Science, What is a data structure?, , NULL, A data structure is a way of organizing and storing data in a computer to facilitate efficient retrieval and manipulation of information.
-2023-12-14 23:13:59,431 [ERROR]: An error occured when adding to the database: table Flashcards has 6 columns but 5 values were supplied
-2023-12-14 23:13:59,431 [ERROR]: Failed to add flashcard
-2023-12-14 23:13:59,432 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:59] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
-2023-12-14 23:13:59,442 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:13:59,443 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:59] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:13:59,470 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:59] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:13:59,476 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:13:59] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:25:36,707 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2023-12-14 23:25:36,707 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-14 23:25:40,521 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:25:40,535 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:25:40] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:25:40,625 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:25:40] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:25:40,627 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:25:40] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:25:41,548 [INFO]: Retrieving all categories from the database.
-2023-12-14 23:25:41,553 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:25:41] "GET /home HTTP/1.1" 200 -
-2023-12-14 23:25:41,575 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:25:41] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:25:41,580 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:25:41] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:25:43,217 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:25:43] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-14 23:25:43,241 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:25:43] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:25:43,246 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:25:43] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:26:21,273 [INFO]: Adding flashcard data:
-Category: Computer Science
-Question: What is a data structure?
-Code: 
-Answer: A data structure is a way of organizing and storing data in a computer to facilitate efficient retrieval and manipulation of information.
-Image File: NULL
-2023-12-14 23:26:21,274 [INFO]: Adding the following row to the database:
-Computer Science, What is a data structure?, , NULL, A data structure is a way of organizing and storing data in a computer to facilitate efficient retrieval and manipulation of information.
-2023-12-14 23:26:21,281 [INFO]: Flashcard added successfully
-2023-12-14 23:26:21,282 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:26:21] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
-2023-12-14 23:26:21,290 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:26:21,291 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:26:21] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:26:21,320 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:26:21] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:26:21,325 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:26:21] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:26:32,701 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:26:32] "[33mGET /view_flashcard/ HTTP/1.1[0m" 404 -
-2023-12-14 23:26:36,136 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:26:36,137 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:26:36] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:29:11,037 [INFO]: Retrieving all categories from the database.
-2023-12-14 23:29:11,041 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:29:11] "GET /home HTTP/1.1" 200 -
-2023-12-14 23:29:11,069 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:29:11] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:29:11,081 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:29:11] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:29:14,631 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:29:14,633 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:29:14] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:29:14,657 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:29:14] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:29:14,664 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:29:14] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:29:16,950 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:29:16] "[33mGET /edit_flashcard/ HTTP/1.1[0m" 404 -
-2023-12-14 23:30:40,665 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2023-12-14 23:30:40,665 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-14 23:30:43,145 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:30:43,164 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:30:43] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:30:43,270 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:30:43] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:30:43,272 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:30:43] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:33:12,667 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2023-12-14 23:33:12,667 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-14 23:33:15,126 [INFO]: Retrieving all categories from the database.
-2023-12-14 23:33:15,143 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:15] "GET /home HTTP/1.1" 200 -
-2023-12-14 23:33:15,261 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:15] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:33:15,264 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:15] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:33:17,216 [INFO]: Retrieving Computer Science flashcards from the database.
-2023-12-14 23:33:17,222 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:17] "GET /flashcards/Computer%20Science HTTP/1.1" 200 -
-2023-12-14 23:33:17,243 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:17] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:33:17,251 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:17] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:33:40,213 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:33:40,220 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:40] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:33:40,244 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:40] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:33:40,252 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:40] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:33:44,279 [INFO]: Searching the database for the following key:
-1
-2023-12-14 23:33:44,284 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:44] "GET /view_flashcard/1 HTTP/1.1" 200 -
-2023-12-14 23:33:44,308 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:33:44,313 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:33:57,457 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:33:57,458 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:57] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:33:57,481 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:57] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:33:57,487 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:57] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:33:59,254 [INFO]: Searching the database for the following key:
-1
-2023-12-14 23:33:59,260 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:59] "GET /edit_flashcard/1 HTTP/1.1" 200 -
-2023-12-14 23:33:59,281 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:59] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:33:59,288 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:33:59] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:34:05,068 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:34:05,070 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:05] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:34:05,094 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:05] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:34:05,097 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:05] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:34:10,310 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:10] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-14 23:34:10,329 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:10] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:34:10,334 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:10] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:34:22,997 [INFO]: Adding flashcard data:
+2023-12-15 01:22:41,777 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-15 01:22:44,704 [INFO]: SELECT * FROM Flashcards
+2023-12-15 01:22:44,716 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:44] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-15 01:22:44,807 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 01:22:44,808 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 01:22:50,754 [INFO]: SELECT * FROM Flashcards WHERE key = 1
+2023-12-15 01:22:50,760 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:50] "GET /view_flashcard/1 HTTP/1.1" 200 -
+2023-12-15 01:22:50,782 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:50] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 01:22:50,788 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:50] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 01:22:56,700 [INFO]: SELECT * FROM Flashcards
+2023-12-15 01:22:56,702 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:56] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-15 01:22:56,727 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:56] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 01:22:56,733 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:56] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 01:22:58,342 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:58] "GET /add_flashcard HTTP/1.1" 200 -
+2023-12-15 01:22:58,364 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:58] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 01:22:58,369 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:58] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 01:23:07,961 [INFO]: Adding flashcard data:
 Category: test
 Question: test
 Code: 
 Answer: test
-Image File: NULL
-2023-12-14 23:34:22,998 [INFO]: Adding the following row to the database:
-test, test, , NULL, test
-2023-12-14 23:34:23,005 [INFO]: Flashcard added successfully
-2023-12-14 23:34:23,006 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:23] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
-2023-12-14 23:34:23,015 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:34:23,017 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:23] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:34:23,044 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:23] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:34:23,050 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:23] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:34:29,921 [INFO]: Deleting the following key from the database:
-2
-2023-12-14 23:34:29,926 [INFO]: Flashcard was successfully deleted!
-Deleted Question Key: 2
-2023-12-14 23:34:29,927 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:29] "[32mGET /delete_flashcard/2 HTTP/1.1[0m" 302 -
-2023-12-14 23:34:29,934 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:34:29,935 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:29] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:34:29,964 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:29] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:34:29,965 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:29] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:34:38,879 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:38] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-14 23:34:38,900 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:38] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:34:38,903 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:38] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:34:48,149 [INFO]: Adding flashcard data:
-Category: test
-Question: test
-Code: 
-Answer: test
-Image File: NULL
-2023-12-14 23:34:48,150 [INFO]: Adding the following row to the database:
-test, test, , NULL, test
-2023-12-14 23:34:48,158 [INFO]: Flashcard added successfully
-2023-12-14 23:34:48,159 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:48] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
-2023-12-14 23:34:48,168 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:34:48,171 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:48] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:34:48,199 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:48] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:34:48,205 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:48] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:34:53,457 [INFO]: Searching the database for the following key:
-3
-2023-12-14 23:34:53,457 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:53] "GET /edit_flashcard/3 HTTP/1.1" 200 -
-2023-12-14 23:34:53,480 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:53] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:34:53,486 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:34:53] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:35:00,935 [INFO]: Editing: 3
-Category: test2
-Question: test2
-Code: 
-Answer: test2
-Image File: NULL
-2023-12-14 23:35:00,936 [INFO]: Updating the database with new data:
-Key: 3
-New Data: {'category': 'test2', 'question': 'test2', 'code': '', 'answer': 'test2', 'image': 'NULL'}
-2023-12-14 23:35:00,936 [ERROR]: An error occurred when updating the database: no such column: image
-2023-12-14 23:35:00,937 [ERROR]: Failed to update flashcard
-2023-12-14 23:35:00,937 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:35:00] "[32mPOST /update_flashcard/3 HTTP/1.1[0m" 302 -
-2023-12-14 23:35:00,943 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:35:00,944 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:35:00] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:35:00,974 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:35:00] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:35:00,980 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:35:00] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:45:00,965 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2023-12-14 23:45:00,965 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-14 23:45:04,205 [INFO]: Retrieving all categories from the database.
-2023-12-14 23:45:04,231 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:04] "GET /home HTTP/1.1" 200 -
-2023-12-14 23:45:04,344 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:04] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:45:04,352 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:04] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:45:05,426 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:45:05,434 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:05] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:45:05,456 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:05] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:45:05,459 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:05] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:45:08,809 [INFO]: Searching the database for the following key:
-3
-2023-12-14 23:45:08,815 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:08] "GET /edit_flashcard/3 HTTP/1.1" 200 -
-2023-12-14 23:45:08,837 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:08] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:45:08,841 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:08] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:45:14,923 [INFO]: Editing: 3
-Category: test2
-Question: test2
-Code: 
-Answer: test2
-Image File: NULL
-2023-12-14 23:45:14,924 [INFO]: Updating the database with new data:
-Key: 3
-New Data: {'category': 'test2', 'question': 'test2', 'code': '', 'answer': 'test2', 'image_path': 'NULL'}
-2023-12-14 23:45:14,925 [ERROR]: An error occurred when updating the database: Incorrect number of bindings supplied. The current statement uses 6, and there are 1 supplied.
-2023-12-14 23:45:14,925 [ERROR]: Failed to update flashcard
-2023-12-14 23:45:14,926 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:14] "[32mPOST /update_flashcard/3 HTTP/1.1[0m" 302 -
-2023-12-14 23:45:14,936 [INFO]: Retrieving all flashcards from the database.
-2023-12-14 23:45:14,938 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:14] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-14 23:45:14,969 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:14] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:45:14,973 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:45:14] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-14 23:47:18,080 [INFO]: Searching the database for the following key:
-3
-2023-12-14 23:47:18,081 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:47:18] "GET /edit_flashcard/3 HTTP/1.1" 200 -
-2023-12-14 23:47:18,109 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:47:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-14 23:47:18,118 [INFO]: 127.0.0.1 - - [14/Dec/2023 23:47:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:56:56,155 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2023-12-15 00:56:56,155 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-15 00:56:59,939 [INFO]: Searching the database for the following key:
-3
-2023-12-15 00:56:59,951 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:56:59] "GET /edit_flashcard/3 HTTP/1.1" 200 -
-2023-12-15 00:57:00,050 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:00] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:57:00,051 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:00] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:57:01,482 [INFO]: Retrieving all categories from the database.
-2023-12-15 00:57:01,486 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:01] "GET /home HTTP/1.1" 200 -
-2023-12-15 00:57:01,509 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:01] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:57:01,514 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:01] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:57:03,058 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 00:57:03,065 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:03] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 00:57:03,087 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:03] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:57:03,094 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:03] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:57:05,302 [INFO]: Searching the database for the following key:
-3
-2023-12-15 00:57:05,303 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:05] "GET /edit_flashcard/3 HTTP/1.1" 200 -
-2023-12-15 00:57:05,327 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:05] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:57:05,330 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:05] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:57:11,013 [INFO]: Editing: 3
-Category: test2
-Question: test2
-Code: 
-Answer: test2
 Image File: 
-2023-12-15 00:57:11,014 [INFO]: Updating the database with new data:
-Key: 3
-New Data: {'category': 'test2', 'question': 'test2', 'code': '', 'answer': 'test2', 'image_path': ''}
-2023-12-15 00:57:11,014 [ERROR]: An Error occured when updating the flashcard: 'image_page'
-2023-12-15 00:57:11,015 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:11] "[32mPOST /update_flashcard/3 HTTP/1.1[0m" 302 -
-2023-12-15 00:57:11,022 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 00:57:11,024 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:11] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 00:57:11,052 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:11] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:57:11,059 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:57:11] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:58:06,178 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2023-12-15 00:58:06,178 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-15 00:58:08,495 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 00:58:08,519 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:08] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 00:58:08,627 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:08] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:58:08,629 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:08] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:58:10,531 [INFO]: Searching the database for the following key:
-3
-2023-12-15 00:58:10,536 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:10] "GET /edit_flashcard/3 HTTP/1.1" 200 -
-2023-12-15 00:58:10,558 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:10] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:58:10,562 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:10] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:58:15,783 [INFO]: Editing: 3
-Category: test2
-Question: test2
+2023-12-15 01:23:07,962 [INFO]: INSERT INTO Flashcards (category, question, code, image_path, answer) VALUES (?,?,?,?,?)
+('test', 'test', '', '', 'test')
+2023-12-15 01:23:07,970 [INFO]: Flashcard added successfully
+2023-12-15 01:23:07,971 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:07] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
+2023-12-15 01:23:07,979 [INFO]: SELECT * FROM Flashcards
+2023-12-15 01:23:07,980 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:07] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-15 01:23:08,005 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:08] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 01:23:08,008 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:08] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 01:23:12,955 [INFO]: SELECT * FROM Flashcards WHERE key = 5
+2023-12-15 01:23:12,959 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:12] "GET /edit_flashcard/5 HTTP/1.1" 200 -
+2023-12-15 01:23:12,980 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:12] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 01:23:12,985 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:12] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 01:23:18,083 [INFO]: Editing: 5
+Category: test1
+Question: test1
 Code: 
-Answer: test2
+Answer: test1
 Image File: 
-2023-12-15 00:58:15,784 [INFO]: Updating the database with new data:
-Key: 3
-New Data: {'category': 'test2', 'question': 'test2', 'code': '', 'answer': 'test2', 'image_path': ''}
-2023-12-15 00:58:15,793 [INFO]: Flashcard updated successfully
-2023-12-15 00:58:15,794 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:15] "[32mPOST /update_flashcard/3 HTTP/1.1[0m" 302 -
-2023-12-15 00:58:15,802 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 00:58:15,804 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:15] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 00:58:15,837 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:15] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:58:15,844 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:15] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:58:29,452 [INFO]: Searching the database for the following key:
-3
-2023-12-15 00:58:29,457 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:29] "GET /view_flashcard/3 HTTP/1.1" 200 -
-2023-12-15 00:58:29,476 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:29] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:58:29,480 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:29] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:58:33,896 [INFO]: Retrieving all categories from the database.
-2023-12-15 00:58:33,899 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:33] "GET /home HTTP/1.1" 200 -
-2023-12-15 00:58:33,919 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:33] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:58:33,925 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:33] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:58:35,462 [INFO]: Retrieving test2 flashcards from the database.
-2023-12-15 00:58:35,467 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:35] "GET /flashcards/test2 HTTP/1.1" 200 -
-2023-12-15 00:58:35,491 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:35] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:58:35,497 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:35] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:58:40,219 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 00:58:40,220 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:40] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 00:58:40,244 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:40] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:58:40,250 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:40] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:58:45,330 [INFO]: Deleting the following key from the database:
-3
-2023-12-15 00:58:45,336 [INFO]: Flashcard was successfully deleted!
-Deleted Question Key: 3
-2023-12-15 00:58:45,336 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:45] "[32mGET /delete_flashcard/3 HTTP/1.1[0m" 302 -
-2023-12-15 00:58:45,344 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 00:58:45,345 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:45] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 00:58:45,372 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:45] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:58:45,374 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:45] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:58:52,051 [INFO]: Retrieving all categories from the database.
-2023-12-15 00:58:52,052 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:52] "GET /home HTTP/1.1" 200 -
-2023-12-15 00:58:52,073 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:52] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:58:52,078 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:52] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:58:52,941 [INFO]: Retrieving Computer Science flashcards from the database.
-2023-12-15 00:58:52,942 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:52] "GET /flashcards/Computer%20Science HTTP/1.1" 200 -
-2023-12-15 00:58:52,964 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:52] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:58:52,968 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:58:52] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:59:25,000 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 00:59:25,001 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:59:25] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 00:59:25,027 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:59:25] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:59:25,031 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:59:25] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 00:59:35,046 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:59:35] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-15 00:59:35,067 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:59:35] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 00:59:35,072 [INFO]: 127.0.0.1 - - [15/Dec/2023 00:59:35] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:00:35,945 [INFO]: Adding flashcard data:
-Category: Computer Science
-Question: What is a data type?
-Code: 
-Answer: A data type is a classification that specifies which type of value a variable can hold and the operations that can be performed on it.
-Image File: 
-2023-12-15 01:00:35,946 [ERROR]: An Error occured when adding the flashcard: add_card() got an unexpected keyword argument 'image'
-2023-12-15 01:00:35,947 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:00:35] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
-2023-12-15 01:00:35,956 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 01:00:35,958 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:00:35] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 01:00:35,988 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:00:35] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:00:35,995 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:00:35] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:04:08,470 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2023-12-15 01:04:08,470 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-15 01:04:10,864 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 01:04:10,882 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:10] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 01:04:10,991 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:10] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:04:10,993 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:10] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:04:12,076 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:12] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-15 01:04:12,099 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:12] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:04:12,106 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:12] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:04:36,570 [INFO]: Adding flashcard data:
-Category: Computer Science
-Question: what is a data type?
-Code: 
-Answer: A data type is a classification that specifies which type of value a variable can hold and the operations that can be performed on it.
-Image File: 
-2023-12-15 01:04:36,571 [INFO]: Adding the following row to the database:
-Computer Science, what is a data type?, , , A data type is a classification that specifies which type of value a variable can hold and the operations that can be performed on it.
-2023-12-15 01:04:36,578 [INFO]: Flashcard added successfully
-2023-12-15 01:04:36,579 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:36] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
-2023-12-15 01:04:36,584 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 01:04:36,585 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:36] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 01:04:36,618 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:36] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:04:36,625 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:36] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:04:40,439 [INFO]: Retrieving all categories from the database.
-2023-12-15 01:04:40,444 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:40] "GET /home HTTP/1.1" 200 -
-2023-12-15 01:04:40,464 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:40] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:04:40,468 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:40] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:04:41,573 [INFO]: Retrieving Computer Science flashcards from the database.
-2023-12-15 01:04:41,578 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:41] "GET /flashcards/Computer%20Science HTTP/1.1" 200 -
-2023-12-15 01:04:41,600 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:41] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:04:41,604 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:41] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:04:50,165 [INFO]: Retrieving all flashcards from the database.
-2023-12-15 01:04:50,167 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:50] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 01:04:50,190 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:50] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:04:50,193 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:04:50] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 01:23:18,084 [INFO]: UPDATE Flashcards SET category = ?, question = ?, code = ?, answer = ? WHERE key = ?
+('test1', 'test1', '', 'test1', '5')
+2023-12-15 01:23:18,091 [INFO]: Flashcard updated successfully
+2023-12-15 01:23:18,092 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:18] "[32mPOST /update_flashcard/5 HTTP/1.1[0m" 302 -
+2023-12-15 01:23:18,099 [INFO]: SELECT * FROM Flashcards
+2023-12-15 01:23:18,101 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:18] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-15 01:23:18,130 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 01:23:18,135 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 01:23:21,770 [INFO]: DELETE FROM Flashcards WHERE key = 5
+2023-12-15 01:23:21,775 [INFO]: Flashcard was successfully deleted!
+Deleted Question Key: 5
+2023-12-15 01:23:21,776 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "[32mGET /delete_flashcard/5 HTTP/1.1[0m" 302 -
+2023-12-15 01:23:21,783 [INFO]: SELECT * FROM Flashcards
+2023-12-15 01:23:21,784 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-15 01:23:21,819 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 01:23:21,821 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
