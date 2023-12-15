@@ -91,7 +91,7 @@ function shuffleArray(array) {
 function validateText(id) {
     // Validate text to ensure it only contains letters and numbers
     var textarea = document.getElementById(id);
-    var pattern = /^[a-zA-Z0-9]+$/;
+    var pattern = /^[a-zA-Z0-9\s]+$/;
 
     if (!pattern.test(textarea.value)) {
         textarea.setCustomValidity("Only letters and numbers are allowed");

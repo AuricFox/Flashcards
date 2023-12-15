@@ -23,7 +23,7 @@ def add_card(category:str, question:str, answer:str, code:str='NULL', image:str=
             LOGGER.info(f"Adding the following row to the database:\n{category}, {question}, {code}, {image}, {answer}")
 
             c = conn.cursor()
-            c.execute("INSERT INTO Flashcards VALUES (?,?,?,?,?)", (category,question,code,image,answer))
+            c.execute("INSERT INTO Flashcards (category, question, code, image_path, answer) VALUES (?,?,?,?,?)", (category,question,code,image,answer))
             conn.commit()                                   # Commit changes to database
 
         return True
@@ -90,7 +90,7 @@ def view_allcategories():
     
     except sqlite3.Error as e:
         LOGGER.error(f"An error occured when retrieving from the database: {e}")
-        return []
+        return {}
        
 # ==============================================================================================================
 def view_allcards(category:str=None):
@@ -122,7 +122,7 @@ def view_allcards(category:str=None):
             # Convert the list of tuples into a dictionary
             data = {'questions': []}
             for q in flash_data:
-                question = {'category': q[0], 'question': q[1], 'code': q[2], 'image': q[3], 'answer': q[4]}
+                question = {'key': q[0], 'category': q[1], 'question': q[2], 'code': q[3], 'image': q[4], 'answer': q[5]}
                 data['questions'].append(question)
 
 
