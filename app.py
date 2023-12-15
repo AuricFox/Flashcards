@@ -2,7 +2,7 @@ from flask import Flask, request, redirect, render_template, url_for, flash
 
 import os, sys
 sys.path.append('./src/')
-import utils #,database
+import utils ,database
 
 LOGGER = utils.LOGGER
 app = Flask(__name__, static_folder='static')
@@ -33,10 +33,8 @@ def home():
     Returns:
         a built html page that displays the categories and their count
     '''
-    # TODO: Query database for all categories and their counts
-    # data = database.view_allcategories()
-
-    data = {'categories': 2, 'test': 3, 'test2': 1}
+    # Query database for all categories and their counts
+    data = database.view_allcategories()
 
     return render_template('home.html', nav_id="home-page", data=data)
 
@@ -52,9 +50,8 @@ def flashcard_route(category):
     Returns:
         a built html page that displays the flashcards
     '''
-    # TODO: Query database for questions related to specified category
-    # data = database.view_allcards(category=category)
-    data = TEST_DATA
+    # Query database for questions related to specified category
+    data = database.view_allcards(category=category)
     length = len(data['questions'])
 
     return render_template('flashcards.html', nav_id="home-page", data=data, length=length)
@@ -70,10 +67,10 @@ def manage_flashcards_route():
     Returns:
         a built html page that displays the flashcard data
     '''
-    # TODO: Query database for all questions
-    # data = database.view_allcards(category=None)
+    # Query database for all questions
+    data = database.view_allcards(category=None)
 
-    return render_template('manage_flashcards.html', nav_id="manage-page", data=TEST_DATA)
+    return render_template('manage_flashcards.html', nav_id="manage-page", data=data)
 
 # ==============================================================================================================
 @app.route("/add_flashcard")
@@ -129,16 +126,13 @@ def create_flashcard_route():
                 flash(f'{file.filename} is an Invalid File or FileType', 'error')
                 return redirect(request.referrer)
 
-            # TODO:Update old question data with new data
-            '''
+            # Update old question data with new data
             success = database.add_card(
                 category=data['category'], 
                 question=data['question'], 
                 answer=data['answer'], 
                 code=data['code'], 
                 image=data['image'])
-            '''
-            success = True
 
             if success:
                 LOGGER.info("Flashcard added successfully")
@@ -167,10 +161,10 @@ def view_flashcard_route(key):
     Returns:
         a built html page that displays the flashcard data
     '''
-    # TODO: Query database for question
-    # data = database.view_card(key=key)
+    # Query database for question
+    data = database.view_card(key=key)
     
-    return render_template('view_flashcard.html', nav_id="manage-page", data=TEST_DATA["questions"][0])
+    return render_template('view_flashcard.html', nav_id="manage-page", data=data)
 
 # ==============================================================================================================
 @app.route("/edit_flashcard/<key>")
@@ -184,10 +178,10 @@ def edit_flashcard_route(key):
     Returns:
         a built html page that displays the flashcard data for editing
     '''
-    # TODO: Query database for question being edited
-    # data = database.view_card(key=key)
+    # Query database for question being edited
+    data = database.view_card(key=key)
     
-    return render_template('edit_flashcard.html', nav_id="manage-page", data=TEST_DATA["questions"][0])
+    return render_template('edit_flashcard.html', nav_id="manage-page", data=data)
 
 # ==============================================================================================================
 @app.route("/update_flashcard/<key>", methods=['GET', 'POST'])
@@ -228,9 +222,8 @@ def update_flashcard_route(key):
                 flash(f'{file.filename} is an Invalid File or FileType', 'error')
                 return redirect(request.referrer)
 
-            # TODO:Update old question data with new data
-            # success = database.update_card(key=key, new_data=updated_data)
-            success = True
+            # Update old question data with new data
+            success = database.update_card(key=key, new_data=updated_data)
 
             if success:
                 LOGGER.info("Flashcard updated successfully")
@@ -260,9 +253,8 @@ def delete_flashcard_route(key):
         None, redirects to the manage page
     '''
     try:
-        # TODO: Query database for question and delete it
-        # success = database.delete_card(key=key)
-        success = True
+        # Query database for question and delete it
+        success = database.delete_card(key=key)
 
         if success:
             LOGGER.info(f"Flashcard was successfully deleted!\nDeleted Question Key: {key}")
