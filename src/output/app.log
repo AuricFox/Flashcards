@@ -56,3 +56,52 @@ Deleted Question Key: 5
 2023-12-15 01:23:21,784 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "GET /manage_flashcards HTTP/1.1" 200 -
 2023-12-15 01:23:21,819 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
 2023-12-15 01:23:21,821 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 21:22:14,306 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-15 21:22:14,306 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-15 21:22:17,644 [INFO]: SELECT * FROM Flashcards
+2023-12-15 21:22:17,669 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:17] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-15 21:22:17,771 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:17] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 21:22:17,778 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:17] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 21:22:17,866 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2023-12-15 21:22:26,788 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:26] "GET /add_flashcard HTTP/1.1" 200 -
+2023-12-15 21:22:26,809 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:26] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 21:22:26,814 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:26] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 21:23:20,852 [INFO]: Creating file: C:\Users\sskit\OneDrive\Desktop\Interview_Cards\src\../static/images\George washington.jpg
+2023-12-15 21:23:20,854 [INFO]: Adding flashcard data:
+Category: test
+Question: test
+Code: 
+Answer: test
+Image File: George washington_1.jpg
+2023-12-15 21:23:20,855 [INFO]: INSERT INTO Flashcards (category, question, code, image_path, answer) VALUES (?,?,?,?,?)
+('test', 'test', '', 'George washington_1.jpg', 'test')
+2023-12-15 21:23:20,865 [INFO]: Flashcard added successfully
+2023-12-15 21:23:20,868 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:20] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
+2023-12-15 21:23:20,875 [INFO]: SELECT * FROM Flashcards
+2023-12-15 21:23:20,876 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:20] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-15 21:23:20,895 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 21:23:20,897 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:20] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 21:23:37,673 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-15 21:23:37,682 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:37] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-15 21:23:37,698 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:37] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 21:23:37,700 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:37] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 21:25:20,844 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:25:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 21:25:46,550 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-15 21:25:46,550 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-15 21:25:49,352 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-15 21:25:49,367 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:25:49] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-15 21:25:49,473 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:25:49] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 21:25:49,474 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:25:49] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 21:26:31,444 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-15 21:26:31,444 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-15 21:26:34,550 [INFO]: SELECT * FROM Flashcards
+2023-12-15 21:26:34,570 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:26:34] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-15 21:26:34,677 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:26:34] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 21:26:34,681 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:26:34] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-15 21:28:12,311 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-15 21:28:12,316 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:28:12] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-15 21:28:12,334 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:28:12] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-15 21:28:12,336 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:28:12] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
