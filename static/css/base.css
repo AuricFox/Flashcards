@@ -137,8 +137,8 @@ body {
 
 .flashcard {
     background-color: transparent;
-    width: 60%;
-    height: 20rem;
+    width: 65vw;
+    height: 65vh;
     perspective: 1000px;
 }
 
@@ -207,6 +207,14 @@ button {
 #shuffle-button:hover {
     cursor: pointer;
     background-color: rgb(123, 123, 253);
+}
+
+.card-image {
+    border-radius: 4px;
+    height: fit-content;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 /* ========== Flashcard Table [Manage Flashcard Page] ========== */
@@ -286,10 +294,6 @@ tr:last-child td {
 
 .flashcard-content-inner:first-child {
     border-top: none;
-}
-
-img {
-    width: 100%;
 }
 
 /* ========== Flashcard Content [Edit Flashcard Page] ========== */
