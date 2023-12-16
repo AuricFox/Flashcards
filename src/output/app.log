@@ -1,107 +1,143 @@
-2023-12-15 01:22:41,777 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2023-12-16 14:26:36,550 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2023-12-15 01:22:41,777 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-15 01:22:44,704 [INFO]: SELECT * FROM Flashcards
-2023-12-15 01:22:44,716 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:44] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 01:22:44,807 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:22:44,808 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:22:50,754 [INFO]: SELECT * FROM Flashcards WHERE key = 1
-2023-12-15 01:22:50,760 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:50] "GET /view_flashcard/1 HTTP/1.1" 200 -
-2023-12-15 01:22:50,782 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:50] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:22:50,788 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:50] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:22:56,700 [INFO]: SELECT * FROM Flashcards
-2023-12-15 01:22:56,702 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:56] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 01:22:56,727 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:56] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:22:56,733 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:56] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:22:58,342 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:58] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-15 01:22:58,364 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:58] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:22:58,369 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:22:58] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:23:07,961 [INFO]: Adding flashcard data:
+2023-12-16 14:26:36,550 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-16 14:26:41,222 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:26:41,234 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:41] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:26:41,252 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:41] "[33mGET /static/images/George_washington_2.jpg HTTP/1.1[0m" 404 -
+2023-12-16 14:26:41,321 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:41] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:26:41,327 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:41] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:26:42,271 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:26:42,277 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:42] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:26:42,294 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:42] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:26:42,300 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:42] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:26:45,834 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:26:45,839 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:45] "GET /edit_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:26:45,858 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:45] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:26:45,864 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:45] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:26:51,638 [INFO]: Creating file: C:\Users\sskit\OneDrive\Desktop\Interview_Cards\src\../static/images\George_washington_2.jpg
+2023-12-16 14:26:51,639 [INFO]: Editing: 6
 Category: test
 Question: test
 Code: 
 Answer: test
-Image File: 
-2023-12-15 01:23:07,962 [INFO]: INSERT INTO Flashcards (category, question, code, image_path, answer) VALUES (?,?,?,?,?)
-('test', 'test', '', '', 'test')
-2023-12-15 01:23:07,970 [INFO]: Flashcard added successfully
-2023-12-15 01:23:07,971 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:07] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
-2023-12-15 01:23:07,979 [INFO]: SELECT * FROM Flashcards
-2023-12-15 01:23:07,980 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:07] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 01:23:08,005 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:08] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:23:08,008 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:08] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:23:12,955 [INFO]: SELECT * FROM Flashcards WHERE key = 5
-2023-12-15 01:23:12,959 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:12] "GET /edit_flashcard/5 HTTP/1.1" 200 -
-2023-12-15 01:23:12,980 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:12] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:23:12,985 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:12] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:23:18,083 [INFO]: Editing: 5
-Category: test1
-Question: test1
-Code: 
-Answer: test1
-Image File: 
-2023-12-15 01:23:18,084 [INFO]: UPDATE Flashcards SET category = ?, question = ?, code = ?, answer = ? WHERE key = ?
-('test1', 'test1', '', 'test1', '5')
-2023-12-15 01:23:18,091 [INFO]: Flashcard updated successfully
-2023-12-15 01:23:18,092 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:18] "[32mPOST /update_flashcard/5 HTTP/1.1[0m" 302 -
-2023-12-15 01:23:18,099 [INFO]: SELECT * FROM Flashcards
-2023-12-15 01:23:18,101 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:18] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 01:23:18,130 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:23:18,135 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 01:23:21,770 [INFO]: DELETE FROM Flashcards WHERE key = 5
-2023-12-15 01:23:21,775 [INFO]: Flashcard was successfully deleted!
-Deleted Question Key: 5
-2023-12-15 01:23:21,776 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "[32mGET /delete_flashcard/5 HTTP/1.1[0m" 302 -
-2023-12-15 01:23:21,783 [INFO]: SELECT * FROM Flashcards
-2023-12-15 01:23:21,784 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 01:23:21,819 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 01:23:21,821 [INFO]: 127.0.0.1 - - [15/Dec/2023 01:23:21] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 21:22:14,306 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+Image File: George_washington_3.jpg
+2023-12-16 14:26:51,640 [WARNING]: The file C:\Users\sskit\OneDrive\Desktop\Interview_Cards\./src\static\image\George_washington_2.jpg does not exist.
+2023-12-16 14:26:51,640 [INFO]: UPDATE Flashcards SET category = ?, question = ?, code = ?, answer = ?, image_path = ? WHERE key = ?
+('test', 'test', '', 'test', 'George_washington_3.jpg', '6')
+2023-12-16 14:26:51,646 [INFO]: Flashcard updated successfully
+2023-12-16 14:26:51,648 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:51] "[32mPOST /update_flashcard/6 HTTP/1.1[0m" 302 -
+2023-12-16 14:26:51,654 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:26:51,655 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:51] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:26:51,674 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:51] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:26:51,676 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:26:51] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:27:02,450 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:27:02,451 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:27:02] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:27:02,472 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:27:02] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:27:02,474 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:27:02] "[33mGET /static/images/George_washington_3.jpg HTTP/1.1[0m" 404 -
+2023-12-16 14:27:02,483 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:27:02] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:38:32,229 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2023-12-15 21:22:14,306 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-15 21:22:17,644 [INFO]: SELECT * FROM Flashcards
-2023-12-15 21:22:17,669 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:17] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 21:22:17,771 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:17] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 21:22:17,778 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:17] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 21:22:17,866 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2023-12-15 21:22:26,788 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:26] "GET /add_flashcard HTTP/1.1" 200 -
-2023-12-15 21:22:26,809 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:26] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 21:22:26,814 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:22:26] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 21:23:20,852 [INFO]: Creating file: C:\Users\sskit\OneDrive\Desktop\Interview_Cards\src\../static/images\George washington.jpg
-2023-12-15 21:23:20,854 [INFO]: Adding flashcard data:
+2023-12-16 14:38:32,229 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-16 14:38:35,833 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:38:35,846 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:35] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:38:35,865 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:35] "[33mGET /static/images/George_washington_3.jpg HTTP/1.1[0m" 404 -
+2023-12-16 14:38:35,934 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:35] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:38:35,939 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:35] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:38:36,875 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:38:36,882 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:36] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:38:36,898 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:36] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:38:36,900 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:36] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:38:39,292 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:38:39,298 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:39] "GET /edit_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:38:39,317 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:39] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:38:39,322 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:39] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:38:44,948 [INFO]: Creating file: C:\Users\sskit\OneDrive\Desktop\Interview_Cards\src\../static/images\George_washington_3.jpg
+2023-12-16 14:38:44,949 [INFO]: Editing: 6
 Category: test
 Question: test
 Code: 
 Answer: test
-Image File: George washington_1.jpg
-2023-12-15 21:23:20,855 [INFO]: INSERT INTO Flashcards (category, question, code, image_path, answer) VALUES (?,?,?,?,?)
-('test', 'test', '', 'George washington_1.jpg', 'test')
-2023-12-15 21:23:20,865 [INFO]: Flashcard added successfully
-2023-12-15 21:23:20,868 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:20] "[32mPOST /create_flashcard HTTP/1.1[0m" 302 -
-2023-12-15 21:23:20,875 [INFO]: SELECT * FROM Flashcards
-2023-12-15 21:23:20,876 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:20] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 21:23:20,895 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 21:23:20,897 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:20] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 21:23:37,673 [INFO]: SELECT * FROM Flashcards WHERE key = 6
-2023-12-15 21:23:37,682 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:37] "GET /view_flashcard/6 HTTP/1.1" 200 -
-2023-12-15 21:23:37,698 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:37] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 21:23:37,700 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:23:37] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 21:25:20,844 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:25:20] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 21:25:46,550 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+Image File: George_washington_4.jpg
+2023-12-16 14:38:44,951 [INFO]: Successfully removed C:\Users\sskit\OneDrive\Desktop\Interview_Cards\./src\../static/images\George_washington_3.jpg
+2023-12-16 14:38:44,951 [INFO]: UPDATE Flashcards SET category = ?, question = ?, code = ?, answer = ?, image_path = ? WHERE key = ?
+('test', 'test', '', 'test', 'George_washington_4.jpg', '6')
+2023-12-16 14:38:44,957 [INFO]: Flashcard updated successfully
+2023-12-16 14:38:44,958 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:44] "[32mPOST /update_flashcard/6 HTTP/1.1[0m" 302 -
+2023-12-16 14:38:44,964 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:38:44,965 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:44] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:38:44,982 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:38:44,984 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:38:48,192 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:38:48,194 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:48] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:38:48,211 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:48] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:38:48,213 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:48] "[33mGET /static/images/George_washington_4.jpg HTTP/1.1[0m" 404 -
+2023-12-16 14:38:48,220 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:38:48] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:41:33,240 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2023-12-15 21:25:46,550 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-15 21:25:49,352 [INFO]: SELECT * FROM Flashcards WHERE key = 6
-2023-12-15 21:25:49,367 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:25:49] "GET /view_flashcard/6 HTTP/1.1" 200 -
-2023-12-15 21:25:49,473 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:25:49] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 21:25:49,474 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:25:49] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 21:26:31,444 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2023-12-15 21:26:31,444 [INFO]: [33mPress CTRL+C to quit[0m
-2023-12-15 21:26:34,550 [INFO]: SELECT * FROM Flashcards
-2023-12-15 21:26:34,570 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:26:34] "GET /manage_flashcards HTTP/1.1" 200 -
-2023-12-15 21:26:34,677 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:26:34] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 21:26:34,681 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:26:34] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
-2023-12-15 21:28:12,311 [INFO]: SELECT * FROM Flashcards WHERE key = 6
-2023-12-15 21:28:12,316 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:28:12] "GET /view_flashcard/6 HTTP/1.1" 200 -
-2023-12-15 21:28:12,334 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:28:12] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
-2023-12-15 21:28:12,336 [INFO]: 127.0.0.1 - - [15/Dec/2023 21:28:12] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:41:33,240 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-16 14:41:36,732 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:41:36,746 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:36] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:41:36,844 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:36] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:41:36,845 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:36] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:41:38,536 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:41:38,538 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:38] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:41:38,554 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:38] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:41:38,555 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:38] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:41:40,388 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:41:40,393 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:40] "GET /edit_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:41:40,409 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:40] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:41:40,411 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:40] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:41:46,889 [INFO]: Creating file: C:\Users\sskit\OneDrive\Desktop\Interview_Cards\src\../static/images\George_washington_3.jpg
+2023-12-16 14:41:46,891 [INFO]: Editing: 6
+Category: test
+Question: test
+Code: 
+Answer: test
+Image File: George_washington_3.jpg
+2023-12-16 14:41:46,892 [WARNING]: The file C:\Users\sskit\OneDrive\Desktop\Interview_Cards\./src\../static/images\George_washington_4.jpg does not exist.
+2023-12-16 14:41:46,892 [INFO]: UPDATE Flashcards SET category = ?, question = ?, code = ?, answer = ?, image_path = ? WHERE key = ?
+('test', 'test', '', 'test', 'George_washington_3.jpg', '6')
+2023-12-16 14:41:46,900 [INFO]: Flashcard updated successfully
+2023-12-16 14:41:46,900 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:46] "[32mPOST /update_flashcard/6 HTTP/1.1[0m" 302 -
+2023-12-16 14:41:46,909 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:41:46,910 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:46] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:41:46,929 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:46] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:41:46,929 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:46] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:41:49,130 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:41:49,136 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:49] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:41:49,152 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:49] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:41:49,154 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:49] "GET /static/images/George_washington_3.jpg HTTP/1.1" 200 -
+2023-12-16 14:41:49,161 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:41:49] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:42:12,100 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:42:12,101 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:12] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:42:12,122 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:12] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:42:12,128 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:12] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:42:14,178 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:42:14,179 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:14] "GET /edit_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:42:14,195 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:14] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:42:14,197 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:14] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:42:27,813 [INFO]: Creating file: C:\Users\sskit\OneDrive\Desktop\Interview_Cards\src\../static/images\George_washington_0.jpg
+2023-12-16 14:42:27,815 [INFO]: Editing: 6
+Category: test
+Question: test
+Code: 
+Answer: test
+Image File: George_washington_0.jpg
+2023-12-16 14:42:27,816 [INFO]: Successfully removed C:\Users\sskit\OneDrive\Desktop\Interview_Cards\./src\../static/images\George_washington_3.jpg
+2023-12-16 14:42:27,816 [INFO]: UPDATE Flashcards SET category = ?, question = ?, code = ?, answer = ?, image_path = ? WHERE key = ?
+('test', 'test', '', 'test', 'George_washington_0.jpg', '6')
+2023-12-16 14:42:27,823 [INFO]: Flashcard updated successfully
+2023-12-16 14:42:27,823 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:27] "[32mPOST /update_flashcard/6 HTTP/1.1[0m" 302 -
+2023-12-16 14:42:27,830 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:42:27,832 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:27] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:42:27,851 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:27] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:42:27,852 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:27] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:42:30,490 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:42:30,491 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:30] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:42:30,508 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:42:30,510 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:30] "GET /static/images/George_washington_0.jpg HTTP/1.1" 200 -
+2023-12-16 14:42:30,519 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:42:41,912 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:42:41,913 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:41] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:42:41,933 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:41] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:42:41,935 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:41] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -

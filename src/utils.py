@@ -26,7 +26,7 @@ def save_image_file(file):
     '''
 
     # Replace special characters with underscores
-    sanitized_name = re.sub(r'[\\/*?:"<>|]', '_', file.filename)
+    sanitized_name = re.sub(r'[\\/*?:"<>| ]', '_', file.filename)
     # Remove leading and trailing whitespace
     sanitized_name = sanitized_name.strip()
     # Getting the name of the file without the extension
@@ -51,28 +51,26 @@ def save_image_file(file):
     path = os.path.join(PATH, "../static/images")               # Path where file will be saved
     os.makedirs(path, exist_ok=True)                            # Create path if it doesn't exist
     
-    original_file_path = os.path.join(path, f'{sanitized_name}{file_extension}')
+    counter = 0
+    original_file_path = os.path.join(path, f'{sanitized_name}_{counter}{file_extension}')
     new_file_path = original_file_path
     
-    counter = 1
     # loop thru the files to ensure the saved file does not have the same name as another
     while os.path.exists(new_file_path):
         new_file_path = os.path.join(path, f'{sanitized_name}_{counter}{file_extension}')
         counter += 1
-    
-    filename = f'{sanitized_name}_{counter}{file_extension}'
 
     LOGGER.info(f"Creating file: {new_file_path}")
     file.save(new_file_path)
 
-    return filename
+    return os.path.basename(new_file_path)
 
 # ========================================================================================================================================
 # Functions used for removing files
 # ========================================================================================================================================
-def remove_file(filename:str):
+def remove_image(filename:str):
     '''
-    Takes in a file object and removes the file from the temp directory
+    Takes in an image file and removes the file from the image directory
 
     Parameter(s):
         file (str): the input file being removed
@@ -81,10 +79,17 @@ def remove_file(filename:str):
     '''
 
     try:
-        path = os.path.join(os.path.dirname(__file__), "../static/image")   # Path where file is saved
-        file_path = os.path.join(path, filename)                            # Creating saved file path
-        os.remove(file_path)                                                # File is no longer needed
-        LOGGER.info(f"Successfully removed {file_path}")
+        # Building a path to the image directory
+        path = os.path.join(os.path.dirname(__file__), "../static/images")
+        # Creating full file path
+        file_path = os.path.join(path, filename)
+        
+        # Check if the file exists before attempting to remove it
+        if os.path.exists(file_path):
+            os.remove(file_path)  # File is no longer needed
+            LOGGER.info(f"Successfully removed {file_path}")
+        else:
+            LOGGER.warning(f"The file {file_path} does not exist.")
 
     except OSError as e:
         LOGGER.error(f'Error while removing {filename}: {str(e)}')

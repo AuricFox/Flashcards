@@ -166,16 +166,24 @@ def update_card(key:int, new_data:dict):
             set_clause = 'category = ?, question = ?, code = ?, answer = ?'
             set_query = (new_data['category'], new_data['question'], new_data['code'], new_data['answer'])
 
+            c = conn.cursor()
             # Update image file if one has been submitted
             if new_data['image_path'] != '':
+                # Get the current filename for the image
+                c.execute("SELECT image_path FROM Flashcards WHERE key = ?", (key,))
+                image_file = c.fetchone()[0]
+
+                # Delete current image from image folder
+                utils.remove_image(image_file)
+
                 set_clause += ', image_path = ?'
-                set_query = (new_data['image_path'],)
+                set_query += (new_data['image_path'],)
 
             set_query += (key,)
 
             LOGGER.info(f"UPDATE Flashcards SET {set_clause} WHERE key = ?\n{set_query}")
 
-            c = conn.cursor()
+            
             # Build the query and execute
             query = f"UPDATE Flashcards SET {set_clause} WHERE key = ?"
             c.execute(query, set_query)

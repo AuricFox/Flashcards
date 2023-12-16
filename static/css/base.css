@@ -288,6 +288,10 @@ tr:last-child td {
     border-top: none;
 }
 
+img {
+    width: 100%;
+}
+
 /* ========== Flashcard Content [Edit Flashcard Page] ========== */
 
 .flashcard-content-inner textarea,

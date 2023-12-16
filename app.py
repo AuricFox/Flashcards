@@ -197,18 +197,18 @@ def update_flashcard_route(key):
             file = request.files['image']
             # Save file and get filename
             updated_data['image_path'] = '' if not file else utils.save_image_file(file)
+            # Incorrect file was submitted or file failed to save
+            if updated_data['image_path'] is None:
+                LOGGER.error(f'{file.filename} is an Invalid File or FileType')
+                flash(f'{file.filename} is an Invalid File or FileType', 'error')
+                return redirect(request.referrer)
+            
             LOGGER.info(f"Editing: {key}\n"
                         f"Category: {updated_data['category']}\n"
                         f"Question: {updated_data['question']}\n"
                         f"Code: {updated_data['code']}\n"
                         f"Answer: {updated_data['answer']}\n"
                         f"Image File: {updated_data['image_path']}")
-
-            # Incorrect file was submitted or file failed to save
-            if updated_data['image_path'] is None:
-                LOGGER.error(f'{file.filename} is an Invalid File or FileType')
-                flash(f'{file.filename} is an Invalid File or FileType', 'error')
-                return redirect(request.referrer)
 
             # Update old question data with new data
             success = database.update_card(key=key, new_data=updated_data)

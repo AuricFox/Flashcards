@@ -21,7 +21,7 @@
     <div class="flashcard-content-inner">
         <!--TODO:Change to image tag-->
         <h2>Image</h2>
-        
+        <img src="{{ url_for('static', filename='images/' + data['image_path']) }}" alt="{{ data['image_path'] }}">
         <p>{{ data['image_path'] }}</p>
     </div>
     <div class="flashcard-content-inner">
