@@ -141,3 +141,137 @@ Image File: George_washington_0.jpg
 2023-12-16 14:42:41,913 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:41] "GET /manage_flashcards HTTP/1.1" 200 -
 2023-12-16 14:42:41,933 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:41] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
 2023-12-16 14:42:41,935 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:42:41] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:45:21,296 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-16 14:45:21,296 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-16 14:45:24,047 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:45:24,066 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:24] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:45:24,167 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:24] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:45:24,168 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:24] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:45:25,388 [INFO]: SELECT * FROM Flashcards WHERE key = 1
+2023-12-16 14:45:25,392 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:25] "GET /edit_flashcard/1 HTTP/1.1" 200 -
+2023-12-16 14:45:25,411 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:25] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:45:25,412 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:25] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:45:30,923 [INFO]: Creating file: C:\Users\sskit\OneDrive\Desktop\Interview_Cards\src\../static/images\data_structures_0.png
+2023-12-16 14:45:30,924 [INFO]: Editing: 1
+Category: Computer Science
+Question: What is a data structure?
+Code: 
+Answer: A data structure is a way of organizing and storing data in a computer to facilitate efficient retrieval and manipulation of information.
+Image File: data_structures_0.png
+2023-12-16 14:45:30,925 [WARNING]: The file C:\Users\sskit\OneDrive\Desktop\Interview_Cards\./src\../static/images\NULL does not exist.
+2023-12-16 14:45:30,925 [INFO]: UPDATE Flashcards SET category = ?, question = ?, code = ?, answer = ?, image_path = ? WHERE key = ?
+('Computer Science', 'What is a data structure?', '', 'A data structure is a way of organizing and storing data in a computer to facilitate efficient retrieval and manipulation of information.', 'data_structures_0.png', '1')
+2023-12-16 14:45:30,933 [INFO]: Flashcard updated successfully
+2023-12-16 14:45:30,933 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:30] "[32mPOST /update_flashcard/1 HTTP/1.1[0m" 302 -
+2023-12-16 14:45:30,940 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:45:30,941 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:30] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:45:30,961 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:45:30,962 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:45:35,679 [INFO]: SELECT * FROM Flashcards WHERE key = 1
+2023-12-16 14:45:35,685 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:35] "GET /view_flashcard/1 HTTP/1.1" 200 -
+2023-12-16 14:45:35,701 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:35] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:45:35,704 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:35] "GET /static/images/data_structures_0.png HTTP/1.1" 200 -
+2023-12-16 14:45:35,712 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:45:35] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:47:56,335 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-16 14:47:56,335 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-16 14:47:59,435 [INFO]: SELECT * FROM Flashcards WHERE key = 1
+2023-12-16 14:47:59,458 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:47:59] "GET /view_flashcard/1 HTTP/1.1" 200 -
+2023-12-16 14:47:59,565 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:47:59] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-16 14:47:59,567 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:47:59] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-16 14:47:59,575 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:47:59] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:48:00,172 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:48:00,180 [ERROR]: Exception on /manage_flashcards [GET]
+Traceback (most recent call last):
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\app.py", line 61, in manage_flashcards_route
+    return render_template('manage_flashcards.html', nav_id="manage-page", data=data)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 152, in render_template
+    return _render(app, template, context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\flask\templating.py", line 133, in _render
+    rv = template.render(context)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\env\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\manage_flashcards.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\base.html", line 34, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\sskit\OneDrive\Desktop\Interview_Cards\templates\manage_flashcards.html", line 26, in block 'content'
+    <img class="card-image" src="{{ url_for('static', filename='images/' + data['image_path']) }}"
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'image_path'
+2023-12-16 14:48:00,190 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:48:00] "[35m[1mGET /manage_flashcards HTTP/1.1[0m" 500 -
+2023-12-16 14:50:27,221 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-16 14:50:27,221 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-16 14:50:30,011 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:50:30,024 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:30] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:50:30,045 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:30] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-16 14:50:30,132 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:30] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:50:30,137 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:30] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-16 14:50:30,141 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:30] "[36mGET /static/images/George_washington_0.jpg HTTP/1.1[0m" 304 -
+2023-12-16 14:50:30,146 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:30] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:50:53,857 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:50:53,862 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:53] "GET /edit_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:50:53,880 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:53] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:50:53,882 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:53] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:50:59,603 [INFO]: Creating file: C:\Users\sskit\OneDrive\Desktop\Interview_Cards\src\../static/images\data_structures_1.png
+2023-12-16 14:50:59,603 [INFO]: Editing: 6
+Category: test
+Question: test
+Code: 
+Answer: test
+Image File: data_structures_1.png
+2023-12-16 14:50:59,604 [INFO]: Successfully removed C:\Users\sskit\OneDrive\Desktop\Interview_Cards\./src\../static/images\George_washington_0.jpg
+2023-12-16 14:50:59,604 [INFO]: UPDATE Flashcards SET category = ?, question = ?, code = ?, answer = ?, image_path = ? WHERE key = ?
+('test', 'test', '', 'test', 'data_structures_1.png', '6')
+2023-12-16 14:50:59,611 [INFO]: Flashcard updated successfully
+2023-12-16 14:50:59,611 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:59] "[32mPOST /update_flashcard/6 HTTP/1.1[0m" 302 -
+2023-12-16 14:50:59,616 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:50:59,618 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:59] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:50:59,639 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:59] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:50:59,641 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:59] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-16 14:50:59,643 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:59] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-16 14:50:59,654 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:59] "GET /static/images/data_structures_1.png HTTP/1.1" 200 -
+2023-12-16 14:50:59,655 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:50:59] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:51:08,814 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 14:51:08,820 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:51:08] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 14:51:08,839 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:51:08] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:51:08,841 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:51:08] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-16 14:51:08,848 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:51:08] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:51:15,908 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:51:15,909 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:51:15] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:51:15,926 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:51:15] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:51:15,929 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:51:15] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-16 14:51:15,930 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:51:15] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-16 14:51:15,945 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:51:15] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-16 14:51:15,946 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:51:15] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:53:08,535 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-16 14:53:08,535 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-16 14:53:14,488 [INFO]: SELECT * FROM Flashcards
+2023-12-16 14:53:14,512 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:14] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 14:53:14,541 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:14] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-16 14:53:14,627 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:14] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:53:14,638 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:14] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-16 14:53:14,639 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:14] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:53:14,648 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:14] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-16 14:53:18,223 [INFO]: SELECT category, COUNT(*) as count FROM Flashcards GROUP BY category
+2023-12-16 14:53:18,227 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:18] "GET /home HTTP/1.1" 200 -
+2023-12-16 14:53:18,247 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:53:18,248 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 14:53:18,926 [INFO]: SELECT * FROM Flashcards WHERE category = Computer Science
+2023-12-16 14:53:18,932 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:18] "GET /flashcards/Computer%20Science HTTP/1.1" 200 -
+2023-12-16 14:53:18,951 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 14:53:18,954 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:18] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-16 14:53:18,954 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:18] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-16 14:53:18,964 [INFO]: 127.0.0.1 - - [16/Dec/2023 14:53:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
