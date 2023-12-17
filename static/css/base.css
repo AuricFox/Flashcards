@@ -261,20 +261,35 @@ tr:last-child td {
 
 .view-cell, .edit-cell, .delete-cell {
     text-decoration: none;
-    color: white;
     padding: 4px 10px;
     border-radius: 4px;
+    color: black;
 }
 
 .view-cell {
-    background-color: #4CAF50;
+    border: 1px solid #4CAF50;
 }
 
 .edit-cell {
-    background-color: rgb(73, 73, 255);
+    border: 1px solid rgb(73, 73, 255);
 }
 
 .delete-cell {
+    border: 1px solid red;
+}
+
+.view-cell:hover {
+    color: white;
+    background-color: #4CAF50;
+}
+
+.edit-cell:hover {
+    color: white;
+    background-color: rgb(73, 73, 255);
+}
+
+.delete-cell:hover {
+    color: white;
     background-color: red;
 }
 

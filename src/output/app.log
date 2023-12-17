@@ -440,3 +440,131 @@ Image File: data_structures_1.png
 2023-12-16 16:28:39,572 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:28:39] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
 2023-12-16 16:28:39,573 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:28:39] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
 2023-12-16 16:28:39,586 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:28:39] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 16:31:56,255 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-16 16:31:56,255 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-16 16:31:58,136 [INFO]: SELECT * FROM Flashcards
+2023-12-16 16:31:58,157 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:31:58] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 16:31:58,211 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:31:58] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-16 16:31:58,260 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:31:58] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 16:31:58,274 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:31:58] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 16:31:58,290 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:31:58] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-16 16:31:58,294 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:31:58] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-16 16:32:18,301 [INFO]: SELECT * FROM Flashcards WHERE key = 6
+2023-12-16 16:32:18,308 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:18] "GET /view_flashcard/6 HTTP/1.1" 200 -
+2023-12-16 16:32:18,330 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:18] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 16:32:18,334 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:18] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-16 16:32:18,340 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:18] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 16:32:38,763 [INFO]: SELECT * FROM Flashcards
+2023-12-16 16:32:38,764 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:38] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 16:32:38,787 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:38] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 16:32:38,791 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:38] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-16 16:32:38,794 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:38] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-16 16:32:38,796 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:38] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-16 16:32:38,805 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:38] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 16:32:40,507 [INFO]: SELECT category, COUNT(*) as count FROM Flashcards GROUP BY category
+2023-12-16 16:32:40,513 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:40] "GET /home HTTP/1.1" 200 -
+2023-12-16 16:32:40,533 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:40] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 16:32:40,537 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:40] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-16 16:32:44,946 [INFO]: SELECT * FROM Flashcards
+2023-12-16 16:32:44,947 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:44] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-16 16:32:44,968 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:44] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-16 16:32:44,974 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:44] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-16 16:32:44,975 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:44] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-16 16:32:44,985 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:44] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-16 16:32:44,985 [INFO]: 127.0.0.1 - - [16/Dec/2023 16:32:44] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:09:46,254 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-12-17 13:09:46,254 [INFO]: [33mPress CTRL+C to quit[0m
+2023-12-17 13:09:48,603 [INFO]: SELECT * FROM Flashcards
+2023-12-17 13:09:48,631 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:09:48] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-17 13:09:48,654 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:09:48] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-17 13:09:48,752 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:09:48] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:09:48,761 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:09:48] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-17 13:09:48,763 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:09:48] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-17 13:09:48,778 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:09:48] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:10:16,229 [INFO]: SELECT * FROM Flashcards
+2023-12-17 13:10:16,231 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:16] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-17 13:10:16,256 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:16] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:10:16,265 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:16] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-17 13:10:16,266 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:16] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-17 13:10:16,279 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:16] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:10:16,280 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:16] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-17 13:10:28,689 [INFO]: SELECT * FROM Flashcards
+2023-12-17 13:10:28,691 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:28] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-17 13:10:28,719 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:28] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:10:28,724 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:28] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-17 13:10:28,725 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:28] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-17 13:10:28,738 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:28] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-17 13:10:28,740 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:28] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:10:40,560 [INFO]: SELECT * FROM Flashcards
+2023-12-17 13:10:40,562 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:40] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-17 13:10:40,585 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:40] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-17 13:10:40,587 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:40] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-17 13:10:40,589 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:40] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-17 13:10:40,601 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:40] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:10:40,602 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:10:40] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-17 13:11:09,501 [INFO]: SELECT * FROM Flashcards
+2023-12-17 13:11:09,503 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:09] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-17 13:11:09,524 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:09] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:11:09,525 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:09] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-17 13:11:09,526 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:09] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-17 13:11:09,538 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:09] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-17 13:11:09,539 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:09] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:11:45,993 [INFO]: SELECT * FROM Flashcards
+2023-12-17 13:11:45,994 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:45] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-17 13:11:46,023 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:46] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-17 13:11:46,023 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:46] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-17 13:11:46,023 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:46] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:11:46,034 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:46] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-17 13:11:46,036 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:11:46] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:12:09,493 [INFO]: SELECT * FROM Flashcards
+2023-12-17 13:12:09,494 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:12:09] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-17 13:12:09,524 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:12:09] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:12:09,525 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:12:09] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-17 13:12:09,526 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:12:09] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-17 13:12:09,537 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:12:09] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-17 13:12:09,538 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:12:09] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:13:54,619 [INFO]: SELECT * FROM Flashcards
+2023-12-17 13:13:54,621 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:13:54] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-17 13:13:54,653 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:13:54] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:13:54,655 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:13:54] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-17 13:13:54,656 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:13:54] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-17 13:13:54,671 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:13:54] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-17 13:13:54,672 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:13:54] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:16:00,393 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:16:00] "GET /add_flashcard HTTP/1.1" 200 -
+2023-12-17 13:16:00,416 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:16:00] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-17 13:16:00,422 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:16:00] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:18:08,123 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:18:08] "GET /add_flashcard HTTP/1.1" 200 -
+2023-12-17 13:18:08,150 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:18:08] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:18:08,153 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:18:08] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:18:40,052 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:18:40] "GET /add_flashcard HTTP/1.1" 200 -
+2023-12-17 13:18:40,076 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:18:40] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:18:40,080 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:18:40] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:19:08,653 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:19:08] "GET /add_flashcard HTTP/1.1" 200 -
+2023-12-17 13:19:08,673 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:19:08] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:19:08,673 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:19:08] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:21:03,793 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:21:03] "GET /add_flashcard HTTP/1.1" 200 -
+2023-12-17 13:21:03,823 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:21:03] "GET /static/css/base.css HTTP/1.1" 200 -
+2023-12-17 13:21:03,823 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:21:03] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:22:27,388 [INFO]: SELECT category, COUNT(*) as count FROM Flashcards GROUP BY category
+2023-12-17 13:22:27,396 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:27] "GET /home HTTP/1.1" 200 -
+2023-12-17 13:22:27,426 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:27] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-17 13:22:27,436 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:27] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:22:28,736 [INFO]: SELECT * FROM Flashcards WHERE category = Computer Science
+2023-12-17 13:22:28,743 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:28] "GET /flashcards/Computer%20Science HTTP/1.1" 200 -
+2023-12-17 13:22:28,771 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:28] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-17 13:22:28,777 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:28] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-17 13:22:28,778 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:28] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-17 13:22:28,788 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:28] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:22:47,783 [INFO]: SELECT * FROM Flashcards
+2023-12-17 13:22:47,784 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:47] "GET /manage_flashcards HTTP/1.1" 200 -
+2023-12-17 13:22:47,806 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:47] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-17 13:22:47,814 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:47] "[33mGET /static/images/ HTTP/1.1[0m" 404 -
+2023-12-17 13:22:47,815 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:47] "[36mGET /static/images/data_structures_0.png HTTP/1.1[0m" 304 -
+2023-12-17 13:22:47,815 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:47] "[36mGET /static/images/data_structures_1.png HTTP/1.1[0m" 304 -
+2023-12-17 13:22:47,824 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:22:47] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
+2023-12-17 13:23:57,459 [INFO]: SELECT category, COUNT(*) as count FROM Flashcards GROUP BY category
+2023-12-17 13:23:57,460 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:23:57] "GET /home HTTP/1.1" 200 -
+2023-12-17 13:23:57,487 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:23:57] "[36mGET /static/css/base.css HTTP/1.1[0m" 304 -
+2023-12-17 13:23:57,493 [INFO]: 127.0.0.1 - - [17/Dec/2023 13:23:57] "[36mGET /static/js/base.js HTTP/1.1[0m" 304 -
