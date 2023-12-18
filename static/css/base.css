@@ -25,7 +25,7 @@
 /* ========== Body ========== */
 
 body {
-    background-color: #212121;
+    background-color: #082048;
     font-family: 'Times New Roman', Times, serif;
     width: 100%;
     position: relative;
@@ -37,7 +37,7 @@ body {
 /* ========== Nav Bar ========== */
 
 #nav-bar {
-    color: rgb(255, 255, 255);
+    color: #FFFFFF;
     font-size: 15px;
     font-family: Arial, sans-serif;
     font-weight: bold;
@@ -63,15 +63,14 @@ body {
 
 .nav-tile {
     display: block;
-    color: rgb(255, 255, 255);
+    color: #FFFFFF;
     text-align: center;
     padding: 14px;
     text-decoration: none;
-    border-radius: 4px;
 }
 
 .active {
-    background: rgb(247, 7, 7);
+    background: #F6B701;
 }
 
 .nav-tile:hover {
@@ -90,11 +89,11 @@ body {
 .flash-message {
     padding: 5px;
     background-color: red;
-    color: white;
+    color: #FFFFFF;
     text-align: center;
     font-weight: bold;
     border-radius: 4px;
-    border: 1px solid white;
+    border: 1px solid #FFFFFF;
 }
 
 /* ========== Category Content [Home Page] ========== */
@@ -112,7 +111,7 @@ body {
     text-align: center;
     font-weight: bolder;
     font-size: 15px;
-    color: white;
+    color: #FFFFFF;
     background-color: rgb(247, 7, 7);
     border-radius: 4px;
     padding: 14px;
@@ -180,7 +179,7 @@ button {
     min-width: 90px;
     padding: 5px;
     margin: 0 2rem 0 2rem;
-    color: white;
+    color: #FFFFFF;
     font-weight: bold;
     font-size: larger;
 }
@@ -223,7 +222,7 @@ button {
     margin: 0 4rem 2rem 4rem;
     padding: 1rem;
     border-radius: 8px;
-    background-color: white;
+    background-color: #FFFFFF;
 }
 
 table {
@@ -279,24 +278,24 @@ tr:last-child td {
 }
 
 .view-cell:hover {
-    color: white;
+    color: #FFFFFF;
     background-color: #4CAF50;
 }
 
 .edit-cell:hover {
-    color: white;
+    color: #FFFFFF;
     background-color: rgb(73, 73, 255);
 }
 
 .delete-cell:hover {
-    color: white;
+    color: #FFFFFF;
     background-color: red;
 }
 
 /* ========== Flashcard Content [View Flashcard Page] ========== */
 
 .flashcard-content {
-    background-color: white;
+    background-color: #FFFFFF;
     margin: 0 4rem 4rem 4rem;
     padding: 1rem;
     border-radius: 8px;
