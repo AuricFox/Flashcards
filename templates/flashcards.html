@@ -17,6 +17,9 @@
                 {% if data['questions'][index]['image_path'] %}
                 <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['image_path']) }}"
                     alt="{{ data['questions'][index]['image_path'] }}">
+                    
+                {% elif data['questions'][index]['code'] %}
+                <pre><code>{{ data['questions'][index]['code'] | escape }}</code></pre>
                 {% endif %}
 
             </div>

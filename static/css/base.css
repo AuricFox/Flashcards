@@ -316,6 +316,12 @@ th, td {
     padding: 8px;
 }
 
+td pre {
+    max-height: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 tr:last-child td {
     border-bottom: none;
 }
