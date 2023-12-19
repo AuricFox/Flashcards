@@ -13,8 +13,12 @@
             <div class="side front" id="flashcard-{{ index }}-front">
                 <h2>Question</h2>
                 <p>{{ data['questions'][index]['question'] | escape }}</p>
+
+                {% if data['questions'][index]['image_path'] %}
                 <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['image_path']) }}"
                     alt="{{ data['questions'][index]['image_path'] }}">
+                {% endif %}
+
             </div>
             <div class="side back" id="flashcard-{{ index }}-back">
                 <h2>Answer</h2>
