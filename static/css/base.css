@@ -34,6 +34,10 @@ body {
     min-height: 100vh;
 }
 
+.content {
+    flex: 1;
+}
+
 /* ========== Nav Bar ========== */
 
 #nav-bar {
@@ -170,7 +174,7 @@ body {
     font-size: 15px;
     color: black;
     background-color: #FFFFFF;
-    border: 5px solid #FFFFFF;
+    border-bottom: 5px solid #FFFFFF;
     border-radius: 4px;
     padding: 14px;
     min-width: 12rem;
@@ -181,7 +185,7 @@ body {
 }
 
 .category:hover {
-    border: 5px solid #F6B701;
+    border-bottom: 5px solid #F6B701;
 }
 
 .home-button {
@@ -416,4 +420,11 @@ form button {
 form button:hover {
     cursor: pointer;
     background-color: rgb(253, 60, 60);
+}
+
+/* ========== Footer ========== */
+
+footer {
+    height: 10rem;
+    background-color: rgba(0, 0, 0, 0.2);
 }
