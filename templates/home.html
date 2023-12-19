@@ -5,12 +5,12 @@
 {% block content %}
 
 <div class="home-element">
-    <div class="description">
+    <div class="section">
         <div class="header">Study Flashcards</div>
-        <p>
+        <div class="description">
             Use flashcards to memorize important terms for job interviews or school. You can find or create flashcards for any subjest 
             such as computer science, math, and so on.
-        </p>
+        </div>
     </div>
 
     <div class="flashcard-display">
@@ -23,12 +23,12 @@
         
     </div>
 
-    <div class="description">
+    <div class="section">
         <div class="header">Make Flashcards</div>
-        <p>
+        <div class="description">
             Can't find the right flashcards, no problem just add a new one or create a new set. Simply add a category, question, 
             and an answer. You can even add an image or code block if you choose.
-        </p>
+        </div>
         <div class="home-button">
             <a href="{{  url_for('add_flashcard_route')  }}">Create Flashcard</a>
         </div>
@@ -36,12 +36,12 @@
 </div>
 
 <div class="home-element">
-    <div class="description">
+    <div class="section">
         <div class="header">Manage Flashcards</div>
-        <p>
+        <div class="description">
             After creating your flashcards you can easily manage them. This enables you to view all the flashcards details, 
             edit any mistakes, update it with new information, or simply remove the flashcard all together.
-        </p>
+        </div>
         <div class="home-button">
             <a href="{{  url_for('manage_flashcards_route')  }}">Manage Flashcards</a>
     
@@ -53,7 +53,7 @@
 </div>
 
 <div class="home-element-col">
-    <div class="description-center">
+    <div class="section-center">
         <div class="header-center">Explore Flashcards</div>
     </div>
 

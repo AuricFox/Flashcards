@@ -111,11 +111,11 @@ body {
     margin: 2rem;
 }
 
-.description {
+.section {
     width: 50vw;
 }
 
-.description-center {
+.section-center {
     text-align: center;
 }
 
@@ -136,9 +136,10 @@ body {
     padding-bottom: 1rem;
 }
 
-.description p {
+.description {
     color: #FFFFFF;
     font-size: 1.5rem;
+    padding: 1rem 0;
 }
 
 .flashcard-display {
@@ -146,6 +147,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+}
+
+.section, .flashcard-display {
+    margin: 1rem;
 }
 
 .categories {
@@ -179,7 +186,7 @@ body {
 
 .home-button {
     text-align: center;
-    margin: 2rem 0;
+    margin: 3rem 0 2rem 0;
 }
 
 .home-button a {
@@ -190,7 +197,7 @@ body {
     font-weight: bolder;
     border-radius: 30px;
     border: 1px solid #F6B701;
-    transition: background-color 0.5s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .home-button a:hover {
