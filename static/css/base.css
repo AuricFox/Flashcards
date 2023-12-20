@@ -212,7 +212,19 @@ body {
 }
 
 #home-element-make-card {
-    color: #082048;
+    background-color: #061632;
+}
+
+.gradient-border-top {
+    width: 100%;
+    height: 2rem;
+    background: linear-gradient(to bottom, #082048, #061632);
+}
+
+.gradient-border-bottom {
+    width: 100%;
+    height: 2rem;
+    background: linear-gradient(to top, #082048, #061632);
 }
 
 /* ---------- Animated flashcards ---------- */
@@ -223,7 +235,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     border-radius: 8px;
-    z-index: -6;
+    z-index: 0;
 }
 
 .flip-flashcard,
