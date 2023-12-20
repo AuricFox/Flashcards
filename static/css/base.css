@@ -151,7 +151,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: #FFFFFF;
+    background-color: #401D19;
     border-radius: 8px;
 }
 
@@ -212,7 +212,7 @@ body {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* ========== Flashcard Content [Flashcard Page] ========== */
+/* ========== Flashcard Content [Home, Flashcard Page] ========== */
 
 .use-flashcard {
     display: flex;
@@ -225,6 +225,39 @@ body {
     width: 65vw;
     height: 65vh;
     perspective: 1000px;
+}
+
+.flip-flashcard {
+    position: relative;
+    margin: auto 0;
+    width: 90%;
+    height: 90%;
+}
+
+.background-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.background-card:nth-child(1) {
+    transform: rotate(5deg);
+    background-color: #d9d9d9;
+    
+}
+
+.background-card:nth-child(2) {
+    transform: rotate(-5deg);
+    background-color: #efeeee;
+   
+}
+
+.background-card:nth-child(3) {
+    transform: rotate(10deg);
+    background-color: #eae9e9;
+   
 }
 
 .card-content {
