@@ -9,6 +9,12 @@ setTimeout(function () {
 // ======================================================================================================
 // HOME PAGE
 // ======================================================================================================
+// Flip the display card when clicked
+$('.flip-flashcard').click(function () {
+    const cardContent = document.getElementById('card-content-flip');
+    cardContent.style.transform = cardContent.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+});
+
 // Flip the display card after a certain time interval
 setInterval(function () {
     const cardContent = document.getElementById('card-content-flip');
