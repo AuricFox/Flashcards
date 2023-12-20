@@ -7,6 +7,21 @@ setTimeout(function () {
 }, 5000);
 
 // ======================================================================================================
+// HOME PAGE
+// ======================================================================================================
+// Flip the display card when clicked
+$('.flip-flashcard').click(function () {
+    const cardContent = document.getElementById('home-card-content');
+    cardContent.style.transform = cardContent.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+});
+
+// Flip the display card after a certain time interval
+setInterval(function () {
+    const cardContent = document.getElementById('home-card-content');
+    cardContent.style.transform = cardContent.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+}, 3000);
+
+// ======================================================================================================
 // MANAGE FLASHCARD PAGE
 // ======================================================================================================
 // Confirm deletion of the queried question before deleting it
