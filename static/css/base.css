@@ -227,7 +227,7 @@ body {
     background: linear-gradient(to top, #082048, #061632);
 }
 
-/* ---------- Animated flashcards ---------- */
+/* ---------- Flashcard Animations ---------- */
 
 .flashcard-display {
     width: 50vw;
@@ -283,24 +283,18 @@ body {
     transition: transform 0.5s;
 }
 
-.content-card-slide {
+.card-content-slide {
     position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #FFFFFF;
-    background-color: #082048;
-    border-radius: 8px;
-    transform-origin: bottom;
-    animation: slideOffDeck 4s linear infinite alternate;
+    transition: opacity 1s ease;
 }
 
 .display-side {
-    cursor: pointer;
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
@@ -323,18 +317,12 @@ body {
     transform: rotateY(180deg);
 }
 
-@keyframes slideOffDeck {
+.card-content-slide.active-card {
+    opacity: 0;
+}
 
-    0%,
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    50% {
-        transform: translateY(100%);
-        opacity: 0;
-    }
+.card-content-slide:not(.active-card) {
+    opacity: 1;
 }
 
 /* ========== Flashcard Content [Flashcard Page] ========== */

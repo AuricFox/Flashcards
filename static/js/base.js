@@ -21,6 +21,20 @@ setInterval(function () {
     cardContent.style.transform = cardContent.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
 }, 3000);
 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const cardSlides = document.querySelectorAll('.card-content-slide');
+    let currentSlide = 0;
+
+    function showNextSlide() {
+        cardSlides[currentSlide].classList.remove('active-card');
+        currentSlide = (currentSlide + 1) % cardSlides.length;
+        cardSlides[currentSlide].classList.add('active-card');
+    }
+
+    setInterval(showNextSlide, 5000); // Change the interval as needed
+});
+
 // ======================================================================================================
 // MANAGE FLASHCARD PAGE
 // ======================================================================================================
