@@ -6,6 +6,7 @@
         <meta name="keywords" content="">
         <title>{% block title %}{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/prism.css') }}">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         {% block head %}{% endblock %}
     </head>
@@ -37,5 +38,6 @@
         <footer></footer>
 
         <script src="{{ url_for('static', filename='js/base.js') }}" defer></script>
+        <script src="{{ url_for('static', filename='js/prism.js') }}"></script>
     </body>
 </html>
