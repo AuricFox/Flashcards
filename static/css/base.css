@@ -229,7 +229,7 @@ body {
 
 .display-section {
     width: 50vw;
-    border: 1px solid white;
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -536,6 +536,31 @@ tr:last-child td {
 .delete-cell:hover {
     color: #FFFFFF;
     background-color: red;
+}
+
+/* Hide less important columns on small screens */
+@media screen and (max-width: 950px) {
+
+    th:nth-child(3),
+    td:nth-child(3),
+    th:nth-child(4),
+    td:nth-child(4) {
+        display: none;
+    }
+}
+
+/* Stack rows vertically on small screens */
+@media screen and (max-width: 800px) {
+    tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    td, th {
+        display: block;
+        text-align: left;
+        width: 100%;
+    }
 }
 
 /* ========== Flashcard Content [View Flashcard Page] ========== */
