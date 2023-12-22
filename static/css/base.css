@@ -333,6 +333,12 @@ body {
     opacity: 1;
 }
 
+/* ---------- Display table ---------- */
+
+.display-table {
+    margin: 1rem;
+}
+
 /* ---------- Media Queries ---------- */
 /* Media query for screens smaller than 600 pixels wide */
 @media screen and (max-width: 800px) {
