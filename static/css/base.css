@@ -105,7 +105,7 @@ body {
 .home-element {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    height: 80vh;
     padding: 2rem;
 }
 
@@ -117,6 +117,7 @@ body {
 
 .section {
     width: 50vw;
+    margin: auto 1rem;
 }
 
 .section-center {
@@ -156,10 +157,6 @@ body {
 
 #display-manage-cards {
     background-color: #FFFFFF;
-}
-
-.section, .flashcard-display {
-    margin: 1rem;
 }
 
 .categories {
@@ -229,8 +226,20 @@ body {
 
 /* ---------- Flashcard Animations ---------- */
 
-.flashcard-display {
+.display-section {
     width: 50vw;
+    border: 1px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 2rem;
+    margin: 0 1rem;
+    overflow: hidden;
+}
+
+.flashcard-display {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -280,7 +289,7 @@ body {
     height: 100%;
     text-align: center;
     transform-style: preserve-3d;
-    transition: transform 0.5s;
+    transition: transform 0.9s;
 }
 
 .card-content-slide {
@@ -301,7 +310,6 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 2rem;
 }
 
