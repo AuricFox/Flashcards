@@ -103,9 +103,10 @@ body {
 /* ========== Category Content [Home Page] ========== */
 
 .home-element {
-    display: flex;
+    display:flex;
     flex-direction: row;
-    height: 80vh;
+    min-height: 80vh;
+    height: fit-content;
     padding: 2rem;
 }
 
@@ -265,21 +266,21 @@ body {
 
 .background-card:nth-child(1) {
     transform: rotate(5deg);
-    background-color: #d9d9d9;
+    background-color: #f7d9ff;
     z-index: -1;
 
 }
 
 .background-card:nth-child(2) {
     transform: rotate(-5deg);
-    background-color: #efeeee;
+    background-color: #add8e6;
     z-index: -2;
 
 }
 
 .background-card:nth-child(3) {
     transform: rotate(10deg);
-    background-color: #eae9e9;
+    background-color: #cdffcd;
     z-index: -3;
 }
 
@@ -331,6 +332,38 @@ body {
 
 .card-content-slide:not(.active-card) {
     opacity: 1;
+}
+
+/* ---------- Media Queries ---------- */
+/* Media query for screens smaller than 600 pixels wide */
+@media screen and (max-width: 800px) {
+    .home-element:not(:nth-child(3)) {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        padding: 2rem;
+    }
+
+    .home-element:nth-child(3) {
+        display: flex;
+        flex-direction: column-reverse;
+        height: fit-content;
+        padding: 2rem;
+    }   
+
+    .section, .display-section {
+        width: 100%;
+        margin: 1rem 0 1rem 0;
+    }
+
+    .display-section {
+        height: 70vh;
+    }
+
+    .home-button {
+    margin: 3rem 0 3rem 0;
+    }
+
 }
 
 /* ========== Flashcard Content [Flashcard Page] ========== */
