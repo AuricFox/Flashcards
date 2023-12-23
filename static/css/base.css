@@ -572,9 +572,10 @@ tr:last-child td {
 
 .flashcard-content {
     background-color: #FFFFFF;
-    margin: 0 4rem 4rem 4rem;
+    margin: 0 auto 4rem auto;
     padding: 1rem;
     border-radius: 8px;
+    width: 60vw;
 }
 
 .flashcard-content-inner {
@@ -586,16 +587,22 @@ tr:last-child td {
     border-top: none;
 }
 
-/* ========== Flashcard Content [Edit Flashcard Page] ========== */
+/* ========== Flashcard Content [Edit, Add Flashcard Page] ========== */
 
 .flashcard-content-inner textarea,
-.flashcard-content-inner input {
+.flashcard-content-inner input:not(input[type='radio']) {
     width: 100%;
     max-width: 100%;
     min-width: 100%;
     height: 40px;
     overflow-y: auto;
     padding: 4px;
+}
+
+.radio-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 form button {

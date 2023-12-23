@@ -25,10 +25,14 @@
 
         <div class="flashcard-content-inner">
             <h2>Optional: Would you like to add a code example or image?</h2>
-            <input type="radio" id="code" name="code" value="code">
-            <label for="code">Code</label>
-            <input type="radio" id="image" name="image" value="image">
-            <label for="image">Image</label>
+            <div class="radio-input">
+                <input type="radio" id="code" name="input-type" value="code">
+                <label for="code">Code</label>
+                <input type="radio" id="image" name="input-type" value="image">
+                <label for="image">Image</label>
+                <input type="radio" id="none-type" name="input-type" value="none" checked>
+                <label for="none-type">None</label>
+            </div>
         </div>
 
         <div class="flashcard-content-inner">
@@ -48,7 +52,7 @@
             <textarea id="code" name="code" rows="6"></textarea>
         </div>
 
-        <div class="flashcard-content-inner" hidden>
+        <div class="flashcard-content-inner">
             <h2>Image</h2>
             <input type="file" id="image" name="image">
         </div>
