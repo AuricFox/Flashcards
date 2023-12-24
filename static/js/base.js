@@ -128,3 +128,25 @@ function validateText(id) {
         textarea.setCustomValidity("");
     }
 }
+
+// ======================================================================================================
+// ADD_FLASHCARD PAGE
+// ======================================================================================================
+function toggleFields(selectedType) {
+    const codeSection = document.getElementById('code-section');
+    const imageSection = document.getElementById('image-section');
+
+    if (selectedType === 'code') {
+        // Display only code input
+        codeSection.style.display = 'block';
+        imageSection.style.display = 'none';
+    } else if (selectedType === 'image') {
+        // Display only image input
+        codeSection.style.display = 'none';
+        imageSection.style.display = 'block';
+    } else {
+        // Display neither code nor image input
+        codeSection.style.display = 'none';
+        imageSection.style.display = 'none';
+    }
+}
