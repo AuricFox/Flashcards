@@ -94,11 +94,11 @@ def create_flashcard_route():
             # Retrieve updated data from the form
             data['category'] = utils.sanitize(request.form.get('category', type=str))
             data['question'] = request.form.get('question', type=str)
-            data['code'] = request.form.get('code', type=str)
+            data['code'] = request.form.get('code-ex', type=str)
             data['answer'] = request.form.get('answer', type=str)
             
             # Get file data from form
-            file = request.files['image']
+            file = request.files['image-ex']
             # Save file and get filename
             data['image_path'] = '' if not file else utils.save_image_file(file)
             LOGGER.info(f"Adding flashcard data:\n"

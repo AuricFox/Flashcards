@@ -26,17 +26,17 @@
         <div class="flashcard-content-inner">
             <h2>Optional: Would you like to add a code example or image?</h2>
             <div class="radio-input">
-                <input type="radio" id="code" name="input-type" value="code">
+                <input type="radio" id="code" name="input-type" value="code" onclick="toggleFields('code')">
                 <label for="code">Code</label>
-                <input type="radio" id="image" name="input-type" value="image">
+                <input type="radio" id="image" name="input-type" value="image" onclick="toggleFields('image')">
                 <label for="image">Image</label>
-                <input type="radio" id="none-type" name="input-type" value="none" checked>
+                <input type="radio" id="none-type" name="input-type" value="none" checked onclick="toggleFields('none')">
                 <label for="none-type">None</label>
             </div>
         </div>
 
-        <div class="flashcard-content-inner">
-            <h2>Code</h2>
+        <div class="flashcard-content-inner" id="code-section" style="display: none;">
+            <h2>Code Type</h2>
             <input type="text" name="code-type" id="code-sel" list="code-type">
             <datalist id="code-type">
                 <option value="c">C</option>
@@ -49,12 +49,13 @@
                 <option value="python">Python</option>
                 <option value="sql">SQL</option>
             </datalist>
-            <textarea id="code" name="code" rows="6"></textarea>
+            <h2>Code Example</h2>
+            <textarea id="code-ex" name="code-ex" rows="6"></textarea>
         </div>
 
-        <div class="flashcard-content-inner">
+        <div class="flashcard-content-inner" id="image-section" style="display: none;">
             <h2>Image</h2>
-            <input type="file" id="image" name="image">
+            <input type="file" id="image-ex" name="image-ex">
         </div>
 
         <button type="submit">Add Flashcard</button>
