@@ -11,7 +11,7 @@ def create_tables():
               category TEXT NOT NULL,
               question TEXT NOT NULL,
               code TEXT,
-              image_path TEXT,
+              image_file TEXT,
               answer TEXT NOT NULL
     )""")
 

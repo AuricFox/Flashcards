@@ -100,16 +100,16 @@ def create_flashcard_route():
             # Get file data from form
             file = request.files['image-ex']
             # Save file and get filename
-            data['image_path'] = '' if not file else utils.save_image_file(file)
+            data['image_file'] = '' if not file else utils.save_image_file(file)
             LOGGER.info(f"Adding flashcard data:\n"
                         f"Category: {data['category']}\n"
                         f"Question: {data['question']}\n"
                         f"Code: {data['code']}\n"
                         f"Answer: {data['answer']}\n"
-                        f"Image File: {data['image_path']}")
+                        f"Image File: {data['image_file']}")
 
             # Incorrect file was submitted or file failed to save
-            if data['image_path'] is None:
+            if data['image_file'] is None:
                 LOGGER.error(f'{file.filename} is an Invalid File or FileType')
                 flash(f'{file.filename} is an Invalid File or FileType', 'error')
                 return redirect(request.referrer)
@@ -120,7 +120,7 @@ def create_flashcard_route():
                 question=data['question'], 
                 answer=data['answer'], 
                 code=data['code'], 
-                image_path=data['image_path'])
+                image_file=data['image_file'])
 
             if success:
                 LOGGER.info("Flashcard added successfully")
@@ -196,9 +196,9 @@ def update_flashcard_route(key):
             # Get file data from form
             file = request.files['image']
             # Save file and get filename
-            updated_data['image_path'] = '' if not file else utils.save_image_file(file)
+            updated_data['image_file'] = '' if not file else utils.save_image_file(file)
             # Incorrect file was submitted or file failed to save
-            if updated_data['image_path'] is None:
+            if updated_data['image_file'] is None:
                 LOGGER.error(f'{file.filename} is an Invalid File or FileType')
                 flash(f'{file.filename} is an Invalid File or FileType', 'error')
                 return redirect(request.referrer)
@@ -208,7 +208,7 @@ def update_flashcard_route(key):
                         f"Question: {updated_data['question']}\n"
                         f"Code: {updated_data['code']}\n"
                         f"Answer: {updated_data['answer']}\n"
-                        f"Image File: {updated_data['image_path']}")
+                        f"Image File: {updated_data['image_file']}")
 
             # Update old question data with new data
             success = database.update_card(key=key, new_data=updated_data)
