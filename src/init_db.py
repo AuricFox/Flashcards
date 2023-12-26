@@ -5,14 +5,22 @@ def create_tables():
     conn = sqlite3.connect('flashcards.db')     # Connection to the database
     c = conn.cursor()                           # Allows entries to the database
 
+    # Code elements for supporting the flashcard
+    c.execute("""CREATE TABLE Code(
+            cid INTEGER PRIMARY KEY AUTOINCREMENT,
+            code_block TEXT,
+            code_type TEXT
+    )""")
+
     # Main flashcard elements
     c.execute("""CREATE TABLE Flashcards(
-              key INTEGER PRIMARY KEY AUTOINCREMENT,
-              category TEXT NOT NULL,
-              question TEXT NOT NULL,
-              code TEXT,
-              image_file TEXT,
-              answer TEXT NOT NULL
+            fid INTEGER PRIMARY KEY AUTOINCREMENT,
+            category TEXT NOT NULL,
+            question TEXT NOT NULL,
+            answer TEXT NOT NULL,
+            code_id INTEGER REFERENCES Code(ckey),
+            image_file TEXT
+              
     )""")
 
     conn.commit()                               # Commit changes to database
