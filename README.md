@@ -45,7 +45,7 @@ To get started with Interview Cards, follow these steps:
     (env) python app.py
     ```
 
-    The server will start running, and you can access the application by navigating to http://localhost:5000 in your web browser.
+    The server will start running, and you can access the application by navigating to `http://localhost:5000` in your web browser.
 
 ## Usage
 
@@ -55,4 +55,4 @@ To get started with Interview Cards, follow these steps:
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT) - see the [LICENSE](LICENSE) file for details.
