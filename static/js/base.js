@@ -18,21 +18,32 @@ $('.flip-flashcard').click(function () {
 // Flip the display card after a certain time interval
 setInterval(function () {
     const cardContent = document.getElementById('card-content-flip');
-    cardContent.style.transform = cardContent.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+
+    // Rotate card if one is present in the loaded page
+    if (cardContent) {
+        cardContent.style.transform = cardContent.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+    }
+
 }, 3000);
 
-
+// Animate cards by swapping them from front to back
 document.addEventListener('DOMContentLoaded', function () {
     const cardSlides = document.querySelectorAll('.card-content-slide');
     let currentSlide = 0;
 
     function showNextSlide() {
-        cardSlides[currentSlide].classList.remove('active-card');
-        currentSlide = (currentSlide + 1) % cardSlides.length;
-        cardSlides[currentSlide].classList.add('active-card');
+        // Animate the cards if present in the loaded page
+        if (cardSlides && cardSlides.length > 0) {
+            cardSlides[currentSlide].classList.remove('active-card');
+            currentSlide = (currentSlide + 1) % cardSlides.length;
+            cardSlides[currentSlide].classList.add('active-card');
+        }
     }
 
-    setInterval(showNextSlide, 5000); // Change the interval as needed
+    // Animate the cards if present in the loaded page
+    if (cardSlides && cardSlides.length > 0) {
+        setInterval(showNextSlide, 5000);
+    }
 });
 
 // ======================================================================================================
@@ -130,8 +141,42 @@ function validateText(id) {
 }
 
 // ======================================================================================================
-// ADD_FLASHCARD PAGE
+// ADD_FLASHCARD AND EDIT_FLASHCARD PAGE
 // ======================================================================================================
+
+document.addEventListener('DOMContentLoaded', function () {
+    const codeSection = document.getElementById('code-section');
+    const imageSection = document.getElementById('image-section');
+    const codeType = document.getElementById('code-sel');
+    const codeInput = document.getElementById('code-ex');
+    const imageInput = document.getElementById('image-ex');
+
+    const codeSelection = document.getElementById('code-selection');
+    const imageSelection = document.getElementById('image-selection');
+
+    if (codeSelection.checked){
+        // Display only code input
+        codeSection.style.display = 'block';
+        imageSection.style.display = 'none';
+        codeType.required = true;
+        codeInput.required = true;
+        imageInput.required = false;
+    } else if (imageSelection.checked){
+        codeSection.style.display = 'none';
+        imageSection.style.display = 'block';
+        codeType.required = false;
+        codeInput.required = false;
+        imageInput.required = true;
+    } else {
+        // Display neither code nor image input
+        codeSection.style.display = 'none';
+        imageSection.style.display = 'none';
+        codeType.required = false;
+        codeInput.required = false;
+        imageInput.required = false;
+    }
+});
+
 function toggleFields(selectedType) {
     const codeSection = document.getElementById('code-section');
     const imageSection = document.getElementById('image-section');
