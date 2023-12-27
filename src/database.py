@@ -30,7 +30,7 @@ def add_card(category:str, question:str, answer:str, code:str=None, code_type:st
                 code_set = (code, code_type)
 
                 c_code = conn.cursor()
-                LOGGER.info(code_query, code_set)
+                LOGGER.info(f"{code_query}\n{code_set}")
                 c_code.execute(code_query, code_set)
                 conn.commit()
 
@@ -52,7 +52,7 @@ def add_card(category:str, question:str, answer:str, code:str=None, code_type:st
                 flashcard_set = (category, question, answer)
 
             c = conn.cursor()
-            LOGGER.info(flashcard_query, flashcard_set)
+            LOGGER.info(f"{flashcard_query}\n{flashcard_set}")
             c.execute(flashcard_query, flashcard_set)
             conn.commit()
 
@@ -87,7 +87,7 @@ def view_card(key:int):
     try:
         with sqlite3.connect('flashcards.db') as conn:
             c = conn.cursor()
-            LOGGER.info("SELECT * FROM Flashcards WHERE fid = ?", (key,))
+            LOGGER.info(f"SELECT * FROM Flashcards WHERE fid = {key}")
             c.execute("SELECT * FROM Flashcards WHERE fid = ?", (key,))
             card_data = c.fetchone()
 
@@ -103,7 +103,7 @@ def view_card(key:int):
 
             # Get code elements if code_id is not null
             if response['code_id'] is not None:
-                LOGGER.info("SELECT * FROM Code WHERE cid = ?", (response['code_id'],))
+                LOGGER.info(f"SELECT * FROM Code WHERE cid = {response['code_id']}")
                 c.execute("SELECT * FROM Code WHERE cid = ?", (response['code_id'],))
                 code_data = c.fetchone()
 
@@ -176,7 +176,7 @@ def view_allcards(category:str=None):
 
             # Retrieve all cards in a specified category
             if category:
-                LOGGER.info("SELECT * FROM Flashcards WHERE category = ?", (category,))
+                LOGGER.info(f"SELECT * FROM Flashcards WHERE category = {category}")
                 c.execute("SELECT * FROM Flashcards WHERE category = ?", (category,))
             # Retrieve all cards in the database
             else:
@@ -238,8 +238,8 @@ def update_card(key:int, category:str, question:str, answer:str, code:str=None, 
 
             c = conn.cursor()
             # Get the current image filename and code block if they exist
-            LOGGER.info("SELECT image_file, code_id FROM Flashcards WHERE key = ?", (key,))
-            c.execute("SELECT image_file, code_id FROM Flashcards WHERE key = ?", (key,))
+            LOGGER.info(f"SELECT image_file, code_id FROM Flashcards WHERE fid = {key}")
+            c.execute("SELECT image_file, code_id FROM Flashcards WHERE fid = ?", (key,))
             current_data= c.fetchone()
             current_image_file = current_data[0]
             current_code_id = current_data[1]
@@ -269,7 +269,7 @@ def update_card(key:int, category:str, question:str, answer:str, code:str=None, 
 
                 # Commit code element changes
                 c_code = conn.cursor()
-                LOGGER.info(code_query, code_set)
+                LOGGER.info(f"{code_query}\n{code_set}")
                 c_code.execute(code_query, code_set)
                 conn.commit()
 
@@ -283,7 +283,7 @@ def update_card(key:int, category:str, question:str, answer:str, code:str=None, 
 
             flashcard_query = "UPDATE Flashcards SET category = ?, question = ?, answer = ?, code_id = ?, image_file = ? WHERE fid = ?"
 
-            LOGGER.info(flashcard_query, flashcard_set)
+            LOGGER.info(f"{flashcard_query}\n{flashcard_set}")
             c.execute(flashcard_query, flashcard_set)
             conn.commit()
 
@@ -309,10 +309,10 @@ def delete_card(key:int):
             c = conn.cursor()
 
             # Check for foreign keys to code table
-            c.execute("SELECT code_id WHERE fid = ", (key,))
+            c.execute("SELECT code_id FROM Flashcards WHERE fid = ?", (key,))
             code = c.fetchone()[0]
 
-            LOGGER.info("DELETE FROM Flashcards WHERE fid = ?", (key,))
+            LOGGER.info(f"DELETE FROM Flashcards WHERE fid = {key}")
             c.execute("DELETE FROM Flashcards WHERE fid = ?", (key,))
 
             conn.commit()
@@ -342,7 +342,7 @@ def delete_code(key:int):
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
             c = conn.cursor()
 
-            LOGGER.info("DELETE FROM Code WHERE cid = ?", (key,))
+            LOGGER.info(f"DELETE FROM Code WHERE cid = {key}")
             c.execute("DELETE FROM Code WHERE cid = ?", (key,))
             conn.commit()
 
