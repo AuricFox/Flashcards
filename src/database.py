@@ -279,6 +279,11 @@ def update_card(key:int, category:str, question:str, answer:str, code:str=None, 
 
             # Update basic elements
             else:
+                # Delete current image from image folder
+                if current_image_file: utils.remove_image(current_image_file)
+                # Delete current code from the database
+                if current_code_id: delete_code(current_code_id)
+
                 flashcard_set = (category, question, answer, None, None, key)
 
             flashcard_query = "UPDATE Flashcards SET category = ?, question = ?, answer = ?, code_id = ?, image_file = ? WHERE fid = ?"
