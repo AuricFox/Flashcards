@@ -8,8 +8,8 @@ def create_tables():
     # Code elements for supporting the flashcard
     c.execute("""CREATE TABLE Code(
             cid INTEGER PRIMARY KEY AUTOINCREMENT,
-            code_block TEXT,
-            code_type TEXT
+            code_block TEXT NOT NULL,
+            code_type TEXT NOT NULL
     )""")
 
     # Main flashcard elements

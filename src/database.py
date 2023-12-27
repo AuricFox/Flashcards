@@ -308,9 +308,18 @@ def delete_card(key:int):
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
             c = conn.cursor()
 
-            LOGGER.info(f"DELETE FROM Flashcards WHERE fid = ?", (key,))
+            # Check for foreign keys to code table
+            c.execute("SELECT code_id WHERE fid = ", (key,))
+            code = c.fetchone()[0]
+
+            LOGGER.info("DELETE FROM Flashcards WHERE fid = ?", (key,))
             c.execute("DELETE FROM Flashcards WHERE fid = ?", (key,))
+
             conn.commit()
+
+            # Delete code from database
+            if code:
+                delete_code(code)
 
         return True
     
@@ -333,7 +342,7 @@ def delete_code(key:int):
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
             c = conn.cursor()
 
-            LOGGER.info(f"DELETE FROM Code WHERE cid = ?", (key,))
+            LOGGER.info("DELETE FROM Code WHERE cid = ?", (key,))
             c.execute("DELETE FROM Code WHERE cid = ?", (key,))
             conn.commit()
 

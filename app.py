@@ -88,39 +88,60 @@ def create_flashcard_route():
         None, redirects to manage_flashcard page
     '''
     try:
-        data = {}
 
         if request.method == 'POST':
-            # Retrieve updated data from the form
-            data['category'] = utils.sanitize(request.form.get('category', type=str))
-            data['question'] = request.form.get('question', type=str)
-            data['code'] = request.form.get('code-ex', type=str)
-            data['answer'] = request.form.get('answer', type=str)
-            
-            # Get file data from form
-            file = request.files['image-ex']
-            # Save file and get filename
-            data['image_file'] = '' if not file else utils.save_image_file(file)
-            LOGGER.info(f"Adding flashcard data:\n"
-                        f"Category: {data['category']}\n"
-                        f"Question: {data['question']}\n"
-                        f"Code: {data['code']}\n"
-                        f"Answer: {data['answer']}\n"
-                        f"Image File: {data['image_file']}")
+            # Retrieve main card elements from the form
+            category = utils.sanitize(request.form.get('category', type=str))
+            question = request.form.get('question', type=str)
+            answer = request.form.get('answer', type=str)
 
-            # Incorrect file was submitted or file failed to save
-            if data['image_file'] is None:
-                LOGGER.error(f'{file.filename} is an Invalid File or FileType')
-                flash(f'{file.filename} is an Invalid File or FileType', 'error')
-                return redirect(request.referrer)
+            code_or_image = request.form.get('input-type', type=str)
+
+            # Process image file
+            if code_or_image == 'image':
+                # Get file data from form and save it
+                file = request.files['image-ex']
+                image_file = utils.save_image_file(file)
+
+                # Set code elements to none, user can only have an image or code not both
+                code = None
+                code_type = None
+
+                # Incorrect file was submitted or file failed to save
+                if image_file is None:
+                    LOGGER.error(f'{file.filename} is an Invalid File or FileType')
+                    flash(f'{file.filename} is an Invalid File or FileType', 'error')
+                    return redirect(request.referrer)
+            
+            # Process code elements
+            elif code_or_image == 'code':
+                code = request.form.get('code-ex', str)
+                code_type = request.form.get('code-type', str)
+                image_file = None
+
+            # No code or images used
+            else:
+                code = None
+                code_type = None
+                image_file = None
+            
+            LOGGER.info(f"Adding flashcard data:\n"
+                        f"Category: {category}\n"
+                        f"Question: {question}\n"
+                        f"Answer: {answer}\n"
+                        f"Code: {code}\n"
+                        f"Code Type: {code_type}\n"
+                        f"Image File: {image_file}")
 
             # Update old question data with new data
             success = database.add_card(
-                category=data['category'], 
-                question=data['question'], 
-                answer=data['answer'], 
-                code=data['code'], 
-                image_file=data['image_file'])
+                category=category, 
+                question=question, 
+                answer=answer, 
+                code=code,
+                code_type=code_type,
+                image_file=image_file
+                )
 
             if success:
                 LOGGER.info("Flashcard added successfully")
@@ -184,34 +205,61 @@ def update_flashcard_route(key):
         None, redirects to manage_flashcard page
     '''
     try:
-        updated_data = {}
 
         if request.method == 'POST':
-            # Retrieve updated data from the form
-            updated_data['category'] = utils.sanitize(request.form.get('category', type=str))
-            updated_data['question'] = request.form.get('question', type=str)
-            updated_data['code'] = request.form.get('code', type=str)
-            updated_data['answer'] = request.form.get('answer', type=str)
+            # Retrieve main card elements from the form
+            category = utils.sanitize(request.form.get('category', type=str))
+            question = request.form.get('question', type=str)
+            answer = request.form.get('answer', type=str)
+
+            code_or_image = request.form.get('input-type', type=str)
+
+            # Process image file
+            if code_or_image == 'image':
+                # Get file data from form and save it
+                file = request.files['image-ex']
+                image_file = utils.save_image_file(file)
+
+                # Set code elements to none, user can only have an image or code not both
+                code = None
+                code_type = None
+
+                # Incorrect file was submitted or file failed to save
+                if image_file is None:
+                    LOGGER.error(f'{file.filename} is an Invalid File or FileType')
+                    flash(f'{file.filename} is an Invalid File or FileType', 'error')
+                    return redirect(request.referrer)
             
-            # Get file data from form
-            file = request.files['image']
-            # Save file and get filename
-            updated_data['image_file'] = '' if not file else utils.save_image_file(file)
-            # Incorrect file was submitted or file failed to save
-            if updated_data['image_file'] is None:
-                LOGGER.error(f'{file.filename} is an Invalid File or FileType')
-                flash(f'{file.filename} is an Invalid File or FileType', 'error')
-                return redirect(request.referrer)
+            # Process code elements
+            elif code_or_image == 'code':
+                code = request.form.get('code-ex', str)
+                code_type = request.form.get('code-type', str)
+                image_file = None
+
+            # No code or images used
+            else:
+                code = None
+                code_type = None
+                image_file = None
             
             LOGGER.info(f"Editing: {key}\n"
-                        f"Category: {updated_data['category']}\n"
-                        f"Question: {updated_data['question']}\n"
-                        f"Code: {updated_data['code']}\n"
-                        f"Answer: {updated_data['answer']}\n"
-                        f"Image File: {updated_data['image_file']}")
+                        f"Category: {category}\n"
+                        f"Question: {question}\n"
+                        f"Answer: {answer}\n"
+                        f"Code: {code}\n"
+                        f"Code Type: {code_type}\n"
+                        f"Image File: {image_file}")
 
             # Update old question data with new data
-            success = database.update_card(key=key, new_data=updated_data)
+            success = database.update_card(
+                key=key, 
+                category=category,
+                question=question,
+                answer=answer,
+                code=code,
+                code_type=code_type,
+                image_file=image_file
+                )
 
             if success:
                 LOGGER.info("Flashcard updated successfully")
