@@ -14,7 +14,7 @@
                 <h2>Question</h2>
                 <p>{{ data['questions'][index]['question'] | escape }}</p>
 
-                {% if data['questions'][index]['image_path'] %}
+                {% if data['questions'][index]['image_file'] %}
                 <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['image_path']) }}"
                     alt="{{ data['questions'][index]['image_path'] }}">
                     

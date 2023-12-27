@@ -14,15 +14,25 @@
         <h2>Question</h2>
         <p>{{ data['question'] | escape }}</p>
     </div>
-    <div class="flashcard-content-inner">
-        <h2>Code</h2>
-        <p>{{ data['code'] | escape }}</p>
-    </div>
-    <div class="flashcard-content-inner">
-        <!--TODO:Change to image tag-->
-        <h2>Image</h2>
-        <img class="card-image" src="{{ url_for('static', filename='images/' + data['image_path']) }}" alt="{{ data['image_path'] }}">
-    </div>
+
+    {% if data['code'] %}
+        <div class="flashcard-content-inner">
+            <h2>Code</h2>
+            <p>{{ data['code'] | escape }}</p>
+        </div>
+        <div class="flashcard-content-inner">
+            <h2>Code Type</h2>
+            <p>{{ data['code_type'] | escape }}</p>
+        </div>
+    {% endif %}
+
+    {% if data['image_file'] %}
+        <div class="flashcard-content-inner">
+            <h2>Image</h2>
+            <img class="card-image" src="{{ url_for('static', filename='images/' + data['image_file']) }}" alt="{{ data['image_file'] }}">
+        </div>
+    {% endif %}
+
     <div class="flashcard-content-inner">
         <h2>Anwser</h2>
         <p>{{ data['answer'] | escape }}</p>

@@ -6,7 +6,7 @@
 
 <div class="flashcard-content">
 
-    <form action="{{ url_for('update_flashcard_route', key=data['key']) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url_for('update_flashcard_route', key=data['fid']) }}" method="post" enctype="multipart/form-data">
 
         <div class="flashcard-content-inner">
             <h2>Category</h2>
@@ -19,18 +19,48 @@
         </div>
 
         <div class="flashcard-content-inner">
-            <h2>Code</h2>
-            <textarea id="code" name="code" rows="6">{{ data['code'] | escape }}</textarea>
-        </div>
-
-        <div class="flashcard-content-inner">
             <h2>Answer</h2>
             <textarea id="answer" name="answer" rows="4">{{ data['answer'] | escape }}</textarea>
         </div>
 
         <div class="flashcard-content-inner">
+            <h2>Optional: Would you like to add a code example or image?</h2>
+            <div class="radio-input">                
+                <input type="radio" id="code-selection" name="input-type" value="code" onclick="toggleFields('code')" {% if data['code'] %}checked{% endif %}>
+                <label for="code">Code</label>
+                <input type="radio" id="image-selection" name="input-type" value="image" onclick="toggleFields('image')" {% if data['image_file'] %}checked{% endif %}>
+                <label for="image">Image</label>
+                <input type="radio" id="none-type" name="input-type" value="none" onclick="toggleFields('none')" {% if not data['code'] and not data['image_file'] %}checked{% endif %}>
+                <label for="none-type">None</label>
+            </div>
+        </div>
+        
+        <div class="flashcard-content-inner" id="code-section" style="display: none;">
+            <h2>Code Type</h2>
+            <input type="text" name="code-type" id="code-sel" list="code-type" value="{% if data['code_type'] is not none %}{{ data['code_type'] }}{% endif %}">
+            <datalist id="code-type">
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+                <option value="cs">C#</option>
+                <option value="css">CSS</option>
+                <option value="html">HTML</option>
+                <option value="java">Java</option>
+                <option value="js">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="sql">SQL</option>
+            </datalist>
+            <h2>Code Example</h2>
+            <textarea id="code-ex" name="code-ex" rows="6">{{ data['code'] | escape }}</textarea>
+        </div>
+        
+        <div class="flashcard-content-inner" id="image-section" style="display: none;">
             <h2>Image</h2>
-            <input type="file" id="image" name="image">
+            {% if data['image_file'] %}
+                <img class="card-image" src="{{ url_for('static', filename='images/' + data['image_file']) }}"
+                    alt="{{ data['image_file'] }}">
+            {% endif %}
+            <h2>Change Image</h2>
+            <input type="file" id="image-ex" name="image-ex">
         </div>
 
         <button type="submit">Update Flashcard</button>
