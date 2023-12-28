@@ -544,12 +544,11 @@ tr:last-child td {
 }
 
 /* Hide less important columns on small screens */
-@media screen and (max-width: 950px) {
-
-    th:nth-child(3),
-    td:nth-child(3),
+@media screen and (max-width: 980px) {
     th:nth-child(4),
-    td:nth-child(4) {
+    td:nth-child(4),
+    th:nth-child(5),
+    td:nth-child(5){
         display: none;
     }
 }

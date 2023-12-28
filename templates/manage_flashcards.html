@@ -12,7 +12,6 @@
                 <th>Question</th>
                 <th>Answer</th>
                 <th>Code</th>
-                <th>Code Type</th>
                 <th>Image</th>
                 <th></th>
             </tr>
@@ -23,12 +22,13 @@
                 <td id="category-cell" class="flash-cell">{{ value['category'] | escape }}</td>
                 <td id="question-cell" class="flash-cell">{{ value['question'] | escape }}</td>
                 <td id="answer-cell" class="flash-cell">{{ value['answer'] | escape }}</td>
+
                 <td id="code-cell" class="flash-cell">
                     {% if value['code'] %}
                     <pre><code>{{ value['code'] | escape }}</code></pre>
                     {% endif %}
                 </td>
-                <td id="code-type-cell" class="flash-cell">{{ value['code_type'] | escape }}</td>
+                
                 <td id="image-cell" class="flash-cell">
                     {% if value['image_file'] %}
                     <img class="card-image" src="{{ url_for('static', filename='images/' + value['image_file']) }}"

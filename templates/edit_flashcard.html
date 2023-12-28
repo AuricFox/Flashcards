@@ -54,8 +54,8 @@
         </div>
         
         <div class="flashcard-content-inner" id="image-section" style="display: none;">
-            <h2>Image</h2>
             {% if data['image_file'] %}
+                <h2>Current Image</h2>
                 <img class="card-image" src="{{ url_for('static', filename='images/' + data['image_file']) }}"
                     alt="{{ data['image_file'] }}">
             {% endif %}

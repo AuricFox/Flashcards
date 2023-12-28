@@ -154,27 +154,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const codeSelection = document.getElementById('code-selection');
     const imageSelection = document.getElementById('image-selection');
 
-    if (codeSelection.checked){
-        // Display only code input
-        codeSection.style.display = 'block';
-        imageSection.style.display = 'none';
-        codeType.required = true;
-        codeInput.required = true;
-        imageInput.required = false;
-    } else if (imageSelection.checked){
-        codeSection.style.display = 'none';
-        imageSection.style.display = 'block';
-        codeType.required = false;
-        codeInput.required = false;
-        imageInput.required = true;
-    } else {
-        // Display neither code nor image input
-        codeSection.style.display = 'none';
-        imageSection.style.display = 'none';
-        codeType.required = false;
-        codeInput.required = false;
-        imageInput.required = false;
+    if (codeSelection || imageSelection){
+        if (codeSelection.checked) {
+            // Display only code input
+            codeSection.style.display = 'block';
+            imageSection.style.display = 'none';
+            codeType.required = true;
+            codeInput.required = true;
+            imageInput.required = false;
+        } else if (imageSelection.checked) {
+            codeSection.style.display = 'none';
+            imageSection.style.display = 'block';
+            codeType.required = false;
+            codeInput.required = false;
+            imageInput.required = true;
+        } else {
+            // Display neither code nor image input
+            codeSection.style.display = 'none';
+            imageSection.style.display = 'none';
+            codeType.required = false;
+            codeInput.required = false;
+            imageInput.required = false;
+        }
     }
+    
 });
 
 function toggleFields(selectedType) {

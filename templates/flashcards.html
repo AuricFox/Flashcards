@@ -15,11 +15,11 @@
                 <p>{{ data['questions'][index]['question'] | escape }}</p>
 
                 {% if data['questions'][index]['image_file'] %}
-                <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['image_path']) }}"
+                <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['image_file']) }}"
                     alt="{{ data['questions'][index]['image_path'] }}">
                     
                 {% elif data['questions'][index]['code'] %}
-                <pre><code>{{ data['questions'][index]['code'] | escape }}</code></pre>
+                <pre><code class="language-{{ data['questions'][index]['code_type'] }}">{{ data['questions'][index]['code'] | escape }}</code></pre>
                 {% endif %}
 
             </div>

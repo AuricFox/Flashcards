@@ -18,7 +18,7 @@
     {% if data['code'] %}
         <div class="flashcard-content-inner">
             <h2>Code</h2>
-            <p>{{ data['code'] | escape }}</p>
+            <pre><code class="language-{{ data['code_type'] }}">{{ data['code'] | escape }}</pre></code>
         </div>
         <div class="flashcard-content-inner">
             <h2>Code Type</h2>
