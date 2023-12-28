@@ -514,6 +514,7 @@ tr:last-child td {
     padding: 4px 10px;
     border-radius: 4px;
     color: black;
+    width: 25%;
 }
 
 .view-cell {
