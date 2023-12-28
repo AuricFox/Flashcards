@@ -274,7 +274,7 @@ def update_card(key:int, category:str, question:str, answer:str, code:str=None, 
                 conn.commit()
 
                 # Retrieve the generated primary key (ckey) from the Code table
-                current_code_id = c_code.lastrowid
+                current_code_id = c_code.lastrowid if current_code_id is None else current_code_id
                 flashcard_set = (category, question, answer, current_code_id, None, key)
 
             # Update basic elements
