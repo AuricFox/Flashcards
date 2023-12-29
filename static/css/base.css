@@ -179,6 +179,7 @@ body {
     border-radius: 4px;
     padding: 14px;
     min-width: 12rem;
+    box-shadow: 5px 8px 8px #000;
 }
 
 .category div:first-child {
@@ -203,6 +204,7 @@ body {
     border-radius: 30px;
     border: 1px solid #FF7F00;
     transition: background-color 0.3s ease-in-out;
+    box-shadow: 4px 4px 8px #000;
 }
 
 .home-button a:hover {
@@ -245,6 +247,7 @@ body {
     justify-content: space-around;
     border-radius: 8px;
     z-index: 0;
+    box-shadow: 5px 10px 8px #000;
 }
 
 .flip-flashcard,
@@ -267,14 +270,12 @@ body {
     transform: rotate(5deg);
     background-color: #f7d9ff;
     z-index: -1;
-
 }
 
 .background-card:nth-child(2) {
     transform: rotate(-5deg);
     background-color: #add8e6;
     z-index: -2;
-
 }
 
 .background-card:nth-child(3) {
@@ -393,6 +394,7 @@ body {
     text-align: center;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+    box-shadow: 5px 10px 8px #000;
 }
 
 .side {
@@ -419,7 +421,7 @@ body {
 }
 
 .flash-button {
-    border-radius: 30px;
+    border-radius: 1rem;
     width: 3rem;
     padding: 5px;
     color: #FFFFFF;
@@ -429,20 +431,24 @@ body {
 
 #previous-button, 
 #next-button {
-    background-color: rgba(255,255,255,0.2);
+    background-color: #FF7F00;
 }
 
 #previous-button:hover,
 #next-button:hover {
     cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #F6B701;
 }
 
 .buttons {
+    margin: 1rem;
+}
+
+.buttons-inner {
     display: flex;
     flex-direction: row;
-    margin: 1rem auto;
     justify-content: center;
+    align-items: center;
 }
 
 #shuffle-button {
@@ -561,6 +567,7 @@ tr:last-child td {
 
 .flashcard-content {
     background-color: #FFFFFF;
+    box-shadow: 5px 10px 8px #000;
     margin: 0 auto 4rem auto;
     padding: 1rem;
     border-radius: 8px;

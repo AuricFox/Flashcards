@@ -32,19 +32,23 @@
 </div>
 
 <div class="buttons">
-    <button class="flash-button" id="shuffle-button" onclick="shuffleFlashcards()">
-        <img class="card-image" src="{{ url_for('static', filename='images/icons/shuffle.png') }}" alt="">
-    </button>
+    <div class="buttons-inner">
+        <button class="flash-button" id="previous-button" onclick="showPreviousFlashcard()">
+            <img class="card-image" src="{{ url_for('static', filename='images/icons/left-arrow.png') }}" alt="">
+        </button>
 
-    <button class="flash-button" id="previous-button" onclick="showPreviousFlashcard()">
-        <img class="card-image" src="{{ url_for('static', filename='images/icons/left-arrow.png') }}" alt="">
-    </button>
+        <div class="question-num" id="question-num"></div>
 
-    <div class="question-num" id="question-num"></div>
+        <button class="flash-button" id="next-button" onclick="showNextFlashcard()">
+            <img class="card-image" src="{{ url_for('static', filename='images/icons/right-arrow.png') }}" alt="">
+        </button>
+    </div>
 
-    <button class="flash-button" id="next-button" onclick="showNextFlashcard()">
-        <img class="card-image" src="{{ url_for('static', filename='images/icons/right-arrow.png') }}" alt="">
-    </button>
+    <div class="buttons-inner">
+        <button class="flash-button" id="shuffle-button" onclick="shuffleFlashcards()">
+            <img class="card-image" src="{{ url_for('static', filename='images/icons/shuffle.png') }}" alt="">
+        </button>
+    </div>
 </div>
 
 <script>
