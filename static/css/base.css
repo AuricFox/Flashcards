@@ -419,9 +419,8 @@ body {
 }
 
 button {
-    border: none;
-    border-radius: 8px;
-    width: 4rem;
+    border-radius: 30px;
+    width: 3rem;
     padding: 5px;
     color: #FFFFFF;
     font-weight: bold;
@@ -430,18 +429,20 @@ button {
 
 #previous-button, 
 #next-button {
-    background-color: #4CAF50;
+    background-color: rgba(255,255,255,0.2);
 }
 
 #previous-button:hover,
 #next-button:hover {
     cursor: pointer;
-    background-color: red;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .buttons {
-    margin: 2rem;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+    justify-content: center;
 }
 
 #shuffle-button {
@@ -451,6 +452,13 @@ button {
 #shuffle-button:hover {
     cursor: pointer;
     background-color: rgb(123, 123, 253);
+}
+
+.question-num {
+    color: #FFFFFF;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: auto 2rem;
 }
 
 .card-image {

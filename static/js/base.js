@@ -71,6 +71,7 @@ var CURRENT_INDEX = 0;
 var NUM_FLASHCARDS = $('.flashcard').length;
 var CARD_ARRAY = Array.from({ length: NUM_FLASHCARDS }, (_, index) => index);
 
+
 // Rotate flashcard when clicked
 $('.flashcard').click(function () {
     var id = $(this).attr('id') + '-content';
@@ -79,6 +80,7 @@ $('.flashcard').click(function () {
 });
 
 function showFlashcard(index) {
+
     // Ensure the index is a valid number
     if (isNaN(index) || index >= NUM_FLASHCARDS) {
         // Go back to the beginning
@@ -97,6 +99,9 @@ function showFlashcard(index) {
     // Hide everything except current flashcard
     $('.flashcard').hide();
     $(id).show();
+
+    // Update question number
+    $('#question-num').text((CURRENT_INDEX+1) + ' / ' + NUM_FLASHCARDS)
 };
 
 // Advance to the next flashcard on the page
