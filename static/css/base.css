@@ -421,19 +421,20 @@ body {
 button {
     border: none;
     border-radius: 8px;
-    min-width: 90px;
+    width: 4rem;
     padding: 5px;
-    margin: 0 2rem 0 2rem;
     color: #FFFFFF;
     font-weight: bold;
     font-size: larger;
 }
 
-.side-button {
+#previous-button, 
+#next-button {
     background-color: #4CAF50;
 }
 
-.side-button:hover {
+#previous-button:hover,
+#next-button:hover {
     cursor: pointer;
     background-color: red;
 }
@@ -444,7 +445,6 @@ button {
 }
 
 #shuffle-button {
-    width: 25%;
     background-color: rgb(73, 73, 255);
 }
 
@@ -499,49 +499,30 @@ tr:last-child td {
     text-overflow: ellipsis;
 }
 
-.action-cell {
+.action-cells {
     text-align: center;
     justify-content: space-around;
 }
 
 .action-links {
     display: flex;
-    justify-content: space-around;
+    justify-content: right;
 }
 
-.view-cell, .edit-cell, .delete-cell {
+.action-cell {
     text-decoration: none;
-    padding: 4px 10px;
+    padding: 3px;
+    margin: 0 0.4rem;
     border-radius: 4px;
     color: black;
-    width: 25%;
+    width: 1.75rem;
+    min-width: 1.75rem;
+    background-color: #FF7F00;
 }
 
-.view-cell {
-    border: 1px solid #4CAF50;
-}
-
-.edit-cell {
-    border: 1px solid rgb(73, 73, 255);
-}
-
-.delete-cell {
-    border: 1px solid red;
-}
-
-.view-cell:hover {
+.action-cell:hover {
     color: #FFFFFF;
-    background-color: #4CAF50;
-}
-
-.edit-cell:hover {
-    color: #FFFFFF;
-    background-color: rgb(73, 73, 255);
-}
-
-.delete-cell:hover {
-    color: #FFFFFF;
-    background-color: red;
+    background-color: #F6B701;
 }
 
 /* Hide less important columns on small screens */
@@ -555,7 +536,7 @@ tr:last-child td {
 }
 
 /* Stack rows vertically on small screens */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 500px) {
     tr {
         display: block;
         margin-bottom: 10px;
