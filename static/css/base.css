@@ -418,7 +418,7 @@ body {
     transform: rotateY(180deg);
 }
 
-button {
+.flash-button {
     border-radius: 30px;
     width: 3rem;
     padding: 5px;
@@ -595,10 +595,15 @@ tr:last-child td {
 }
 
 form button {
+    border: none;
     display: block;
     margin: 0 auto;
     padding: 10px;
     background-color: red;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: larger;
 }
 
 form button:hover {
