@@ -3,13 +3,17 @@
 // ======================================================================================================
 $('.dropbtn').click(function () {
     const menu = document.querySelector('.dropdown-content');
-
-    // Get the current computed style
-    const computedStyle = window.getComputedStyle(menu);
-
     menu.style.display = menu.style.display === 'none' ? 'grid' : 'none';
 
+    // Add an event listener to hide the dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+        const isClickInsideDropdown = menu.contains(event.target);
+        const isClickOnButton = event.target.classList.contains('dropbtn');
 
+        if (!isClickInsideDropdown && !isClickOnButton) {
+            menu.style.display = 'none';
+        }
+    });
 });
 
 // ======================================================================================================

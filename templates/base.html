@@ -21,7 +21,7 @@
                         <button class="dropbtn nav-tile">Flashcards</button>
                         <div class="dropdown-content" style="display: none;">
                             {% for category, count in categories.items() %}
-                            <a href="{{ url_for('flashcard_route', category=key) | escape }}">{{ category | escape }}</a>
+                            <a href="{{ url_for('flashcard_route', category=category) | escape }}">{{ category | escape }}</a>
                             {% endfor %}
                         </div>
                     </div>

@@ -44,7 +44,7 @@ def flashcard_route(category):
 
     categories = database.view_allcategories()
 
-    return render_template('flashcards.html', nav_id="home-page", data=data, length=length, categories=categories)
+    return render_template('flashcards.html', nav_id="flashcard-page", data=data, length=length, categories=categories)
 
 # ==============================================================================================================
 @app.route("/manage_flashcards")
