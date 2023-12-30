@@ -269,18 +269,21 @@ body {
 .background-card:nth-child(1) {
     transform: rotate(5deg);
     background-color: #f7d9ff;
+    box-shadow: 1px 1px 10px #404040;
     z-index: -1;
 }
 
 .background-card:nth-child(2) {
     transform: rotate(-5deg);
     background-color: #add8e6;
+    box-shadow: 1px 1px 10px #404040;
     z-index: -2;
 }
 
 .background-card:nth-child(3) {
     transform: rotate(10deg);
     background-color: #cdffcd;
+    box-shadow: 1px 1px 10px #404040;
     z-index: -3;
 }
 
@@ -291,6 +294,7 @@ body {
     text-align: center;
     transform-style: preserve-3d;
     transition: transform 0.9s;
+    box-shadow: 1px 1px 10px #404040;
 }
 
 .card-content-slide {
@@ -532,11 +536,13 @@ tr:last-child td {
     width: 1.75rem;
     min-width: 1.75rem;
     background-color: #FF7F00;
+    box-shadow: 1px 1px 4px #000;
 }
 
 .action-cell:hover {
     color: #FFFFFF;
     background-color: #F6B701;
+    box-shadow: none;
 }
 
 /* Hide less important columns on small screens */
