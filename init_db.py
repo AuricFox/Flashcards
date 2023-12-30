@@ -20,33 +20,33 @@ def create_tables():
 
             c = conn.cursor()
                      # Code elements for supporting the flashcard
-            LOGGER.info("""CREATE TABLE Code(
-                    cid INTEGER PRIMARY KEY AUTOINCREMENT,
-                    code_block TEXT NOT NULL,
-                    code_type TEXT NOT NULL
+            LOGGER.info("""CREATE TABLE Figure(
+                    fid INTEGER PRIMARY KEY AUTOINCREMENT,
+                    code_block TEXT,
+                    code_type TEXT,
+                    image_file TEXT
             )""")
-            c.execute("""CREATE TABLE Code(
-                    cid INTEGER PRIMARY KEY AUTOINCREMENT,
-                    code_block TEXT NOT NULL,
-                    code_type TEXT NOT NULL
+            c.execute("""CREATE TABLE Figure(
+                    fid INTEGER PRIMARY KEY AUTOINCREMENT,
+                    code_block TEXT,
+                    code_type TEXT,
+                    image_file TEXT
             )""")
         
             # Main flashcard elements
             LOGGER.info("""CREATE TABLE Flashcards(
-                    fid INTEGER PRIMARY KEY AUTOINCREMENT,
+                    cid INTEGER PRIMARY KEY AUTOINCREMENT,
                     category TEXT NOT NULL,
                     question TEXT NOT NULL,
                     answer TEXT NOT NULL,
-                    code_id INTEGER REFERENCES Code(ckey),
-                    image_file TEXT        
+                    figure_id INTEGER REFERENCES Figure(cid)        
             )""")
             c.execute("""CREATE TABLE Flashcards(
-                    fid INTEGER PRIMARY KEY AUTOINCREMENT,
+                    cid INTEGER PRIMARY KEY AUTOINCREMENT,
                     category TEXT NOT NULL,
                     question TEXT NOT NULL,
                     answer TEXT NOT NULL,
-                    code_id INTEGER REFERENCES Code(ckey),
-                    image_file TEXT        
+                    figure_id INTEGER REFERENCES Figure(fid)        
             )""")
 
             conn.commit()
@@ -73,16 +73,17 @@ def clear_tables():
             LOGGER.info("DELETE FROM Flashcards")
             c.execute("DELETE FROM Flashcards")
 
-            LOGGER.info("DELETE FROM Code")
-            c.execute("DELETE FROM Code")
+            LOGGER.info("DELETE FROM Figure")
+            c.execute("DELETE FROM Figure")
             conn.commit()
 
         return True
     
     except sqlite3.Error as e:
-        LOGGER.error(f"An error occurred when deleting all records from the table: {e}")
+        LOGGER.error(f"An error occurred when deleting all records from the tables: {e}")
         return False
 
 # ==============================================================================================================
 if __name__ == "__main__":
-    clear_tables()
+    #clear_tables()
+    create_tables()
