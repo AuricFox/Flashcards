@@ -120,7 +120,7 @@ def view_card(key:int):
 
                 response['code'] = figure_data[1]
                 response['code_type'] = figure_data[2]
-                response['file_image'] = figure_data[3]
+                response['image_file'] = figure_data[3]
 
         return response
     
