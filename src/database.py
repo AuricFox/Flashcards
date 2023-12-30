@@ -26,25 +26,37 @@ def add_card(category:str, question:str, answer:str, code:str=None, code_type:st
             # Build query using code example and code type
             if code and code_type:
                 # Add code elements to the database
-                code_query = "INSERT INTO Code (code_block, code_type) VALUES (?,?)"
-                code_set = (code, code_type)
+                figure_query = "INSERT INTO Figure (code_block, code_type) VALUES (?,?)"
+                figure_set = (code, code_type)
 
-                c_code = conn.cursor()
-                LOGGER.info(f"{code_query}\n{code_set}")
-                c_code.execute(code_query, code_set)
+                c_figure = conn.cursor()
+                LOGGER.info(f"{figure_query}\n{figure_set}")
+                c_figure.execute(figure_query, figure_set)
                 conn.commit()
 
-                # Retrieve the generated primary key (ckey) from the Code table
-                cid = c_code.lastrowid
+                # Retrieve the generated primary key (fid) from the Figure table
+                fid = c_figure.lastrowid
 
-                # Insert flashcard information with the ckey as the foreign key
-                flashcard_query = "INSERT INTO Flashcards (category, question, answer, code_id) VALUES (?,?,?,?)"
-                flashcard_set = (category, question, answer, cid)
+                # Insert flashcard information with the fid as the foreign key
+                flashcard_query = "INSERT INTO Flashcards (category, question, answer, figure_id) VALUES (?,?,?,?)"
+                flashcard_set = (category, question, answer, fid)
 
             # Build query using image file
             elif image_file:
-                flashcard_query = "INSERT INTO Flashcards (category, question, answer, image_file) VALUES (?,?,?,?)"
-                flashcard_set = (category, question, answer, image_file)
+                # Add image elements to the database
+                figure_query = "INSERT INTO Figure (image_file) VALUES (?)"
+                figure_set = (image_file,)
+
+                i_figure = conn.cursor()
+                LOGGER.info(f"{figure_query}\n{figure_set}")
+                i_figure.execute(figure_query, figure_set)
+                conn.commit()
+
+                # Retrieve the generated primary key (fid) from the Figure table
+                fid = i_figure.lastrowid
+
+                flashcard_query = "INSERT INTO Flashcards (category, question, answer, figure_id) VALUES (?,?,?,?)"
+                flashcard_set = (category, question, answer, fid)
 
             # Build query without code and image examples
             else:
@@ -74,41 +86,41 @@ def view_card(key:int):
         response (dict): a dictionary of the Flashcard data if found, None otherwise
 
         response = {
-            'fid':int, 
+            'key':int, 
             'category':str, 
             'question':str, 
             'answer':str, 
-            'code_id':str, 
-            'image_file':str, 
-            'code':str if code_id not null,
-            'code_type':str if code_id not null
+            'figure_id':int,  
+            'code':str,
+            'code_type':str,
+            'image_file':str,
         }
     '''
     try:
         with sqlite3.connect('flashcards.db') as conn:
             c = conn.cursor()
-            LOGGER.info(f"SELECT * FROM Flashcards WHERE fid = {key}")
-            c.execute("SELECT * FROM Flashcards WHERE fid = ?", (key,))
+            LOGGER.info(f"SELECT * FROM Flashcards WHERE cid = {key}")
+            c.execute("SELECT * FROM Flashcards WHERE cid = ?", (key,))
             card_data = c.fetchone()
 
             # Convert the tuple into a dictionary
             response = {
-                'fid': card_data[0],
+                'key': card_data[0],
                 'category': card_data[1],
                 'question': card_data[2], 
                 'answer': card_data[3],
-                'code_id': card_data[4],
-                'image_file': card_data[5]
+                'figure_id': card_data[4]
             }
 
-            # Get code elements if code_id is not null
-            if response['code_id'] is not None:
-                LOGGER.info(f"SELECT * FROM Code WHERE cid = {response['code_id']}")
-                c.execute("SELECT * FROM Code WHERE cid = ?", (response['code_id'],))
-                code_data = c.fetchone()
+            # Get figure elements if figure_id is not null
+            if response['figure_id'] is not None:
+                LOGGER.info(f"SELECT * FROM Figure WHERE fid = {response['figure_id']}")
+                c.execute("SELECT * FROM Figure WHERE fid = ?", (response['figure_id'],))
+                figure_data = c.fetchone()
 
-                response['code'] = code_data[1]
-                response['code_type'] = code_data[2]
+                response['code'] = figure_data[1]
+                response['code_type'] = figure_data[2]
+                response['file_image'] = figure_data[3]
 
         return response
     
@@ -164,10 +176,10 @@ def view_allcards(category:str=None):
                 'category':str, 
                 'question':str, 
                 'answer':str, 
-                'code_id':str, 
+                'figure_id':int, 
                 'image_file':str, 
-                'code':str if code_id not null,
-                'code_type':str if code_id not null
+                'code':str,
+                'code_type':str
             }, ... ]}
     '''
     try:
@@ -189,21 +201,21 @@ def view_allcards(category:str=None):
             response = {'questions': []}
             for data in card_data:
                 question = {
-                    'fid': data[0], 
+                    'key': data[0], 
                     'category': data[1], 
                     'question': data[2], 
                     'answer': data[3], 
-                    'code_id': data[4], 
-                    'image_file': data[5]
+                    'figure_id': data[4]
                 }
                 
-                # Retrieve code elements if there is a code_id
-                if question['code_id'] is not None:
-                    c.execute("SELECT * FROM Code WHERE cid = ?", (question['code_id'],))
-                    code_data = c.fetchone()
+                # Retrieve figure elements if there is a figure_id
+                if question['figure_id'] is not None:
+                    c.execute("SELECT * FROM Figure WHERE fid = ?", (question['figure_id'],))
+                    figure_data = c.fetchone()
 
-                    question['code'] = code_data[1]
-                    question['code_type'] = code_data[2]
+                    question['code'] = figure_data[1]
+                    question['code_type'] = figure_data[2]
+                    question['image_file'] = figure_data[3]
                 
                 response['questions'].append(question)
 
@@ -237,56 +249,75 @@ def update_card(key:int, category:str, question:str, answer:str, code:str=None, 
             category = utils.sanitize(category)
 
             c = conn.cursor()
-            # Get the current image filename and code block if they exist
-            LOGGER.info(f"SELECT image_file, code_id FROM Flashcards WHERE fid = {key}")
-            c.execute("SELECT image_file, code_id FROM Flashcards WHERE fid = ?", (key,))
-            current_data= c.fetchone()
-            current_image_file = current_data[0]
-            current_code_id = current_data[1]
+            # Get the current image filename or code block if they exist
+            LOGGER.info(f"SELECT figure_id FROM Flashcards WHERE cid = {key}")
+            c.execute("SELECT figure_id FROM Flashcards WHERE cid = ?", (key,))
+            figure_id = c.fetchone()[0]
+
+            if figure_id is not None:
+                LOGGER.info(f"SELECT image_file FROM Figure WHERE fid = {figure_id}")
+                c.execute("SELECT image_file FROM Figure WHERE fid = ?", (figure_id,))
+
+                current_image_file = c.fetchone()[0]
             
             # Update image file if one has been submitted along with other elements
             if image_file:
                 # Delete current image from image folder
                 if current_image_file: utils.remove_image(current_image_file)
-                # Delete current code from the database
-                if current_code_id: delete_code(current_code_id)
+                
+                # Update image element in the Figure table if a figure_id exists
+                if figure_id:
+                    figure_query = "UPDATE Figure SET image_file = ? WHERE fid = ?"
+                    figure_set = (image_file, figure_id)
+                # Add new image element to the Figure table if figure_id does not exist
+                else:
+                    figure_query = "INSERT INTO Figure (image_file) VALUES (?)"
+                    figure_set = (image_file,)
 
-                flashcard_set = (category, question, answer, None, image_file, key)
+                # Commit image element changes
+                c_figure = conn.cursor()
+                LOGGER.info(f"{figure_query}\n{figure_set}")
+                c_figure.execute(figure_query, figure_set)
+                conn.commit()
+
+                # Retrieve the generated primary key (fid) from the Figure table
+                figure_id = c_figure.lastrowid if figure_id is None else figure_id
+                flashcard_set = (category, question, answer, figure_id, key)
 
             # Update code block and code type if changed along with other elements
             elif code and code_type:
                 # Delete current image from image folder
                 if current_image_file: utils.remove_image(current_image_file)
 
-                # Update code elements if a code_id exists
-                if current_code_id:
-                    code_query = "UPDATE Code SET code_block = ?, code_type = ? WHERE cid = ?"
-                    code_set = (code, code_type, current_code_id)
-                # Add new code elements to the code table if code_id does not exist
+                # Update code elements in the Figure table if a figure_id exists
+                if figure_id:
+                    figure_query = "UPDATE Figure SET code_block = ?, code_type = ? WHERE fid = ?"
+                    figure_set = (code, code_type, figure_id)
+                # Add new code elements to the Figure table if figure_id does not exist
                 else:
-                    code_query = "INSERT INTO Code (code_block, code_type) VALUES (?,?)"
-                    code_set = (code, code_type)
+                    figure_query = "INSERT INTO Figure (code_block, code_type) VALUES (?,?)"
+                    figure_set = (code, code_type)
 
                 # Commit code element changes
-                c_code = conn.cursor()
-                LOGGER.info(f"{code_query}\n{code_set}")
-                c_code.execute(code_query, code_set)
+                c_figure = conn.cursor()
+                LOGGER.info(f"{figure_query}\n{figure_set}")
+                c_figure.execute(figure_query, figure_set)
                 conn.commit()
 
-                # Retrieve the generated primary key (cid) from the Code table
-                current_code_id = c_code.lastrowid if current_code_id is None else current_code_id
-                flashcard_set = (category, question, answer, current_code_id, None, key)
+                # Retrieve the generated primary key (fid) from the Figure table
+                figure_id = c_figure.lastrowid if figure_id is None else figure_id
+                flashcard_set = (category, question, answer, figure_id, key)
 
             # Update basic elements
             else:
                 # Delete current image from image folder
                 if current_image_file: utils.remove_image(current_image_file)
-                # Delete current code from the database
-                if current_code_id: delete_code(current_code_id)
+                # Delete current figure from the database
+                if figure_id: delete_figure(figure_id)
 
-                flashcard_set = (category, question, answer, None, None, key)
+                flashcard_set = (category, question, answer, None, key)
 
-            flashcard_query = "UPDATE Flashcards SET category = ?, question = ?, answer = ?, code_id = ?, image_file = ? WHERE fid = ?"
+            flashcard_query = "UPDATE Flashcards SET category = ?, question = ?, answer = ?, figure_id = ? WHERE cid = ?"
 
             LOGGER.info(f"{flashcard_query}\n{flashcard_set}")
             c.execute(flashcard_query, flashcard_set)
@@ -313,18 +344,18 @@ def delete_card(key:int):
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
             c = conn.cursor()
 
-            # Check for foreign keys to code table
-            c.execute("SELECT code_id FROM Flashcards WHERE fid = ?", (key,))
-            code = c.fetchone()[0]
+            # Check for foreign keys to Figure table
+            c.execute("SELECT figure_id FROM Flashcards WHERE cid = ?", (key,))
+            figure_id = c.fetchone()[0]
 
-            LOGGER.info(f"DELETE FROM Flashcards WHERE fid = {key}")
-            c.execute("DELETE FROM Flashcards WHERE fid = ?", (key,))
+            LOGGER.info(f"DELETE FROM Flashcards WHERE cid = {key}")
+            c.execute("DELETE FROM Flashcards WHERE cid = ?", (key,))
 
             conn.commit()
 
-            # Delete code from database
-            if code:
-                delete_code(code)
+            # Delete figure from database
+            if figure_id:
+                delete_figure(figure_id)
 
         return True
     
@@ -333,12 +364,12 @@ def delete_card(key:int):
         return False
     
 # ==============================================================================================================
-def delete_code(key:int):
+def delete_figure(key:int):
     '''
-    Deletes the code data from the database.
+    Deletes the figure data from the database.
 
     Parameter(s):
-        key (int): the primary key of the code being deleted from the database
+        key (int): the primary key of the figure being deleted from the database
 
     Output(s):
         Bool: True if the deletion was successful, False otherwise
@@ -347,12 +378,12 @@ def delete_code(key:int):
         with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
             c = conn.cursor()
 
-            LOGGER.info(f"DELETE FROM Code WHERE cid = {key}")
-            c.execute("DELETE FROM Code WHERE cid = ?", (key,))
+            LOGGER.info(f"DELETE FROM Figure WHERE fid = {key}")
+            c.execute("DELETE FROM Figure WHERE fid = ?", (key,))
             conn.commit()
 
         return True
     
     except sqlite3.Error as e:
-        LOGGER.error(f"An error occured when deleting the code from the database: {e}")
+        LOGGER.error(f"An error occured when deleting the figure from the database: {e}")
         return False
