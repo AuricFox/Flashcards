@@ -168,13 +168,13 @@
     </div>
 
     <div class="categories">
-        {% for key, value in data.items() %}
-        <a class="category" href="{{ url_for('flashcard_route', category=key) | escape }}">
+        {% for category, count in categories.items() %}
+        <a class="category" href="{{ url_for('flashcard_route', category=category) | escape }}">
             <div>
-                {{ key | escape }}
+                {{ category | escape }}
             </div>
             <div>
-                {{ value | escape }} Questions
+                {{ count | escape }} Questions
             </div>
         </a>
         {% endfor %}

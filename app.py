@@ -22,9 +22,9 @@ def home():
         a built html page that displays the categories and their count
     '''
     # Query database for all categories and their counts
-    data = database.view_allcategories()
+    categories = database.view_allcategories()
 
-    return render_template('home.html', nav_id="home-page", data=data)
+    return render_template('home.html', nav_id="home-page", categories=categories)
 
 # ==============================================================================================================
 @app.route("/flashcards/<category>")
@@ -42,7 +42,9 @@ def flashcard_route(category):
     data = database.view_allcards(category=category)
     length = len(data['questions'])
 
-    return render_template('flashcards.html', nav_id="home-page", data=data, length=length)
+    categories = database.view_allcategories()
+
+    return render_template('flashcards.html', nav_id="home-page", data=data, length=length, categories=categories)
 
 # ==============================================================================================================
 @app.route("/manage_flashcards")
@@ -57,8 +59,9 @@ def manage_flashcards_route():
     '''
     # Query database for all questions
     data = database.view_allcards(category=None)
+    categories = database.view_allcategories()
 
-    return render_template('manage_flashcards.html', nav_id="manage-page", data=data)
+    return render_template('manage_flashcards.html', nav_id="manage-page", data=data, categories=categories)
 
 # ==============================================================================================================
 @app.route("/add_flashcard")
@@ -72,8 +75,10 @@ def add_flashcard_route():
     Returns:
         a built html page that enables users to add flashcards to the database
     '''
+
+    categories = database.view_allcategories()
     
-    return render_template('add_flashcard.html', nav_id="add-page")
+    return render_template('add_flashcard.html', nav_id="add-page", categories=categories)
 
 # ==============================================================================================================
 @app.route("/create_flashcard", methods=['GET', 'POST'])
@@ -172,8 +177,9 @@ def view_flashcard_route(key):
     '''
     # Query database for question
     data = database.view_card(key=key)
+    categories = database.view_allcategories()
     
-    return render_template('view_flashcard.html', nav_id="manage-page", data=data)
+    return render_template('view_flashcard.html', nav_id="manage-page", data=data, categories=categories)
 
 # ==============================================================================================================
 @app.route("/edit_flashcard/<key>")
@@ -189,8 +195,9 @@ def edit_flashcard_route(key):
     '''
     # Query database for question being edited
     data = database.view_card(key=key)
+    categories = database.view_allcategories()
     
-    return render_template('edit_flashcard.html', nav_id="manage-page", data=data)
+    return render_template('edit_flashcard.html', nav_id="manage-page", data=data, categories=categories)
 
 # ==============================================================================================================
 @app.route("/update_flashcard/<key>", methods=['GET', 'POST'])

@@ -41,11 +41,6 @@ body {
 /* ========== Nav Bar ========== */
 
 #nav-bar {
-    color: #FFFFFF;
-    font-size: 15px;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-style: italic;
     padding: 10px 0px 10px 5px;
     margin-bottom: 1rem;
     background-color: rgba(0, 0, 0, 0.2);
@@ -66,6 +61,10 @@ body {
 }
 
 .nav-tile {
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
     display: block;
     color: #FFFFFF;
     text-align: center;
@@ -80,6 +79,38 @@ body {
 .nav-tile:hover {
     background: #F6B701;
     cursor: pointer;
+}
+
+.dropbtn {
+    background-color: inherit;
+    border: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
 /* ========== Flash Messages========== */

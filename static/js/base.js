@@ -1,4 +1,18 @@
 // ======================================================================================================
+// DROPDOWN MENU
+// ======================================================================================================
+$('.dropbtn').click(function () {
+    const menu = document.querySelector('.dropdown-content');
+
+    // Get the current computed style
+    const computedStyle = window.getComputedStyle(menu);
+
+    menu.style.display = menu.style.display === 'none' ? 'grid' : 'none';
+
+
+});
+
+// ======================================================================================================
 // FLASH MESSAGES [ERRORS, WARNINGS, INFO]
 // ======================================================================================================
 // Automatically hide flash messages after 5 seconds (adjust as needed)

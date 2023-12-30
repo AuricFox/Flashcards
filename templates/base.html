@@ -16,6 +16,16 @@
                 <li><a href="{{  url_for('home')  }}" class="nav-tile {% if nav_id == 'home-page' %}active{% endif %}">Home</a></li>
                 <li><a href="{{  url_for('manage_flashcards_route')  }}" class="nav-tile {% if nav_id == 'manage-page' %}active{% endif %}">Manage Cards</a></li>
                 <li><a href="{{  url_for('add_flashcard_route')  }}" class="nav-tile {% if nav_id == 'add-page' %}active{% endif %}">Add Card</a></li>
+                <li>
+                    <div class="dropdown {% if nav_id == 'flashcard-page' %}active{% endif %}">
+                        <button class="dropbtn nav-tile">Flashcards</button>
+                        <div class="dropdown-content" style="display: none;">
+                            {% for category, count in categories.items() %}
+                            <a href="{{ url_for('flashcard_route', category=key) | escape }}">{{ category | escape }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
 
