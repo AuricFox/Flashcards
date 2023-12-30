@@ -247,6 +247,7 @@ def update_card(key:int, category:str, question:str, answer:str, code:str=None, 
         with sqlite3.connect('flashcards.db') as conn:
             # Sanitize category of special characters
             category = utils.sanitize(category)
+            current_image_file = None
 
             c = conn.cursor()
             # Get the current image filename or code block if they exist
