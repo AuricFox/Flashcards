@@ -73,11 +73,11 @@ body {
 }
 
 .active {
-    background: #FF7F00;
+    background: #0d4600;
 }
 
 .nav-tile:hover {
-    background: #F6B701;
+    background: #267315;
     cursor: pointer;
 }
 
@@ -110,7 +110,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: #FF7F00;
+    background-color: #267315;
 }
 
 .dropdown-content {
@@ -135,7 +135,7 @@ body {
     text-align: center;
     font-weight: bold;
     border-radius: 4px;
-    border: 1px solid #FFFFFF;
+    box-shadow: 4px 4px 8px #000;
 }
 
 /* ========== Category Content [Home Page] ========== */
@@ -152,6 +152,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 2rem;
+    background-color: #061632;
 }
 
 .section {
@@ -164,7 +165,7 @@ body {
 }
 
 .header {
-    color: #FF7F00;
+    color: #FFFFFF;
     font-family: cursive;
     font-weight: bolder;
     font-size: 2.5rem;
@@ -173,7 +174,7 @@ body {
 
 .header-center {
     text-align: center;
-    color: #FF7F00;
+    color: #FFFFFF;
     font-family: cursive;
     font-weight: bolder;
     font-size: 2.5rem;
@@ -186,16 +187,14 @@ body {
     padding: 1rem 0;
 }
 
-#display-study-cards {
+#display-study-cards,
+#display-make-cards {
     background-color: #401D19;
 }
 
-#display-make-cards {
-    background-color: #FF7F00;
-}
-
 #display-manage-cards {
-    background-color: #FFFFFF;
+    background-color: #2f2f2f;
+    color: #FFFFFF;
 }
 
 .categories {
@@ -212,9 +211,8 @@ body {
     text-align: center;
     font-weight: bolder;
     font-size: 15px;
-    color: black;
-    background-color: #FFFFFF;
-    border-bottom: 5px solid #FFFFFF;
+    color: #FFFFFF;
+    background-color: #0d4600;
     border-radius: 4px;
     padding: 14px;
     min-width: 12rem;
@@ -223,7 +221,7 @@ body {
 }
 
 .category:hover {
-    border-bottom: 5px solid #F6B701;
+    background-color: #267315;
 }
 
 .home-button {
@@ -232,23 +230,19 @@ body {
 }
 
 .home-button a {
-    background-color: #FF7F00;
+    background-color: #0d4600;
     text-decoration: none;
     padding: 1rem;
     color: #FFFFFF;
     font-weight: bolder;
-    border-radius: 30px;
-    border: 1px solid #FF7F00;
+    border-radius: 8px;
+    border: 1px solid #0d4600;
     transition: background-color 0.3s ease-in-out;
     box-shadow: 4px 4px 8px #000;
 }
 
 .home-button a:hover {
-    background-color: #F6B701;
-}
-
-#home-element-make-card {
-    background-color: #061632;
+    background-color: #267315;
 }
 
 .gradient-border-top {
@@ -541,6 +535,8 @@ body {
     font-weight: bold;
     font-style: italic;
     color: #000;
+    background-color: #2f2f2f;
+    color: #FFFFFF;
 }
 
 #search::placeholder {
@@ -562,14 +558,16 @@ body {
 }
 
 .search-btn:hover {
-    background-color: #ddd;
+    background-color: #4b4b4b;
+    cursor: pointer;
 }
 
 .questions-table {
     margin: 0 4rem 2rem 4rem;
     padding: 1rem;
     border-radius: 8px;
-    background-color: #FFFFFF;
+    background-color: #2f2f2f;
+    color: #FFFFFF;
 }
 
 table {
@@ -616,17 +614,39 @@ tr:last-child td {
     padding: 3px;
     margin: 0 0.4rem;
     border-radius: 4px;
-    color: black;
+    color: #FFFFFF;
     width: 1.75rem;
     min-width: 1.75rem;
-    background-color: #FF7F00;
     box-shadow: 1px 1px 4px #000;
 }
 
-.action-cell:hover {
-    color: #FFFFFF;
-    background-color: #F6B701;
+.view-cell {
+    background-color: #267315;
+}
+
+.edit-cell {
+    background-color: #0c43a1;
+}
+
+.delete-cell,
+.dlt-cell {
+    background-color: #b71301;
+}
+
+.view-cell:hover {
     box-shadow: none;
+    background-color: #4c973b;
+}
+
+.edit-cell:hover {
+    box-shadow: none;
+    background-color: #2c65c7;
+}
+
+.delete-cell:hover,
+.dlt-cell:hover {
+    box-shadow: none;
+    background-color: #e83c29;
 }
 
 /* Hide less important columns on small screens */
@@ -656,7 +676,8 @@ tr:last-child td {
 /* ========== Flashcard Content [View Flashcard Page] ========== */
 
 .flashcard-content {
-    background-color: #FFFFFF;
+    background-color: #2f2f2f;
+    color: #FFFFFF;
     box-shadow: 5px 10px 8px #000;
     margin: 0 auto 4rem auto;
     padding: 1rem;
@@ -667,6 +688,10 @@ tr:last-child td {
 .flashcard-content-inner {
     margin: 1rem;
     border-top: 1px solid #ddd;;
+}
+
+.flashcard-content-inner h2 {
+    margin: 10px 0;
 }
 
 .flashcard-content-inner:first-child {
@@ -705,7 +730,8 @@ tr:last-child td {
     display: block;
     margin: 0 auto;
     padding: 10px;
-    background-color: red;
+    background-color: #b71301;
+    box-shadow: 2px 2px 8px #000;
     border-radius: 8px;
     color: #FFFFFF;
     font-weight: bold;
@@ -714,7 +740,8 @@ tr:last-child td {
 
 .edit-btn:hover {
     cursor: pointer;
-    background-color: rgb(253, 60, 60);
+    background-color: #e83c29;
+    box-shadow: none;
 }
 
 /* ========== Footer ========== */

@@ -38,7 +38,28 @@
 
 <div class="gradient-border-top"></div>
 
-<div class="home-element" id="home-element-make-card">
+<div class="home-element-col">
+    <div class="section-center">
+        <div class="header-center">Explore Flashcards</div>
+    </div>
+
+    <div class="categories">
+        {% for category, count in categories.items() %}
+        <a class="category" href="{{ url_for('flashcard_route', category=category) | escape }}">
+            <div>
+                {{ category | escape }}
+            </div>
+            <div>
+                {{ count | escape }} Questions
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="gradient-border-bottom"></div>
+
+<div class="home-element">
     <div class="display-section">
         <div class="flashcard-display" id="display-make-cards">
             <div class="slide-flashcard">
@@ -80,8 +101,6 @@
     </div>
 </div>
 
-<div class="gradient-border-bottom"></div>
-
 <div class="home-element">
     <div class="section">
         <div class="header">Manage Flashcards</div>
@@ -102,6 +121,7 @@
                     <tr>
                         <th>Question</th>
                         <th>Answer</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -110,13 +130,13 @@
                         <td class="display-flash-cell">The best way to study is using flashcards!</td>
                         <td class="action-cells">
                             <div class="action-links">
-                                <div class="action-cell">
+                                <div class="action-cell view-cell">
                                     <img class="card-image" src="{{ url_for('static', filename='images/icons/view.png') }}" alt="view">
                                 </div>
-                                <div class="action-cell">
+                                <div class="action-cell edit-cell">
                                     <img class="card-image" src="{{ url_for('static', filename='images/icons/edit.png') }}" alt="edit">
                                 </div>
-                                <div class="action-cell">
+                                <div class="action-cell dlt-cell">
                                     <img class="card-image" src="{{ url_for('static', filename='images/icons/delete.png') }}" alt="delete">
                                 </div>
                             </div>
@@ -127,13 +147,13 @@
                         <td class="display-flash-cell">B-Tree</td>
                         <td class="action-cells">
                             <div class="action-links">
-                                <div class="action-cell">
+                                <div class="action-cell view-cell">
                                     <img class="card-image" src="{{ url_for('static', filename='images/icons/view.png') }}" alt="view">
                                 </div>
-                                <div class="action-cell">
+                                <div class="action-cell edit-cell">
                                     <img class="card-image" src="{{ url_for('static', filename='images/icons/edit.png') }}" alt="edit">
                                 </div>
-                                <div class="action-cell">
+                                <div class="action-cell dlt-cell">
                                     <img class="card-image" src="{{ url_for('static', filename='images/icons/delete.png') }}" alt="delete">
                                 </div>
                             </div>
@@ -144,13 +164,13 @@
                         <td class="display-flash-cell">Triggers a pop-up window containing Hello World!</td>
                         <td class="action-cells">
                             <div class="action-links">
-                                <div class="action-cell">
+                                <div class="action-cell view-cell">
                                     <img class="card-image" src="{{ url_for('static', filename='images/icons/view.png') }}" alt="view">
                                 </div>
-                                <div class="action-cell">
+                                <div class="action-cell edit-cell">
                                     <img class="card-image" src="{{ url_for('static', filename='images/icons/edit.png') }}" alt="edit">
                                 </div>
-                                <div class="action-cell">
+                                <div class="action-cell dlt-cell">
                                     <img class="card-image" src="{{ url_for('static', filename='images/icons/delete.png') }}" alt="delete">
                                 </div>
                             </div>
@@ -162,23 +182,6 @@
     </div>
 </div>
 
-<div class="home-element-col">
-    <div class="section-center">
-        <div class="header-center">Explore Flashcards</div>
-    </div>
 
-    <div class="categories">
-        {% for category, count in categories.items() %}
-        <a class="category" href="{{ url_for('flashcard_route', category=category) | escape }}">
-            <div>
-                {{ category | escape }}
-            </div>
-            <div>
-                {{ count | escape }} Questions
-            </div>
-        </a>
-        {% endfor %}
-    </div>
-</div>
 
 {% endblock %}
