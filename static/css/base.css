@@ -523,35 +523,37 @@ body {
 .search-container {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-content: space-between;
+    margin-bottom: 2rem;
 }
 
-.category-search {
+.search-wrapper {
+    position: relative;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    color: #FFFFFF;
-    margin-bottom: 2rem;
-    font-weight: bold;
-    font-size: 1.5rem;
-    background-color: #FFFFFF;
-    border: 2px solid #000;
-    border-radius: 90px;
-    overflow: hidden;
 }
 
 #search {
     border: none;
-    padding: 0.5rem;
+    border-radius: 90px;
+    padding: 1rem 2rem 1rem 1rem;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    color: #000;
+}
+
+#search::placeholder {
+    color: #bbbaba;
 }
 
 .search-btn {
+    position: absolute;
+    right: 0;
     background-color: inherit;
     border: none;
     border-radius: 90px;
     padding: 10px;
-    margin-left: 1rem;
 }
 
 .search-image {
