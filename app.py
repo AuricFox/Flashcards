@@ -47,7 +47,7 @@ def flashcard_route(category):
     return render_template('flashcards.html', nav_id="flashcard-page", data=data, length=length, categories=categories)
 
 # ==============================================================================================================
-@app.route("/manage_flashcards")
+@app.route("/manage_flashcards", methods=['GET', 'POST'])
 def manage_flashcards_route():
     '''
     Builds and returns an html page where all the flashcard data can be viewed and edited.
@@ -57,8 +57,14 @@ def manage_flashcards_route():
     Returns:
         a built html page that displays the flashcard data
     '''
-    # Query database for all questions
-    data = database.view_allcards(category=None)
+    if request.method == 'POST':
+        category = request.form.get('search', type=str)
+        data = database.view_allcards(category=category)
+
+    else:
+        # Query database for all questions
+        data = database.view_allcards(category=None)
+    
     categories = database.view_allcategories()
 
     return render_template('manage_flashcards.html', nav_id="manage-page", data=data, categories=categories)

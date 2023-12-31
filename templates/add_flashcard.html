@@ -26,9 +26,9 @@
         <div class="flashcard-content-inner">
             <h2>Optional: Would you like to add a code example or image?</h2>
             <div class="radio-input">
-                <input type="radio" id="code" name="input-type" value="code" onclick="toggleFields('code')">
+                <input type="radio" id="code-selection" name="input-type" value="code" onclick="toggleFields('code')">
                 <label for="code">Code</label>
-                <input type="radio" id="image" name="input-type" value="image" onclick="toggleFields('image')">
+                <input type="radio" id="image-selection" name="input-type" value="image" onclick="toggleFields('image')">
                 <label for="image">Image</label>
                 <input type="radio" id="none-type" name="input-type" value="none" checked onclick="toggleFields('none')">
                 <label for="none-type">None</label>
@@ -58,7 +58,7 @@
             <input type="file" id="image-ex" name="image-ex">
         </div>
 
-        <button type="submit">Add Flashcard</button>
+        <button class="edit-btn" type="submit">Add Flashcard</button>
 
     </form>
 

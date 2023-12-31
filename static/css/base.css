@@ -413,7 +413,6 @@ body {
     .display-table tr:nth-child(3){
         display: none;
     }
-
 }
 
 /* ========== Flashcard Content [Flashcard Page] ========== */
@@ -520,6 +519,49 @@ body {
 }
 
 /* ========== Flashcard Table [Manage Flashcard Page] ========== */
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.category-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color: #FFFFFF;
+    border: 2px solid #000;
+    border-radius: 90px;
+    overflow: hidden;
+}
+
+#search {
+    border: none;
+    padding: 0.5rem;
+}
+
+.search-btn {
+    background-color: inherit;
+    border: none;
+    border-radius: 90px;
+    padding: 10px;
+    margin-left: 1rem;
+}
+
+.search-image {
+    max-height: 1.5rem;
+    background-color: inherit;
+}
+
+.search-btn:hover {
+    background-color: #ddd;
+}
 
 .questions-table {
     margin: 0 4rem 2rem 4rem;
@@ -656,7 +698,7 @@ tr:last-child td {
     margin-left: 10px;
 }
 
-form button {
+.edit-btn {
     border: none;
     display: block;
     margin: 0 auto;
@@ -668,7 +710,7 @@ form button {
     font-size: larger;
 }
 
-form button:hover {
+.edit-btn:hover {
     cursor: pointer;
     background-color: rgb(253, 60, 60);
 }

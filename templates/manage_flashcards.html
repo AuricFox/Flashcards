@@ -3,6 +3,14 @@
 {% block title %}Manage Flashcards{% endblock %}
 
 {% block content %}
+<div class="search-container">
+    <form class="category-search" action="#" method="post">
+        <input type="text" id="search" name="search" placeholder="Category">
+        <button class="search-btn" type="submit">
+            <img class="search-image" src="{{ url_for('static', filename='images/icons/search.png') }}">
+        </button>
+    </form>
+</div>
 
 <div class="questions-table">
     <table>
