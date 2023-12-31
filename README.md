@@ -54,18 +54,18 @@ Below is the schema of the SQLite3 database used in Interview Cards:
 
 ### Figure Table
 
-- **fid**: INTEGER (Primary Key)
-- **code_block**: TEXT
-- **code_type**: TEXT
-- **image_file**: TEXT
+- **fid (INTEGER)**: An autoincremented primary key.
+- **code_block (TEXT)**: A block or snippet of code.
+- **code_type (TEXT)**: The language that the code block is written in.
+- **image_file (TEXT)**: A filename, not path, of the stored image.
 
 ### Flashcards Table
 
-- **cid**: INTEGER (Primary Key)
-- **category**: TEXT NOT NULL 
-- **question**: TEXT NOT NULL
-- **answer**: TEXT NOT NULL
-- **figure_id**: INTEGER (Foreign Key referencing Code Table)
+- **cid (INTEGER)**: An autoincremented primary key.
+- **category (TEXT, Not Null)**: The subject or topic of the question.
+- **question (TEXT, Not Null)**: The query being asked.
+- **answer (TEXT, Not Null)**: The expected response to the question.
+- **figure_id (INTEGER)**: A foreign key referencing the Figure table.
 
 ## License
 
