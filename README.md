@@ -52,20 +52,20 @@ To get started with Interview Cards, follow these steps:
 
 Below is the schema of the SQLite3 database used in Interview Cards:
 
-### Code Table
+### Figure Table
 
-- **cid**: INTEGER (Primary Key)
-- **code_block**: TEXT NOT NULL
-- **code_type**: TEXT NOT NULL
+- **fid**: INTEGER (Primary Key)
+- **code_block**: TEXT
+- **code_type**: TEXT
+- **image_file**: TEXT
 
 ### Flashcards Table
 
-- **fid**: INTEGER (Primary Key)
+- **cid**: INTEGER (Primary Key)
 - **category**: TEXT NOT NULL 
 - **question**: TEXT NOT NULL
 - **answer**: TEXT NOT NULL
-- **code_id**: INTEGER (Foreign Key referencing Code Table)
-- **image_file**: TEXT
+- **figure_id**: INTEGER (Foreign Key referencing Code Table)
 
 ## License
 
