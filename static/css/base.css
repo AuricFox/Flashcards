@@ -89,7 +89,7 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #061632;
+    background-color: #2f2f2f;
     min-width: 160px;
     box-shadow: 4px 4px 8px #000;
     z-index: 1;
@@ -156,7 +156,7 @@ body {
 }
 
 .section {
-    width: 50vw;
+    width: 50%;
     margin: auto 1rem;
 }
 
@@ -209,19 +209,30 @@ body {
     flex-direction: column;
     text-decoration: none;
     text-align: center;
-    font-weight: bolder;
-    font-size: 15px;
     color: #FFFFFF;
     background-color: #0d4600;
     border-radius: 4px;
-    padding: 14px;
     min-width: 12rem;
     box-shadow: 5px 8px 8px #000;
     margin: 0.5rem;
+    overflow: hidden;
+}
+
+.category div:nth-child(1) {
+    padding: 5px;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.category div:nth-child(2) {
+    background-color: #2f2f2f;
+    padding: 5px;
+    font-size: 15px;
 }
 
 .category:hover {
     background-color: #267315;
+    box-shadow: none;
 }
 
 .home-button {
@@ -260,7 +271,7 @@ body {
 /* ---------- Flashcard Animations ---------- */
 
 .display-section {
-    width: 50vw;
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -376,35 +387,53 @@ body {
 
 /* ---------- Media Queries ---------- */
 /* Media query for screens smaller than 600 pixels wide */
-@media screen and (max-width: 800px) {
-    .home-element:not(:nth-child(3)) {
+@media screen and (max-width: 1050px) {
+    .home-manage {
         display: flex;
         flex-direction: column;
         height: fit-content;
-        padding: 2rem;
+        padding: 0 2rem;
     }
 
-    .home-element:nth-child(3) {
+    .home-manage .display-section,
+    .home-manage .section {
+        width: 100%;
+        margin: 1rem 0 1rem 0;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .home-study {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        padding: 0 2rem;
+    }
+
+    .home-make {
         display: flex;
         flex-direction: column-reverse;
         height: fit-content;
-        padding: 2rem;
-    }   
+        padding: 0 2rem;
+    }
 
-    .section, .display-section {
+    .section,
+    .display-section {
         width: 100%;
         margin: 1rem 0 1rem 0;
     }
 
     .display-section {
-        height: 70vh;
+        height: 75vh;
     }
 
     .home-button {
-    margin: 3rem 0 3rem 0;
+        margin: 3rem 0 0 0;
     }
+}
 
-    .display-table tr:nth-child(3){
+@media screen and (max-width: 550px) {
+    .display-table tr:nth-child(3) {
         display: none;
     }
 }
@@ -458,23 +487,22 @@ body {
 }
 
 .flash-button {
-    border-radius: 1rem;
+    border-radius: 2rem;
+    border: none;
+    box-shadow: 3px 3px 4px #000;
     width: 3rem;
     padding: 5px;
-    color: #FFFFFF;
-    font-weight: bold;
-    font-size: larger;
 }
 
 #previous-button, 
 #next-button {
-    background-color: #FF7F00;
+    background-color: #0d4600;
 }
 
 #previous-button:hover,
 #next-button:hover {
     cursor: pointer;
-    background-color: #F6B701;
+    background-color: #267315;
 }
 
 .buttons {
