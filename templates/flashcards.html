@@ -9,14 +9,26 @@
     <div class="flashcard" id="flashcard-{{ index }}">
         <div class="card-content" id="flashcard-{{ index }}-content">
             <div class="side front" id="flashcard-{{ index }}-front">
-                <div class="question">{{ data['questions'][index]['question'] | escape }}</div>
                 
+                <!-- DISPLAY IMAGE -->
                 {% if data['questions'][index]['image_file'] %}
-                <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['image_file']) }}"
-                    alt="{{ data['questions'][index]['image_path'] }}">
-                    
+                <div class="question-button">
+                    <img class="icon-button" src="{{ url_for('static', filename='images/icons/question.png') }}" alt="question">
+                </div>
+                <div class="question-window">{{ data['questions'][index]['question'] | escape }}</div>
+                <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['image_file']) }}" alt="{{ data['questions'][index]['image_path'] }}">
+
+                <!-- DISPLAY CODE -->
                 {% elif data['questions'][index]['code'] %}
+                <div class="question-button">
+                    <img class="icon-button" src="{{ url_for('static', filename='images/icons/question.png') }}" alt="question">
+                </div>
+                <div class="question-window">{{ data['questions'][index]['question'] | escape }}</div>
                 <pre><code class="language-{{ data['questions'][index]['code_type'] }}">{{ data['questions'][index]['code'] | escape }}</code></pre>
+                
+                <!-- DISPLAY PLAIN TEXT -->
+                {% else %}
+                <div class="question">{{ data['questions'][index]['question'] | escape }}</div>
                 {% endif %}
 
             </div>
@@ -32,19 +44,19 @@
 <div class="buttons">
     <div class="buttons-inner">
         <button class="flash-button" id="previous-button" onclick="showPreviousFlashcard()">
-            <img class="icon-button" src="{{ url_for('static', filename='images/icons/left-arrow.png') }}" alt="">
+            <img class="icon-button" src="{{ url_for('static', filename='images/icons/left-arrow.png') }}" alt="Prev">
         </button>
 
         <div class="question-num" id="question-num"></div>
 
         <button class="flash-button" id="next-button" onclick="showNextFlashcard()">
-            <img class="icon-button" src="{{ url_for('static', filename='images/icons/right-arrow.png') }}" alt="">
+            <img class="icon-button" src="{{ url_for('static', filename='images/icons/right-arrow.png') }}" alt="Next">
         </button>
     </div>
 
     <div class="buttons-inner">
         <button class="flash-button" id="shuffle-button" onclick="shuffleFlashcards()">
-            <img class="icon-button" src="{{ url_for('static', filename='images/icons/shuffle.png') }}" alt="">
+            <img class="icon-button" src="{{ url_for('static', filename='images/icons/shuffle.png') }}" alt="Shuffle">
         </button>
     </div>
 </div>
