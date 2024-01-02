@@ -455,6 +455,7 @@ body {
     flex-direction: row;
     justify-content: center;
     position: relative;
+    z-index: 0;
 }
 
 .background-flashcard {
@@ -471,28 +472,38 @@ body {
     transform: rotate(2deg) translate(30px, 20px);
     background-color: #f7d9ff;
     box-shadow: 1px 1px 10px #404040;
-    z-index: -1;
+    z-index: 3;
+}
+
+.background-flashcard:nth-child(1):hover {
+    background-color: #efaeff;
+    cursor: pointer;
 }
 
 .background-flashcard:nth-child(2) {
     transform: rotate(-3deg) translate(-10px, -25px);
     background-color: #add8e6;
     box-shadow: 1px 1px 10px #404040;
-    z-index: -2;
+    z-index: 2;
 }
 
 .background-flashcard:nth-child(3) {
     transform: rotate(5deg);
     background-color: #cdffcd;
     box-shadow: 1px 1px 10px #404040;
-    z-index: -3;
+    z-index: 1;
 }
 
 .background-flashcard:nth-child(4) {
     transform: rotate(-3deg) translate(-40px, 20px);
     background-color: #dee6ad;
     box-shadow: 1px 1px 10px #404040;
-    z-index: -4;
+    z-index: 0;
+}
+
+.background-flashcard:nth-child(4):hover {
+    background-color: #e0ef7f;
+    cursor: pointer;
 }
 
 .flashcard {
@@ -502,6 +513,7 @@ body {
     width: 65vw;
     height: 65vh;
     perspective: 1000px;
+    z-index: 4;
 }
 
 .card-content {
@@ -511,7 +523,7 @@ body {
     text-align: center;
     transform-style: preserve-3d;
     transition: transform 0.5s;
-    box-shadow: 5px 10px 8px #000;
+    box-shadow: 2px 5px 8px #000;
     border-radius: 8px;
 }
 
@@ -549,6 +561,8 @@ body {
     box-shadow: 3px 3px 4px #000;
     width: 3rem;
     padding: 5px;
+    position: relative;
+    z-index: 1;
 }
 
 .question-button {
@@ -597,7 +611,7 @@ body {
 }
 
 .buttons {
-    margin: 1rem;
+    padding: 1rem;
 }
 
 .buttons-inner {
