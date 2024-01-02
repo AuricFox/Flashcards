@@ -120,7 +120,7 @@ body {
     border-radius: 4px;
 }
 
-/* ========== Flash Messages========== */
+/* ========== Flash Messages ========== */
 
 #flash-messages {
     margin: 0 4rem 1rem 4rem;
@@ -136,6 +136,16 @@ body {
     font-weight: bold;
     border-radius: 4px;
     box-shadow: 4px 4px 8px #000;
+}
+
+/* ========== Icon Buttons ========== */
+
+.icon-button {
+    border-radius: 4px;
+    height: auto;
+    width: fit-content;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 /* ========== Category Content [Home Page] ========== */
@@ -448,6 +458,8 @@ body {
 
 .flashcard {
     background-color: transparent;
+    min-width: 30rem;
+    min-height: 20rem;
     width: 65vw;
     height: 65vh;
     perspective: 1000px;
@@ -484,6 +496,11 @@ body {
 
 .back {
     transform: rotateY(180deg);
+}
+
+.question, .answer {
+    font-size: 1.25rem;
+    margin: 1rem 0;
 }
 
 .flash-button {
@@ -527,17 +544,17 @@ body {
 
 .question-num {
     color: #FFFFFF;
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     margin: auto 2rem;
 }
 
 .card-image {
+    border: 1px solid red;
     border-radius: 4px;
     height: fit-content;
-    width: auto;
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 75%;
+    max-width: 80%;
 }
 
 /* ========== Flashcard Table [Manage Flashcard Page] ========== */

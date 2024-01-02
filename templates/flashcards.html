@@ -9,9 +9,8 @@
     <div class="flashcard" id="flashcard-{{ index }}">
         <div class="card-content" id="flashcard-{{ index }}-content">
             <div class="side front" id="flashcard-{{ index }}-front">
-                <h2>Question</h2>
-                <p>{{ data['questions'][index]['question'] | escape }}</p>
-
+                <div class="question">{{ data['questions'][index]['question'] | escape }}</div>
+                
                 {% if data['questions'][index]['image_file'] %}
                 <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['image_file']) }}"
                     alt="{{ data['questions'][index]['image_path'] }}">
@@ -22,8 +21,7 @@
 
             </div>
             <div class="side back" id="flashcard-{{ index }}-back">
-                <h2>Answer</h2>
-                <p>{{ data['questions'][index]['answer'] | escape }}</p>
+                <div class="answer">{{ data['questions'][index]['answer'] | escape }}</div>
             </div>
         </div>
     </div>
@@ -34,19 +32,19 @@
 <div class="buttons">
     <div class="buttons-inner">
         <button class="flash-button" id="previous-button" onclick="showPreviousFlashcard()">
-            <img class="card-image" src="{{ url_for('static', filename='images/icons/left-arrow.png') }}" alt="">
+            <img class="icon-button" src="{{ url_for('static', filename='images/icons/left-arrow.png') }}" alt="">
         </button>
 
         <div class="question-num" id="question-num"></div>
 
         <button class="flash-button" id="next-button" onclick="showNextFlashcard()">
-            <img class="card-image" src="{{ url_for('static', filename='images/icons/right-arrow.png') }}" alt="">
+            <img class="icon-button" src="{{ url_for('static', filename='images/icons/right-arrow.png') }}" alt="">
         </button>
     </div>
 
     <div class="buttons-inner">
         <button class="flash-button" id="shuffle-button" onclick="shuffleFlashcards()">
-            <img class="card-image" src="{{ url_for('static', filename='images/icons/shuffle.png') }}" alt="">
+            <img class="icon-button" src="{{ url_for('static', filename='images/icons/shuffle.png') }}" alt="">
         </button>
     </div>
 </div>
