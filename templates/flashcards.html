@@ -4,30 +4,41 @@
 
 {% block content %}
 <div class="use-flashcard">
+    <div class="background-flashcard"></div>
+    <div class="background-flashcard"></div>
+    <div class="background-flashcard"></div>
+    <div class="background-flashcard"></div>
 
     {% for index in range(length) %}
     <div class="flashcard" id="flashcard-{{ index }}">
         <div class="card-content" id="flashcard-{{ index }}-content">
             <div class="side front" id="flashcard-{{ index }}-front">
                 
-                <!-- DISPLAY IMAGE -->
                 {% if data['questions'][index]['image_file'] %}
-                <div class="question-button">
-                    <img class="icon-button" src="{{ url_for('static', filename='images/icons/question.png') }}" alt="question">
-                </div>
-                <div class="question-window">{{ data['questions'][index]['question'] | escape }}</div>
+                <!-- Display image with question window -->
+                    {% if data['questions'][index]['question'] %}
+                    <div class="question-button">
+                        <img class="icon-button" src="{{ url_for('static', filename='images/icons/question.png') }}" alt="question">
+                    </div>
+                    <div class="question-window">{{ data['questions'][index]['question'] | escape }}</div>
+                    {% endif %}
+
                 <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['image_file']) }}" alt="{{ data['questions'][index]['image_path'] }}">
 
-                <!-- DISPLAY CODE -->
+                
                 {% elif data['questions'][index]['code'] %}
-                <div class="question-button">
-                    <img class="icon-button" src="{{ url_for('static', filename='images/icons/question.png') }}" alt="question">
-                </div>
-                <div class="question-window">{{ data['questions'][index]['question'] | escape }}</div>
+                <!-- Display code with question window -->
+                    {% if data['questions'][index]['question'] %}
+                    <div class="question-button">
+                        <img class="icon-button" src="{{ url_for('static', filename='images/icons/question.png') }}" alt="question">
+                    </div>
+                    <div class="question-window">{{ data['questions'][index]['question'] | escape }}</div>
+                    {% endif %}
+
                 <pre><code class="language-{{ data['questions'][index]['code_type'] }}">{{ data['questions'][index]['code'] | escape }}</code></pre>
                 
-                <!-- DISPLAY PLAIN TEXT -->
                 {% else %}
+                <!-- Display plain text with no window -->
                 <div class="question">{{ data['questions'][index]['question'] | escape }}</div>
                 {% endif %}
 
