@@ -34,15 +34,15 @@
                 <td id="answer-cell" class="flash-cell">{{ value['answer'] | escape }}</td>
 
                 <td id="code-cell" class="flash-cell">
-                    {% if value['code'] %}
-                    <pre><code>{{ value['code'] | escape }}</code></pre>
+                    {% if value['q_code_block'] %}
+                    <pre><code>{{ value['q_code_block'] | escape }}</code></pre>
                     {% endif %}
                 </td>
                 
                 <td id="image-cell" class="flash-cell">
-                    {% if value['image_file'] %}
-                    <img class="card-image" src="{{ url_for('static', filename='images/' + value['image_file']) }}"
-                        alt="{{ value['image_file'] }}">
+                    {% if value['q_image_file'] %}
+                    <img class="card-image" src="{{ url_for('static', filename='images/' + value['q_image_file']) }}"
+                        alt="{{ value['q_image_file'] }}">
                     {% endif %}
                 </td>
                 
