@@ -382,6 +382,42 @@ def update_figure(key:int, code_block:str=None, code_type:str=None, image_file:s
         LOGGER.error(f"An error occured when updating figure to the database: {e}")
         return None
 # ==============================================================================================================
+def process_key(key:int, code_block:str=None, code_type:str=None, image_file:str=None):
+    '''
+    Processes the figure data and determines whether it needs to be added, updated, deleted, or do nothing.
+
+    Parameters:
+        key (int): the primary key of the figure element
+        code_block (str, default=None): a block of code used to support the question
+        code_type (str, default=None): the language of the code block being used in the question
+        image_file (str, default=None): a filename of the image that supports the question
+
+    Returns:
+        key (int, default=None): the primary key of the figure elements, else None
+    '''
+
+    try:
+        # Update current question figure with new data
+        if key and (code_block and code_type or image_file):
+            key = update_figure(key, code_block=code_block, code_type=code_type, image_file=image_file)
+        # Add a new question figure
+        elif key is None and (code_block and code_type or image_file):
+            key = add_figure(code_block=code_block, code_type=code_type, image_file=image_file)
+        # Remove obsolete figure
+        elif key and (code_block and code_type or image_file) is None:
+            delete_figure(key)
+            key = None
+        # Do nothing, no key or figure data
+        else:
+            key = None
+
+        return key
+    
+    except Exception as e:
+        LOGGER.error(f"An error occured when processing the figure id: {e}")
+        return None
+    
+# ==============================================================================================================
 def update_card(data:dict):
     '''
     Updates flashcard data in the database. User can only store code elements or an image and not both. This prevents 
@@ -427,23 +463,8 @@ def update_card(data:dict):
             a_code_type = data.get('a_code_type')
             a_image_file = data.get('a_image_file')
 
-            # Update current question figure
-            if qid:
-                qid = update_figure(qid, code_block=q_code_block, code_type=q_code_type, image_file=q_image_file)
-            # Add a question figure
-            elif qid is None and (q_code_block and q_code_type or q_image_file):
-                qid = add_figure(code_block=q_code_block, code_type=q_code_type, image_file=q_image_file)
-            else:
-                qid = None
-
-            # Update curent answer figure
-            if aid:
-                aid = update_figure(aid, code_block=a_code_block, code_type=a_code_type, image_file=a_image_file)
-            # Add a answer figure
-            elif aid is None and (a_code_block and a_code_type or a_image_file):
-                aid = add_figure(code_block=a_code_block, code_type=a_code_type, image_file=a_image_file)
-            else:
-                aid = None
+            qid = process_key(qid, code_block=q_code_block, code_type=q_code_type, image_file=q_image_file)
+            aid = process_key(aid, code_block=a_code_block, code_type=a_code_type, image_file=a_image_file)
 
             flashcard_query = "UPDATE Flashcards SET category = ?, question = ?, answer = ?, qid = ?, aid = ? WHERE cid = ?"
             flashcard_set = (category, question, answer, qid, aid, key)

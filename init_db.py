@@ -1,4 +1,5 @@
 import sqlite3, sys
+from tabulate import tabulate
 
 sys.path.append('./src/')
 import utils
@@ -77,6 +78,26 @@ def clear_tables():
         return False
 
 # ==============================================================================================================
+def print_tables():
+    with sqlite3.connect('flashcards.db') as conn:
+            c = conn.cursor()
+
+            # Print Figure table data
+            print("Figure Table Data:")
+            c.execute("SELECT * FROM Figure")
+            q_figures = c.fetchall()
+            print(tabulate(q_figures, headers=["fid", "code_block", "code_type", "image_file"], tablefmt="grid"))
+
+            # Print Flashcards table data
+            print("Flashcards Table Data:")
+            c.execute("SELECT * FROM Flashcards")
+            q_cards = c.fetchall()
+            print(tabulate(q_cards, headers=["cid", "category", "question", "answer", "qid", "aid"], tablefmt="grid"))
+
+            conn.commit()
+
+# ==============================================================================================================
 if __name__ == "__main__":
     #clear_tables()
     create_tables()
+    #print_tables()
