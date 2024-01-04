@@ -830,7 +830,7 @@ tr:last-child td {
     border-top: none;
 }
 
-/* ========== Flashcard Content [Edit, Add Flashcard Page] ========== */
+/* ========== Flashcard Content [Edit, View, Add Flashcard Page] ========== */
 
 .flashcard-content-inner textarea,
 .flashcard-content-inner input:not(input[type='radio']) {
@@ -874,6 +874,12 @@ tr:last-child td {
     cursor: pointer;
     background-color: #e83c29;
     box-shadow: none;
+}
+
+.view-btn {
+    text-decoration: none;
+    text-align: center;
+    width:fit-content;
 }
 
 /* ========== Footer ========== */

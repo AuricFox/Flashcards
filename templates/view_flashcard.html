@@ -57,6 +57,10 @@
             <img class="card-image" src="{{ url_for('static', filename='images/' + data['a_image_file']) }}" alt="{{ data['a_image_file'] }}">
         </div>
     {% endif %}
+
+    <a class="edit-btn view-btn" href="{{ url_for('edit_flashcard_route', key=data['key']) | escape }}">
+        Edit Flashcard
+    </a>
 </div>
 
 {% endblock %}
