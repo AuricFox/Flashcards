@@ -168,39 +168,85 @@ function validateText(id) {
 // ======================================================================================================
 
 document.addEventListener('DOMContentLoaded', function () {
-    const codeSection = document.getElementById('code-section');
-    const imageSection = document.getElementById('image-section');
-    const codeType = document.getElementById('code-sel');
-    const codeInput = document.getElementById('code-ex');
-    const imageInput = document.getElementById('image-ex');
+    const q_codeSection = document.getElementById('q-code-section');
+    const q_imageSection = document.getElementById('q-image-section');
+    const q_codeType = document.getElementById('q-code-sel');
+    const q_codeInput = document.getElementById('q-code-figure');
+    const q_imageInput = document.getElementById('q-image-figure');
 
-    const codeSelection = document.getElementById('code-selection');
-    const imageSelection = document.getElementById('image-selection');
+    const q_codeSelection = document.getElementById('q-code-selection');
+    const q_imageSelection = document.getElementById('q-image-selection');
+    const q_currentImage = document.getElementById('q-card-image');
 
-    if (codeSelection || imageSelection){
-        if (codeSelection.checked) {
+    if (q_codeSelection || q_imageSelection){
+        if (q_codeSelection.checked) {
             // Display only code input
-            codeSection.style.display = 'block';
-            imageSection.style.display = 'none';
-            codeType.required = true;
-            codeInput.required = true;
-            imageInput.required = false;
-        } else if (imageSelection.checked) {
-            codeSection.style.display = 'none';
-            imageSection.style.display = 'block';
-            codeType.required = false;
-            codeInput.required = false;
-            imageInput.required = true;
+            q_codeSection.style.display = 'block';
+            q_imageSection.style.display = 'none';
+            q_codeType.required = true;
+            q_codeInput.required = true;
+            q_imageInput.required = false;
+        } else if (q_imageSelection.checked) {
+            q_codeSection.style.display = 'none';
+            q_imageSection.style.display = 'block';
+            q_codeType.required = false;
+            q_codeInput.required = false;
+            
+            if (q_currentImage) {
+                q_imageInput.required = false;
+            } else {
+                q_imageInput.required = true;
+            }
+
         } else {
             // Display neither code nor image input
-            codeSection.style.display = 'none';
-            imageSection.style.display = 'none';
-            codeType.required = false;
-            codeInput.required = false;
-            imageInput.required = false;
+            q_codeSection.style.display = 'none';
+            q_imageSection.style.display = 'none';
+            q_codeType.required = false;
+            q_codeInput.required = false;
+            q_imageInput.required = false;
         }
     }
-    
+
+    const a_codeSection = document.getElementById('a-code-section');
+    const a_imageSection = document.getElementById('a-image-section');
+    const a_codeType = document.getElementById('a-code-sel');
+    const a_codeInput = document.getElementById('a-code-figure');
+    const a_imageInput = document.getElementById('a-image-figure');
+
+    const a_codeSelection = document.getElementById('a-code-selection');
+    const a_imageSelection = document.getElementById('a-image-selection');
+    const a_currentImage = document.getElementById('a-card-image');
+
+    if (a_codeSelection || a_imageSelection) {
+        if (a_codeSelection.checked) {
+            // Display only code input
+            a_codeSection.style.display = 'block';
+            a_imageSection.style.display = 'none';
+            a_codeType.required = true;
+            a_codeInput.required = true;
+            a_imageInput.required = false;
+        } else if (a_imageSelection.checked) {
+            a_codeSection.style.display = 'none';
+            a_imageSection.style.display = 'block';
+            a_codeType.required = false;
+            a_codeInput.required = false;
+
+            if (a_currentImage) {
+                a_imageInput.required = false;
+            } else {
+                a_imageInput.required = true;
+            }
+            
+        } else {
+            // Display neither code nor image input
+            a_codeSection.style.display = 'none';
+            a_imageSection.style.display = 'none';
+            a_codeType.required = false;
+            a_codeInput.required = false;
+            a_imageInput.required = false;
+        }
+    }   
 });
 
 function toggleQuestionFields(selectedType) {
