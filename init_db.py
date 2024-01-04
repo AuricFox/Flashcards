@@ -19,13 +19,11 @@ def create_tables():
         with sqlite3.connect('flashcards.db') as conn:      
 
             c = conn.cursor()
-                     # Code elements for supporting the flashcard
-            LOGGER.info("""CREATE TABLE Figure(
-                    fid INTEGER PRIMARY KEY AUTOINCREMENT,
-                    code_block TEXT,
-                    code_type TEXT,
-                    image_file TEXT
-            )""")
+            # Force forgein key support
+            c.execute("PRAGMA foreign_keys = ON;")
+
+            # Code elements for supporting the flashcard
+            LOGGER.info("Creating Figure Table...")
             c.execute("""CREATE TABLE Figure(
                     fid INTEGER PRIMARY KEY AUTOINCREMENT,
                     code_block TEXT,
@@ -34,19 +32,14 @@ def create_tables():
             )""")
         
             # Main flashcard elements
-            LOGGER.info("""CREATE TABLE Flashcards(
-                    cid INTEGER PRIMARY KEY AUTOINCREMENT,
-                    category TEXT NOT NULL,
-                    question TEXT NOT NULL,
-                    answer TEXT NOT NULL,
-                    figure_id INTEGER REFERENCES Figure(cid)        
-            )""")
+            LOGGER.info("Creating Flashcard Table...")
             c.execute("""CREATE TABLE Flashcards(
                     cid INTEGER PRIMARY KEY AUTOINCREMENT,
                     category TEXT NOT NULL,
-                    question TEXT NOT NULL,
-                    answer TEXT NOT NULL,
-                    figure_id INTEGER REFERENCES Figure(fid)        
+                    question TEXT,
+                    answer TEXT,
+                    qid INTEGER REFERENCES Figure(fid), 
+                    aid INTEGER REFERENCES Figure(fid)
             )""")
 
             conn.commit()
