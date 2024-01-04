@@ -85,8 +85,8 @@ def add_card(data:dict):
             answer = data.get('answer')
             
             # Retrieve the generated primary key(s) for question and/or answer figure(s)
-            qid = add_figure(code_block=data.get('q_image_file'), code_type=data.get('a_code_type'), image_file=data.get('q_image_file'))
-            aid = add_figure(code_block=data.get('a_image_file'), code_type=data.get('a_code_type'), image_file=data.get('a_image_file'))
+            qid = add_figure(code_block=data.get('q_code_block'), code_type=data.get('q_code_type'), image_file=data.get('q_image_file'))
+            aid = add_figure(code_block=data.get('a_code_block'), code_type=data.get('a_code_type'), image_file=data.get('a_image_file'))
 
             if question is None and qid is None:
                 # Question side of flashcard is blank
@@ -356,6 +356,7 @@ def update_figure(key:int, code_block:str=None, code_type:str=None, image_file:s
             
             # New image is the same as the current image
             elif image_file and image_file == current_image:
+                LOGGER.info("Using old image file!")
                 return key
 
             # Build query using code example and code type
@@ -430,7 +431,7 @@ def update_card(data:dict):
             if qid:
                 qid = update_figure(qid, code_block=q_code_block, code_type=q_code_type, image_file=q_image_file)
             # Add a question figure
-            elif qid is None and q_code_block and q_code_type and q_image_file:
+            elif qid is None and (q_code_block and q_code_type or q_image_file):
                 qid = add_figure(code_block=q_code_block, code_type=q_code_type, image_file=q_image_file)
             else:
                 qid = None
@@ -439,7 +440,7 @@ def update_card(data:dict):
             if aid:
                 aid = update_figure(aid, code_block=a_code_block, code_type=a_code_type, image_file=a_image_file)
             # Add a answer figure
-            elif aid is None and a_code_block and a_code_type and a_image_file:
+            elif aid is None and (a_code_block and a_code_type or a_image_file):
                 aid = add_figure(code_block=a_code_block, code_type=a_code_type, image_file=a_image_file)
             else:
                 aid = None

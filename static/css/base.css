@@ -848,8 +848,8 @@ tr:last-child td {
     font-size: larger;
 }
 
-#image-selection,
-#none-type {
+#q-image-selection, #q-none-type,
+#a-image-selection, #a-none-type {
     margin-left: 10%;
 }
 
