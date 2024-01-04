@@ -24,7 +24,6 @@
                     {% endif %}
 
                 <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['q_image_file']) }}" alt="{{ data['questions'][index]['q_image_path'] }}">
-
                 
                 {% elif data['questions'][index]['q_code_block'] %}
                 <!-- Display code with question window -->
@@ -56,7 +55,6 @@
 
                 <img class="card-image" src="{{ url_for('static', filename='images/' + data['questions'][index]['a_image_file']) }}" alt="{{ data['questions'][index]['a_image_path'] }}">
 
-                
                 {% elif data['questions'][index]['a_code_block'] %}
                 <!-- Display code with question window -->
                     {% if data['questions'][index]['answer'] %}
