@@ -87,6 +87,39 @@ def add_flashcard_route():
     return render_template('add_flashcard.html', nav_id="add-page", categories=categories)
 
 # ==============================================================================================================
+def process_figure_upload(request, f):
+    try:
+        figure_type = request.form.get(f'{f}-figure-type', type=str)
+
+        # Process image figure
+        if figure_type == 'image':
+            file = request.files[f'{f}-image-figure']
+            image_file = utils.save_image_file(file)
+
+            if image_file is None:
+                LOGGER.error(f'{file.filename} is an Invalid File or FileType')
+                flash(f'{file.filename} is an Invalid File or FileType', 'error')
+                return None
+            
+            return (None, None, image_file)
+        
+        # Process code figure
+        elif figure_type == 'code':
+            code_block = request.form.get(f'{f}-code-figure', str)
+            code_type = request.form.get(f'{f}-code-type', str)
+
+            return (code_block, code_type, None)
+        
+        # No figure to process
+        else:
+            return (None, None, None)
+        
+    except Exception as e:
+        LOGGER.error(f"Error processing {figure_type} upload: {str(e)}")
+        flash(f"Error processing {figure_type} upload", 'error')
+        return None
+
+# ==============================================================================================================
 @app.route("/create_flashcard", methods=['GET', 'POST'])
 def create_flashcard_route():
     '''
@@ -101,58 +134,29 @@ def create_flashcard_route():
     try:
 
         if request.method == 'POST':
+            data = {}
             # Retrieve main card elements from the form
-            category = utils.sanitize(request.form.get('category', type=str))
-            question = request.form.get('question', type=str)
-            answer = request.form.get('answer', type=str)
+            data['category'] = utils.sanitize(request.form.get('category', type=str))
+            data['question'] = request.form.get('question', type=str)
+            data['answer'] = request.form.get('answer', type=str)
 
-            code_or_image = request.form.get('input-type', type=str)
+            data['q_code_block'], data['q_code_type'], data['q_image_file'] = process_figure_upload(request, 'q')
+            data['a_code_block'], data['a_code_type'], data['a_image_file'] = process_figure_upload(request, 'a')
 
-            # Process image file
-            if code_or_image == 'image':
-                # Get file data from form and save it
-                file = request.files['image-ex']
-                image_file = utils.save_image_file(file)
 
-                # Set code elements to none, user can only have an image or code not both
-                code = None
-                code_type = None
-
-                # Incorrect file was submitted or file failed to save
-                if image_file is None:
-                    LOGGER.error(f'{file.filename} is an Invalid File or FileType')
-                    flash(f'{file.filename} is an Invalid File or FileType', 'error')
-                    return redirect(request.referrer)
-            
-            # Process code elements
-            elif code_or_image == 'code':
-                code = request.form.get('code-ex', str)
-                code_type = request.form.get('code-type', str)
-                image_file = None
-
-            # No code or images used
-            else:
-                code = None
-                code_type = None
-                image_file = None
-            
             LOGGER.info(f"Adding flashcard data:\n"
-                        f"Category: {category}\n"
-                        f"Question: {question}\n"
-                        f"Answer: {answer}\n"
-                        f"Code: {code}\n"
-                        f"Code Type: {code_type}\n"
-                        f"Image File: {image_file}")
+                        f"Category: {data['category']}\n"
+                        f"Question: {data['question']}\n"
+                        f"Answer: {data['answer']}\n"
+                        f"Question Code lock: {data['q_code_block']}\n"
+                        f"Question Code Type: {data['q_code_type']}\n"
+                        f"Question Image File: {data['q_image_file']}\n"
+                        f"Answer Code lock: {data['a_code_block']}\n"
+                        f"Answer Code Type: {data['a_code_type']}\n"
+                        f"Answer Image File: {data['a_image_file']}")
 
             # Update old question data with new data
-            success = database.add_card(
-                category=category, 
-                question=question, 
-                answer=answer, 
-                code=code,
-                code_type=code_type,
-                image_file=image_file
-                )
+            success = database.add_card(data=data)
 
             if success:
                 LOGGER.info("Flashcard added successfully")
@@ -162,12 +166,12 @@ def create_flashcard_route():
                 LOGGER.error("Failed to add flashcard")
                 flash("Failed to add flashcard", "error")
 
-        return redirect(url_for('manage_flashcards_route'))
+        return redirect(url_for('create_flashcard_route'))
     
     except Exception as e:
         LOGGER.error(f'An Error occured when adding the flashcard: {str(e)}')
         flash("Failed to add flashcard", 'error')
-        return redirect(url_for('manage_flashcards_route'))
+        return redirect(url_for('create_flashcard_route'))
 
 # ==============================================================================================================
 @app.route("/view_flashcard/<key>")
