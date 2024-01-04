@@ -445,7 +445,7 @@ def update_card(data:dict):
                 aid = None
 
             flashcard_query = "UPDATE Flashcards SET category = ?, question = ?, answer = ?, qid = ?, aid = ? WHERE cid = ?"
-            flashcard_set = (category, question, answer, qid, aid)
+            flashcard_set = (category, question, answer, qid, aid, key)
 
             LOGGER.info(f"{flashcard_query}\n{flashcard_set}")
             c.execute(flashcard_query, flashcard_set)
@@ -473,8 +473,19 @@ def delete_card(key:int):
             c = conn.cursor()
 
             # Check for foreign keys to Figure table
-            c.execute("SELECT qid, aid FROM Flashcards WHERE cid = ?", (key,))
-            qid, aid = c.fetchone()
+            c.execute("""
+                SELECT 
+                    Flashcards.qid,
+                    Flashcards.aid,
+                    QFigure.image_file AS q_image_file,
+                    AFigure.image_file AS a_image_file
+                FROM Flashcards
+                LEFT JOIN Figure AS QFigure ON Flashcards.qid = QFigure.fid
+                LEFT JOIN Figure AS AFigure ON Flashcards.aid = AFigure.fid
+                WHERE Flashcards.cid = ?
+                """, (key,))
+            
+            qid, aid, q_image_file, a_image_file = c.fetchone()
 
             LOGGER.info(f"DELETE FROM Flashcards WHERE cid = {key}")
             c.execute("DELETE FROM Flashcards WHERE cid = ?", (key,))
@@ -483,9 +494,12 @@ def delete_card(key:int):
             # Delete question figure from database
             if qid:
                 delete_figure(qid)
+                utils.remove_image(q_image_file)  
+
             # Delete answer figure from database
             if aid:
                 delete_figure(aid)
+                utils.remove_image(a_image_file)
 
         return True
     
