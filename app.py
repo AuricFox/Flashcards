@@ -230,6 +230,7 @@ def update_flashcard_route(key):
         if request.method == 'POST':
             data = {}
             # Retrieve main card elements from the form
+            data['key'] = key
             data['category'] = utils.sanitize(request.form.get('category', type=str))
             data['question'] = request.form.get('question', type=str)
             data['answer'] = request.form.get('answer', type=str)
@@ -238,7 +239,7 @@ def update_flashcard_route(key):
             data['a_code_block'], data['a_code_type'], data['a_image_file'] = process_figure_upload(request, 'a')
 
 
-            LOGGER.info(f"Editing: {key}\n"
+            LOGGER.info(f"Editing: {data['key']}\n"
                         f"Category: {data['category']}\n"
                         f"Question: {data['question']}\n"
                         f"Answer: {data['answer']}\n"
