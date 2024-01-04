@@ -26,17 +26,17 @@
         <div class="flashcard-content-inner">
             <h2>Would you like to add code or an image for the question?</h2>
             <div class="radio-input">
-                <input type="radio" id="q-code-selection" name="input-type" value="code" onclick="toggleQuestionFields('code')">
+                <input type="radio" id="q-code-selection" name="q-figure-type" value="code" onclick="toggleQuestionFields('code')">
                 <label for="code">Code</label>
-                <input type="radio" id="q-image-selection" name="input-type" value="image" onclick="toggleQuestionFields('image')">
+                <input type="radio" id="q-image-selection" name="q-figure-type" value="image" onclick="toggleQuestionFields('image')">
                 <label for="image">Image</label>
-                <input type="radio" id="q-none-type" name="input-type" value="none" checked onclick="toggleQuestionFields('none')">
+                <input type="radio" id="q-none-type" name="q-figure-type" value="none" checked onclick="toggleQuestionFields('none')">
                 <label for="none-type">None</label>
             </div>
         </div>
 
         <div class="flashcard-content-inner" id="q-code-section" style="display: none;">
-            <h2>Code Type</h2>
+            <h2>Question Code Type</h2>
             <input type="text" name="q-code-type" id="q-code-sel" list="code-type">
             <datalist id="q-code-type">
                 <option value="c">C</option>
@@ -49,12 +49,12 @@
                 <option value="python">Python</option>
                 <option value="sql">SQL</option>
             </datalist>
-            <h2>Code Example</h2>
+            <h2>Question Code Example</h2>
             <textarea id="q-code-figure" name="q-code-figure" rows="6"></textarea>
         </div>
 
         <div class="flashcard-content-inner" id="q-image-section" style="display: none;">
-            <h2>Image</h2>
+            <h2>Question Image</h2>
             <input type="file" id="q-image-figure" name="q-image-figure">
         </div>
 
@@ -62,17 +62,17 @@
         <div class="flashcard-content-inner">
             <h2>Would you like to add code or an image for the question?</h2>
             <div class="radio-input">
-                <input type="radio" id="a-code-selection" name="input-type" value="code" onclick="toggleAnswerFields('code')">
+                <input type="radio" id="a-code-selection" name="a-figure-type" value="code" onclick="toggleAnswerFields('code')">
                 <label for="code">Code</label>
-                <input type="radio" id="a-image-selection" name="input-type" value="image" onclick="toggleAnswerFields('image')">
+                <input type="radio" id="a-image-selection" name="a-figure-type" value="image" onclick="toggleAnswerFields('image')">
                 <label for="image">Image</label>
-                <input type="radio" id="a-none-type" name="input-type" value="none" checked onclick="toggleAnswerFields('none')">
+                <input type="radio" id="a-none-type" name="a-figure-type" value="none" checked onclick="toggleAnswerFields('none')">
                 <label for="none-type">None</label>
             </div>
         </div>
 
         <div class="flashcard-content-inner" id="a-code-section" style="display: none;">
-            <h2>Code Type</h2>
+            <h2>Answer Code Type</h2>
             <input type="text" name="a-code-type" id="a-code-sel" list="code-type">
             <datalist id="a-code-type">
                 <option value="c">C</option>
@@ -85,12 +85,12 @@
                 <option value="python">Python</option>
                 <option value="sql">SQL</option>
             </datalist>
-            <h2>Code Example</h2>
+            <h2>Answer Code Example</h2>
             <textarea id="a-code-figure" name="a-code-figure" rows="6"></textarea>
         </div>
 
         <div class="flashcard-content-inner" id="a-image-section" style="display: none;">
-            <h2>Image</h2>
+            <h2>Answer Image</h2>
             <input type="file" id="a-image-figure" name="a-image-figure">
         </div>
 
