@@ -203,12 +203,43 @@ document.addEventListener('DOMContentLoaded', function () {
     
 });
 
-function toggleFields(selectedType) {
-    const codeSection = document.getElementById('code-section');
-    const imageSection = document.getElementById('image-section');
-    const codeType = document.getElementById('code-sel');
-    const codeInput = document.getElementById('code-ex');
-    const imageInput = document.getElementById('image-ex');
+function toggleQuestionFields(selectedType) {
+    const codeSection = document.getElementById('q-code-section');
+    const imageSection = document.getElementById('q-image-section');
+    const codeType = document.getElementById('q-code-sel');
+    const codeInput = document.getElementById('q-code-figure');
+    const imageInput = document.getElementById('q-image-figure');
+
+    if (selectedType === 'code') {
+        // Display only code input
+        codeSection.style.display = 'block';
+        imageSection.style.display = 'none';
+        codeType.required = true;
+        codeInput.required = true;
+        imageInput.required = false;
+    } else if (selectedType === 'image') {
+        // Display only image input
+        codeSection.style.display = 'none';
+        imageSection.style.display = 'block';
+        codeType.required = false;
+        codeInput.required = false;
+        imageInput.required = true;
+    } else {
+        // Display neither code nor image input
+        codeSection.style.display = 'none';
+        imageSection.style.display = 'none';
+        codeType.required = false;
+        codeInput.required = false;
+        imageInput.required = false;
+    }
+}
+
+function toggleAnswerFields(selectedType) {
+    const codeSection = document.getElementById('a-code-section');
+    const imageSection = document.getElementById('a-image-section');
+    const codeType = document.getElementById('a-code-sel');
+    const codeInput = document.getElementById('a-code-figure');
+    const imageInput = document.getElementById('a-image-figure');
 
     if (selectedType === 'code') {
         // Display only code input
