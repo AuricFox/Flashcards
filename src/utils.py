@@ -24,46 +24,50 @@ def save_image_file(file):
     Output(s):
         filename (str): name of the saved file
     '''
+    try:
+        # Replace special characters with underscores
+        sanitized_name = re.sub(r'[\\/*?:"<>| ]', '_', file.filename)
+        # Remove leading and trailing whitespace
+        sanitized_name = sanitized_name.strip()
+        # Getting the name of the file without the extension
+        sanitized_name = sanitized_name.split('.')[0]
 
-    # Replace special characters with underscores
-    sanitized_name = re.sub(r'[\\/*?:"<>| ]', '_', file.filename)
-    # Remove leading and trailing whitespace
-    sanitized_name = sanitized_name.strip()
-    # Getting the name of the file without the extension
-    sanitized_name = sanitized_name.split('.')[0]
+        allowed_mime_types = ['image/jpeg', 'image/png', 'application/pdf']
+        allowed_extensions = ['.jpg', '.jpeg', '.png', '.pdf']
 
-    allowed_mime_types = ['image/jpeg', 'image/png', 'application/pdf']
-    allowed_extensions = ['.jpg', '.jpeg', '.png', '.pdf']
+        # Get the file's MIME type and extension
+        file_mime_type, _ = mimetypes.guess_type(file.filename)
+        file_extension = os.path.splitext(file.filename)[1].lower()
 
-    # Get the file's MIME type and extension
-    file_mime_type, _ = mimetypes.guess_type(file.filename)
-    file_extension = os.path.splitext(file.filename)[1].lower()
+        # Check if the file's MIME type or extension is allowed
+        if file_mime_type is not None and file_mime_type not in allowed_mime_types:
+            LOGGER.error(f'{file.filename} MIME type is not supported! MIME type: {file_mime_type}')
+            return None
 
-    # Check if the file's MIME type or extension is allowed
-    if file_mime_type is not None and file_mime_type not in allowed_mime_types:
-        LOGGER.error(f'{file.filename} MIME type is not supported! MIME type: {file_mime_type}')
+        if file_extension not in allowed_extensions:
+            LOGGER.error(f'{file.filename} extension is not supported! Extension: {file_extension}')
+            return None
+
+        path = os.path.join(PATH, "../static/images")               # Path where file will be saved
+        os.makedirs(path, exist_ok=True)                            # Create path if it doesn't exist
+
+        counter = 0
+        original_file_path = os.path.join(path, f'{sanitized_name}_{counter}{file_extension}')
+        new_file_path = original_file_path
+
+        # loop thru the files to ensure the saved file does not have the same name as another
+        while os.path.exists(new_file_path):
+            new_file_path = os.path.join(path, f'{sanitized_name}_{counter}{file_extension}')
+            counter += 1
+
+        LOGGER.info(f"Creating file: {new_file_path}")
+        file.save(new_file_path)
+
+        return os.path.basename(new_file_path)
+    
+    except Exception as e:
+        LOGGER.error(f"An error occured when saving {file.filename}: {e}")
         return None
-
-    if file_extension not in allowed_extensions:
-        LOGGER.error(f'{file.filename} extension is not supported! Extension: {file_extension}')
-        return None
-    
-    path = os.path.join(PATH, "../static/images")               # Path where file will be saved
-    os.makedirs(path, exist_ok=True)                            # Create path if it doesn't exist
-    
-    counter = 0
-    original_file_path = os.path.join(path, f'{sanitized_name}_{counter}{file_extension}')
-    new_file_path = original_file_path
-    
-    # loop thru the files to ensure the saved file does not have the same name as another
-    while os.path.exists(new_file_path):
-        new_file_path = os.path.join(path, f'{sanitized_name}_{counter}{file_extension}')
-        counter += 1
-
-    LOGGER.info(f"Creating file: {new_file_path}")
-    file.save(new_file_path)
-
-    return os.path.basename(new_file_path)
 
 # ========================================================================================================================================
 # Functions used for removing files

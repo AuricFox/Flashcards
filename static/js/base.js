@@ -210,6 +210,8 @@ function toggleQuestionFields(selectedType) {
     const codeInput = document.getElementById('q-code-figure');
     const imageInput = document.getElementById('q-image-figure');
 
+    const currentImage = document.getElementById('q-card-image');
+
     if (selectedType === 'code') {
         // Display only code input
         codeSection.style.display = 'block';
@@ -223,7 +225,14 @@ function toggleQuestionFields(selectedType) {
         imageSection.style.display = 'block';
         codeType.required = false;
         codeInput.required = false;
-        imageInput.required = true;
+        
+        // Require user to enter a image file if one doesn't exist
+        if (currentImage === null) {
+            imageInput.required = true;
+        } else {
+            imageInput.required = false;
+        }
+
     } else {
         // Display neither code nor image input
         codeSection.style.display = 'none';
@@ -241,6 +250,8 @@ function toggleAnswerFields(selectedType) {
     const codeInput = document.getElementById('a-code-figure');
     const imageInput = document.getElementById('a-image-figure');
 
+    const currentImage = document.getElementById('a-card-image');
+
     if (selectedType === 'code') {
         // Display only code input
         codeSection.style.display = 'block';
@@ -254,7 +265,14 @@ function toggleAnswerFields(selectedType) {
         imageSection.style.display = 'block';
         codeType.required = false;
         codeInput.required = false;
-        imageInput.required = true;
+
+        // Require user to enter a image file if one doesn't exist
+        if (currentImage === null){
+            imageInput.required = true;
+        } else {
+            imageInput.required = false;
+        }
+        
     } else {
         // Display neither code nor image input
         codeSection.style.display = 'none';
