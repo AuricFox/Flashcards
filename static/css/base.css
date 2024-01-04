@@ -282,6 +282,7 @@ body {
 
 .display-section {
     width: 50%;
+    min-height: 22rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -744,7 +745,7 @@ tr:last-child td {
 .action-cell {
     text-decoration: none;
     padding: 3px;
-    margin: 0 0.4rem;
+    margin: 0 3px;
     border-radius: 4px;
     color: #FFFFFF;
     width: 1.75rem;
