@@ -99,5 +99,5 @@ def print_tables():
 # ==============================================================================================================
 if __name__ == "__main__":
     #clear_tables()
-    create_tables()
-    #print_tables()
+    #create_tables()
+    print_tables()

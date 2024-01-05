@@ -516,12 +516,12 @@ def delete_card(key:int):
             # Delete question figure from database
             if qid:
                 delete_figure(qid)
-                utils.remove_image(q_image_file)  
+                if q_image_file: utils.remove_image(q_image_file)  
 
             # Delete answer figure from database
             if aid:
                 delete_figure(aid)
-                utils.remove_image(a_image_file)
+                if a_image_file: utils.remove_image(a_image_file)
 
         return True
     
