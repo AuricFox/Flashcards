@@ -21,28 +21,43 @@
                 <th>Category</th>
                 <th>Question</th>
                 <th>Answer</th>
-                <th>Code</th>
-                <th>Image</th>
+                <th>Code<br>(Question)</th>
+                <th>Image<br>(Question)</th>
+                <th>Code<br>(Answer)</th>
+                <th>Image<br>(Answer)</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             {% for value in data['questions'] %}
             <tr>
-                <td id="category-cell" class="flash-cell">{{ value['category'] | escape }}</td>
-                <td id="question-cell" class="flash-cell">{{ value['question'] | escape }}</td>
-                <td id="answer-cell" class="flash-cell">{{ value['answer'] | escape }}</td>
+                <td class="flash-cell">{{ value['category'] | escape }}</td>
+                <td class="flash-cell">{{ value['question'] | escape }}</td>
+                <td class="flash-cell">{{ value['answer'] | escape }}</td>
 
-                <td id="code-cell" class="flash-cell">
+                <td class="flash-cell">
                     {% if value['q_code_block'] %}
                     <pre><code>{{ value['q_code_block'] | escape }}</code></pre>
                     {% endif %}
                 </td>
                 
-                <td id="image-cell" class="flash-cell">
+                <td class="flash-cell">
                     {% if value['q_image_file'] %}
                     <img class="card-image" src="{{ url_for('static', filename='images/' + value['q_image_file']) }}"
                         alt="{{ value['q_image_file'] }}">
+                    {% endif %}
+                </td>
+
+                <td class="flash-cell">
+                    {% if value['a_code_block'] %}
+                    <pre><code>{{ value['a_code_block'] | escape }}</code></pre>
+                    {% endif %}
+                </td>
+                
+                <td class="flash-cell">
+                    {% if value['a_image_file'] %}
+                    <img class="card-image" src="{{ url_for('static', filename='images/' + value['a_image_file']) }}"
+                        alt="{{ value['a_image_file'] }}">
                     {% endif %}
                 </td>
                 
