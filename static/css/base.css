@@ -710,7 +710,6 @@ table {
 }
 
 th, td {
-    width: 25%;
     text-align: left;
     border-bottom: 1px solid #ddd;
     padding: 8px;
@@ -720,6 +719,11 @@ td pre {
     max-height: 3rem;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+td:nth-child(odd), 
+th:nth-child(odd) {
+    background-color: #404040;
 }
 
 tr:last-child td {
@@ -739,13 +743,14 @@ tr:last-child td {
 
 .action-links {
     display: flex;
-    justify-content: right;
+    justify-content: center;
+    min-width: 6rem;
 }
 
 .action-cell {
     text-decoration: none;
     padding: 3px;
-    margin: 0 3px;
+    margin: 0 2px;
     border-radius: 4px;
     color: #FFFFFF;
     width: 1.75rem;
@@ -794,19 +799,9 @@ tr:last-child td {
     td:nth-child(7){
         display: none;
     }
-}
 
-/* Stack rows vertically on small screens */
-@media screen and (max-width: 500px) {
-    tr {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    td, th {
-        display: block;
-        text-align: left;
-        width: 100%;
+    .questions-table {
+        margin: 0 0.5rem 2rem 0.5rem;
     }
 }
 
