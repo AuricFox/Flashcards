@@ -273,6 +273,7 @@ def view_allcards(category:str=None):
                     LEFT JOIN Figure AS QFigure ON Flashcards.qid = QFigure.fid
                     LEFT JOIN Figure AS AFigure ON Flashcards.aid = AFigure.fid
                     WHERE Flashcards.category = ?
+                    ORDER BY Flashcards.category
                     """, (category,))
             # Retrieve all cards in the database
             else:
@@ -294,6 +295,7 @@ def view_allcards(category:str=None):
                     FROM Flashcards
                     LEFT JOIN Figure AS QFigure ON Flashcards.qid = QFigure.fid
                     LEFT JOIN Figure AS AFigure ON Flashcards.aid = AFigure.fid
+                    ORDER BY Flashcards.category
                     """)
 
             card_data = c.fetchall()
