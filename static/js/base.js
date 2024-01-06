@@ -168,6 +168,9 @@ function validateText(id) {
 // ======================================================================================================
 
 document.addEventListener('DOMContentLoaded', function () {
+    const questionField = document.getElementById('question');
+    const answerField = document.getElementById('answer');
+
     const q_codeSection = document.getElementById('q-code-section');
     const q_imageSection = document.getElementById('q-image-section');
     const q_codeType = document.getElementById('q-code-sel');
@@ -183,12 +186,14 @@ document.addEventListener('DOMContentLoaded', function () {
             // Display only code input
             q_codeSection.style.display = 'block';
             q_imageSection.style.display = 'none';
+            questionField.required = false;
             q_codeType.required = true;
             q_codeInput.required = true;
             q_imageInput.required = false;
         } else if (q_imageSelection.checked) {
             q_codeSection.style.display = 'none';
             q_imageSection.style.display = 'block';
+            questionField.required = false;
             q_codeType.required = false;
             q_codeInput.required = false;
             
@@ -202,6 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Display neither code nor image input
             q_codeSection.style.display = 'none';
             q_imageSection.style.display = 'none';
+            questionField.required = true;
             q_codeType.required = false;
             q_codeInput.required = false;
             q_imageInput.required = false;
@@ -223,12 +229,14 @@ document.addEventListener('DOMContentLoaded', function () {
             // Display only code input
             a_codeSection.style.display = 'block';
             a_imageSection.style.display = 'none';
+            answerField.required = false;
             a_codeType.required = true;
             a_codeInput.required = true;
             a_imageInput.required = false;
         } else if (a_imageSelection.checked) {
             a_codeSection.style.display = 'none';
             a_imageSection.style.display = 'block';
+            answerField.required = false;
             a_codeType.required = false;
             a_codeInput.required = false;
 
@@ -242,6 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Display neither code nor image input
             a_codeSection.style.display = 'none';
             a_imageSection.style.display = 'none';
+            answerField.required = true;
             a_codeType.required = false;
             a_codeInput.required = false;
             a_imageInput.required = false;
@@ -250,6 +259,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function toggleQuestionFields(selectedType) {
+    const questionField = document.getElementById('question');
+
     const codeSection = document.getElementById('q-code-section');
     const imageSection = document.getElementById('q-image-section');
     const codeType = document.getElementById('q-code-sel');
@@ -262,6 +273,7 @@ function toggleQuestionFields(selectedType) {
         // Display only code input
         codeSection.style.display = 'block';
         imageSection.style.display = 'none';
+        questionField.required = false;
         codeType.required = true;
         codeInput.required = true;
         imageInput.required = false;
@@ -269,6 +281,7 @@ function toggleQuestionFields(selectedType) {
         // Display only image input
         codeSection.style.display = 'none';
         imageSection.style.display = 'block';
+        questionField.required = false;
         codeType.required = false;
         codeInput.required = false;
         
@@ -283,6 +296,7 @@ function toggleQuestionFields(selectedType) {
         // Display neither code nor image input
         codeSection.style.display = 'none';
         imageSection.style.display = 'none';
+        questionField.required = true;
         codeType.required = false;
         codeInput.required = false;
         imageInput.required = false;
@@ -290,6 +304,8 @@ function toggleQuestionFields(selectedType) {
 }
 
 function toggleAnswerFields(selectedType) {
+    const answerField = document.getElementById('answer');
+
     const codeSection = document.getElementById('a-code-section');
     const imageSection = document.getElementById('a-image-section');
     const codeType = document.getElementById('a-code-sel');
@@ -302,6 +318,7 @@ function toggleAnswerFields(selectedType) {
         // Display only code input
         codeSection.style.display = 'block';
         imageSection.style.display = 'none';
+        answerField.required = false;
         codeType.required = true;
         codeInput.required = true;
         imageInput.required = false;
@@ -309,6 +326,7 @@ function toggleAnswerFields(selectedType) {
         // Display only image input
         codeSection.style.display = 'none';
         imageSection.style.display = 'block';
+        answerField.required = false;
         codeType.required = false;
         codeInput.required = false;
 
@@ -323,6 +341,7 @@ function toggleAnswerFields(selectedType) {
         // Display neither code nor image input
         codeSection.style.display = 'none';
         imageSection.style.display = 'none';
+        answerField.required = true;
         codeType.required = false;
         codeInput.required = false;
         imageInput.required = false;
