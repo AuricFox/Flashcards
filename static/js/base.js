@@ -347,3 +347,24 @@ function toggleAnswerFields(selectedType) {
         imageInput.required = false;
     }
 }
+
+// ======================================================================================================
+// Autocomplete Search For Categories
+// ======================================================================================================
+$(function () {
+    $("#search").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "/autocomplete", // Flask endpoint URL
+                dataType: "json",
+                data: {
+                    search: request.term
+                },
+                success: function (data) {
+                    response(data.options);
+                }
+            });
+        },
+        minLength: 3, // Minimum characters before triggering autocomplete
+    });
+});

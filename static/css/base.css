@@ -695,6 +695,26 @@ body {
     cursor: pointer;
 }
 
+.ui-autocomplete {
+    max-width: 250px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: #2f2f2f;
+    box-shadow: 2px 2px 8px #000;
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+
+.ui-menu-item {
+    padding: 5px;
+}
+
+.ui-menu-item:hover {
+    cursor: pointer;
+    background-color: #4b4b4b;
+}
+
 .questions-table {
     margin: 0 4rem 2rem 4rem;
     padding: 1rem;

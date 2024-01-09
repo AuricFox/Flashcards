@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template, url_for, flash
+from flask import Flask, request, redirect, render_template, url_for, flash, jsonify
 
 import os, sys
 sys.path.append('./src/')
@@ -16,9 +16,9 @@ def home():
     Builds and returns an html page that displays the categories and the number of questions in 
     each category.
 
-    Parameters: None
+    Parameter(s): None
 
-    Returns:
+    Output(s):
         a built html page that displays the categories and their count
     '''
     # Query database for all categories and their counts
@@ -32,10 +32,10 @@ def flashcard_route(category):
     '''
     Builds and returns an html page based on the specified question category.
 
-    Parameters:
+    Parameter(s):
         category (str): the type of questions being queried from the database
 
-    Returns:
+    Output(s):
         a built html page that displays the flashcards
     '''
     # Query database for questions related to specified category
@@ -47,14 +47,37 @@ def flashcard_route(category):
     return render_template('flashcards.html', nav_id="flashcard-page", data=data, length=length, categories=categories)
 
 # ==============================================================================================================
+@app.route('/autocomplete', methods=['GET'])
+def autocomplete():
+    '''
+    Gets all the categories in the database and returns them for search options.
+
+    Parameter(s): None
+
+    Ouput(s):
+        a json object with all the listed categories 
+    '''
+
+    term = request.args.get('search')
+
+    # Get categories from the database
+    available_options = database.view_allcategories()
+    categories = [key for key in available_options]
+
+    # Filter options based on the term
+    matching_options = [option for option in categories if term.lower() in option.lower()]
+
+    return jsonify(options=matching_options)
+
+# ==============================================================================================================
 @app.route("/manage_flashcards", methods=['GET', 'POST'])
 def manage_flashcards_route():
     '''
     Builds and returns an html page where all the flashcard data can be viewed and edited.
 
-    Parameters: None
+    Parameter(s): None
 
-    Returns:
+    Output(s):
         a built html page that displays the flashcard data
     '''
     if request.method == 'POST':
@@ -76,9 +99,9 @@ def add_flashcard_route():
     Builds and returns an html page for adding flashcards to database. 
     NOTE: flashcard is added to the database in create_flashcard_route.
 
-    Parameters: None
+    Parameter(s): None
 
-    Returns:
+    Output(s):
         a built html page that enables users to add flashcards to the database
     '''
 
@@ -129,10 +152,10 @@ def create_flashcard_route():
     '''
     Builds and returns an html page based on the specified question category.
 
-    Parameters:
+    Parameter(s):
         question (str): the question being edited
 
-    Returns:
+    Output(s):
         None, redirects to manage_flashcard page
     '''
     try:
@@ -183,10 +206,10 @@ def view_flashcard_route(key):
     '''
     Builds and returns an html page based on the specified question.
 
-    Parameters:
+    Parameter(s):
         key (int): the primary key of the question being queried
 
-    Returns:
+    Output(s):
         a built html page that displays the flashcard data
     '''
     # Query database for question
@@ -201,10 +224,10 @@ def edit_flashcard_route(key):
     '''
     Builds and returns an html page based on the specified question category
 
-    Parameters:
+    Parameter(s):
         key (int): the primary key of the question being edited
 
-    Returns:
+    Output(s):
         a built html page that displays the flashcard data for editing
     '''
     # Query database for question being edited
@@ -219,10 +242,10 @@ def update_flashcard_route(key):
     '''
     Builds and returns an html page based on the specified question category
 
-    Parameters:
+    Parameter(s):
         key (int): the primary key of the question being edited
 
-    Returns:
+    Output(s):
         None, redirects to manage_flashcard page
     '''
     try:
@@ -274,10 +297,10 @@ def delete_flashcard_route(key):
     '''
     Deletes the queried flashcard from the database and redirects to manage page
 
-    Parameters:
+    Parameter(s):
         key (int): the primary key of the question being deleted from the database
 
-    Returns:
+    Output(s):
         None, redirects to the manage page
     '''
     try:
