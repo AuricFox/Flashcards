@@ -168,184 +168,97 @@ function validateText(id) {
 // ======================================================================================================
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Text area inputs
     const questionField = document.getElementById('question');
     const answerField = document.getElementById('answer');
 
-    const q_codeSection = document.getElementById('q-code-section');
-    const q_imageSection = document.getElementById('q-image-section');
-    const q_codeType = document.getElementById('q-code-sel');
-    const q_codeInput = document.getElementById('q-code-figure');
-    const q_imageInput = document.getElementById('q-image-figure');
+    // Question Elements
+    const qCodeSection = document.getElementById('q-code-section');
+    const qImageSection = document.getElementById('q-image-section');
+    const qCodeType = document.getElementById('q-code-sel');
+    const qCodeInput = document.getElementById('q-code-figure');
+    const qImageInput = document.getElementById('q-image-figure');
+    const qCodeSelection = document.getElementById('q-code-selection');
+    const qImageSelection = document.getElementById('q-image-selection');
+    const qNone = document.getElementById('q-none-type');
+    const qCurrentImage = document.getElementById('q-card-image');
 
-    const q_codeSelection = document.getElementById('q-code-selection');
-    const q_imageSelection = document.getElementById('q-image-selection');
-    const q_currentImage = document.getElementById('q-card-image');
+    // Answer Elements
+    const aCodeSection = document.getElementById('a-code-section');
+    const aImageSection = document.getElementById('a-image-section');
+    const aCodeType = document.getElementById('a-code-sel');
+    const aCodeInput = document.getElementById('a-code-figure');
+    const aImageInput = document.getElementById('a-image-figure');
+    const aCodeSelection = document.getElementById('a-code-selection');
+    const aImageSelection = document.getElementById('a-image-selection');
+    const aNone = document.getElementById('a-none-type');
+    const aCurrentImage = document.getElementById('a-card-image');
 
-    if (q_codeSelection || q_imageSelection){
-        if (q_codeSelection.checked) {
-            // Display only code input
-            q_codeSection.style.display = 'block';
-            q_imageSection.style.display = 'none';
-            questionField.required = false;
-            q_codeType.required = true;
-            q_codeInput.required = true;
-            q_imageInput.required = false;
-        } else if (q_imageSelection.checked) {
-            q_codeSection.style.display = 'none';
-            q_imageSection.style.display = 'block';
-            questionField.required = false;
-            q_codeType.required = false;
-            q_codeInput.required = false;
-            
-            if (q_currentImage) {
-                q_imageInput.required = false;
-            } else {
-                q_imageInput.required = true;
-            }
+    // Add click event listener for question slection
+    if (qCodeSelection && qImageSelection) {
+        qCodeSelection.addEventListener('click', function () {
+            toggleFields(qCodeSelection, qImageSelection, qCodeSection, qImageSection, questionField, qCodeType, qCodeInput, qImageInput, qCurrentImage);
+        });
 
-        } else {
-            // Display neither code nor image input
-            q_codeSection.style.display = 'none';
-            q_imageSection.style.display = 'none';
-            questionField.required = true;
-            q_codeType.required = false;
-            q_codeInput.required = false;
-            q_imageInput.required = false;
-        }
+        qImageSelection.addEventListener('click', function () {
+            toggleFields(qCodeSelection, qImageSelection, qCodeSection, qImageSection, questionField, qCodeType, qCodeInput, qImageInput, qCurrentImage);
+        });
+
+        qNone.addEventListener('click', function () {
+            toggleFields(qCodeSelection, qImageSelection, qCodeSection, qImageSection, questionField, qCodeType, qCodeInput, qImageInput, qCurrentImage);
+        });
     }
 
-    const a_codeSection = document.getElementById('a-code-section');
-    const a_imageSection = document.getElementById('a-image-section');
-    const a_codeType = document.getElementById('a-code-sel');
-    const a_codeInput = document.getElementById('a-code-figure');
-    const a_imageInput = document.getElementById('a-image-figure');
+    // Add click event listeners for answer selection
+    if (aCodeSelection && aImageSelection) {
+        aCodeSelection.addEventListener('click', function () {
+            toggleFields(aCodeSelection, aImageSelection, aCodeSection, aImageSection, answerField, aCodeType, aCodeInput, aImageInput, aCurrentImage);
+        });
 
-    const a_codeSelection = document.getElementById('a-code-selection');
-    const a_imageSelection = document.getElementById('a-image-selection');
-    const a_currentImage = document.getElementById('a-card-image');
+        aImageSelection.addEventListener('click', function () {
+            toggleFields(aCodeSelection, aImageSelection, aCodeSection, aImageSection, answerField, aCodeType, aCodeInput, aImageInput, aCurrentImage);
+        });
 
-    if (a_codeSelection || a_imageSelection) {
-        if (a_codeSelection.checked) {
-            // Display only code input
-            a_codeSection.style.display = 'block';
-            a_imageSection.style.display = 'none';
-            answerField.required = false;
-            a_codeType.required = true;
-            a_codeInput.required = true;
-            a_imageInput.required = false;
-        } else if (a_imageSelection.checked) {
-            a_codeSection.style.display = 'none';
-            a_imageSection.style.display = 'block';
-            answerField.required = false;
-            a_codeType.required = false;
-            a_codeInput.required = false;
-
-            if (a_currentImage) {
-                a_imageInput.required = false;
-            } else {
-                a_imageInput.required = true;
-            }
-            
-        } else {
-            // Display neither code nor image input
-            a_codeSection.style.display = 'none';
-            a_imageSection.style.display = 'none';
-            answerField.required = true;
-            a_codeType.required = false;
-            a_codeInput.required = false;
-            a_imageInput.required = false;
-        }
-    }   
+        aNone.addEventListener('click', function () {
+            toggleFields(aCodeSelection, aImageSelection, aCodeSection, aImageSection, answerField, aCodeType, aCodeInput, aImageInput, aCurrentImage);
+        });
+    }
 });
 
-function toggleQuestionFields(selectedType) {
-    const questionField = document.getElementById('question');
+function toggleFields(codeSelection, imageSelection, codeSection, imageSection, field, codeType, codeInput, imageInput, currentImage) {
+    if (codeSelection && imageSelection) {
 
-    const codeSection = document.getElementById('q-code-section');
-    const imageSection = document.getElementById('q-image-section');
-    const codeType = document.getElementById('q-code-sel');
-    const codeInput = document.getElementById('q-code-figure');
-    const imageInput = document.getElementById('q-image-figure');
-
-    const currentImage = document.getElementById('q-card-image');
-
-    if (selectedType === 'code') {
-        // Display only code input
-        codeSection.style.display = 'block';
-        imageSection.style.display = 'none';
-        questionField.required = false;
-        codeType.required = true;
-        codeInput.required = true;
-        imageInput.required = false;
-    } else if (selectedType === 'image') {
-        // Display only image input
-        codeSection.style.display = 'none';
-        imageSection.style.display = 'block';
-        questionField.required = false;
-        codeType.required = false;
-        codeInput.required = false;
+        // User wants code elements
+        if (codeSelection.checked) {
+            toggleDisplay(codeSection, imageSection, 'code');
+            setFieldRequirements(field, codeType, codeInput, imageInput, false, true, true, false);
         
-        // Require user to enter a image file if one doesn't exist
-        if (currentImage === null) {
-            imageInput.required = true;
+        // User wants image elements
+        } else if (imageSelection.checked) {
+            toggleDisplay(codeSection, imageSection, 'image');
+            setFieldRequirements(field, codeType, codeInput, imageInput, false, false, false, currentImage === null);
+        
+        // User wants no additional elements
         } else {
-            imageInput.required = false;
+            toggleDisplay(codeSection, imageSection, 'none');
+            setFieldRequirements(field, codeType, codeInput, imageInput, true, false, false, false);
         }
-
-    } else {
-        // Display neither code nor image input
-        codeSection.style.display = 'none';
-        imageSection.style.display = 'none';
-        questionField.required = true;
-        codeType.required = false;
-        codeInput.required = false;
-        imageInput.required = false;
     }
 }
 
-function toggleAnswerFields(selectedType) {
-    const answerField = document.getElementById('answer');
+function toggleDisplay(codeSection, imageSection, display) {
+    // Toggle the display of the code and image inputs
+    codeSection.style.display = display == 'code' ? 'block' : 'none';
+    imageSection.style.display = display == 'image' ? 'block' : 'none';
+}
 
-    const codeSection = document.getElementById('a-code-section');
-    const imageSection = document.getElementById('a-image-section');
-    const codeType = document.getElementById('a-code-sel');
-    const codeInput = document.getElementById('a-code-figure');
-    const imageInput = document.getElementById('a-image-figure');
+function setFieldRequirements(field, codeType, codeInput, imageInput, reqField, reqCodeType, reqCodeInput, reqImageInput) {
+    // Set what fields are required by the user when toggled
 
-    const currentImage = document.getElementById('a-card-image');
-
-    if (selectedType === 'code') {
-        // Display only code input
-        codeSection.style.display = 'block';
-        imageSection.style.display = 'none';
-        answerField.required = false;
-        codeType.required = true;
-        codeInput.required = true;
-        imageInput.required = false;
-    } else if (selectedType === 'image') {
-        // Display only image input
-        codeSection.style.display = 'none';
-        imageSection.style.display = 'block';
-        answerField.required = false;
-        codeType.required = false;
-        codeInput.required = false;
-
-        // Require user to enter a image file if one doesn't exist
-        if (currentImage === null){
-            imageInput.required = true;
-        } else {
-            imageInput.required = false;
-        }
-        
-    } else {
-        // Display neither code nor image input
-        codeSection.style.display = 'none';
-        imageSection.style.display = 'none';
-        answerField.required = true;
-        codeType.required = false;
-        codeInput.required = false;
-        imageInput.required = false;
-    }
+    field.required = reqField;              // Require question and/or answer fields
+    codeType.required = reqCodeType;        // Require code type input
+    codeInput.required = reqCodeInput;      // Require code block input
+    imageInput.required = reqImageInput;    // Require image input
 }
 
 // ======================================================================================================
