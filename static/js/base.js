@@ -265,7 +265,7 @@ function setFieldRequirements(field, codeType, codeInput, imageInput, reqField, 
 // Autocomplete Search For Categories
 // ======================================================================================================
 $(function () {
-    $("#search").autocomplete({
+    $(".search").autocomplete({
         source: function (request, response) {
             $.ajax({
                 url: "/autocomplete", // Flask endpoint URL
