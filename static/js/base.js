@@ -194,6 +194,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const aNone = document.getElementById('a-none-type');
     const aCurrentImage = document.getElementById('a-card-image');
 
+    toggleFields(qCodeSelection, qImageSelection, qCodeSection, qImageSection, questionField, qCodeType, qCodeInput, qImageInput, qCurrentImage);
+    toggleFields(aCodeSelection, aImageSelection, aCodeSection, aImageSection, answerField, aCodeType, aCodeInput, aImageInput, aCurrentImage);
+
     // Add click event listener for question slection
     if (qCodeSelection && qImageSelection) {
         qCodeSelection.addEventListener('click', function () {
