@@ -74,6 +74,7 @@ document.querySelectorAll('.delete-cell').forEach(function (element) {
     });
 });
 
+// Display window prompt
 function confirmDelete(element) {
     var question = element;
     var result = confirm("Are you sure you want to delete this flashcard?");
@@ -88,7 +89,6 @@ function confirmDelete(element) {
 var CURRENT_INDEX = 0;
 var NUM_FLASHCARDS = $('.flashcard').length;
 var CARD_ARRAY = Array.from({ length: NUM_FLASHCARDS }, (_, index) => index);
-
 
 // Rotate flashcard when clicked
 $('.flashcard').click(function () {
@@ -123,14 +123,9 @@ function showFlashcard(index) {
 };
 
 // Advance to the next flashcard on the page
-function showNextFlashcard() {
-    showFlashcard(CURRENT_INDEX + 1);
-};
-
+function showNextFlashcard() {showFlashcard(CURRENT_INDEX + 1);};
 // Advance to the previous flashcard on the page
-function showPreviousFlashcard() {
-    showFlashcard(CURRENT_INDEX - 1);
-};
+function showPreviousFlashcard() {showFlashcard(CURRENT_INDEX - 1);};
 
 function shuffleFlashcards() {
     // Shuffle the flashcards array
@@ -161,7 +156,7 @@ function validateText(id) {
     } else {
         textarea.setCustomValidity("");
     }
-}
+};
 
 // ======================================================================================================
 // ADD_FLASHCARD AND EDIT_FLASHCARD PAGE
@@ -194,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const aNone = document.getElementById('a-none-type');
     const aCurrentImage = document.getElementById('a-card-image');
 
+    // Display elements on page loaded
     toggleFields(qCodeSelection, qImageSelection, qCodeSection, qImageSection, questionField, qCodeType, qCodeInput, qImageInput, qCurrentImage);
     toggleFields(aCodeSelection, aImageSelection, aCodeSection, aImageSection, answerField, aCodeType, aCodeInput, aImageInput, aCurrentImage);
 
@@ -247,13 +243,13 @@ function toggleFields(codeSelection, imageSelection, codeSection, imageSection, 
             setFieldRequirements(field, codeType, codeInput, imageInput, true, false, false, false);
         }
     }
-}
+};
 
 function toggleDisplay(codeSection, imageSection, display) {
     // Toggle the display of the code and image inputs
     codeSection.style.display = display == 'code' ? 'block' : 'none';
     imageSection.style.display = display == 'image' ? 'block' : 'none';
-}
+};
 
 function setFieldRequirements(field, codeType, codeInput, imageInput, reqField, reqCodeType, reqCodeInput, reqImageInput) {
     // Set what fields are required by the user when toggled
@@ -262,7 +258,7 @@ function setFieldRequirements(field, codeType, codeInput, imageInput, reqField, 
     codeType.required = reqCodeType;        // Require code type input
     codeInput.required = reqCodeInput;      // Require code block input
     imageInput.required = reqImageInput;    // Require image input
-}
+};
 
 // ======================================================================================================
 // Autocomplete Search For Categories
