@@ -170,7 +170,6 @@ def create_flashcard_route():
             data['q_code_block'], data['q_code_type'], data['q_image_file'] = process_figure_upload(request, 'q')
             data['a_code_block'], data['a_code_type'], data['a_image_file'] = process_figure_upload(request, 'a')
 
-
             LOGGER.info(f"Adding flashcard data:\n"
                         f"Category: {data['category']}\n"
                         f"Question: {data['question']}\n"
