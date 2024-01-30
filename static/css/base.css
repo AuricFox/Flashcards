@@ -507,6 +507,24 @@ body {
     cursor: pointer;
 }
 
+.next-num {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: larger;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.prev-num {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: larger;
+    font-weight: bold;
+    margin: 5px;
+}
+
 .flashcard {
     background-color: transparent;
     min-width: 30rem;

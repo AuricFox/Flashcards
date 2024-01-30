@@ -4,10 +4,16 @@
 
 {% block content %}
 <div class="use-flashcard">
+    <!-- Next Card -->
+    <div class="background-flashcard" onclick="showNextFlashcard()">
+        <div class="next-num"></div>
+    </div>
     <div class="background-flashcard"></div>
     <div class="background-flashcard"></div>
-    <div class="background-flashcard"></div>
-    <div class="background-flashcard"></div>
+    <!-- Previous Card -->
+    <div class="background-flashcard" onclick="showPreviousFlashcard()">
+        <div class="prev-num"></div>
+    </div>
 
     {% for index in range(length) %}
     <div class="flashcard" id="flashcard-{{ index }}">
