@@ -120,14 +120,6 @@ function showFlashcard(index) {
 
     // Update question number
     $('#question-num').text((CURRENT_INDEX + 1) + ' / ' + NUM_FLASHCARDS)
-    $('.next-num').text((CURRENT_INDEX + 2) % NUM_FLASHCARDS)
-
-    if (CURRENT_INDEX + 1 == 1){
-        $('.prev-num').text((NUM_FLASHCARDS))
-    } else {
-        $('.prev-num').text((CURRENT_INDEX + 1 + NUM_FLASHCARDS) % (NUM_FLASHCARDS + 1))
-    }
-    
 };
 
 // Advance to the next flashcard on the page
