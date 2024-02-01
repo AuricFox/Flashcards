@@ -470,6 +470,7 @@ body {
 }
 
 .background-flashcard:nth-child(1) {
+    transition: transform 0.2s;
     transform: rotate(2deg) translate(30px, 20px);
     background-color: #f7d9ff;
     box-shadow: 1px 1px 10px #404040;
@@ -477,6 +478,7 @@ body {
 }
 
 .background-flashcard:nth-child(1):hover {
+    transform: rotate(5deg) translate(50px, 20px);
     background-color: #efaeff;
     cursor: pointer;
     color: #5b5b5b;
@@ -497,6 +499,7 @@ body {
 }
 
 .background-flashcard:nth-child(4) {
+    transition: transform 0.2s;
     transform: rotate(-3deg) translate(-40px, 20px);
     background-color: #dee6ad;
     box-shadow: 1px 1px 10px #404040;
@@ -504,6 +507,7 @@ body {
 }
 
 .background-flashcard:nth-child(4):hover {
+    transform: rotate(-6deg) translate(-60px, 20px);
     background-color: #e0ef7f;
     cursor: pointer;
     color: #5b5b5b;
