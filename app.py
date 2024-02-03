@@ -174,10 +174,10 @@ def create_flashcard_route():
                         f"Category: {data['category']}\n"
                         f"Question: {data['question']}\n"
                         f"Answer: {data['answer']}\n"
-                        f"Question Code lock: {data['q_code_block']}\n"
+                        f"Question Code Block: {data['q_code_block']}\n"
                         f"Question Code Type: {data['q_code_type']}\n"
                         f"Question Image File: {data['q_image_file']}\n"
-                        f"Answer Code lock: {data['a_code_block']}\n"
+                        f"Answer Code Block: {data['a_code_block']}\n"
                         f"Answer Code Type: {data['a_code_type']}\n"
                         f"Answer Image File: {data['a_image_file']}")
 
@@ -265,10 +265,10 @@ def update_flashcard_route(key):
                         f"Category: {data['category']}\n"
                         f"Question: {data['question']}\n"
                         f"Answer: {data['answer']}\n"
-                        f"Question Code lock: {data['q_code_block']}\n"
+                        f"Question Code Block: {data['q_code_block']}\n"
                         f"Question Code Type: {data['q_code_type']}\n"
                         f"Question Image File: {data['q_image_file']}\n"
-                        f"Answer Code lock: {data['a_code_block']}\n"
+                        f"Answer Code Block: {data['a_code_block']}\n"
                         f"Answer Code Type: {data['a_code_type']}\n"
                         f"Answer Image File: {data['a_image_file']}")
 
