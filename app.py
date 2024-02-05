@@ -110,7 +110,18 @@ def add_flashcard_route():
     return render_template('add_flashcard.html', nav_id="add-page", categories=categories)
 
 # ==============================================================================================================
-def process_figure_upload(request, f):
+def process_figure_upload(request, f:str):
+    '''
+    Processes figure data that includes code or images. New images are saved while old images do nothing. Code 
+    elements are save if there are any.
+
+    Parameter(s):
+        request (form request): data submitted from the form
+        f (str): image or code figure type 
+
+    Output(s):
+        A tuple containing the figure data (code_block, code_type, image_file), none otherwise.
+    '''
     try:
         figure_type = request.form.get(f'{f}-figure-type', type=str)
 
