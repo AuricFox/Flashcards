@@ -8,7 +8,7 @@ LOGGER = utils.LOGGER
 
 def create_tables():
     '''
-    Creates the Code and Flashcards tables used by the flask server.
+    Creates the Figure and Flashcards tables used by the flask server.
 
     Parameter(s): None
 
@@ -53,7 +53,7 @@ def create_tables():
 # ==============================================================================================================
 def clear_tables():
     '''
-    Wipes the data from the Code and Flashcards tables used by the flask server. Used for data corruption of 
+    Wipes the data from the Figure and Flashcards tables used by the flask server.
 
     Parameter(s): None
 
@@ -79,6 +79,14 @@ def clear_tables():
 
 # ==============================================================================================================
 def print_tables():
+    '''
+    Prints the contents of the Flashcards and Figure Tables.
+
+    Parameter(s): None
+
+    Output(s): None
+    '''
+
     with sqlite3.connect('flashcards.db') as conn:
             c = conn.cursor()
 
