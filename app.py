@@ -8,6 +8,25 @@ LOGGER = utils.LOGGER
 app = Flask(__name__, static_folder='static')
 app.secret_key = 'my_super_secret_totaly_unbreakable_key'
 
+
+# ==============================================================================================================
+# Custom page not found
+@app.errorhandler(404)
+def page_not_found(error):
+    '''
+    Builds and returns an html page that displays the categories and the number of questions in 
+    each category.
+
+    Parameter(s): None
+
+    Output(s):
+        a built html page that displays the categories and their count
+    '''
+    # Query database for all categories and their counts
+    categories = database.view_allcategories()
+
+    return render_template('404.html', nav_id="home-page", categories=categories), 404
+
 # ==============================================================================================================
 @app.route("/")
 @app.route("/home")
