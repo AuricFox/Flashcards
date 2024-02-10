@@ -6,6 +6,7 @@ import utils
 
 LOGGER = utils.LOGGER
 
+# ==============================================================================================================
 def create_tables():
     '''
     Creates the Figure and Flashcards tables used by the flask server.
@@ -104,8 +105,25 @@ def print_tables():
 
             conn.commit()
 
+def main():
+
+    # python .\phylogeny.py input_file
+    if(len(sys.argv) != 2):
+        LOGGER.error(f"Only two inputs allowed, {len(sys.argv)} were entered!")
+
+    # Create Tables
+    if(sys.argv[1] == "-c"): create_tables()
+    # Delete Tables
+    elif(sys.argv[1] == "-d"): clear_tables()
+    # Print Tables
+    elif(sys.argv[1] == "-p"): print_tables()
+    else:
+        LOGGER.error(f"Invalid Arguments!\n"
+                     f"Create Tables: -c\n"
+                     f"Delete Tables: -d\n"
+                     f"Print Tables: -p\n"
+                    )
+
 # ==============================================================================================================
 if __name__ == "__main__":
-    #clear_tables()
-    #create_tables()
-    print_tables()
+    main()
