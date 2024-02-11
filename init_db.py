@@ -66,12 +66,23 @@ def clear_tables():
     try:
         with sqlite3.connect('flashcards.db') as conn:
             c = conn.cursor()
+
+            # Clear Flashcard table
             LOGGER.info("DELETE FROM Flashcards")
             c.execute("DELETE FROM Flashcards")
 
+            # Clear Figure table (images and code)
             LOGGER.info("DELETE FROM Figure")
             c.execute("DELETE FROM Figure")
+
             conn.commit()
+
+            # Get path to saved flashcard images
+            folder = os.path.join(PATH, './static/images/web_images/')
+
+            # Remove saved image files
+            for file in os.listdir(folder):
+                os.remove(os.path.join(PATH, file))
 
         return True
     
@@ -108,6 +119,20 @@ def print_tables():
 
 # ==============================================================================================================
 def main():
+    '''
+    Handles command line entries to manually set the database tables
+
+    Parameter(s): 
+        Two system arguments that include a input flag: 
+        python ./init_db.py flag
+
+    flag(s):
+        Create tables, "-c", initializes the Flashcard and Figure tables
+        Clear tables, "-d", deletes all the rows in both tables
+        Print tables, "-p", prints all the rows in both tables
+
+    Output(s): None
+    '''
 
     # python .\phylogeny.py input_file
     if(len(sys.argv) != 2):
