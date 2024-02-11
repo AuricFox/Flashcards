@@ -1,10 +1,11 @@
-import sqlite3, sys
+import sqlite3, sys, os
 from tabulate import tabulate
 
 sys.path.append('./src/')
 import utils
 
 LOGGER = utils.LOGGER
+PATH = os.path.dirname(os.path.abspath(__file__))
 
 # ==============================================================================================================
 def create_tables():
