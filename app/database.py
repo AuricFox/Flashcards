@@ -1,6 +1,9 @@
-import sqlite3, utils
+import sqlite3, os
+from . import utils
 
 LOGGER = utils.LOGGER
+PATH = os.path.dirname(os.path.abspath(__file__))
+DATABASE = os.path.join(PATH, '../data/flashcards.db')
 
 # ==============================================================================================================
 def add_figure(code_block:str=None, code_type:str=None, image_file:str=None):
@@ -17,7 +20,7 @@ def add_figure(code_block:str=None, code_type:str=None, image_file:str=None):
         key: returns the primary key od the figure if the data is inserted into the database, else returns None
     '''
     try:
-        with sqlite3.connect('flashcards.db') as conn:
+        with sqlite3.connect(DATABASE) as conn:
             # Build query using image file
             if image_file:
                 # Add image elements to the database
@@ -79,7 +82,7 @@ def add_card(data:dict):
         Bool: returns true if the data is inserted into the database, else returns false
     '''
     try:
-        with sqlite3.connect('flashcards.db') as conn:      # Connection to the database
+        with sqlite3.connect(DATABASE) as conn:      # Connection to the database
             category = utils.sanitize(data['category'])     # Sanitizing category before adding
             question = data.get('question')
             answer = data.get('answer')
@@ -143,7 +146,7 @@ def view_card(key:int):
     +-----+-----------+------------+----------+-----+-----+----------------+---------------+----------------+----------------+---------------+----------------+
     '''
     try:
-        with sqlite3.connect('flashcards.db') as conn:
+        with sqlite3.connect(DATABASE) as conn:
             c = conn.cursor()
             LOGGER.info(f"Selecting data from tables where cid = {key}...")
             c.execute("""
@@ -203,7 +206,7 @@ def view_allcategories():
         response = {'category': count}
     '''
     try:
-        with sqlite3.connect('flashcards.db') as conn:
+        with sqlite3.connect(DATABASE) as conn:
             c = conn.cursor()
 
             LOGGER.info(f"SELECT category, COUNT(*) as count FROM Flashcards GROUP BY category")
@@ -249,7 +252,7 @@ def view_allcards(category:str=None):
             }, ... ]}
     '''
     try:
-        with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
+        with sqlite3.connect(DATABASE) as conn:    # Connection to the database
             c = conn.cursor()
 
             # Retrieve all cards in a specified category
@@ -342,7 +345,7 @@ def update_figure(key:int, code_block:str=None, code_type:str=None, image_file:s
         key: returns the primary key od the figure if the data is inserted into the database, else returns None
     '''
     try:
-        with sqlite3.connect('flashcards.db') as conn:
+        with sqlite3.connect(DATABASE) as conn:
 
             c = conn.cursor()
             # Get the current image filename or code block if they exist
@@ -443,7 +446,7 @@ def update_card(data:dict):
         Bool: True if the update was successful, False otherwise
     '''
     try:
-        with sqlite3.connect('flashcards.db') as conn:
+        with sqlite3.connect(DATABASE) as conn:
             key = data.get('key')
             category = utils.sanitize(data.get('category'))     # Sanitize category of special characters
             question = data.get('question')
@@ -493,7 +496,7 @@ def delete_card(key:int):
         Bool: True if the deletion was successful, False otherwise
     '''
     try:
-        with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
+        with sqlite3.connect(DATABASE) as conn:    # Connection to the database
             c = conn.cursor()
 
             # Check for foreign keys to Figure table
@@ -543,7 +546,7 @@ def delete_figure(key:int):
         Bool: True if the deletion was successful, False otherwise
     '''
     try:
-        with sqlite3.connect('flashcards.db') as conn:    # Connection to the database
+        with sqlite3.connect(DATABASE) as conn:    # Connection to the database
             c = conn.cursor()
 
             LOGGER.info(f"DELETE FROM Figure WHERE fid = {key}")

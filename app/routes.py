@@ -1,13 +1,8 @@
-from flask import Flask, request, redirect, render_template, url_for, flash, jsonify
-
-import os, sys
-sys.path.append('./src/')
-import utils ,database
+from flask import request, redirect, render_template, url_for, flash, jsonify
+from flask import current_app as app
+from . import utils ,database
 
 LOGGER = utils.LOGGER
-app = Flask(__name__, static_folder='static')
-app.secret_key = 'my_super_secret_totaly_unbreakable_key'
-
 
 # ==============================================================================================================
 # Custom page not found
