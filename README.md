@@ -1,30 +1,29 @@
-# Interview Cards
+# Flashcards
 
-Interview Cards is a flashcard program designed to assist in preparing for job interviews or refreshing general knowledge. The application utilizes Python for the server-side functionality and HTML/CSS/JavaScript for the client-side user interface.
+Flashcards is a program designed to assist with memorizing terms for tests or interviews. The application utilizes Python for the server-side functionality and HTML/CSS/JavaScript for the client-side user interface.
 
 ## Features
 
 - **Flashcards for Interview Preparation**: Create and review flashcards tailored for job interviews, covering a wide range of topics from technical questions to behavioral inquiries.
 
-- **Knowledge Refresh**: Use the flashcards to reinforce and refresh your programming knowledge, ensuring you are well-prepared for technical discussions during interviews. The flashcards can also be used for general knowledge or topics not related to software such as math, chemistry, or 
-biology.
+- **Knowledge Refresh**: Use the flashcards to reinforce and refresh your memory, ensuring you are well-prepared for tests or exams. The flashcards can be used for subject or topic such as math, chemistry, biology, etc.
 
-- **Server-Side**: The server-side of Interview Cards is powered by Flask, providing a lightweight and efficient web framework. SQLite3 is used as the database to manage flashcards and user data.
+- **Server-Side**: The server-side of IFlashcards is powered by Flask, providing a lightweight and efficient web framework. SQLite3 is used as the database to manage flashcards and user data.
 
 - **Client-Side**: The client-side interface is built using a combination of HTML, CSS, and JavaScript, offering a seamless and interactive user experience.
 
 ## Getting Started
 
-To get started with Interview Cards, follow these steps:
+To get started with Flashcards, follow these steps:
 
 1. **Clone the Repository:**
     ```
-    git clone https://github.com/AuricFox/Interview_Cards.git
+    git clone https://github.com/AuricFox/Flashcards.git
     ```
 
 2. **Navigate to the Project Directory:**
     ```
-    cd interview_cards
+    cd Flashcards
     ```
 
 3. **Setup Environment:**
@@ -51,7 +50,7 @@ To get started with Interview Cards, follow these steps:
 
 ## Database Schema
 
-Below is the schema of the SQLite3 database used in Interview Cards:
+Below is the schema of the database used for storing the flashcards:
 
 ### Figure Table
 
