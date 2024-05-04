@@ -37,13 +37,12 @@ To get started with Flashcards, follow these steps:
 
 4. **Install Dependencies:**
     ```
-    (env) pip install flask
-    (env) pip install tabulate
+    pip install flask tabulate python-dotenv
     ```
 
 5. **Run Server:**
     ```
-    (env) python app.py
+    python wsgi.py
     ```
 
     The server will start running, and you can access the application by navigating to `http://localhost:5000` in your web browser.
@@ -57,6 +56,9 @@ Below is the schema of the database used for storing the flashcards:
 Stores blocks of code, the coding language, or the filename of the image for figures related to any flashcards. Currently, users can 
 only store one type (image or code/type) to prevent the flashcard from getting cluttered.
 
+|**fid**|code_block |code_type |image_file |
+|:-----:|:---------:|:--------:|:---------:|
+
 - **fid (INTEGER)**: An autoincremented primary key.
 - **code_block (TEXT)**: A block or snippet of code.
 - **code_type (TEXT)**: The language that the code block is written in.
@@ -66,6 +68,9 @@ only store one type (image or code/type) to prevent the flashcard from getting c
 
 Stores the flashcard infomation and related figure id's for referencing. Users can create flashcards without a question or answer as long 
 as there is an associated figure id attached, otherwise the card will not be saved.
+
+|**cid**|category |question |anwser |qid |aid |
+|:-----:|:-------:|:-------:|:-----:|:--:|:--:|
 
 - **cid (INTEGER)**: An autoincremented primary key.
 - **category (TEXT, Not Null)**: The subject or topic of the question.

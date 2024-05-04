@@ -1,5 +1,5 @@
 # Ignore output files
-logs
+app.log
 
 # Ignore pycache
 __pycache__
