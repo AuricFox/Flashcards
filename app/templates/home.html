@@ -45,7 +45,7 @@
 
     <div class="categories">
         {% for category, count in categories.items() %}
-        <a class="category" href="{{ url_for('flashcard_route', category=category) | escape }}">
+        <a class="category" href="{{ url_for('main.flashcard', category=category) | escape }}">
             <div>
                 {{ category | escape }}
             </div>
@@ -96,7 +96,7 @@
             images or code blocks if you like. The possibilities are endless!
         </div>
         <div class="home-button">
-            <a href="{{  url_for('add_flashcard_route')  }}">Create Flashcard</a>
+            <a href="{{  url_for('manage.add_flashcard')  }}">Create Flashcard</a>
         </div>
     </div>
 </div>
@@ -110,7 +110,7 @@
             fingertips!
         </div>
         <div class="home-button">
-            <a href="{{  url_for('manage_flashcards_route')  }}">Manage Flashcards</a>
+            <a href="{{  url_for('manage.index')  }}">Manage Flashcards</a>
     
         </div>
     </div>

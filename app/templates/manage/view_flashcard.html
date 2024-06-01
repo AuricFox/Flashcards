@@ -58,7 +58,7 @@
         </div>
     {% endif %}
 
-    <a class="edit-btn view-btn" href="{{ url_for('edit_flashcard_route', key=data['key']) | escape }}">
+    <a class="edit-btn view-btn" href="{{ url_for('manage.edit_flashcard', key=data['key']) | escape }}">
         Edit Flashcard
     </a>
 </div>

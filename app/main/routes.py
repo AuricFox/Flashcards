@@ -7,7 +7,7 @@ from app.database import view_allcategories, view_allcards
 # ==============================================================================================================
 @bp.route("/")
 @bp.route("/home")
-def home():
+def index():
     '''
     Builds and returns an html page that displays the categories and the number of questions in 
     each category.
@@ -24,7 +24,7 @@ def home():
 
 # ==============================================================================================================
 @bp.route("/flashcards/<category>")
-def flashcard_route(category):
+def flashcard(category):
     '''
     Builds and returns an html page based on the specified question category.
 
