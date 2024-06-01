@@ -80,7 +80,6 @@ def verify_file(file:str):
     Output(s):
         True if the file is valid, else False
     '''
-
     try:
         # Replace special characters with underscores
         sanitized_name = re.sub(r'[\\/*?:"<>| ]', '_', file)
@@ -123,7 +122,6 @@ def remove_image(filename:str):
 
     Output(s): None
     '''
-
     try:
         # Building a path to the image directory
         path = os.path.join(os.path.dirname(__file__), "../static/images")
@@ -150,7 +148,6 @@ def remove_files(files:List[str]):
 
     Output(s): None
     '''
-
     for file in files:
 
         try:

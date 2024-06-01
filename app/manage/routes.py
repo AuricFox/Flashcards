@@ -1,67 +1,34 @@
-from flask import request, redirect, render_template, url_for, flash, jsonify
-from flask import current_app as app
-from . import utils ,database
+from flask import render_template, url_for, redirect, request, flash, jsonify
 
-LOGGER = utils.LOGGER
+from app.manage import bp
+from app.utils import LOGGER, save_image_file, sanitize
+from app.database import view_allcategories, view_allcards, view_card, add_card, update_card, delete_card
 
 # ==============================================================================================================
-# Custom page not found
-@app.errorhandler(404)
-def page_not_found(error):
+@bp.route("/manage_flashcards", methods=['GET', 'POST'])
+def manage_flashcards_route():
     '''
-    Builds and returns an html page that displays the categories and the number of questions in 
-    each category.
+    Builds and returns an html page where all the flashcard data can be viewed and edited.
 
     Parameter(s): None
 
     Output(s):
-        a built html page that displays the categories and their count
+        a built html page that displays the flashcard data
     '''
-    # Query database for all categories and their counts
-    categories = database.view_allcategories()
+    if request.method == 'POST':
+        category = request.form.get('search', type=str)
+        data = view_allcards(category=category)
 
-    return render_template('404.html', nav_id="home-page", categories=categories), 404
+    else:
+        # Query database for all questions
+        data = view_allcards(category=None)
+    
+    categories = view_allcategories()
+
+    return render_template('manage_flashcards.html', nav_id="manage-page", data=data, categories=categories)
 
 # ==============================================================================================================
-@app.route("/")
-@app.route("/home")
-def home():
-    '''
-    Builds and returns an html page that displays the categories and the number of questions in 
-    each category.
-
-    Parameter(s): None
-
-    Output(s):
-        a built html page that displays the categories and their count
-    '''
-    # Query database for all categories and their counts
-    categories = database.view_allcategories()
-
-    return render_template('home.html', nav_id="home-page", categories=categories)
-
-# ==============================================================================================================
-@app.route("/flashcards/<category>")
-def flashcard_route(category):
-    '''
-    Builds and returns an html page based on the specified question category.
-
-    Parameter(s):
-        category (str): the type of questions being queried from the database
-
-    Output(s):
-        a built html page that displays the flashcards
-    '''
-    # Query database for questions related to specified category
-    data = database.view_allcards(category=category)
-    length = len(data['questions'])
-
-    categories = database.view_allcategories()
-
-    return render_template('flashcards.html', nav_id="flashcard-page", data=data, length=length, categories=categories)
-
-# ==============================================================================================================
-@app.route('/autocomplete', methods=['GET'])
+@bp.route('/autocomplete', methods=['GET'])
 def autocomplete():
     '''
     Gets all the categories in the database and returns them for search options.
@@ -75,7 +42,7 @@ def autocomplete():
     term = request.args.get('search')
 
     # Get categories from the database
-    available_options = database.view_allcategories()
+    available_options = view_allcategories()
     categories = [key for key in available_options]
 
     # Filter options based on the term
@@ -84,30 +51,7 @@ def autocomplete():
     return jsonify(options=matching_options)
 
 # ==============================================================================================================
-@app.route("/manage_flashcards", methods=['GET', 'POST'])
-def manage_flashcards_route():
-    '''
-    Builds and returns an html page where all the flashcard data can be viewed and edited.
-
-    Parameter(s): None
-
-    Output(s):
-        a built html page that displays the flashcard data
-    '''
-    if request.method == 'POST':
-        category = request.form.get('search', type=str)
-        data = database.view_allcards(category=category)
-
-    else:
-        # Query database for all questions
-        data = database.view_allcards(category=None)
-    
-    categories = database.view_allcategories()
-
-    return render_template('manage_flashcards.html', nav_id="manage-page", data=data, categories=categories)
-
-# ==============================================================================================================
-@app.route("/add_flashcard")
+@bp.route("/add_flashcard")
 def add_flashcard_route():
     '''
     Builds and returns an html page for adding flashcards to database. 
@@ -119,7 +63,7 @@ def add_flashcard_route():
         a built html page that enables users to add flashcards to the database
     '''
 
-    categories = database.view_allcategories()
+    categories = view_allcategories()
     
     return render_template('add_flashcard.html', nav_id="add-page", categories=categories)
 
@@ -146,7 +90,7 @@ def process_figure_upload(request, f:str):
             # Check for old image filename
             old_file = request.form.get(f'current-{f}-image', str)
 
-            if file: image_file = utils.save_image_file(file)
+            if file: image_file = save_image_file(file)
             elif old_file: image_file = old_file
             else:
                 LOGGER.error('Invalid File or FileType Entered!')
@@ -172,7 +116,7 @@ def process_figure_upload(request, f:str):
         return None
 
 # ==============================================================================================================
-@app.route("/create_flashcard", methods=['GET', 'POST'])
+@bp.route("/create_flashcard", methods=['GET', 'POST'])
 def create_flashcard_route():
     '''
     Builds and returns an html page based on the specified question category.
@@ -188,7 +132,7 @@ def create_flashcard_route():
         if request.method == 'POST':
             data = {}
             # Retrieve main card elements from the form
-            data['category'] = utils.sanitize(request.form.get('category', type=str))
+            data['category'] = sanitize(request.form.get('category', type=str))
             data['question'] = request.form.get('question', type=str)
             data['answer'] = request.form.get('answer', type=str)
 
@@ -207,7 +151,7 @@ def create_flashcard_route():
                         f"Answer Image File: {data['a_image_file']}")
 
             # Update old question data with new data
-            success = database.add_card(data=data)
+            success = add_card(data=data)
 
             if success:
                 LOGGER.info("Flashcard added successfully")
@@ -223,9 +167,9 @@ def create_flashcard_route():
         LOGGER.error(f'An Error occured when adding the flashcard: {str(e)}')
         flash("Failed to add flashcard", 'error')
         return redirect(url_for('create_flashcard_route'))
-
+    
 # ==============================================================================================================
-@app.route("/view_flashcard/<key>")
+@bp.route("/view_flashcard/<key>")
 def view_flashcard_route(key):
     '''
     Builds and returns an html page based on the specified question.
@@ -237,13 +181,13 @@ def view_flashcard_route(key):
         a built html page that displays the flashcard data
     '''
     # Query database for question
-    data = database.view_card(key=key)
-    categories = database.view_allcategories()
+    data = view_card(key=key)
+    categories = view_allcategories()
     
     return render_template('view_flashcard.html', nav_id="manage-page", data=data, categories=categories)
 
 # ==============================================================================================================
-@app.route("/edit_flashcard/<key>")
+@bp.route("/edit_flashcard/<key>")
 def edit_flashcard_route(key):
     '''
     Builds and returns an html page based on the specified question category
@@ -255,13 +199,13 @@ def edit_flashcard_route(key):
         a built html page that displays the flashcard data for editing
     '''
     # Query database for question being edited
-    data = database.view_card(key=key)
-    categories = database.view_allcategories()
+    data = view_card(key=key)
+    categories = view_allcategories()
     
     return render_template('edit_flashcard.html', nav_id="manage-page", data=data, categories=categories)
 
 # ==============================================================================================================
-@app.route("/update_flashcard/<key>", methods=['GET', 'POST'])
+@bp.route("/update_flashcard/<key>", methods=['GET', 'POST'])
 def update_flashcard_route(key):
     '''
     Builds and returns an html page based on the specified question category
@@ -278,7 +222,7 @@ def update_flashcard_route(key):
             data = {}
             # Retrieve main card elements from the form
             data['key'] = key
-            data['category'] = utils.sanitize(request.form.get('category', type=str))
+            data['category'] = sanitize(request.form.get('category', type=str))
             data['question'] = request.form.get('question', type=str)
             data['answer'] = request.form.get('answer', type=str)
 
@@ -298,7 +242,7 @@ def update_flashcard_route(key):
                         f"Answer Image File: {data['a_image_file']}")
 
             # Update old question data with new data
-            success = database.update_card(data=data)
+            success = update_card(data=data)
 
             if success:
                 LOGGER.info("Flashcard updated successfully")
@@ -316,7 +260,7 @@ def update_flashcard_route(key):
         return redirect(url_for('manage_flashcards_route'))
 
 # ==============================================================================================================
-@app.route("/delete_flashcard/<key>")
+@bp.route("/delete_flashcard/<key>")
 def delete_flashcard_route(key):
     '''
     Deletes the queried flashcard from the database and redirects to manage page
@@ -329,7 +273,7 @@ def delete_flashcard_route(key):
     '''
     try:
         # Query database for question and delete it
-        success = database.delete_card(key=key)
+        success = delete_card(key=key)
 
         if success:
             LOGGER.info(f"Flashcard question key {key} was successfully deleted!")
@@ -343,7 +287,3 @@ def delete_flashcard_route(key):
         flash("Failed to delete flashcard!", 'error')
     
     return redirect(url_for('manage_flashcards_route'))
-
-# ==============================================================================================================
-if __name__ == "__main__":
-    app.run()
