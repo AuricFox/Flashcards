@@ -25,13 +25,14 @@
 /* ========== Body ========== */
 
 body {
-    background-color: #082048;
     font-family: 'Times New Roman', Times, serif;
     width: 100%;
+    min-height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #f47373, #8ba6fc);
 }
 
 .content {
@@ -41,44 +42,41 @@ body {
 /* ========== Nav Bar ========== */
 
 #nav-bar {
-    padding: 10px 0px 10px 5px;
-    margin-bottom: 1rem;
-    background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: row;
 }
 
 .nav {
-    list-style-type: none;
+    display: flex;
+    flex-direction: row;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
-.nav li {
-    display: inline;
-    float: left;
-}
-
 .nav-tile {
+    display: block;
+    position: relative;
+    padding: 10px 14px;
+    margin: 5px;
     font-size: 15px;
     font-family: Arial, sans-serif;
     font-weight: bold;
-    font-style: italic;
-    display: block;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 14px;
     text-decoration: none;
+    border-radius: 15px;
+    color: #ffffff;
 }
 
 .active {
-    background: #0d4600;
+    background: #512da8;
+    color: #FFFFFF;
 }
 
 .nav-tile:hover {
-    background: #267315;
+    transition: 0.5s;
     cursor: pointer;
+    background-color: #8b73c2;
+    color: #FFFFFF;
 }
 
 .dropbtn {
@@ -89,9 +87,9 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #2f2f2f;
+    background-color: #8b73c2;
     min-width: 160px;
-    box-shadow: 4px 4px 8px #000;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
@@ -110,7 +108,7 @@ body {
 }
 
 .dropdown-content a:hover {
-    background-color: #267315;
+    background-color: #512da8;
 }
 
 .dropdown-content {
@@ -162,7 +160,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    background-color: #061632;
+    background-color: rgba(0, 0, 0, 0.12);
 }
 
 .section {
@@ -220,10 +218,10 @@ body {
     text-decoration: none;
     text-align: center;
     color: #FFFFFF;
-    background-color: #0d4600;
+    background-color: #512da8;
     border-radius: 4px;
     min-width: 12rem;
-    box-shadow: 5px 8px 8px #000;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.5);
     margin: 0.5rem;
     overflow: hidden;
 }
@@ -235,13 +233,14 @@ body {
 }
 
 .category div:nth-child(2) {
-    background-color: #2f2f2f;
+    background-color: #8ba6fc;
     padding: 5px;
     font-size: 15px;
 }
 
 .category:hover {
-    background-color: #267315;
+    transition: 0.5s;
+    background-color: #8b73c2;
     box-shadow: none;
 }
 
@@ -251,31 +250,31 @@ body {
 }
 
 .home-button a {
-    background-color: #0d4600;
+    background-color: #512da8;
     text-decoration: none;
     padding: 1rem;
     color: #FFFFFF;
     font-weight: bolder;
     border-radius: 8px;
-    border: 1px solid #0d4600;
+    border: None;
     transition: background-color 0.3s ease-in-out;
-    box-shadow: 4px 4px 8px #000;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .home-button a:hover {
-    background-color: #267315;
+    background-color: #8b73c2;
 }
 
 .gradient-border-top {
     width: 100%;
     height: 2rem;
-    background: linear-gradient(to bottom, #082048, #061632);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0,0,0,0.12));
 }
 
 .gradient-border-bottom {
     width: 100%;
     height: 2rem;
-    background: linear-gradient(to top, #082048, #061632);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.12));
 }
 
 /* ---------- Flashcard Animations ---------- */
@@ -933,5 +932,5 @@ tr:last-child td {
 
 footer {
     height: 10rem;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
 }
