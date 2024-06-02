@@ -2,7 +2,7 @@
 // DROPDOWN MENU
 // ======================================================================================================
 $('.dropbtn').click(function () {
-    const menu = document.querySelector('.dropdown-content');
+    const menu = document.querySelector('.dropdown-element');
     menu.style.display = menu.style.display === 'none' ? 'grid' : 'none';
 
     // Add an event listener to hide the dropdown when clicking outside

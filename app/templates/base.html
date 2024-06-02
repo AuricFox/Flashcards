@@ -19,11 +19,11 @@
                 <a href="{{  url_for('manage.index')  }}" class="nav-tile {% if nav_id == 'manage-page' %}active{% endif %}">Manage Cards</a>
                 <a href="{{  url_for('manage.add_flashcard')  }}" class="nav-tile {% if nav_id == 'add-page' %}active{% endif %}">Add Card</a>
                 
-                <div class="dropdown {% if nav_id == 'flashcard-page' %}active{% endif %}">
-                    <button class="dropbtn nav-tile">Flashcards</button>
-                    <div class="dropdown-content" style="display: none;">
+                <div>
+                    <div class="dropbtn nav-tile {% if nav_id == 'flashcard-page' %}active{% endif %}">Flashcards</div>
+                    <div class="dropdown-element" style="display: none;">
                         {% for category, count in categories.items() %}
-                            <a href="{{ url_for('main.flashcard', category=category) | escape }}">{{ category | escape }}</a>
+                            <a class="dropbtn nav-tile" href="{{ url_for('main.flashcard', category=category) | escape }}">{{ category | escape }}</a>
                         {% endfor %}
                     </div>
                 </div>

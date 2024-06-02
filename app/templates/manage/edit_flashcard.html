@@ -9,15 +9,15 @@
 
         <div class="flashcard-content-inner">
             <h2>Category</h2>
-            <input class="search" id="category" name="category" rows="4" value="{{ data['category'] | escape }}">
+            <input type="text" id="category" name="category" rows="4" placeholder="Category ..." value="{{ data['category'] | escape }}">
         </div>
         <div class="flashcard-content-inner">
             <h2>Question</h2>
-            <textarea id="question" name="question" rows="4">{{ data['question'] | escape }}</textarea>
+            <textarea id="question" name="question" rows="4" placeholder="Question ...">{{ data['question'] | escape }}</textarea>
         </div>
         <div class="flashcard-content-inner">
             <h2>Answer</h2>
-            <textarea id="answer" name="answer" rows="4">{{ data['answer'] | escape }}</textarea>
+            <textarea id="answer" name="answer" rows="4" placeholder="Answer ...">{{ data['answer'] | escape }}</textarea>
         </div>
 
         <!-- EDIT QUESTION FIGURE -->
