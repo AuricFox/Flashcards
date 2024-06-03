@@ -7,7 +7,7 @@ class FlashcardForm(FlaskForm):
     Form used to validate submitted flashcard data
     '''
     category = StringField(
-        "Category", Validators=[DataRequired(), Length(max=100)]
+        "Category", validators=[DataRequired(), Length(max=100)]
     )
     question = TextAreaField(
         "Question", validators=[Optional()]
