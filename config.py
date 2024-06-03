@@ -30,18 +30,20 @@ class Config:
     '''
     Base config
     '''
-    SECRET_KEY = environ.get('SECRET_KEY')
-    SESSION_COOKIE_NAME = environ.get('SESSION_COOKIE_NAME')
+    DEBUG = False
+    TESTING = False
+    CSRF_ENABLED = True
+    WTF_CSRF_ENABLED = True
+
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
 
-    # Database
-    #SQLALCHEMY_DATABASE_URI = environ.get('SQLALCHEMY_DATABASE_URI')
-    #SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SECRET_KEY = environ.get('SECRET_KEY') or 'df0331cefc6c2b9a5dserknvwier726a5d1c0fd37324feba25506'
 
-    # AWS Secrets
-    #AWS_SECRET_KEY = environ.get('AWS_SECRET_KEY')
-    #AWS_KEY_ID = environ.get('AWS_KEY_ID')
+    # Database
+    SQLALCHEMY_DATABASE_URI = environ.get('SQLALCHEMY_DATABASE_URI')\
+        or 'sqlite:///' + path.join(BASEDIR, './data/app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class ProdConfig(Config):
@@ -49,8 +51,6 @@ class ProdConfig(Config):
     Production config
     '''
     FLASK_ENV = "production"
-    FLASK_DEBUG = False
-    DATABASE_URI = environ.get('PROD_DATABASE_URI')
 
 
 class DevConfig(Config):
@@ -59,4 +59,14 @@ class DevConfig(Config):
     '''
     FLASK_ENV = "development"
     FLASK_DEBUG = True
-    DATABASE_URI = environ.get('DEV_DATABASE_URI')
+
+class TestingConfig(Config):
+    '''
+    Testing config
+    '''
+    FLASK_ENV = "testing"
+    TESTING = True
+    DEBUG = True
+    WTF_CSRF_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = environ.get('TEST_DATABASE_URI')\
+        or 'sqlite:///' + path.join(BASEDIR, './data/app_test.db')
