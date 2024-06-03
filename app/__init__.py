@@ -1,6 +1,9 @@
 from flask import Flask, render_template
 import os, logging
 
+from app.extensions import db
+from flask_wtf.csrf import CSRFProtect
+
 PATH = os.path.dirname(os.path.abspath(__file__))
 
 # Configure the logging object
@@ -25,6 +28,9 @@ def init_app(configure='config.DevConfig'):
     app = Flask(__name__, instance_relative_config=False)
     # Configured for development
     app.config.from_object(configure)
+
+    db.init_app(app)
+    CSRFProtect(app)
 
     # Custom page not found
     def page_not_found(error):
