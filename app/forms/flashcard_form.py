@@ -1,13 +1,13 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, FileField
-from wtforms.validators import DataRequired, Optional
+from wtforms import StringField, TextAreaField, FileField, HiddenField
+from wtforms.validators import DataRequired, Optional, Length
 
 class FlashcardForm(FlaskForm):
     '''
     Form used to validate submitted flashcard data
     '''
     category = StringField(
-        "Category", Validators=[DataRequired()]
+        "Category", Validators=[DataRequired(), Length(max=100)]
     )
     question = TextAreaField(
         "Question", validators=[Optional()]
@@ -16,7 +16,7 @@ class FlashcardForm(FlaskForm):
         "Answer", validators=[Optional()]
     )
     question_code_type = StringField(
-        "Question Code Type", validators=[Optional()]
+        "Question Code Type", validators=[Optional(), Length(max=25)]
     )
     question_code_example = TextAreaField(
         "Question Code Example", validators=[Optional()]
@@ -24,14 +24,20 @@ class FlashcardForm(FlaskForm):
     question_image_file = FileField(
         "Question Image", validators=[Optional()]
     )
+    old_question_image = HiddenField(
+        "Old Question Image"
+    )
     answer_code_type = StringField(
-        "Answer Code Type", validators=[Optional()]
+        "Answer Code Type", validators=[Optional(), Length(max=25)]
     )
     answer_code_example = TextAreaField(
         "Answer Code Example", validators=[Optional()]
     )
     answer_image_file = FileField(
         "Answer Image", validators=[Optional()]
+    )
+    old_answer_image = HiddenField(
+        "Old Answer Image"
     )
 
     # ==============================================================================================================
