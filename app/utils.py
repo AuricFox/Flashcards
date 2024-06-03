@@ -1,4 +1,4 @@
-import logging, os, re, mimetypes
+import logging, os, re, mimetypes, json
 from typing import List
 
 PATH = os.path.dirname(os.path.abspath(__file__))
@@ -14,12 +14,12 @@ LOGGER = logging.getLogger(__name__)
 # ========================================================================================================================================
 # Functions used for processing files
 # ========================================================================================================================================
-def save_image_file(file):
+def save_image_file(file:object):
     '''
     Takes in a file object, sanitizes, validates, and saves it to the temp directory
 
     Parameter(s):
-        file: the user input file being saved
+        file (object): the user input file being saved
 
     Output(s):
         filename (str): name of the saved file
@@ -109,6 +109,80 @@ def verify_file(file:str):
     except Exception as e:
         LOGGER.error(f"An error occured when validating {file}: {e}")
         return False
+
+# ========================================================================================================================================  
+def make_json(data:dict, filename:str='data.json'):
+    '''
+    Takes in a dictionary and writes the data to a json file
+    
+    Parameter(s):
+        data (dict): dictionary containing the data being written to a file
+        filename (str, default='output.json'): file name where the data will be saved
+        
+    Output(s):
+        Saves a file containing the save json data to the data directory
+    '''
+    try:
+        file_path = os.path.join(PATH, f'../data/{filename}')
+
+        with open(file_path, 'w') as file:
+            json.dump(data, file, indent=4)
+
+        LOGGER.info(f"Successfully saved data to {file_path}")
+        return filename
+    
+    except FileNotFoundError as e:
+        LOGGER.error(f"{filename} not found when saving data!")
+    except PermissionError as e:
+        LOGGER.error(f"Permission error when saving data to {filename}!")
+    except Exception as e:
+        LOGGER.error(f"Failed to save data to {file_path}: {str(e)}")
+    
+# ==============================================================================================================
+def process_figure(request, f:str):
+    '''
+    Processes figure data that includes code or images. New images are saved while old images do nothing. Code 
+    elements are save if there are any.
+
+    Parameter(s):
+        request (form request): data submitted from the form
+        f (str): image or code figure type 
+
+    Output(s):
+        A tuple containing the figure data (code_block, code_type, image_file), none otherwise.
+    '''
+    try:
+        figure_type = request.form.get(f'{f}-figure-type', type=str)
+
+        # Process image figure
+        if figure_type == 'image':
+            # Get new image file
+            file = request.files[f'{f}-image-figure']
+            # Check for old image filename
+            old_file = request.form.get(f'current-{f}-image', str)
+
+            if file: image_file = save_image_file(file)
+            elif old_file: image_file = old_file
+            else:
+                LOGGER.error('Invalid File or FileType Entered!')
+                return None
+            
+            return (None, None, image_file)
+        
+        # Process code figure
+        elif figure_type == 'code':
+            code_block = request.form.get(f'{f}-code-figure', str)
+            code_type = request.form.get(f'{f}-code-type', str)
+
+            return (code_block, code_type, None)
+        
+        # No figure to process
+        else:
+            return (None, None, None)
+        
+    except Exception as e:
+        LOGGER.error(f"Error processing {figure_type} upload: {str(e)}")
+        return None
     
 # ========================================================================================================================================
 # Functions used for removing files
