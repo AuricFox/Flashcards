@@ -1,14 +1,14 @@
 from app.extensions import db
-from app.utils import LOGGER
+from app.utils import LOGGER, save_image_file
 
-class Figure(db.Model):
+class FigureModel(db.Model):
     '''
     Model for flashcard figures
     '''
     __tablename__ = "figures"
 
     id = db.Column(db.Integer, primary_key=True)
-    code_type = db.Column(db.String(100), nullable=True)
+    code_type = db.Column(db.String(25), nullable=True)
     code_example = db.Column(db.Text, nullable=True)
     image_example = db.Column(db.String(200), nullable=True)
 
@@ -31,12 +31,21 @@ class Figure(db.Model):
             
             self.code_type = code_type
             self.code_example = code_example
-            self.image_example = image_example
+
+            # Save the image if there is one
+            if image_example:
+                status = save_image_file(image_example)
+                # Check if a filename is returned
+                if not status: 
+                    raise Exception("Failed to save file!")
+                else:
+                    self.image_example = status
             
         except Exception as e:
             LOGGER.error(f"An error occurred when entering figure data into the database: {e}")
+
 # ==============================================================================================================
-class User(db.Model):
+class FlashcardModel(db.Model):
     '''
     Model for flashcards
     '''
@@ -44,17 +53,21 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(100), nullable=False)
-    question = db.Column(db.String(100), unique=True, nullable=True)
-    answer = db.Column(db.String(100), nullable=True)
-    question_figure = db.Column(db.Interger, nullable=True)
+    question = db.Column(db.Text, nullable=True)
+    answer = db.Column(db.Text, nullable=True)
+    question_figure = db.Column(db.Integer, nullable=True)
     answer_figure = db.Column(db.Integer, nullable=True)
 
     def __init__(self, 
         category:str, 
         question:str=None, 
         answer:str=None, 
-        question_figure:tuple=None, 
-        answer_figure:tuple=None):
+        question_code_type:str=None,
+        question_code_example:str=None,
+        question_image_example:object=None, 
+        answer_code_type:str=None,
+        answer_code_example:str=None,
+        answer_image_example:object=None):
 
         '''
         Initializes the flashcard data entry into the database
@@ -69,23 +82,43 @@ class User(db.Model):
         Output(s): None
         '''
         try:
+            # Check if there is a category input
+            if not category:
+                raise Exception("Missing category input!")
             # Check if there are question inputs
-            if not (question or question_figure):
+            if not (question or (question_code_type and question_code_example) or question_image_example):
                 raise Exception("No question inputs!")
             # Check if there are answer inputs
-            if not (answer or answer_figure):
+            if not (answer or (answer_code_type and answer_code_example) or answer_image_example):
                 raise Exception("No answer inputs!")
+            
+            # Process question figures
+            elif question_code_example or question_image_example:
+                q_figure = FigureModel(
+                    code_type=question_code_type, 
+                    code_example=question_code_example,
+                    image_example=question_image_example)
+                
+                if not q_figure:
+                    raise Exception("Failed to save code or image figure for question")
+                else:
+                    self.question_figure = q_figure.id
+
+            # Process answer figures
+            elif answer_code_example or answer_image_example:
+                f_figure = FigureModel(
+                    code_type=answer_code_type, 
+                    code_example=answer_code_example,
+                    image_example=answer_image_example)
+                
+                if not f_figure:
+                    raise Exception("Failed to save code or image figure for answer!")
+                else:
+                    self.answer_figure = f_figure.id
 
             self.category = category
             self.question = question
             self.answer = answer
-
-            # Process question figures
-            if question_figure:
-                self.question_figure = Figure(question_figure).id
-            # Process answer figures
-            if answer_figure:
-                self.answer_figure = Figure(answer_figure).id
 
         except Exception as e:
             LOGGER.error(f"An error occurred when entering flashcard data into the database: {e}")
