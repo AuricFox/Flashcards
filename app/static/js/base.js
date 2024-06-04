@@ -161,104 +161,93 @@ function validateText(id) {
 // ======================================================================================================
 // ADD_FLASHCARD AND EDIT_FLASHCARD PAGE
 // ======================================================================================================
-
 document.addEventListener('DOMContentLoaded', function () {
-    // Text area inputs
-    const questionField = document.getElementById('question');
-    const answerField = document.getElementById('answer');
+    // Define element selectors
+    const selectors = {
+        question: {
+            field: 'question',
+            codeSection: 'q-code-section',
+            imageSection: 'q-image-section',
+            codeType: 'question_code_type',
+            codeInput: 'question_code_example',
+            imageInput: 'question_image_file',
+            codeSelection: 'q-code-selection',
+            imageSelection: 'q-image-selection',
+            noneSelection: 'q-none-type',
+            currentImage: 'q-card-image'
+        },
+        answer: {
+            field: 'answer',
+            codeSection: 'a-code-section',
+            imageSection: 'a-image-section',
+            codeType: 'answer_code_type',
+            codeInput: 'answer_code_example',
+            imageInput: 'answer_image_file',
+            codeSelection: 'a-code-selection',
+            imageSelection: 'a-image-selection',
+            noneSelection: 'a-none-type',
+            currentImage: 'a-card-image'
+        }
+    };
 
-    // Question Elements
-    const qCodeSection = document.getElementById('q-code-section');
-    const qImageSection = document.getElementById('q-image-section');
-    const qCodeType = document.getElementById('q-code-sel');
-    const qCodeInput = document.getElementById('q-code-figure');
-    const qImageInput = document.getElementById('q-image-figure');
-    const qCodeSelection = document.getElementById('q-code-selection');
-    const qImageSelection = document.getElementById('q-image-selection');
-    const qNone = document.getElementById('q-none-type');
-    const qCurrentImage = document.getElementById('q-card-image');
-
-    // Answer Elements
-    const aCodeSection = document.getElementById('a-code-section');
-    const aImageSection = document.getElementById('a-image-section');
-    const aCodeType = document.getElementById('a-code-sel');
-    const aCodeInput = document.getElementById('a-code-figure');
-    const aImageInput = document.getElementById('a-image-figure');
-    const aCodeSelection = document.getElementById('a-code-selection');
-    const aImageSelection = document.getElementById('a-image-selection');
-    const aNone = document.getElementById('a-none-type');
-    const aCurrentImage = document.getElementById('a-card-image');
-
-    // Display elements on page loaded
-    toggleFields(qCodeSelection, qImageSelection, qCodeSection, qImageSection, questionField, qCodeType, qCodeInput, qImageInput, qCurrentImage);
-    toggleFields(aCodeSelection, aImageSelection, aCodeSection, aImageSection, answerField, aCodeType, aCodeInput, aImageInput, aCurrentImage);
-
-    // Add click event listener for question slection
-    if (qCodeSelection && qImageSelection) {
-        qCodeSelection.addEventListener('click', function () {
-            toggleFields(qCodeSelection, qImageSelection, qCodeSection, qImageSection, questionField, qCodeType, qCodeInput, qImageInput, qCurrentImage);
-        });
-
-        qImageSelection.addEventListener('click', function () {
-            toggleFields(qCodeSelection, qImageSelection, qCodeSection, qImageSection, questionField, qCodeType, qCodeInput, qImageInput, qCurrentImage);
-        });
-
-        qNone.addEventListener('click', function () {
-            toggleFields(qCodeSelection, qImageSelection, qCodeSection, qImageSection, questionField, qCodeType, qCodeInput, qImageInput, qCurrentImage);
-        });
-    }
-
-    // Add click event listeners for answer selection
-    if (aCodeSelection && aImageSelection) {
-        aCodeSelection.addEventListener('click', function () {
-            toggleFields(aCodeSelection, aImageSelection, aCodeSection, aImageSection, answerField, aCodeType, aCodeInput, aImageInput, aCurrentImage);
-        });
-
-        aImageSelection.addEventListener('click', function () {
-            toggleFields(aCodeSelection, aImageSelection, aCodeSection, aImageSection, answerField, aCodeType, aCodeInput, aImageInput, aCurrentImage);
-        });
-
-        aNone.addEventListener('click', function () {
-            toggleFields(aCodeSelection, aImageSelection, aCodeSection, aImageSection, answerField, aCodeType, aCodeInput, aImageInput, aCurrentImage);
-        });
-    }
+    // Initialize form elements
+    initializeForm(selectors.question);
+    initializeForm(selectors.answer);
 });
 
-function toggleFields(codeSelection, imageSelection, codeSection, imageSection, field, codeType, codeInput, imageInput, currentImage) {
-    if (codeSelection && imageSelection) {
+function initializeForm(config) {
+    const elements = getElements(config);
 
-        // User wants code elements
-        if (codeSelection.checked) {
-            toggleDisplay(codeSection, imageSection, 'code');
-            setFieldRequirements(field, codeType, codeInput, imageInput, false, true, true, false);
-        
-        // User wants image elements
-        } else if (imageSelection.checked) {
-            toggleDisplay(codeSection, imageSection, 'image');
-            setFieldRequirements(field, codeType, codeInput, imageInput, false, false, false, currentImage === null);
-        
-        // User wants no additional elements
-        } else {
-            toggleDisplay(codeSection, imageSection, 'none');
-            setFieldRequirements(field, codeType, codeInput, imageInput, true, false, false, false);
-        }
+    if (elements.codeSelection && elements.imageSelection) {
+        // Set initial display
+        toggleFields(elements);
+
+        // Add event listeners
+        elements.codeSelection.addEventListener('click', () => toggleFields(elements));
+        elements.imageSelection.addEventListener('click', () => toggleFields(elements));
+        elements.noneSelection.addEventListener('click', () => toggleFields(elements));
     }
-};
+}
+
+function getElements(config) {
+    return {
+        field: document.getElementById(config.field),
+        codeSection: document.getElementById(config.codeSection),
+        imageSection: document.getElementById(config.imageSection),
+        codeType: document.getElementById(config.codeType),
+        codeInput: document.getElementById(config.codeInput),
+        imageInput: document.getElementById(config.imageInput),
+        codeSelection: document.getElementById(config.codeSelection),
+        imageSelection: document.getElementById(config.imageSelection),
+        noneSelection: document.getElementById(config.noneSelection),
+        currentImage: document.getElementById(config.currentImage)
+    };
+}
+
+function toggleFields(elements) {
+    if (elements.codeSelection.checked) {
+        toggleDisplay(elements.codeSection, elements.imageSection, 'code');
+        setFieldRequirements(elements, false, true, true, false);
+    } else if (elements.imageSelection.checked) {
+        toggleDisplay(elements.codeSection, elements.imageSection, 'image');
+        setFieldRequirements(elements, false, false, false, !elements.currentImage);
+    } else {
+        toggleDisplay(elements.codeSection, elements.imageSection, 'none');
+        setFieldRequirements(elements, true, false, false, false);
+    }
+}
 
 function toggleDisplay(codeSection, imageSection, display) {
-    // Toggle the display of the code and image inputs
-    codeSection.style.display = display == 'code' ? 'block' : 'none';
-    imageSection.style.display = display == 'image' ? 'block' : 'none';
-};
+    codeSection.style.display = display === 'code' ? 'block' : 'none';
+    imageSection.style.display = display === 'image' ? 'block' : 'none';
+}
 
-function setFieldRequirements(field, codeType, codeInput, imageInput, reqField, reqCodeType, reqCodeInput, reqImageInput) {
-    // Set what fields are required by the user when toggled
-
-    field.required = reqField;              // Require question and/or answer fields
-    codeType.required = reqCodeType;        // Require code type input
-    codeInput.required = reqCodeInput;      // Require code block input
-    imageInput.required = reqImageInput;    // Require image input
-};
+function setFieldRequirements(elements, reqField, reqCodeType, reqCodeInput, reqImageInput) {
+    elements.field.required = reqField;
+    elements.codeType.required = reqCodeType;
+    elements.codeInput.required = reqCodeInput;
+    elements.imageInput.required = reqImageInput;
+}
 
 // ======================================================================================================
 // Autocomplete Search For Categories
