@@ -1,5 +1,6 @@
 from app.extensions import db
 from app.utils import LOGGER, save_image_file, remove_image
+from sqlalchemy import func
 
 class FigureModel(db.Model):
     '''
@@ -292,3 +293,61 @@ class FlashcardModel(db.Model):
             f"Question figure ID: {self.q_figure}\n"
             f"Answer figure ID: {self.a_figure}"
         )
+    
+# ==============================================================================================================
+# Functions for performing queries
+# ==============================================================================================================
+def view_all_cards(category:str=None):
+    '''
+    Fetches flashcards from the database with a matching category
+    
+    Parameter(s):
+        category (str, default=None): the question category the flashcards are being filtered by
+        
+    Output(s):
+        Returns a list of all instances of FlashcardModel in the database if there are any, else returns None
+
+        response = [
+            FlashcardModel(
+                id, category, question, answer, 
+                q_code_type, q_code_example, q_image_example, 
+                a_code_type, a_code_example, a_image_example
+            ), ...
+        ]
+    '''
+    try:
+        # Return the flashcards with the specified category
+        if category:
+            flashcards = FlashcardModel.query.filter_by(category=category).all()
+        # Return all Flashcards
+        else:
+            flashcards = FlashcardModel.query.all()
+
+        return flashcards
+        
+    except Exception as e:
+        LOGGER.error(f"An error occurred when fetching flashcard data: {e}")
+        return None
+# ==============================================================================================================
+def view_all_categories():
+    '''
+    Fetches all the categories from the database
+    
+    Parameter(s): None
+    
+    Output(s):
+        response (List): a list of tuples containing the question category and its count if successful, none otherwise
+
+        response = [(category, count), ... ]
+    '''
+    try:
+        response = db.session.query(
+            FlashcardModel.category, 
+            func.count(FlashcardModel.id)
+        ).group_by(FlashcardModel.category).all()
+
+        return response
+
+    except Exception as e:
+        LOGGER.error(f"An error occurred when fetching categories from the database: {e}")
+        return None
