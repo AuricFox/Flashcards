@@ -1,5 +1,5 @@
 from app.extensions import db
-from app.utils import LOGGER, save_image_file
+from app.utils import LOGGER, save_image_file, remove_image
 
 class FigureModel(db.Model):
     '''
@@ -12,7 +12,7 @@ class FigureModel(db.Model):
     code_example = db.Column(db.Text, nullable=True)
     image_example = db.Column(db.String(200), nullable=True)
 
-    def __int__(self, code_type:str=None, code_example:str=None, image_example:str=None):
+    def __init__(self, code_type:str=None, code_example:str=None, image_example:str=None):
         '''
         Initializes the figure data entry into the database
         
@@ -34,15 +34,89 @@ class FigureModel(db.Model):
 
             # Save the image if there is one
             if image_example:
-                status = save_image_file(image_example)
+                file = save_image_file(image_example)
                 # Check if a filename is returned
-                if not status: 
+                if not file: 
                     raise Exception("Failed to save file!")
                 else:
-                    self.image_example = status
+                    self.image_example = file
             
         except Exception as e:
             LOGGER.error(f"An error occurred when entering figure data into the database: {e}")
+    #-----------------------------------------------------------------------------------------------------------
+    def update(self, code_type:str=None, code_example:str=None, image_example:str=None):
+        '''
+        Updates the figure data in the database
+        
+        Parameter(s):
+            code_type (str, default=None): name of the programming language used for the code example
+            code_example (str, default=None): a block of code used to support the flashcard
+            image_example (str, default=None): a filename of the image used to support the flashcard
+        
+        Output(s):
+            True if the figure is successfully updated, else False
+        '''
+        try:
+            # Check if there are valid figure inputs
+            if code_type and code_example and image_example:
+                raise Exception("More than one figure type!")
+            elif (not code_type and code_example) or (code_type and not code_example):
+                raise Exception("Both code type and code example were not provided!")
+            elif not code_type and not code_example and not image_example:
+                self.delete()
+
+            # Check if there is both code type and example if submitted
+            if code_type and code_example:
+                self.code_type = code_type
+                self.code_example = code_example
+
+                if self.image_example:
+                    remove_image(self.image_example)
+                    self.image_example
+            
+            # Update image example if there is one
+            if image_example:
+                file = save_image_file(image_example)
+                # Check if a filename is returned
+                if not file: 
+                    raise Exception("Failed to save file!")
+                if self.image_example:
+                    remove_image(self.image_example)
+                
+                self.image_example = file
+                self.code_type = None
+                self.code_example = None
+
+            db.session.commit()
+            LOGGER.info(f"Successfully updated figure {self.id}!")
+            return True
+
+        except Exception as e:
+            LOGGER.error(f"An error occurred when updating figure: {e}")
+            return False
+    #-----------------------------------------------------------------------------------------------------------
+    def delete(self):
+        '''
+        Deletes the figure data from the database
+
+        Parameter(s): None
+
+        Output(s):
+            True if the data is successfully deleted, else False
+        '''
+        try:
+            if self.image_example:
+                remove_image(self.image_example)
+
+            db.session.delete(self)
+            db.session.commit()
+
+            LOGGER.info(f"Successfully Deleted figure {self.id} from the database!")
+            return True
+
+        except Exception as e:
+            LOGGER.error(f"An error occurred when deleting figure {self.id} from the database: {e}")
+            return False
 
 # ==============================================================================================================
 class FlashcardModel(db.Model):
@@ -55,20 +129,21 @@ class FlashcardModel(db.Model):
     category = db.Column(db.String(100), nullable=False)
     question = db.Column(db.Text, nullable=True)
     answer = db.Column(db.Text, nullable=True)
-    question_figure = db.Column(db.Integer, nullable=True)
-    answer_figure = db.Column(db.Integer, nullable=True)
+    q_figure = db.Column(db.Integer, nullable=True)
+    a_figure = db.Column(db.Integer, nullable=True)
 
-    def __init__(self, 
+    def __init__(
+        self, 
         category:str, 
         question:str=None, 
         answer:str=None, 
-        question_code_type:str=None,
-        question_code_example:str=None,
-        question_image_example:object=None, 
-        answer_code_type:str=None,
-        answer_code_example:str=None,
-        answer_image_example:object=None):
-
+        q_code_type:str=None,
+        q_code_example:str=None,
+        q_image_example:object=None, 
+        a_code_type:str=None,
+        a_code_example:str=None,
+        a_image_example:object=None
+    ):
         '''
         Initializes the flashcard data entry into the database
 
@@ -76,8 +151,12 @@ class FlashcardModel(db.Model):
             category (str): the question category
             question (str, default=None): a query about a certain topic
             answer (str, default=None): a response to the question
-            code_example (tuple, default=None): code type, code example, or file name of image for questions
-            image_example (tuple, default=None): code type, code example, or file name of image for answers
+            q_code_type (str, default=None): the programming language of the question's code example
+            q_code_example (str, default=None): a block of code supporting the question
+            q_image_example (object, default=None): an image supporting the question
+            a_code_type (str, default=None): the programming language of the code example use in the answer
+            a_code_example (str, default=None): a block of code supporting the answer
+            a_image_example (object, default=None): an image supporting the answer
         
         Output(s): None
         '''
@@ -86,35 +165,35 @@ class FlashcardModel(db.Model):
             if not category:
                 raise Exception("Missing category input!")
             # Check if there are question inputs
-            if not (question or (question_code_type and question_code_example) or question_image_example):
+            if not (question or (q_code_type and q_code_example) or q_image_example):
                 raise Exception("No question inputs!")
             # Check if there are answer inputs
-            if not (answer or (answer_code_type and answer_code_example) or answer_image_example):
+            if not (answer or (a_code_type and a_code_example) or a_image_example):
                 raise Exception("No answer inputs!")
             
             # Process question figures
-            elif question_code_example or question_image_example:
+            elif q_code_example or q_image_example:
                 q_figure = FigureModel(
-                    code_type=question_code_type, 
-                    code_example=question_code_example,
-                    image_example=question_image_example)
+                    code_type=q_code_type, 
+                    code_example=q_code_example,
+                    image_example=q_image_example)
                 
                 if not q_figure:
                     raise Exception("Failed to save code or image figure for question")
                 else:
-                    self.question_figure = q_figure.id
+                    self.q_figure = q_figure.id
 
             # Process answer figures
-            elif answer_code_example or answer_image_example:
+            elif a_code_example or a_image_example:
                 f_figure = FigureModel(
-                    code_type=answer_code_type, 
-                    code_example=answer_code_example,
-                    image_example=answer_image_example)
+                    code_type=a_code_type, 
+                    code_example=a_code_example,
+                    image_example=a_image_example)
                 
                 if not f_figure:
                     raise Exception("Failed to save code or image figure for answer!")
                 else:
-                    self.answer_figure = f_figure.id
+                    self.a_figure = f_figure.id
 
             self.category = category
             self.question = question
@@ -122,12 +201,94 @@ class FlashcardModel(db.Model):
 
         except Exception as e:
             LOGGER.error(f"An error occurred when entering flashcard data into the database: {e}")
+    #-----------------------------------------------------------------------------------------------------------
+    def update(
+        self,
+        category:str, 
+        question:str=None, 
+        answer:str=None, 
+        q_code_type:str=None,
+        q_code_example:str=None,
+        q_image_example:object=None, 
+        a_code_type:str=None,
+        a_code_example:str=None,
+        a_image_example:object=None
+    ):
+        '''
+        Updates the flashcard data in the database
 
+        Parameter(s):
+            category (str): the question category
+            question (str, default=None): a query about a certain topic
+            answer (str, default=None): a response to the question
+            q_code_type (str, default=None): the programming language of the question's code example
+            q_code_example (str, default=None): a block of code supporting the question
+            q_image_example (object, default=None): an image supporting the question
+            a_code_type (str, default=None): the programming language of the code example use in the answer
+            a_code_example (str, default=None): a block of code supporting the answer
+            a_image_example (object, default=None): an image supporting the answer
+        
+        Output(s): 
+            True if the flashcard is successfully updated, else False
+        '''
+        try:
+            self.category = category
+            self.question = question
+            self.answer = answer
+
+            # Update question figure if there is one
+            if self.q_figure:
+                figure = FigureModel.query.get(self.q_figure)
+                status = figure.update(code_type=q_code_type, code_example=q_code_example, image_example=q_image_example)
+
+                if not status:
+                    raise Exception(f"Failed to update question figure for flashcard {self.id}!")
+            # Update answer figure if there is one
+            if self.a_figure:
+                figure = FigureModel.query.get(self.a_figure)
+                status = figure.update(code_type=a_code_type, code_example=a_code_example, image_example=a_image_example)
+
+                if not status:
+                    raise Exception(f"Failed to update answer figure for flashcard {self.id}!")
+
+            return True
+
+        except Exception as e:
+            LOGGER.error(f"An error occurred when updating the flashcard data: {e}")
+            return False
+    #-----------------------------------------------------------------------------------------------------------
+    def delete(self):
+        '''
+        Deletes all the flashcard data and its figures from the database
+        
+        Parameter(s): None
+        
+        Output(s):
+            True if the flashcard data was successfully deleted, else False
+        '''
+        try:
+            if self.q_figure:
+                figure = FigureModel.query.get(self.q_figure)
+                figure.delete()
+            if self.a_figure:
+                figure = FigureModel.query.get(self.a_figure)
+                figure.delete()
+
+            db.session.delete(self)
+            db.session.commit()
+
+            LOGGER.info(f"Successfully deleted flashcard {self.id} from the database!")
+            return True
+
+        except Exception as e:
+            LOGGER.error(f"An error occurred when deleting flashcard {self.id} from the database: {e}")
+            return False
+    #-----------------------------------------------------------------------------------------------------------
     def __repr__(self):
         return (
             f"Category: {self.category}\n"
             f"Question: {self.question}\n"
             f"Answer: {self.answer}\n"
-            f"Question figure ID: {self.question_figure}\n"
-            f"Answer figure ID: {self.answer_figure}"
+            f"Question figure ID: {self.q_figure}\n"
+            f"Answer figure ID: {self.a_figure}"
         )
