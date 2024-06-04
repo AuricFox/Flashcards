@@ -4,41 +4,56 @@
 
 {% block content %}
 
-<div class="flashcard-content">
+<div class="record-form">
 
-    <form action="{{ url_for('manage.create_flashcard') }}" method="post" enctype="multipart/form-data">
-
-        <div class="flashcard-content-inner">
-            <h2>Category</h2>
-            <input type="text" id="category" name="category" rows="4" oninput="validateText('category')" required>
+    <form action="{{ url_for('manage.add_flashcard') }}" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="form-topic">
+            {{ form.category.label(class="title") }}
+            {% if form.category.errors %}
+                {{ form.category(class='error-element', placeholder="Category ...") }}
+                <p class="error-message">{{ form.category.errors[0] }}</p>
+            {% else %}
+                {{ form.category(placeholder="Category ...") }}
+            {% endif %}
         </div>
 
-        <div class="flashcard-content-inner">
-            <h2>Question</h2>
-            <textarea id="question" name="question" rows="4" required></textarea>
+        <div class="form-topic">
+            {{ form.question.label(class="title") }}
+            {% if form.question.errors %}
+                <textarea class="error-element" id="question" name="question" placeholder="Flashcard Question ..."></textarea>
+                <p class="error-message">{{ form.question.errors[0] }}</p>
+            {% else %}
+                <textarea id="question" name="question" placeholder="Flashcard Question ..."></textarea>
+            {% endif %}
         </div>
 
-        <div class="flashcard-content-inner">
-            <h2>Answer</h2>
-            <textarea id="answer" name="answer" rows="4" required></textarea>
+        <div class="form-topic">
+            {{ form.answer.label(class="title") }}
+            {% if form.answer.errors %}
+                <textarea class="error-element" id="answer" name="answer" placeholder="Flashcard Answer ..."></textarea>
+                <p class="error-message">{{ form.answer.errors[0] }}</p>
+            {% else %}
+                <textarea id="answer" name="answer" placeholder="Flashcard Answer ..."></textarea>
+            {% endif %}
         </div>
         <!-- ADD QUESTION FIGURE -->
-        <div class="flashcard-content-inner">
-            <h2>Would you like to add code or an image for the question?</h2>
+        <div class="form-topic">
+            <div class="title">Would you like to add code or an image for the question?</div>
             <div class="radio-input">
                 <input type="radio" id="q-code-selection" name="q-figure-type" value="code">
-                <label for="code">Code</label>
+                <label for="q-code-selection">Code</label>
                 <input type="radio" id="q-image-selection" name="q-figure-type" value="image">
-                <label for="image">Image</label>
+                <label for="q-image-selection">Image</label>
                 <input type="radio" id="q-none-type" name="q-figure-type" value="none" checked>
-                <label for="none-type">None</label>
+                <label for="q-none-type">None</label>
             </div>
         </div>
 
-        <div class="flashcard-content-inner" id="q-code-section" style="display: none;">
-            <h2>Question Code Type</h2>
-            <input type="text" name="q-code-type" id="q-code-sel" list="code-type">
-            <datalist id="q-code-type">
+        <div class="form-topic" id="q-code-section" style="display: none;">
+            <div class="title">Question Code Type</div>
+            <input type="text" name="question_code_type" id="question_code_type" list="code_type">
+            <datalist id="code_type">
                 <option value="c">C</option>
                 <option value="cpp">C++</option>
                 <option value="cs">C#</option>
@@ -49,32 +64,37 @@
                 <option value="python">Python</option>
                 <option value="sql">SQL</option>
             </datalist>
-            <h2>Question Code Example</h2>
-            <textarea id="q-code-figure" name="q-code-figure" rows="6"></textarea>
+            <div class="title">Question Code Example</div>
+            <textarea id="question_code_example" name="question_code_example" rows="6"></textarea>
         </div>
 
-        <div class="flashcard-content-inner" id="q-image-section" style="display: none;">
-            <h2>Question Image</h2>
-            <input type="file" id="q-image-figure" name="q-image-figure">
+         <div class="form-topic" id="q-image-section" style="display: none;">
+            {{ form.question_image_file.label(class="title") }}
+            {% if form.question_image_file.errors %}
+                {{ form.question_image_file(class='error-element', id='question_image_file') }}
+                <p class="error-message">{{ form.question_image_file.errors[0] }}</p>
+            {% else %}
+                {{ form.question_image_file(id='question_image_file') }}
+            {% endif %}
         </div>
 
         <!-- ADD ANSWER FIGURE -->
-        <div class="flashcard-content-inner">
-            <h2>Would you like to add code or an image for the answer?</h2>
+        <div class="form-topic">
+            <div class="title">Would you like to add code or an image for the answer?</div>
             <div class="radio-input">
                 <input type="radio" id="a-code-selection" name="a-figure-type" value="code">
-                <label for="code">Code</label>
+                <label for="a-code-selection">Code</label>
                 <input type="radio" id="a-image-selection" name="a-figure-type" value="image">
-                <label for="image">Image</label>
+                <label for="a-image-selection">Image</label>
                 <input type="radio" id="a-none-type" name="a-figure-type" value="none" checked>
-                <label for="none-type">None</label>
+                <label for="a-none-type">None</label>
             </div>
         </div>
 
-        <div class="flashcard-content-inner" id="a-code-section" style="display: none;">
-            <h2>Answer Code Type</h2>
-            <input type="text" name="a-code-type" id="a-code-sel" list="code-type">
-            <datalist id="a-code-type">
+        <div class="form-topic" id="a-code-section" style="display: none;">
+            <div class="title">Answer Code Type</div>
+            <input type="text" name="answer_code_type" id="answer_code_type" list="code_type">
+            <datalist id="code_type">
                 <option value="c">C</option>
                 <option value="cpp">C++</option>
                 <option value="cs">C#</option>
@@ -85,13 +105,19 @@
                 <option value="python">Python</option>
                 <option value="sql">SQL</option>
             </datalist>
-            <h2>Answer Code Example</h2>
-            <textarea id="a-code-figure" name="a-code-figure" rows="6"></textarea>
+            <div class="title">Answer Code Example</div>
+            <textarea id="answer_code_example" name="answer_code_example" rows="6"></textarea>
         </div>
 
-        <div class="flashcard-content-inner" id="a-image-section" style="display: none;">
-            <h2>Answer Image</h2>
-            <input type="file" id="a-image-figure" name="a-image-figure">
+        <div class="form-topic" id="a-image-section" style="display: none;">
+            {{ form.answer_image_file.label(class="title") }}
+        
+            {% if form.answer_image_file.errors %}
+                {{ form.answer_image_file(class='error-element', id='answer_image_file') }}
+                <p class="error-message">{{ form.answer_image_file.errors[0] }}</p>
+            {% else %}
+                {{ form.answer_image_file(id='answer_image_file') }}
+            {% endif %}
         </div>
 
         <button class="edit-btn" type="submit">Add Flashcard</button>

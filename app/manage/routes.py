@@ -1,8 +1,12 @@
 from flask import render_template, url_for, redirect, request, flash, jsonify
 
 from app.manage import bp
-from app.utils import LOGGER, save_image_file, sanitize
+from app.extensions import db
+from app.utils import LOGGER, process_figure, sanitize
 from app.database import view_allcategories, view_allcards, view_card, add_card, update_card, delete_card
+
+from app.forms.flashcard_form import FlashcardForm
+from app.models.flashcard_model import FlashcardModel
 
 # ==============================================================================================================
 @bp.route("/", methods=['GET', 'POST'])
@@ -15,17 +19,21 @@ def index():
     Output(s):
         a built html page that displays the flashcard data
     '''
-    if request.method == 'POST':
-        category = request.form.get('search', type=str)
-        data = view_allcards(category=category)
+    try:
+        if request.method == 'POST':
+            category = request.form.get('search', type=str)
+            data = view_allcards(category=category)
 
-    else:
-        # Query database for all questions
-        data = view_allcards(category=None)
+        else:
+            # Query database for all questions
+            data = view_allcards(category=None)
+
+        categories = view_allcategories()
+        return render_template('./manage/manage_flashcards.html', nav_id="manage-page", data=data, categories=categories)
     
-    categories = view_allcategories()
-
-    return render_template('./manage/manage_flashcards.html', nav_id="manage-page", data=data, categories=categories)
+    except Exception as e:
+        LOGGER.error(f"Failed to load manage flashcard page: {e}")
+        return render_template('404.html'), 404
 
 # ==============================================================================================================
 @bp.route('/autocomplete', methods=['GET'])
@@ -62,58 +70,35 @@ def add_flashcard():
     Output(s):
         a built html page that enables users to add flashcards to the database
     '''
-
-    categories = view_allcategories()
-    
-    return render_template('./manage/add_flashcard.html', nav_id="add-page", categories=categories)
-
-# ==============================================================================================================
-def process_figure_upload(request, f:str):
-    '''
-    Processes figure data that includes code or images. New images are saved while old images do nothing. Code 
-    elements are save if there are any.
-
-    Parameter(s):
-        request (form request): data submitted from the form
-        f (str): image or code figure type 
-
-    Output(s):
-        A tuple containing the figure data (code_block, code_type, image_file), none otherwise.
-    '''
     try:
-        figure_type = request.form.get(f'{f}-figure-type', type=str)
+        form = FlashcardForm(request.form)
 
-        # Process image figure
-        if figure_type == 'image':
-            # Get new image file
-            file = request.files[f'{f}-image-figure']
-            # Check for old image filename
-            old_file = request.form.get(f'current-{f}-image', str)
+        if form.validate_on_submit():
 
-            if file: image_file = save_image_file(file)
-            elif old_file: image_file = old_file
-            else:
-                LOGGER.error('Invalid File or FileType Entered!')
-                flash('Invalid File or FileType Entered', 'error')
-                return None
-            
-            return (None, None, image_file)
-        
-        # Process code figure
-        elif figure_type == 'code':
-            code_block = request.form.get(f'{f}-code-figure', str)
-            code_type = request.form.get(f'{f}-code-type', str)
+            new_flashcard = FlashcardModel(
+                category=form.category.data,
+                question=form.question.data,
+                answer=form.answer.data,
+                question_code_type=form.question_code_type.data,
+                question_code_example=form.question_code_example.data,
+                question_image_example=form.question_image_example,
+                answer_code_type=form.answer_code_type.data,
+                answer_code_example=form.answer_code_example.data,
+                answer_image_example=form.answer_image_example
+            )
 
-            return (code_block, code_type, None)
+            db.session.add(new_flashcard)
+            db.session.commit()
+
+            return redirect(url_for('manage.index'))
         
-        # No figure to process
-        else:
-            return (None, None, None)
-        
+        return render_template('./manage/add_flashcard.html', nav_id="add-page", categories=view_allcategories(), form=form)
+
     except Exception as e:
-        LOGGER.error(f"Error processing {figure_type} upload: {str(e)}")
-        flash(f"Error processing {figure_type} upload", 'error')
-        return None
+        db.session.rollback()
+        LOGGER.error(f"An error occurred when adding flashcard: {e}")
+        flash("Failed to add flashcard!", "error")
+        return redirect(url_for('manage.index'))   
 
 # ==============================================================================================================
 @bp.route("/create_flashcard", methods=['GET', 'POST'])
@@ -136,8 +121,8 @@ def create_flashcard():
             data['question'] = request.form.get('question', type=str)
             data['answer'] = request.form.get('answer', type=str)
 
-            data['q_code_block'], data['q_code_type'], data['q_image_file'] = process_figure_upload(request, 'q')
-            data['a_code_block'], data['a_code_type'], data['a_image_file'] = process_figure_upload(request, 'a')
+            data['q_code_block'], data['q_code_type'], data['q_image_file'] = process_figure(request, 'q')
+            data['a_code_block'], data['a_code_type'], data['a_image_file'] = process_figure(request, 'a')
 
             LOGGER.info(f"Adding flashcard data:\n"
                         f"Category: {data['category']}\n"
@@ -226,9 +211,8 @@ def update_flashcard(key):
             data['question'] = request.form.get('question', type=str)
             data['answer'] = request.form.get('answer', type=str)
 
-            data['q_code_block'], data['q_code_type'], data['q_image_file'] = process_figure_upload(request, 'q')
-            data['a_code_block'], data['a_code_type'], data['a_image_file'] = process_figure_upload(request, 'a')
-
+            data['q_code_block'], data['q_code_type'], data['q_image_file'] = process_figure(request, 'q')
+            data['a_code_block'], data['a_code_type'], data['a_image_file'] = process_figure(request, 'a')
 
             LOGGER.info(f"Editing: {data['key']}\n"
                         f"Category: {data['category']}\n"

@@ -832,7 +832,7 @@ tr:last-child td {
 
 /* ========== Flashcard Content [View Flashcard Page] ========== */
 
-.flashcard-content {
+.record-form {
     background-color: rgba(0, 0, 0, 0.45);
     color: #FFFFFF;
     box-shadow: 5px 10px 8px #000;
@@ -842,23 +842,26 @@ tr:last-child td {
     width: 60vw;
 }
 
-.flashcard-content-inner {
-    margin: 1rem;
-    border-top: 1px solid #ddd;;
+.form-topic {
+    padding: 1rem;
 }
 
-.flashcard-content-inner h2 {
-    margin: 10px 0;
+.form-topic:not(:first-of-type) {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.flashcard-content-inner:first-child {
+.title {
+    font-size: 24px;
+}
+
+.form-topic:first-child {
     border-top: none;
 }
 
 /* ========== Flashcard Content [Edit, View, Add Flashcard Page] ========== */
 
-.flashcard-content-inner textarea,
-.flashcard-content-inner input:not(input[type='radio']) {
+.form-topic textarea,
+.form-topic input:not(input[type='radio']) {
     padding: 10px 15px;
     font-size: 13px;
     max-width: 100%;
@@ -868,8 +871,8 @@ tr:last-child td {
     border: none;
 }
 
-.flashcard-content-inner textarea,
-.flashcard-content-inner input[type='text'] {
+.form-topic textarea,
+.form-topic input[type='text'] {
     background-color: #eee;
     border-radius: 8px;
 }
