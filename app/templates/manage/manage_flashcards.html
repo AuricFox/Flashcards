@@ -5,6 +5,7 @@
 {% block content %}
 <div class="search-container">
     <form class="category-search" action="#" method="post">
+        {{ form.csrf_token }}
         <div class="search-wrapper">
             <input type="text" class="search" id="search" name="search" placeholder="Search Category ..." autocomplete="on">
             <button class="search-btn" type="submit">
@@ -29,47 +30,47 @@
             </tr>
         </thead>
         <tbody>
-            {% for value in data['questions'] %}
+            {% for flashcard in flashcards %}
             <tr>
-                <td class="flash-cell">{{ value['category'] | escape }}</td>
-                <td class="flash-cell">{{ value['question'] | escape }}</td>
-                <td class="flash-cell">{{ value['answer'] | escape }}</td>
+                <td class="flash-cell">{{ flashcard['category'] | escape }}</td>
+                <td class="flash-cell">{{ flashcard['question'] | escape }}</td>
+                <td class="flash-cell">{{ flashcard['answer'] | escape }}</td>
 
                 <td class="flash-cell">
-                    {% if value['q_code_block'] %}
-                    <pre><code>{{ value['q_code_block'] | escape }}</code></pre>
+                    {% if flashcard['q_code_example'] %}
+                    <pre><code>{{ flashcard['q_code_example'] | escape }}</code></pre>
                     {% endif %}
                 </td>
                 
                 <td class="flash-cell">
-                    {% if value['q_image_file'] %}
-                    <img class="card-image" src="{{ url_for('static', filename='images/' + value['q_image_file']) }}"
-                        alt="{{ value['q_image_file'] }}">
+                    {% if flashcard['q_image_example'] %}
+                    <img class="card-image" src="{{ url_for('static', filename='images/' + flashcard['q_image_example']) }}"
+                        alt="{{ flashcard['q_image_example'] }}">
                     {% endif %}
                 </td>
 
                 <td class="flash-cell">
-                    {% if value['a_code_block'] %}
-                    <pre><code>{{ value['a_code_block'] | escape }}</code></pre>
+                    {% if flashcard['a_code_example'] %}
+                    <pre><code>{{ flashcard['a_code_example'] | escape }}</code></pre>
                     {% endif %}
                 </td>
                 
                 <td class="flash-cell">
-                    {% if value['a_image_file'] %}
-                    <img class="card-image" src="{{ url_for('static', filename='images/' + value['a_image_file']) }}"
-                        alt="{{ value['a_image_file'] }}">
+                    {% if flashcard['a_image_example'] %}
+                    <img class="card-image" src="{{ url_for('static', filename='images/' + flashcard['a_image_example']) }}"
+                        alt="{{ flashcard['a_image_example'] }}">
                     {% endif %}
                 </td>
                 
                 <td class="action-cells">
                     <div class="action-links">
-                        <a class="action-cell view-cell" href="{{ url_for('manage.view_flashcard', key=value['key']) | escape }}">
+                        <a class="action-cell view-cell" href="{{ url_for('manage.view_flashcard', id=flashcard['id']) | escape }}">
                             <img class="icon-button" src="{{ url_for('static', filename='images/icons/view.png') }}" alt="view">
                         </a>
-                        <a class="action-cell edit-cell" href="{{ url_for('manage.edit_flashcard', key=value['key']) | escape }}">
+                        <a class="action-cell edit-cell" href="{{ url_for('manage.edit_flashcard', id=flashcard['id']) | escape }}">
                             <img class="icon-button" src="{{ url_for('static', filename='images/icons/edit.png') }}" alt="edit">
                         </a>
-                        <a class="action-cell delete-cell" href="#" data-question="{{ value['key'] | escape }}">
+                        <a class="action-cell delete-cell" href="#" data-question="{{ flashcard['id'] | escape }}">
                             <img class="icon-button" src="{{ url_for('static', filename='images/icons/delete.png') }}" alt="delete">
                         </a>
                     </div>

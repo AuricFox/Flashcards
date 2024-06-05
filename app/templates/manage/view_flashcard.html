@@ -5,60 +5,60 @@
 {% block content %}
 
 <div class="flashcard-content">
-    <div class="flashcard-content-inner">
+    <div class="form-topic">
         <h2>Category</h2>
-        <p>{{ data['category'] | escape }}</p>
+        <p>{{ flashcard['category'] | escape }}</p>
     </div>
 
     <!-- QUESTION DATA -->
-    <div class="flashcard-content-inner">
+    <div class="form-topic">
         <h2>Question</h2>
-        <p>{{ data['question'] | escape }}</p>
+        <p>{{ flashcard['question'] | escape }}</p>
     </div>
 
-    {% if data['q_code_block'] %}
-        <div class="flashcard-content-inner">
+    {% if flashcard['q_code_example'] %}
+        <div class="form-topic">
             <h2>Question Code</h2>
-            <pre><code class="language-{{ data['q_code_type'] }}">{{ data['q_code_block'] | escape }}</pre></code>
+            <pre><code class="language-{{ flashcard['q_code_type'] }}">{{ flashcard['q_code_example'] | escape }}</pre></code>
         </div>
-        <div class="flashcard-content-inner">
+        <div class="form-topic">
             <h2>Question Code Type</h2>
-            <p>{{ data['q_code_type'] | escape }}</p>
+            <p>{{ flashcard['q_code_type'] | escape }}</p>
         </div>
     {% endif %}
 
-    {% if data['q_image_file'] %}
-        <div class="flashcard-content-inner">
+    {% if flashcard['q_image_example'] %}
+        <div class="form-topic">
             <h2>Question Image</h2>
-            <img class="card-image" src="{{ url_for('static', filename='images/' + data['q_image_file']) }}" alt="{{ data['q_image_file'] }}">
+            <img class="card-image" src="{{ url_for('static', filename='images/' + flashcard['q_image_example']) }}" alt="{{ flashcard['q_image_example'] }}">
         </div>
     {% endif %}
     
     <!-- ANSWER DATA -->
-    <div class="flashcard-content-inner">
+    <div class="form-topic">
         <h2>Anwser</h2>
-        <p>{{ data['answer'] | escape }}</p>
+        <p>{{ flashcard['answer'] | escape }}</p>
     </div>
 
-    {% if data['a_code_block'] %}
-        <div class="flashcard-content-inner">
+    {% if flashcard['a_code_example'] %}
+        <div class="form-topic">
             <h2>Answer Code</h2>
-            <pre><code class="language-{{ data['a_code_type'] }}">{{ data['a_code_block'] | escape }}</pre></code>
+            <pre><code class="language-{{ flashcard['a_code_type'] }}">{{ flashcard['a_code_example'] | escape }}</pre></code>
         </div>
-        <div class="flashcard-content-inner">
+        <div class="form-topic">
             <h2>Answer Code Type</h2>
-            <p>{{ data['a_code_type'] | escape }}</p>
+            <p>{{ flashcard['a_code_type'] | escape }}</p>
         </div>
     {% endif %}
 
-    {% if data['a_image_file'] %}
-        <div class="flashcard-content-inner">
+    {% if flashcard['a_image_example'] %}
+        <div class="form-topic">
             <h2>Answer Image</h2>
-            <img class="card-image" src="{{ url_for('static', filename='images/' + data['a_image_file']) }}" alt="{{ data['a_image_file'] }}">
+            <img class="card-image" src="{{ url_for('static', filename='images/' + flashcard['a_image_example']) }}" alt="{{ flashcard['a_image_example'] }}">
         </div>
     {% endif %}
 
-    <a class="edit-btn view-btn" href="{{ url_for('manage.edit_flashcard', key=data['key']) | escape }}">
+    <a class="edit-btn view-btn" href="{{ url_for('manage.edit_flashcard', id=flashcard['id']) | escape }}">
         Edit Flashcard
     </a>
 </div>

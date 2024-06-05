@@ -44,13 +44,14 @@ def init_app(configure='config.DevConfig'):
             a built html page that displays the categories and their count
         '''
         # Query database for all categories and their counts
-        categories = database.view_allcategories()
+        categories = view_all_categories()
 
         return render_template('404.html', nav_id="home-page", categories=categories), 404
 
     with app.app_context():
         # NOTE: Include routes and custom modules here
-        from . import database, utils
+        from . import utils
+        from app.models.flashcard_model import view_all_categories
 
         from app.main import bp as main_bp
         from app.manage import bp as manage_bp

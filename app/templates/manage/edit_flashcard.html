@@ -5,38 +5,55 @@
 {% block content %}
 
 <div class="flashcard-content">
-    <form action="{{ url_for('manage.update_flashcard', key=data['key']) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url_for('manage.edit_flashcard', id=flashcard['id']) }}" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div class="form-topic">
+            {{ form.category.label(class="title") }}
+            {% if form.category.errors %}
+                {{ form.category(class='error-element', placeholder="Category ...", value=flashcard['category']) }}
+                <p class="error-message">{{ form.category.errors[0] }}</p>
+            {% else %}
+                {{ form.category(placeholder="Category ...", value=flashcard['category']) }}
+            {% endif %}
+        </div>
 
-        <div class="flashcard-content-inner">
-            <h2>Category</h2>
-            <input type="text" id="category" name="category" rows="4" placeholder="Category ..." value="{{ data['category'] | escape }}">
+        <div class="form-topic">
+            {{ form.question.label(class="title") }}
+            {% if form.question.errors %}
+                <textarea class="error-element" id="question" name="question" placeholder="Flashcard Question ...">{{ flashcard['question'] | escape }}</textarea>
+                <p class="error-message">{{ form.question.errors[0] }}</p>
+            {% else %}
+                <textarea id="question" name="question" placeholder="Flashcard Question ...">{{ flashcard['question'] | escape }}</textarea>
+            {% endif %}
         </div>
-        <div class="flashcard-content-inner">
-            <h2>Question</h2>
-            <textarea id="question" name="question" rows="4" placeholder="Question ...">{{ data['question'] | escape }}</textarea>
-        </div>
-        <div class="flashcard-content-inner">
-            <h2>Answer</h2>
-            <textarea id="answer" name="answer" rows="4" placeholder="Answer ...">{{ data['answer'] | escape }}</textarea>
+
+        <div class="form-topic">
+            {{ form.answer.label(class="title") }}
+            {% if form.answer.errors %}
+                <textarea class="error-element" id="answer" name="answer" placeholder="Flashcard Answer ...">{{ flashcard['answer'] | escape }}</textarea>
+                <p class="error-message">{{ form.answer.errors[0] }}</p>
+            {% else %}
+                <textarea id="answer" name="answer" placeholder="Flashcard Answer ...">{{ flashcard['answer'] | escape }}</textarea>
+            {% endif %}
         </div>
 
         <!-- EDIT QUESTION FIGURE -->
-        <div class="flashcard-content-inner">
-            <h2>Would you like to add code or an image for the question?</h2>
+        <div class="form-topic">
+            <div class="title">Would you like to add code or an image for the question?</div>
             <div class="radio-input">                
-                <input type="radio" id="q-code-selection" name="q-figure-type" value="code" onclick="toggleQuestionFields('code')" {% if data['q_code_block'] %}checked{% endif %}>
+                <input type="radio" id="q-code-selection" name="q-figure-type" value="code" onclick="toggleQuestionFields('code')" {% if flashcard['q_code_example'] %}checked{% endif %}>
                 <label for="q-code-selection">Code</label>
-                <input type="radio" id="q-image-selection" name="q-figure-type" value="image" onclick="toggleQuestionFields('image')" {% if data['q_image_file'] %}checked{% endif %}>
+                <input type="radio" id="q-image-selection" name="q-figure-type" value="image" onclick="toggleQuestionFields('image')" {% if flashcard['q_image_example'] %}checked{% endif %}>
                 <label for="q-image-selection">Image</label>
-                <input type="radio" id="q-none-type" name="q-figure-type" value="none" onclick="toggleQuestionFields('none')" {% if not data['q_code_block'] and not data['q_image_file'] %}checked{% endif %}>
+                <input type="radio" id="q-none-type" name="q-figure-type" value="none" onclick="toggleQuestionFields('none')" {% if not flashcard['q_code_example'] and not flashcard['q_image_example'] %}checked{% endif %}>
                 <label for="q-none-type">None</label>
             </div>
         </div>
         
-        <div class="flashcard-content-inner" id="q-code-section" style="display: none;">
-            <h2>Question Code Type</h2>
-            <input type="text" name="q-code-type" id="q-code-sel" list="code-type" value="{% if data['q_code_type'] is not none %}{{ data['q_code_type'] }}{% endif %}">
-            <datalist id="q-code-type">
+        <div class="form-topic" id="q-code-section" style="display: none;">
+            <div class="title">Code Type (Question)</div>
+            <input type="text" name="q_code_type" id="q_code_type" list="code_type" value="{% if flashcard['q_code_type'] is not none %}{{ flashcard['q_code_type'] }}{% endif %}">
+            <datalist id="code_type">
                 <option value="c">C</option>
                 <option value="cpp">C++</option>
                 <option value="cs">C#</option>
@@ -47,38 +64,38 @@
                 <option value="python">Python</option>
                 <option value="sql">SQL</option>
             </datalist>
-            <h2>Question Code Example</h2>
-            <textarea id="q-code-figure" name="q-code-figure" rows="6">{{ data['q_code_block'] | escape }}</textarea>
+            <div class="title">Question Code Example</div>
+            <textarea id="q_code_example" name="q_code_example" rows="6">{{ flashcard['q_code_example'] | escape }}</textarea>
         </div>
         
-        <div class="flashcard-content-inner" id="q-image-section" style="display: none;">
-            {% if data['q_image_file'] %}
-                <h2>Current Question Image</h2>
-                <img class="card-image" id="q-card-image" src="{{ url_for('static', filename='images/' + data['q_image_file']) }}"
-                    alt="{{ data['q_image_file'] }}">
-                <input type="hidden" name="current-q-image" value="{{ data['q_image_file'] }}">
+        <div class="form-topic" id="q-image-section" style="display: none;">
+            {% if flashcard['q_image_example'] %}
+                <div class="title">Current Image (Question)</div>
+                <img class="card-image" id="q-card-image" src="{{ url_for('static', filename='images/' + flashcard['q_image_example']) }}"
+                    alt="{{ flashcard['qeustion_image_example'] }}">
+                <input type="hidden" name="current-q-image" value="{{ flashcard['q_image_example'] }}">
             {% endif %}
-            <h2>Change Question Image</h2>
-            <input type="file" id="q-image-figure" name="q-image-figure">
+            <div class="title">Change Image (Question)</div>
+            {{ form.q_image_example(id='q_image_example') }}
         </div>
 
         <!-- EDIT ANSWER FIGURE -->
-        <div class="flashcard-content-inner">
-            <h2>Would you like to add code or an image for the answer?</h2>
+        <div class="form-topic">
+            <div class="title">Would you like to add code or an image for the answer?</div>
             <div class="radio-input">                
-                <input type="radio" id="a-code-selection" name="a-figure-type" value="code" onclick="toggleAnswerFields('code')" {% if data['a_code_block'] %}checked{% endif %}>
+                <input type="radio" id="a-code-selection" name="a-figure-type" value="code" onclick="toggleAnswerFields('code')" {% if flashcard['a_code_example'] %}checked{% endif %}>
                 <label for="a-code-selection">Code</label>
-                <input type="radio" id="a-image-selection" name="a-figure-type" value="image" onclick="toggleAnswerFields('image')" {% if data['a_image_file'] %}checked{% endif %}>
+                <input type="radio" id="a-image-selection" name="a-figure-type" value="image" onclick="toggleAnswerFields('image')" {% if flashcard['a_image_example'] %}checked{% endif %}>
                 <label for="a-image-selection">Image</label>
-                <input type="radio" id="a-none-type" name="a-figure-type" value="none" onclick="toggleAnswerFields('none')" {% if not data['a_code_block'] and not data['a_image_file'] %}checked{% endif %}>
+                <input type="radio" id="a-none-type" name="a-figure-type" value="none" onclick="toggleAnswerFields('none')" {% if not flashcard['a_code_example'] and not flashcard['a_image_example'] %}checked{% endif %}>
                 <label for="a-none-type">None</label>
             </div>
         </div>
         
-        <div class="flashcard-content-inner" id="a-code-section" style="display: none;">
-            <h2>Answer Code Type</h2>
-            <input type="text" name="a-code-type" id="a-code-sel" list="code-type" value="{% if data['a_code_type'] is not none %}{{ data['a_code_type'] }}{% endif %}">
-            <datalist id="a-code-type">
+        <div class="form-topic" id="a-code-section" style="display: none;">
+            <div class="title">Code Type (Answer)</div>
+            <input type="text" name="a_code_type" id="a_code_type" list="code_type" value="{% if flashcard['a_code_type'] is not none %}{{ flashcard['a_code_type'] }}{% endif %}">
+            <datalist id="code_type">
                 <option value="c">C</option>
                 <option value="cpp">C++</option>
                 <option value="cs">C#</option>
@@ -90,18 +107,17 @@
                 <option value="sql">SQL</option>
             </datalist>
             <h2>Answer Code Example</h2>
-            <textarea id="a-code-figure" name="a-code-figure" rows="6">{{ data['a_code_block'] | escape }}</textarea>
+            <textarea id="a_code_example" name="a_code_example" rows="6">{{ flashcard['a_code_example'] | escape }}</textarea>
         </div>
         
-        <div class="flashcard-content-inner" id="a-image-section" style="display: none;">
-            {% if data['a_image_file'] %}
-                <h2>Current Answer Image</h2>
-                <img class="card-image" id="a-card-image" src="{{ url_for('static', filename='images/' + data['a_image_file']) }}"
-                    alt="{{ data['a_image_file'] }}">
-                <input type="hidden" name="current-a-image" value="{{ data['a_image_file'] }}">
+        <div class="form-topic" id="a-image-section" style="display: none;">
+            {% if flashcard['a_image_example'] %}
+                <div class="title">Current Image (Answer)</div>
+                <img class="card-image" id="a-card-image" src="{{ url_for('static', filename='images/' + flashcard['a_image_example']) }}"
+                    alt="{{ flashcard['a_image_example'] }}">
             {% endif %}
-            <h2>Change Answer Image</h2>
-            <input type="file" id="a-image-figure" name="a-image-figure">
+            <div class="title">Change Image (Answer)</div>
+            {{ form.a_image_example(id='a_image_example') }}
         </div>
 
         <button class="edit-btn" type="submit">Update Flashcard</button>

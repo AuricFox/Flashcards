@@ -41,9 +41,12 @@
         <div class="form-topic">
             <div class="title">Would you like to add code or an image for the question?</div>
             <div class="radio-input">
-                {{ form.q_figure_type(value='code') }}
-                {{ form.q_figure_type(value='image') }}
-                {{ form.q_figure_type(value='none', checked='checked') }}
+                <input type="radio" id="q-code-selection" name="q-figure-type" value="code">
+                <label for="q-code-selection">Code</label>
+                <input type="radio" id="q-image-selection" name="q-figure-type" value="image">
+                <label for="q-image-selection">Image</label>
+                <input type="radio" id="q-none-type" name="q-figure-type" value="none" checked>
+                <label for="q-none-type">None</label>
             </div>
         </div>
 
@@ -66,12 +69,12 @@
         </div>
 
         <div class="form-topic" id="q-image-section" style="display: none;">
-            {{ form.q_image_file.label(class="title") }}
-            {% if form.q_image_file.errors %}
-                {{ form.q_image_file(class='error-element', id='q_image_file') }}
-                <p class="error-message">{{ form.q_image_file.errors[0] }}</p>
+            {{ form.q_image_example.label(class="title") }}
+            {% if form.q_image_example.errors %}
+                {{ form.q_image_example(class='error-element', id='q_image_example') }}
+                <p class="error-message">{{ form.q_image_example.errors[0] }}</p>
             {% else %}
-                {{ form.q_image_file(id='q_image_file') }}
+                {{ form.q_image_example(id='q_image_example') }}
             {% endif %}
         </div>
 
@@ -79,9 +82,12 @@
         <div class="form-topic">
             <div class="title">Would you like to add code or an image for the answer?</div>
             <div class="radio-input">
-                {{ form.a_figure_type(value='code') }}
-                {{ form.a_figure_type(value='image') }}
-                {{ form.a_figure_type(value='none', checked='checked') }}
+                <input type="radio" id="a-code-selection" name="a-figure-type" value="code">
+                <label for="a-code-selection">Code</label>
+                <input type="radio" id="a-image-selection" name="a-figure-type" value="image">
+                <label for="a-image-selection">Image</label>
+                <input type="radio" id="a-none-type" name="a-figure-type" value="none" checked>
+                <label for="a-none-type">None</label>
             </div>
         </div>
 
@@ -104,12 +110,12 @@
         </div>
 
         <div class="form-topic" id="a-image-section" style="display: none;">
-            {{ form.a_image_file.label(class="title") }}
-            {% if form.a_image_file.errors %}
-                {{ form.a_image_file(class='error-element', id='a_image_file') }}
-                <p class="error-message">{{ form.a_image_file.errors[0] }}</p>
+            {{ form.a_image_example.label(class="title") }}
+            {% if form.a_image_example.errors %}
+                {{ form.a_image_example(class='error-element', id='a_image_example') }}
+                <p class="error-message">{{ form.a_image_example.errors[0] }}</p>
             {% else %}
-                {{ form.a_image_file(id='a_image_file') }}
+                {{ form.a_image_example(id='a_image_example') }}
             {% endif %}
         </div>
 
