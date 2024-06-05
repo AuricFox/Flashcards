@@ -73,7 +73,6 @@ class FlashcardForm(FlaskForm):
                 if not self.q_code_example.data:
                     self.q_code_example.errors.append("Code example is required!")
                 return False
-
         # Validate question figures if image is selected
         elif self.q_figure_type.data == 'image':
             if self.q_code_example.data:
@@ -82,7 +81,6 @@ class FlashcardForm(FlaskForm):
             if not self.q_image_example.data:
                 self.q_image_example.errors.append("Image is required if selected!")
                 return False
-
         # Validate question figures if none is selected
         elif self.q_figure_type.data == 'none':
             if self.q_code_example.data or self.q_image_example.data:
@@ -108,7 +106,6 @@ class FlashcardForm(FlaskForm):
                 if not self.a_code_example.data:
                     self.a_code_example.errors.append("Code example is required!")
                 return False
-
         # Validate anwser figures if image is selected
         elif self.a_figure_type.data == 'image':
             if self.a_code_example.data:
@@ -117,7 +114,6 @@ class FlashcardForm(FlaskForm):
             if not self.a_image_example.data:
                 self.a_image_example.errors.append("Image is required if selected!")
                 return False
-
         # Validate anwser figures if none is selected
         elif self.a_figure_type.data == 'none':
             if self.a_code_example.data or self.a_image_example.data:
