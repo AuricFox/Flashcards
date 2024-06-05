@@ -361,10 +361,10 @@ def view_all_cards(category:str=None):
             'aid':int, 
             'q_code':str,
             'q_code_type':str,
-            'q_image_file':str,
+            'q_image_example':str,
             'a_code':str,
             'a_code_type':str,
-            'a_image_file':str
+            'a_image_example':str
         }, ... ]
     '''
     try:
@@ -423,3 +423,55 @@ def view_all_categories():
     except Exception as e:
         LOGGER.error(f"An error occurred when fetching categories from the database: {e}")
         return None
+# ==============================================================================================================
+def view_card(id:int):
+    '''
+    Fetches the flashcard data for viewing
+    
+    Parameter(s):
+        id (int): the id of the flashcard
+        
+    Output(s):
+        response (dict): a dictionary of the Flashcard data if found, None otherwise
+
+        response = {
+            'id':int, 
+            'category':str, 
+            'question':str, 
+            'answer':str, 
+            'q_code_type':str,
+            'q_code_example':str,
+            'q_image_example':str,
+            'a_code_type':str,
+            'a_code_example':str,
+            'a_image_example':str
+        }
+    '''
+    try:
+        response = {}
+        flashcard = FlashcardModel.query.get_or_404(id)
+        
+        if flashcard:
+
+            # Get flashcard figures if there are any
+            q_figure = FigureModel.query.get(flashcard.q_figure) if flashcard.q_figure else None
+            a_figure = FigureModel.query.get(flashcard.a_figure) if flashcard.a_figure else None
+
+            response = {
+                'id': flashcard.id,
+                'category': flashcard.category,
+                'question': flashcard.question,
+                'answer': flashcard.answer,
+                'q_code_type': q_figure.code_type if q_figure else None,
+                'q_code_example': q_figure.code_example if q_figure else None,
+                'q_image_example': q_figure.image_example if q_figure else None,
+                'a_code_type': a_figure.code_type if a_figure else None,
+                'a_code_example': a_figure.code_example if a_figure else None,
+                'a_image_example': a_figure.image_example if a_figure else None
+            }
+
+        return response
+        
+    except Exception as e:
+        LOGGER.error(f"An error occurred when fetching flashcard data: {e}")
+        return {}
