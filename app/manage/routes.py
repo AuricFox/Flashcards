@@ -80,14 +80,11 @@ def add_flashcard():
                 answer=form.answer.data,
                 q_code_type=form.q_code_type.data,
                 q_code_example=form.q_code_example.data,
-                q_image_example=form.q_image_example,
+                q_image_example=request.files.get('q_image_example'),
                 a_code_type=form.a_code_type.data,
                 a_code_example=form.a_code_example.data,
-                a_image_example=form.a_image_example
+                a_image_example=request.files.get('a_image_example')
             )
-
-            db.session.add(new_flashcard)
-            db.session.commit()
 
             return redirect(url_for('manage.index'))
         
@@ -95,7 +92,6 @@ def add_flashcard():
         return render_template('./manage/add_flashcard.html', nav_id="add-page", categories=categories, form=form)
 
     except Exception as e:
-        db.session.rollback()
         LOGGER.error(f"An error occurred when adding flashcard: {e}")
         flash("Failed to add flashcard!", "error")
         return redirect(url_for('manage.index'))   
@@ -150,16 +146,17 @@ def edit_flashcard(id):
                 answer=form.answer.data, 
                 q_code_type=form.q_code_type.data,
                 q_code_example=form.q_code_example.data,
-                q_image_example=form.q_image_example.data, 
+                q_image_example=request.files.get('q_image_example'), 
                 a_code_type=form.a_code_type.data,
                 a_code_example=form.a_code_example.data,
-                a_image_example=form.a_image_example.data
+                a_image_example=request.files.get('a_image_example')
             )
 
             #check if the update was successful
             if not status:
                 raise Exception(f"Flashcard {id} update failed!")
 
+            LOGGER.info(f"Successfully edited flashcard: {id}")
             return redirect(url_for('manage.index'))
 
         categories = view_all_categories()
