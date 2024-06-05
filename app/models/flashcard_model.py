@@ -42,6 +42,8 @@ class FigureModel(db.Model):
                 else:
                     self.image_example = file
             
+            LOGGER.info(f"Successfully created figure, ID: {self.id}")
+            
         except Exception as e:
             LOGGER.error(f"An error occurred when entering figure data into the database: {e}")
     #-----------------------------------------------------------------------------------------------------------
@@ -93,6 +95,7 @@ class FigureModel(db.Model):
             return True
 
         except Exception as e:
+            db.session.rollback()
             LOGGER.error(f"An error occurred when updating figure: {e}")
             return False
     #-----------------------------------------------------------------------------------------------------------
@@ -116,6 +119,7 @@ class FigureModel(db.Model):
             return True
 
         except Exception as e:
+            db.session.rollback()
             LOGGER.error(f"An error occurred when deleting figure {self.id} from the database: {e}")
             return False
 
@@ -200,6 +204,8 @@ class FlashcardModel(db.Model):
             self.question = question
             self.answer = answer
 
+            LOGGER.info(f"Successfully created flashcard, id: {self.id}")
+
         except Exception as e:
             LOGGER.error(f"An error occurred when entering flashcard data into the database: {e}")
     #-----------------------------------------------------------------------------------------------------------
@@ -252,9 +258,12 @@ class FlashcardModel(db.Model):
                 if not status:
                     raise Exception(f"Failed to update answer figure for flashcard {self.id}!")
 
+            db.session.commit()
+            LOGGER.info(f"Successfully updated flashcard ID: {self.id}")
             return True
 
         except Exception as e:
+            db.session.rollback()
             LOGGER.error(f"An error occurred when updating the flashcard data: {e}")
             return False
     #-----------------------------------------------------------------------------------------------------------
@@ -282,6 +291,7 @@ class FlashcardModel(db.Model):
             return True
 
         except Exception as e:
+            db.session.rollback()
             LOGGER.error(f"An error occurred when deleting flashcard {self.id} from the database: {e}")
             return False
     #-----------------------------------------------------------------------------------------------------------
@@ -305,15 +315,22 @@ def view_all_cards(category:str=None):
         category (str, default=None): the question category the flashcards are being filtered by
         
     Output(s):
-        Returns a list of all instances of FlashcardModel in the database if there are any, else returns None
+        Returns a dictionary list of all the related flashcard data, else returns an empty list
 
-        response = [
-            FlashcardModel(
-                id, category, question, answer, 
-                q_code_type, q_code_example, q_image_example, 
-                a_code_type, a_code_example, a_image_example
-            ), ...
-        ]
+        response = [{
+            'id':int, 
+            'category':str, 
+            'question':str, 
+            'answer':str, 
+            'qid':int,
+            'aid':int, 
+            'q_code':str,
+            'q_code_type':str,
+            'q_image_file':str,
+            'a_code':str,
+            'a_code_type':str,
+            'a_image_file':str
+        }, ... ]
     '''
     try:
         # Return the flashcards with the specified category
@@ -323,11 +340,31 @@ def view_all_cards(category:str=None):
         else:
             flashcards = FlashcardModel.query.all()
 
-        return flashcards
+        response = []
+        for flashcard in flashcards:
+
+            # Get flashcard figures if there are any
+            q_figure = FigureModel.query.get(flashcard.q_figure) if flashcard.q_figure else None
+            a_figure = FigureModel.query.get(flashcard.a_figure) if flashcard.a_figure else None
+
+            response.append({
+                'id': flashcard.id,
+                'category': flashcard.category,
+                'question': flashcard.question,
+                'answer': flashcard.answer,
+                'q_code_type': q_figure.code_type if q_figure else None,
+                'q_code_example': q_figure.code_example if q_figure else None,
+                'q_image_example': q_figure.image_example if q_figure else None,
+                'a_code_type': a_figure.code_type if a_figure else None,
+                'a_code_example': a_figure.code_example if a_figure else None,
+                'a_image_example': a_figure.image_example if a_figure else None
+            })
+
+        return response
         
     except Exception as e:
         LOGGER.error(f"An error occurred when fetching flashcard data: {e}")
-        return None
+        return []
 # ==============================================================================================================
 def view_all_categories():
     '''
