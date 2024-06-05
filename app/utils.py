@@ -2,6 +2,7 @@ import logging, os, re, mimetypes, json
 from typing import List
 
 PATH = os.path.dirname(os.path.abspath(__file__))
+IMAGE_FOLDER = os.path.join(PATH, "./static/images")
 
 logging.basicConfig(
     filename=os.path.join(PATH, '../logs/app.log'),
@@ -48,16 +49,16 @@ def save_image_file(file:object):
             LOGGER.error(f'{file.filename} extension is not supported! Extension: {file_extension}')
             return None
 
-        path = os.path.join(PATH, "../static/images")               # Path where file will be saved
-        os.makedirs(path, exist_ok=True)                            # Create path if it doesn't exist
+        # Create path if it doesn't exist
+        os.makedirs(IMAGE_FOLDER, exist_ok=True)
 
         counter = 0
-        original_file_path = os.path.join(path, f'{sanitized_name}_{counter}{file_extension}')
+        original_file_path = os.path.join(IMAGE_FOLDER, f'{sanitized_name}_{counter}{file_extension}')
         new_file_path = original_file_path
 
         # loop thru the files to ensure the saved file does not have the same name as another
         while os.path.exists(new_file_path):
-            new_file_path = os.path.join(path, f'{sanitized_name}_{counter}{file_extension}')
+            new_file_path = os.path.join(IMAGE_FOLDER, f'{sanitized_name}_{counter}{file_extension}')
             counter += 1
 
         LOGGER.info(f"Creating file: {new_file_path}")
@@ -197,10 +198,8 @@ def remove_image(filename:str):
     Output(s): None
     '''
     try:
-        # Building a path to the image directory
-        path = os.path.join(os.path.dirname(__file__), "../static/images")
         # Creating full file path
-        file_path = os.path.join(path, filename)
+        file_path = os.path.join(IMAGE_FOLDER, filename)
         
         # Check if the file exists before attempting to remove it
         if os.path.exists(file_path):
