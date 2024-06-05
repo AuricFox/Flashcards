@@ -62,6 +62,7 @@ class FlashcardForm(FlaskForm):
             self.question.errors.append("At least one question input is required!")
             return False
 
+        # Validate question figures if code is selected
         if self.q_figure_type.data == 'code':
             if self.q_image_example.data:
                 self.q_image_example.errors.append("Cannot submit an image if code is selected!")
@@ -73,6 +74,7 @@ class FlashcardForm(FlaskForm):
                     self.q_code_example.errors.append("Code example is required!")
                 return False
 
+        # Validate question figures if image is selected
         elif self.q_figure_type.data == 'image':
             if self.q_code_example.data:
                 self.q_code_example.errors.append("Cannot submit code if image is selected!")
@@ -81,6 +83,7 @@ class FlashcardForm(FlaskForm):
                 self.q_image_example.errors.append("Image is required if selected!")
                 return False
 
+        # Validate question figures if none is selected
         elif self.q_figure_type.data == 'none':
             if self.q_code_example.data or self.q_image_example.data:
                 if self.q_code_example.data:
@@ -94,6 +97,7 @@ class FlashcardForm(FlaskForm):
             self.answer.errors.append("At least one answer input is required!")
             return False
 
+        # Validate anwser figures if code is selected
         if self.a_figure_type.data == 'code':
             if self.a_image_example.data:
                 self.a_image_example.errors.append("Cannot submit an image if code is selected!")
@@ -105,6 +109,7 @@ class FlashcardForm(FlaskForm):
                     self.a_code_example.errors.append("Code example is required!")
                 return False
 
+        # Validate anwser figures if image is selected
         elif self.a_figure_type.data == 'image':
             if self.a_code_example.data:
                 self.a_code_example.errors.append("Cannot submit code if image is selected!")
@@ -113,6 +118,7 @@ class FlashcardForm(FlaskForm):
                 self.a_image_example.errors.append("Image is required if selected!")
                 return False
 
+        # Validate anwser figures if none is selected
         elif self.a_figure_type.data == 'none':
             if self.a_code_example.data or self.a_image_example.data:
                 if self.a_code_example.data:
