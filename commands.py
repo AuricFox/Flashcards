@@ -13,10 +13,10 @@ def init_database():
     """Initializes database and cleans up old tables"""
     try:
         print("Initializing Database ...")
-        with app.app_context():
-            db.drop_all()
-            db.create_all()
-            LOGGER.info(f"Successfully initialized the database!")
+        
+        db.drop_all()
+        db.create_all()
+        LOGGER.info(f"Successfully initialized the database!")
         return 0
     
     except Exception as e:
