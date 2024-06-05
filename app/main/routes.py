@@ -1,8 +1,8 @@
-from flask import render_template, url_for, redirect, request, flash
+from flask import render_template
 
 from app.main import bp
 from app.utils import LOGGER
-from app.database import view_allcategories, view_allcards
+from app.models.flashcard_model import view_all_categories, view_all_cards
 
 # ==============================================================================================================
 @bp.route("/")
@@ -18,7 +18,7 @@ def index():
         a built html page that displays the categories and their count
     '''
     # Query database for all categories and their counts
-    categories = view_allcategories()
+    categories = view_all_categories()
 
     return render_template('home.html', nav_id="home-page", categories=categories)
 
@@ -35,9 +35,7 @@ def flashcard(category):
         a built html page that displays the flashcards
     '''
     # Query database for questions related to specified category
-    data = view_allcards(category=category)
-    length = len(data['questions'])
+    flashcards = view_all_cards(category=category)
+    categories = view_all_categories()
 
-    categories = view_allcategories()
-
-    return render_template('flashcards.html', nav_id="flashcard-page", data=data, length=length, categories=categories)
+    return render_template('flashcards.html', nav_id="flashcard-page", flashcards=flashcards, categories=categories)
