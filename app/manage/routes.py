@@ -6,7 +6,7 @@ from app.utils import LOGGER
 
 from app.forms.flashcard_form import FlashcardForm
 from app.forms.search_form import SearchForm
-from app.models.flashcard_model import FlashcardModel, view_all_cards, view_all_categories
+from app.models.flashcard_model import FlashcardModel, view_all_cards, view_all_categories, view_card
 
 # ==============================================================================================================
 @bp.route("/", methods=['GET', 'POST'])
@@ -110,7 +110,7 @@ def view_flashcard(id):
     '''
     try:
         # Query database for flashcard data
-        flashcard = FlashcardModel.query.get_or_404(id)
+        flashcard = view_card(id)
         categories = view_all_categories()
 
         return render_template('./manage/view_flashcard.html', nav_id="manage-page", flashcard=flashcard, categories=categories)
