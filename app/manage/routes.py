@@ -6,7 +6,7 @@ from app.utils import LOGGER
 
 from app.forms.flashcard_form import FlashcardForm
 from app.forms.search_form import SearchForm
-from app.models.flashcard_model import FlashcardModel, view_all_cards, view_all_categories, view_card
+from app.models.flashcard_model import FlashcardModel, view_all_cards, view_all_categories
 
 # ==============================================================================================================
 @bp.route("/", methods=['GET', 'POST'])
@@ -110,10 +110,10 @@ def view_flashcard(id):
     '''
     try:
         # Query database for flashcard data
-        flashcard = view_card(id)
+        flashcard = FlashcardModel.query.get_or_404(id)
         categories = view_all_categories()
 
-        return render_template('./manage/view_flashcard.html', nav_id="manage-page", flashcard=flashcard, categories=categories)
+        return render_template('./manage/view_flashcard.html', nav_id="manage-page", flashcard=flashcard.view(), categories=categories)
     
     except Exception as e:
         LOGGER.error(f"An error occurred when trying to view flashcard {id}: {e}")
@@ -134,10 +134,20 @@ def edit_flashcard(id):
     try:
         flashcard = FlashcardModel.query.get_or_404(id)
         if not flashcard:
-            raise Exception("Record not found!")
+            raise Exception(f"Flashcard {id} not found!")
         
         form = FlashcardForm(request.form)
         if form.validate_on_submit():
+
+            # Get image input for question, set it to the old image if there is none
+            q_image = request.files.get('q_image_example')
+            if form.q_figure_type.data == 'image' and not q_image:
+                q_image = form.q_old_image.data
+
+            # Get image input for answer, set it to the old image if there is none
+            a_image = request.files.get('a_image_example')
+            if form.a_figure_type.data == 'image' and not a_image:
+                a_image = form.a_old_image.data
 
             # Update flashcard data
             status = flashcard.update(
@@ -146,10 +156,10 @@ def edit_flashcard(id):
                 answer=form.answer.data, 
                 q_code_type=form.q_code_type.data,
                 q_code_example=form.q_code_example.data,
-                q_image_example=request.files.get('q_image_example'), 
+                q_image_example=q_image, 
                 a_code_type=form.a_code_type.data,
                 a_code_example=form.a_code_example.data,
-                a_image_example=request.files.get('a_image_example')
+                a_image_example=a_image
             )
 
             #check if the update was successful
@@ -160,7 +170,7 @@ def edit_flashcard(id):
             return redirect(url_for('manage.index'))
 
         categories = view_all_categories()
-        return render_template('./manage/edit_flashcard.html', nav_id="manage-page", flashcard=flashcard, categories=categories, form=form)
+        return render_template('./manage/edit_flashcard.html', nav_id="manage-page", flashcard=flashcard.view(), categories=categories, form=form)
                     
     except Exception as e:
         db.session.rollback()
