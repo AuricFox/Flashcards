@@ -3,7 +3,6 @@
 {% block title %}Add Flashcard{% endblock %}
 
 {% block content %}
-
 <div class="record-form">
 
     <form action="{{ url_for('manage.add_flashcard') }}" method="post" enctype="multipart/form-data">
@@ -41,18 +40,23 @@
         <div class="form-topic">
             <div class="title">Would you like to add code or an image for the question?</div>
             <div class="radio-input">
-                <input type="radio" id="q-code-selection" name="q-figure-type" value="code">
+                <input type="radio" id="q-code-selection" name="q_figure_type" value="code">
                 <label for="q-code-selection">Code</label>
-                <input type="radio" id="q-image-selection" name="q-figure-type" value="image">
+                <input type="radio" id="q-image-selection" name="q_figure_type" value="image">
                 <label for="q-image-selection">Image</label>
-                <input type="radio" id="q-none-type" name="q-figure-type" value="none" checked>
+                <input type="radio" id="q-none-type" name="q_figure_type" value="none" checked>
                 <label for="q-none-type">None</label>
             </div>
         </div>
 
         <div class="form-topic" id="q-code-section" style="display: none;">
             <div class="title">Question Code Type</div>
-            <input type="text" name="q_code_type" id="q_code_type" list="code_type">
+            {% if form.q_code_type.errors %}
+                <input type="text" class="error-element" name="q_code_type" id="q_code_type" list="code_type">
+                <p class="error-message">{{ form.q_code_type.errors[0] }}</p>
+            {% else %}
+                <input type="text" name="q_code_type" id="q_code_type" list="code_type">
+            {% endif %}
             <datalist id="code_type">
                 <option value="c">C</option>
                 <option value="cpp">C++</option>
@@ -65,7 +69,12 @@
                 <option value="sql">SQL</option>
             </datalist>
             <div class="title">Question Code Example</div>
-            <textarea id="q_code_example" name="q_code_example" rows="6"></textarea>
+            {% if form.q_code_example.errors %}
+                <textarea class="error-element" id="q_code_example" name="q_code_example" rows="6"></textarea>
+                <p class="error-message">{{ form.q_code_example.errors[0] }}</p>
+            {% else %}
+                <textarea id="q_code_example" name="q_code_example" rows="6"></textarea>
+            {% endif %}
         </div>
 
         <div class="form-topic" id="q-image-section" style="display: none;">
@@ -82,18 +91,23 @@
         <div class="form-topic">
             <div class="title">Would you like to add code or an image for the answer?</div>
             <div class="radio-input">
-                <input type="radio" id="a-code-selection" name="a-figure-type" value="code">
+                <input type="radio" id="a-code-selection" name="a_figure_type" value="code">
                 <label for="a-code-selection">Code</label>
-                <input type="radio" id="a-image-selection" name="a-figure-type" value="image">
+                <input type="radio" id="a-image-selection" name="a_figure_type" value="image">
                 <label for="a-image-selection">Image</label>
-                <input type="radio" id="a-none-type" name="a-figure-type" value="none" checked>
+                <input type="radio" id="a-none-type" name="a_figure_type" value="none" checked>
                 <label for="a-none-type">None</label>
             </div>
         </div>
 
         <div class="form-topic" id="a-code-section" style="display: none;">
             <div class="title">Answer Code Type</div>
-            <input type="text" name="a_code_type" id="a_code_type" list="code_type">
+            {% if form.a_code_type.errors %}
+                <input type="text" class="error-element" name="a_code_type" id="a_code_type" list="code_type">
+                <p class="error-message">{{ form.a_code_type.errors[0] }}</p>
+            {% else %}
+                <input type="text" name="a_code_type" id="a_code_type" list="code_type">
+            {% endif %}
             <datalist id="code_type">
                 <option value="c">C</option>
                 <option value="cpp">C++</option>
@@ -106,7 +120,12 @@
                 <option value="sql">SQL</option>
             </datalist>
             <div class="title">Answer Code Example</div>
-            <textarea id="a_code_example" name="a_code_example" rows="6"></textarea>
+            {% if form.a_code_example.errors %}
+                <textarea class="error-element" id="a_code_example" name="a_code_example" rows="6"></textarea>
+                <p class="error-message">{{ form.a_code_example.errors[0] }}</p>
+            {% else %}
+                <textarea id="a_code_example" name="a_code_example" rows="6"></textarea>
+            {% endif %}
         </div>
 
         <div class="form-topic" id="a-image-section" style="display: none;">
@@ -122,7 +141,5 @@
         <button class="edit-btn" type="submit">Add Flashcard</button>
 
     </form>
-
 </div>
-
 {% endblock %}
