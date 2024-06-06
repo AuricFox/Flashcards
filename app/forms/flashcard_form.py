@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, FileField, RadioField
+from wtforms import StringField, TextAreaField, FileField, RadioField, HiddenField
 from wtforms.validators import DataRequired, Optional, Length
 
 class FlashcardForm(FlaskForm):
@@ -32,6 +32,10 @@ class FlashcardForm(FlaskForm):
         "Question Image", validators=[Optional()]
     )
 
+    q_old_image = StringField(
+        "Old Question Image", validators=[Optional()]
+    )
+
     a_figure_type = RadioField('Answer Figure Type', choices=[
         ('code', 'Code'),
         ('image', 'Image'),
@@ -46,6 +50,9 @@ class FlashcardForm(FlaskForm):
     )
     a_image_example = FileField(
         "Answer Image", validators=[Optional()]
+    )
+    a_old_image = StringField(
+        "Old Answer Image", validators=[Optional()]
     )
 
     # ==============================================================================================================
@@ -78,7 +85,7 @@ class FlashcardForm(FlaskForm):
             if self.q_code_example.data:
                 self.q_code_example.errors.append("Cannot submit code if image is selected!")
                 return False
-            if not self.q_image_example.data:
+            if not self.q_image_example.data and not self.q_old_image:
                 self.q_image_example.errors.append("Image is required if selected!")
                 return False
         # Validate question figures if none is selected
@@ -111,7 +118,7 @@ class FlashcardForm(FlaskForm):
             if self.a_code_example.data:
                 self.a_code_example.errors.append("Cannot submit code if image is selected!")
                 return False
-            if not self.a_image_example.data:
+            if not self.a_image_example.data and not self.a_old_image:
                 self.a_image_example.errors.append("Image is required if selected!")
                 return False
         # Validate anwser figures if none is selected
