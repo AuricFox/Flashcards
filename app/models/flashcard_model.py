@@ -81,8 +81,8 @@ class FigureModel(db.Model):
                     remove_image(self.image_example)
                     self.image_example
             
-            # Update image example if there is one
-            if image_example:
+            # Update image example if there is a new images
+            if image_example and not isinstance(image_example, str):
                 file = save_image_file(image_example)
                 # Check if a filename is returned
                 if not file: 
@@ -93,10 +93,14 @@ class FigureModel(db.Model):
                 self.image_example = file
                 self.code_type = None
                 self.code_example = None
+            # Check if the image example is the old image
+            elif image_example and isinstance(image_example, str):
+                if self.image_example != image_example:
+                    raise Exception("Invalid image filename!")
 
             db.session.flush()
             db.session.commit()
-            LOGGER.info(f"Successfully updated figure {self.id}!")
+            LOGGER.info(f"Successfully updated figure {self.id}")
             return True
 
         except Exception as e:
@@ -218,6 +222,55 @@ class FlashcardModel(db.Model):
         except Exception as e:
             db.session.rollback()
             LOGGER.error(f"An error occurred when entering flashcard data into the database: {e}")
+    #-----------------------------------------------------------------------------------------------------------
+    def view(self):
+        '''
+        Fetches the flashcard data for viewing
+
+        Parameter(s): None
+
+        Output(s):
+            response (dict): a dictionary of the Flashcard data if successful, else None
+
+            response = {
+                'id':int, 
+                'category':str, 
+                'question':str, 
+                'answer':str, 
+                'q_code_type':str,
+                'q_code_example':str,
+                'q_image_example':str,
+                'a_code_type':str,
+                'a_code_example':str,
+                'a_image_example':str
+            }
+        '''
+        try:
+            response = {}
+
+            # Get flashcard figures if there are any
+            q_figure = FigureModel.query.get(self.q_figure) if self.q_figure else None
+            a_figure = FigureModel.query.get(self.a_figure) if self.a_figure else None
+
+            response = {
+                'id': self.id,
+                'category': self.category,
+                'question': self.question,
+                'answer': self.answer,
+                'q_code_type': q_figure.code_type if q_figure else None,
+                'q_code_example': q_figure.code_example if q_figure else None,
+                'q_image_example': q_figure.image_example if q_figure else None,
+                'a_code_type': a_figure.code_type if a_figure else None,
+                'a_code_example': a_figure.code_example if a_figure else None,
+                'a_image_example': a_figure.image_example if a_figure else None
+            }
+
+            return response
+        
+        except Exception as e:
+            LOGGER.error(f"An error occurred when fetching flashcard {self.id} data: {e}")
+            return None
+
     #-----------------------------------------------------------------------------------------------------------
     def update(
         self,
@@ -429,55 +482,3 @@ def view_all_categories():
     except Exception as e:
         LOGGER.error(f"An error occurred when fetching categories from the database: {e}")
         return None
-# ==============================================================================================================
-def view_card(id:int):
-    '''
-    Fetches the flashcard data for viewing
-    
-    Parameter(s):
-        id (int): the id of the flashcard
-        
-    Output(s):
-        response (dict): a dictionary of the Flashcard data if found, None otherwise
-
-        response = {
-            'id':int, 
-            'category':str, 
-            'question':str, 
-            'answer':str, 
-            'q_code_type':str,
-            'q_code_example':str,
-            'q_image_example':str,
-            'a_code_type':str,
-            'a_code_example':str,
-            'a_image_example':str
-        }
-    '''
-    try:
-        response = {}
-        flashcard = FlashcardModel.query.get_or_404(id)
-        
-        if flashcard:
-
-            # Get flashcard figures if there are any
-            q_figure = FigureModel.query.get(flashcard.q_figure) if flashcard.q_figure else None
-            a_figure = FigureModel.query.get(flashcard.a_figure) if flashcard.a_figure else None
-
-            response = {
-                'id': flashcard.id,
-                'category': flashcard.category,
-                'question': flashcard.question,
-                'answer': flashcard.answer,
-                'q_code_type': q_figure.code_type if q_figure else None,
-                'q_code_example': q_figure.code_example if q_figure else None,
-                'q_image_example': q_figure.image_example if q_figure else None,
-                'a_code_type': a_figure.code_type if a_figure else None,
-                'a_code_example': a_figure.code_example if a_figure else None,
-                'a_image_example': a_figure.image_example if a_figure else None
-            }
-
-        return response
-        
-    except Exception as e:
-        LOGGER.error(f"An error occurred when fetching flashcard data: {e}")
-        return {}
