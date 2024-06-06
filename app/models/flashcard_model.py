@@ -43,6 +43,7 @@ class FigureModel(db.Model):
                     self.image_example = file
             
             db.session.add(self)
+            db.session.flush()
             db.session.commit()
             LOGGER.info(f"Successfully created figure!")
             
@@ -93,6 +94,7 @@ class FigureModel(db.Model):
                 self.code_type = None
                 self.code_example = None
 
+            db.session.flush()
             db.session.commit()
             LOGGER.info(f"Successfully updated figure {self.id}!")
             return True
@@ -116,6 +118,7 @@ class FigureModel(db.Model):
                 remove_image(self.image_example)
 
             db.session.delete(self)
+            db.session.flush()
             db.session.commit()
 
             LOGGER.info(f"Successfully Deleted figure {self.id} from the database!")
@@ -180,7 +183,7 @@ class FlashcardModel(db.Model):
                 raise Exception("No answer inputs!")
             
             # Process question figures
-            elif q_code_example or q_image_example:
+            if q_code_example or q_image_example:
                 q_figure = FigureModel(
                     code_type=q_code_type, 
                     code_example=q_code_example,
@@ -192,7 +195,7 @@ class FlashcardModel(db.Model):
                     self.q_figure = q_figure.id
 
             # Process answer figures
-            elif a_code_example or a_image_example:
+            if a_code_example or a_image_example:
                 f_figure = FigureModel(
                     code_type=a_code_type, 
                     code_example=a_code_example,
@@ -208,8 +211,9 @@ class FlashcardModel(db.Model):
             self.answer = answer
 
             db.session.add(self)
+            db.session.flush()
             db.session.commit()
-            LOGGER.info(f"Successfully created flashcard!")
+            LOGGER.info(f"Successfully created flashcard: {self.id}")
 
         except Exception as e:
             db.session.rollback()
@@ -293,6 +297,7 @@ class FlashcardModel(db.Model):
                 
                 self.a_figure = a_figure.id
 
+            db.session.flush()
             db.session.commit()
             LOGGER.info(f"Successfully updated flashcard ID: {self.id}")
             return True
@@ -320,6 +325,7 @@ class FlashcardModel(db.Model):
                 figure.delete()
 
             db.session.delete(self)
+            db.session.flush()
             db.session.commit()
 
             LOGGER.info(f"Successfully deleted flashcard {self.id} from the database!")
