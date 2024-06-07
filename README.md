@@ -37,7 +37,7 @@ To get started with Flashcards, follow these steps:
 
 4. **Install Dependencies:**
     ```
-    pip install Flask FLask-WTF Flask-SQLAlchemy tabulate python-dotenv
+    pip install Flask FLask-WTF Flask-SQLAlchemy Flask-Testing python-dotenv
     ```
 
 5. **Run Server:**
@@ -51,7 +51,17 @@ To get started with Flashcards, follow these steps:
 
 ### Creating Tables
 
-The tables have not yet been added to the database and need to be created.
+The tables have not yet been added to the database and need to be created. Execute the following command from the base directory in the command-line:
+```
+python commands.py create_database
+```
+
+If the database needs to be re-initialized, then enter the following script into the command-line from the base directory:
+```
+python commands.py clear_database
+```
+
+Creating and clearing the database can also be accomplished in the flash shell. This is done by following these steps:
 
 1. Open the Flask shell to create a table:  
 ```
@@ -61,19 +71,13 @@ flask shell
 2. Run the folling code to create the table:  
 ```
 from app.extensions import db
-```
-```
 from app.models.flashcard_model import FlashcardModel, FigureModel
-```
-```
 db.create_all()
 ```
 
 3. To Update or Delete tables:
 ```
 db.drop_all()
-```
-```
 db.create_all()
 ```
 
