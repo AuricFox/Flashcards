@@ -6,9 +6,9 @@ Flashcards is a program designed to assist with memorizing terms for tests or in
 
 - **Flashcards for Interview Preparation**: Create and review flashcards tailored for job interviews, covering a wide range of topics from technical questions to behavioral inquiries.
 
-- **Knowledge Refresh**: Use the flashcards to reinforce and refresh your memory, ensuring you are well-prepared for tests or exams. The flashcards can be used for subject or topic such as math, chemistry, biology, etc.
+- **Knowledge Refresh**: Use the flashcards to reinforce and refresh your memory, ensuring you are well-prepared for tests or exams. The flashcards can be used for topics such as math, chemistry, biology, etc.
 
-- **Server-Side**: The server-side of IFlashcards is powered by Flask, providing a lightweight and efficient web framework. SQLite3 is used as the database to manage flashcards and user data.
+- **Server-Side**: The server-side of Flashcards is powered by Flask, providing a lightweight and efficient web framework. SQLAlchemy is used to manage the database containing the flashcards and user data.
 
 - **Client-Side**: The client-side interface is built using a combination of HTML, CSS, and JavaScript, offering a seamless and interactive user experience.
 
@@ -91,13 +91,13 @@ exit()
 Stores blocks of code, the coding language, or the filename of the image for figures related to any flashcards. Currently, users can 
 only store one type (image or code/type) to prevent the flashcard from getting cluttered.
 
-|**fid**|code_block |code_type |image_file |
+|**fid**|code_example |code_type |image_example |
 |:-----:|:---------:|:--------:|:---------:|
 
 - **fid (INTEGER)**: An autoincremented primary key.
-- **code_block (TEXT)**: A block or snippet of code.
+- **code_example (TEXT)**: A block or snippet of code.
 - **code_type (TEXT)**: The language that the code block is written in.
-- **image_file (TEXT)**: A filename, not path, of the stored image.
+- **image_example (TEXT)**: A filename, not path, of the stored image.
 
 ### Flashcards Table
 
