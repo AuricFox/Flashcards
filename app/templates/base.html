@@ -22,8 +22,8 @@
                 <div>
                     <div class="dropbtn nav-tile {% if nav_id == 'flashcard-page' %}active{% endif %}">Flashcards</div>
                     <div class="dropdown-element" style="display: none;">
-                        {% for category in categories %}
-                            <a class="dropbtn nav-tile" href="{{ url_for('main.flashcard', category=category) | escape }}">{{ category[0] | escape }}</a>
+                        {% for category, count in categories.items() %}
+                            <a class="dropbtn nav-tile" href="{{ url_for('main.flashcard', category=category) | escape }}">{{ category | escape }}</a>
                         {% endfor %}
                     </div>
                 </div>

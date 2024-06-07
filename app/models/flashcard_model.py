@@ -467,18 +467,22 @@ def view_all_categories():
     Parameter(s): None
     
     Output(s):
-        response (List): a list of tuples containing the question category and its count if successful, none otherwise
+        response (dict): a dictionary containing the question category and its count if successful, else an empty list
 
-        response = [(category, count), ... ]
+        response = {category: count, ... }
     '''
     try:
-        response = db.session.query(
+        categories = db.session.query(
             FlashcardModel.category, 
             func.count(FlashcardModel.id)
         ).group_by(FlashcardModel.category).all()
+
+        response = {}
+        for category in categories:
+            response[category[0]] = category[1]
 
         return response
 
     except Exception as e:
         LOGGER.error(f"An error occurred when fetching categories from the database: {e}")
-        return None
+        return {}
