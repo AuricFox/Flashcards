@@ -2,6 +2,8 @@
 
 Flashcards is a program designed to assist with memorizing terms for tests or interviews. The application utilizes Python for the server-side functionality and HTML/CSS/JavaScript for the client-side user interface.
 
+![Home Page](home_page.jpg "Home Page")
+
 ## Features
 
 - **Flashcards for Interview Preparation**: Create and review flashcards tailored for job interviews, covering a wide range of topics from technical questions to behavioral inquiries.
