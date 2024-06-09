@@ -2,7 +2,7 @@ from flask_testing import TestCase
 
 from app import init_app
 
-from app.utils import remove_images
+from app.utils import remove_image
 from app.extensions import db
 from app.models.flashcard_model import FlashcardModel, FigureModel
 
