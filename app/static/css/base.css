@@ -562,7 +562,7 @@ body {
 .flash-button {
     border-radius: 2rem;
     border: none;
-    box-shadow: 3px 3px 4px #000;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
     width: 4rem;
     padding: 5px 15px;
     position: relative;
@@ -575,8 +575,8 @@ body {
     width: 2rem;
     padding: 3px 5px;
     margin: 1rem;
-    background-color: #bbbaba;
-    box-shadow: 1px 1px 8px #4b4b4b;
+    background-color: #512da8;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
     position: absolute;
     right: 0;
     top: 0;
@@ -590,14 +590,16 @@ body {
     max-width: 90%;
     min-width: 50%;
     padding: 2rem;
-    background-color: #eeecec;
+    color: #FFFFFF;
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 4px;
     box-shadow: 2px 2px 8px #000;
     white-space: pre-line;
 }
 
 .question-button:hover {
-    background-color: #f1f1f1;
+    transition: 0.5s;
+    background-color: #8b73c2;
 }
 
 .question-button:hover + .question-window {
@@ -606,13 +608,14 @@ body {
 
 #previous-button, 
 #next-button {
-    background-color: #0d4600;
+    background-color: #512da8;
 }
 
 #previous-button:hover,
 #next-button:hover {
+    transition: 0.5s;
     cursor: pointer;
-    background-color: #267315;
+    background-color: #8b73c2;
 }
 
 .buttons {
@@ -631,6 +634,7 @@ body {
 }
 
 #shuffle-button:hover {
+    transition: 0.5s;
     cursor: pointer;
     background-color: rgb(123, 123, 253);
 }
