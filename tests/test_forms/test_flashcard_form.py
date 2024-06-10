@@ -4,7 +4,7 @@ from tests.base_test import BaseTestCase
 
 from app.forms.flashcard_form import FlashcardForm
 
-class Test_Default_Form(BaseTestCase):
+class Test_Flashcard_Form(BaseTestCase):
 
     def test_1_flashcard_form(self):
         '''

@@ -50,6 +50,7 @@ class FigureModel(db.Model):
         except Exception as e:
             db.session.rollback()
             LOGGER.error(f"An error occurred when entering figure data into the database: {e}")
+            raise
     #-----------------------------------------------------------------------------------------------------------
     def update(self, code_type:str=None, code_example:str=None, image_example:str=None):
         '''
@@ -187,7 +188,7 @@ class FlashcardModel(db.Model):
                 raise Exception("No answer inputs!")
             
             # Process question figures
-            if q_code_example or q_image_example:
+            if q_code_type or q_code_example or q_image_example:
                 q_figure = FigureModel(
                     code_type=q_code_type, 
                     code_example=q_code_example,
@@ -199,7 +200,7 @@ class FlashcardModel(db.Model):
                     self.q_figure = q_figure.id
 
             # Process answer figures
-            if a_code_example or a_image_example:
+            if a_code_type or a_code_example or a_image_example:
                 f_figure = FigureModel(
                     code_type=a_code_type, 
                     code_example=a_code_example,
@@ -222,6 +223,7 @@ class FlashcardModel(db.Model):
         except Exception as e:
             db.session.rollback()
             LOGGER.error(f"An error occurred when entering flashcard data into the database: {e}")
+            raise
     #-----------------------------------------------------------------------------------------------------------
     def view(self):
         '''

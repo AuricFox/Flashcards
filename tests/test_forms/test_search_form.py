@@ -4,7 +4,7 @@ from tests.base_test import BaseTestCase
 
 from app.forms.search_form import SearchForm
 
-class Test_Default_Form(BaseTestCase):
+class Test_Search_Form(BaseTestCase):
 
     def test_1_search_form(self):
         '''
