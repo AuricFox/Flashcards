@@ -2,7 +2,7 @@ import unittest, click
 from flask.cli import FlaskGroup
 
 import app
-from app.utils import LOGGER
+from app.utils import LOGGER, from_json
 from app.extensions import db
 from app.models.flashcard_model import FlashcardModel, FigureModel
 
@@ -122,6 +122,45 @@ def test_forms(model_name):
         return 0
     else:
         return 1
+# ============================================================================================================== 
+@cli.command("import_json")
+@click.argument('filename', required=False)
+def import_json(filename):
+    '''
+    Runs the unit tests for models: FlashcardModel, FigureModel
+    '''
+    try:
+        if not filename:
+            # NOTE: file must be in the data directory and named data.json
+            print("Importing JSON File: data.json ...")
+            LOGGER.info("Importing JSON File: data.json ...")
+            data = from_json()
+        else:
+            print(f"Importing JSON File: {filename} ...")
+            LOGGER.info(f"Importing JSON File: {filename} ...")
+            data = from_json(filename=filename)
+
+        for card in data:
+            FlashcardModel(
+                category=card['category'],
+                question=card['question'],
+                answer=card['answer'],
+                q_code_type=card['q_code_type'],
+                q_code_example=card['q_code_block'],
+                a_code_type=card['a_code_type'],
+                a_code_example=card['a_code_block'],
+            )
+
+        print(f"Successfully imported JSON file.")
+        LOGGER.info(f"Successfully imported JSON file.")
+        return 0
     
+    except Exception as e:
+        print(f"Failed to import JSON file: {e}")
+        LOGGER.error(f"Failed to import JSON file: {e}")
+        return 1
+
+
+
 if __name__ == "__main__":
     cli()
