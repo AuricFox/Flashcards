@@ -1,8 +1,11 @@
 import logging, os, re, mimetypes, json
 from typing import List
 
+
+
 PATH = os.path.dirname(os.path.abspath(__file__))
 IMAGE_FOLDER = os.path.join(PATH, "./static/images")
+DATA_FOLDER = os.path.join(PATH, "../data")
 
 logging.basicConfig(
     filename=os.path.join(PATH, '../logs/app.log'),
@@ -112,7 +115,7 @@ def verify_file(file:str):
         return False
 
 # ========================================================================================================================================  
-def make_json(data:dict, filename:str='data.json'):
+def to_json(data:dict, filename:str='data.json'):
     '''
     Takes in a dictionary and writes the data to a json file
     
@@ -138,8 +141,37 @@ def make_json(data:dict, filename:str='data.json'):
         LOGGER.error(f"Permission error when saving data to {filename}!")
     except Exception as e:
         LOGGER.error(f"Failed to save data to {file_path}: {str(e)}")
+
+# ======================================================================================================================================== 
+def from_json(filename:str=os.path.join(DATA_FOLDER, "data.json")):
+    '''
+    Imports data from a JSON file and adds it to the database
     
-# ==============================================================================================================
+    Parameter(s):
+        filename (str): name of the JSON file being imported
+    
+    Output(s):
+        a dictionary list if successful, else raises an error
+    '''
+    try:
+        LOGGER.info(f"Migrating data from JSON file: {filename} to database ...")
+
+        with open(filename, 'r') as file:
+            data = json.load(file)
+        
+        return data['questions']
+        
+    except json.JSONDecodeError:
+        LOGGER.error(f"Error: {filename} is not a valid JSON file.")
+        raise
+    except FileNotFoundError:
+        LOGGER.error(f"Error: {filename} was not found.")
+        raise
+    except Exception as e:
+        LOGGER.error(f"An error occurred when migrating data from JSON file={filename} to database: {e}")
+        raise
+
+# ======================================================================================================================================== 
 def process_figure(request, f:str):
     '''
     Processes figure data that includes code or images. New images are saved while old images do nothing. Code 
