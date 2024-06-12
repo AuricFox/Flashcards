@@ -110,14 +110,20 @@ def view_flashcard(id):
     '''
     try:
         # Query database for flashcard data
-        flashcard = FlashcardModel.query.get_or_404(id)
+        flashcard = FlashcardModel.query.get(id)
+
+        if not flashcard:
+            LOGGER.error(f"Flashcard {id} not found!")
+            categories = view_all_categories()
+            return render_template('404.html', nav_id="home-page", categories=categories), 404
+
         categories = view_all_categories()
 
         return render_template('./manage/view_flashcard.html', nav_id="manage-page", flashcard=flashcard.view(), categories=categories)
     
     except Exception as e:
         LOGGER.error(f"An error occurred when trying to view flashcard {id}: {e}")
-        return render_template('404.html'), 404
+        return redirect(url_for('manage.index'))
 
 # ==============================================================================================================
 @bp.route("/edit_flashcard/<id>", methods=['GET', 'POST'])
@@ -132,9 +138,12 @@ def edit_flashcard(id):
         a built html page that displays the flashcard data for editing
     '''
     try:
-        flashcard = FlashcardModel.query.get_or_404(id)
+        flashcard = FlashcardModel.query.get(id)
+
         if not flashcard:
-            raise Exception(f"Flashcard {id} not found!")
+            LOGGER.error(f"Flashcard {id} not found!")
+            categories = view_all_categories()
+            return render_template('404.html', nav_id="home-page", categories=categories), 404
         
         form = FlashcardForm(request.form)
         if form.validate_on_submit():
@@ -188,7 +197,11 @@ def delete_flashcard(id):
     '''
     try:
         # Query database for flashcard
-        flashcard = FlashcardModel.query.get_or_404(id)
+        flashcard = FlashcardModel.query.get(id)
+
+        if not flashcard:
+            raise Exception(f"Flashcard {id} not found!")
+        
         flashcard.delete()
 
         LOGGER.info(f"Flashcard question key {id} was successfully deleted!")
