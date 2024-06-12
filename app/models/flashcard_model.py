@@ -199,15 +199,15 @@ class FlashcardModel(db.Model):
 
             # Process answer figures
             if a_code_type or a_code_example or a_image_example:
-                f_figure = FigureModel(
+                a_figure = FigureModel(
                     code_type=a_code_type, 
                     code_example=a_code_example,
                     image_example=a_image_example)
                 
-                if not f_figure:
+                if not a_figure:
                     raise Exception("Failed to save code or image figure for answer!")
                 else:
-                    self.a_figure = f_figure.id
+                    self.a_figure = a_figure.id
 
             self.category = category
             self.question = question
