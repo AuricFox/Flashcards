@@ -74,7 +74,7 @@ def add_flashcard():
         form = FlashcardForm(request.form)
         if form.validate_on_submit():
 
-            new_flashcard = FlashcardModel(
+            FlashcardModel(
                 category=form.category.data,
                 question=form.question.data,
                 answer=form.answer.data,
@@ -150,7 +150,7 @@ def edit_flashcard(id):
                 a_image = form.a_old_image.data
 
             # Update flashcard data
-            status = flashcard.update(
+            flashcard.update(
                 category=form.category.data, 
                 question=form.question.data, 
                 answer=form.answer.data, 
@@ -161,10 +161,6 @@ def edit_flashcard(id):
                 a_code_example=form.a_code_example.data,
                 a_image_example=a_image
             )
-
-            #check if the update was successful
-            if not status:
-                raise Exception(f"Flashcard {id} update failed!")
 
             LOGGER.info(f"Successfully edited flashcard: {id}")
             return redirect(url_for('manage.index'))
@@ -193,13 +189,10 @@ def delete_flashcard(id):
     try:
         # Query database for flashcard
         flashcard = FlashcardModel.query.get_or_404(id)
-        success = flashcard.delete()
+        flashcard.delete()
 
-        if success:
-            LOGGER.info(f"Flashcard question key {id} was successfully deleted!")
-            flash("Flashcard was successfully deleted!", "success")
-        else:
-            raise Exception(f"Deletion of flashcard {id} failed!")
+        LOGGER.info(f"Flashcard question key {id} was successfully deleted!")
+        flash("Flashcard was successfully deleted!", "success")
     
     except Exception as e:
         LOGGER.error(f'An Error occured when deleting the flashcard: {str(e)}')
