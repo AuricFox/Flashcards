@@ -49,6 +49,26 @@ To get started with Flashcards, follow these steps:
 
     The server will start running, and you can access the application by navigating to `http://localhost:5000` in your web browser.
 
+## Running Tests
+
+The models, forms, and routes can be tested individually or all together with the test cases located in the `tests` directory. To run all the 
+tests execute the following command in the terminal from the base directory:
+```
+python commands.py tests
+```
+Model Tests:
+```
+python commands.py test_models
+```
+Form Tests:
+```
+python commands.py test_forms
+```
+Route Tests:
+```
+python commands.py test_routes
+```
+
 ## Database
 
 ### Creating Tables
