@@ -287,10 +287,15 @@ class Test_Flashcard_Delete(BaseTestCase):
             answer='This is an answer example.'
         )
 
-        status = flashcard.delete()
-        self.assertTrue(status)
+        db_flashcard = fm.query.get(flashcard.id)
+        self.assertTrue(db_flashcard != None)
+
+        flashcard.delete()
+
+        db_flashcard = fm.query.get(flashcard.id)
+        self.assertTrue(db_flashcard == None)
     #-----------------------------------------------------------------------------------------------------------
-    def test_3_flashcard_update(self):
+    def test_2_flashcard_delete(self):
         '''Test the delete method with code figures'''
         flashcard = fm(
             category='Test Category',
@@ -302,5 +307,10 @@ class Test_Flashcard_Delete(BaseTestCase):
             a_code_example="print('This is an answer example!')"
         )
 
-        status = flashcard.delete()
-        self.assertTrue(status)
+        db_flashcard = fm.query.get(flashcard.id)
+        self.assertTrue(db_flashcard != None)
+
+        flashcard.delete()
+
+        db_flashcard = fm.query.get(flashcard.id)
+        self.assertTrue(db_flashcard == None)
