@@ -93,10 +93,10 @@ exit()
 Stores blocks of code, the coding language, or the filename of the image for figures related to any flashcards. Currently, users can 
 only store one type (image or code/type) to prevent the flashcard from getting cluttered.
 
-|**fid**|code_example |code_type |image_example |
-|:-----:|:---------:|:--------:|:---------:|
+|**id**|code_example |code_type |image_example |
+|:----:|:-----------:|:--------:|:------------:|
 
-- **fid (INTEGER)**: An autoincremented primary key.
+- **id (INTEGER)**: An autoincremented primary key.
 - **code_example (TEXT)**: A block or snippet of code.
 - **code_type (TEXT)**: The language that the code block is written in.
 - **image_example (TEXT)**: A filename, not path, of the stored image.
@@ -106,15 +106,15 @@ only store one type (image or code/type) to prevent the flashcard from getting c
 Stores the flashcard infomation and related figure id's for referencing. Users can create flashcards without a question or answer as long 
 as there is an associated figure id attached, otherwise the card will not be saved.
 
-|**cid**|category |question |anwser |qid |aid |
-|:-----:|:-------:|:-------:|:-----:|:--:|:--:|
+|**id**|category |question |anwser |q_figure |a_figure |
+|:----:|:-------:|:-------:|:-----:|:-------:|:-------:|
 
 - **cid (INTEGER)**: An autoincremented primary key.
 - **category (TEXT, Not Null)**: The subject or topic of the question.
 - **question (TEXT)**: The query being asked.
 - **answer (TEXT)**: The expected response to the question.
-- **qid (INTEGER)**: A foreign key referencing the Figure table for any figures related to the question.
-- **aid (INTEGER)**: A foreign key referencing the Figure table for any figures related to the answer.
+- **q_figure (INTEGER)**: A foreign key referencing the Figure table for any figures related to the question.
+- **a_figure (INTEGER)**: A foreign key referencing the Figure table for any figures related to the answer.
 
 ## License
 
