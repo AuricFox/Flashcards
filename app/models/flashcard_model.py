@@ -22,7 +22,8 @@ class FigureModel(db.Model):
             code_example (str, default=None): a block of code used to support the flashcard
             image_example (str, default=None): a filename of the image used to support the flashcard
         
-        Output(s): None
+        Output(s): 
+            Nothing if the figure is successfully initialized, else raises error
         '''
         try:
             if not (code_type and code_example or image_example):
@@ -62,16 +63,14 @@ class FigureModel(db.Model):
             image_example (str, default=None): a filename of the image used to support the flashcard
         
         Output(s):
-            True if the figure is successfully updated, else False
+            Nothing if the figure is successfully updated, else raises error
         '''
         try:
             # Check if there are valid figure inputs
-            if code_type and code_example and image_example:
-                raise Exception("More than one figure type!")
-            elif (not code_type and code_example) or (code_type and not code_example):
-                raise Exception("Both code type and code example were not provided!")
-            elif not code_type and not code_example and not image_example:
-                raise Exception("No figure inputs provided!")
+            if not (code_type and code_example or image_example):
+                raise Exception("Missing figure inputs!")
+            elif code_type and code_example and image_example:
+                raise Exception("Can only have one figure type Code or Image!")
 
             # Check if there is both code type and example if submitted
             if code_type and code_example:
@@ -102,12 +101,11 @@ class FigureModel(db.Model):
             db.session.flush()
             db.session.commit()
             LOGGER.info(f"Successfully updated figure {self.id}")
-            return True
 
         except Exception as e:
             db.session.rollback()
             LOGGER.error(f"An error occurred when updating figure {self.id} : {e}")
-            return False
+            raise
     #-----------------------------------------------------------------------------------------------------------
     def delete(self):
         '''
@@ -116,7 +114,7 @@ class FigureModel(db.Model):
         Parameter(s): None
 
         Output(s):
-            True if the data is successfully deleted, else False
+            Nothing if the data is successfully deleted, else raises error
         '''
         try:
             if self.image_example:
@@ -127,12 +125,11 @@ class FigureModel(db.Model):
             db.session.commit()
 
             LOGGER.info(f"Successfully Deleted figure {self.id} from the database!")
-            return True
 
         except Exception as e:
             db.session.rollback()
             LOGGER.error(f"An error occurred when deleting figure {self.id} from the database: {e}")
-            return False
+            raise
 
 # ==============================================================================================================
 class FlashcardModel(db.Model):
@@ -174,7 +171,8 @@ class FlashcardModel(db.Model):
             a_code_example (str, default=None): a block of code supporting the answer
             a_image_example (object, default=None): an image supporting the answer
         
-        Output(s): None
+        Output(s):
+            Nothing if the flashcard is successfully initialized, else raises error
         '''
         try:
             # Check if there is a category input
@@ -301,7 +299,7 @@ class FlashcardModel(db.Model):
             a_image_example (object, default=None): an image supporting the answer
         
         Output(s): 
-            True if the flashcard is successfully updated, else False
+            Nothing if the flashcard is successfully updated, else raises error
         '''
         try:
             self.category = category
@@ -314,13 +312,11 @@ class FlashcardModel(db.Model):
 
                 # Check if there are figure inputs for question, if not delete the figure
                 if not (q_code_type or q_code_example or q_image_example):
-                    status = figure.delete()
+                    figure.delete()
                     self.q_figure = None
                 else:
-                    status = figure.update(code_type=q_code_type, code_example=q_code_example, image_example=q_image_example)
+                    figure.update(code_type=q_code_type, code_example=q_code_example, image_example=q_image_example)
 
-                if not status:
-                    raise Exception(f"Failed to update question figure for flashcard {self.id}!")
             # Create question figure if there are inputs
             elif not self.q_figure and (q_code_type or q_code_example or q_image_example):
                 q_figure = FigureModel(code_type=q_code_type, code_example=q_code_example, image_example=q_image_example)
@@ -336,13 +332,11 @@ class FlashcardModel(db.Model):
                 
                 # Check if there are figure inputs for answer, if not delete the figure
                 if not (a_code_type or a_code_example or a_image_example):
-                    status = figure.delete()
+                    figure.delete()
                     self.a_figure = None
                 else:
-                    status = figure.update(code_type=a_code_type, code_example=a_code_example, image_example=a_image_example)
+                    figure.update(code_type=a_code_type, code_example=a_code_example, image_example=a_image_example)
 
-                if not status:
-                    raise Exception(f"Failed to update answer figure for flashcard {self.id}!")
             # Create answer figure if there are inputs
             elif not self.a_figure and (a_code_type or a_code_example or a_image_example):
                 a_figure = FigureModel(code_type=a_code_type, code_example=a_code_example, image_example=a_image_example)
@@ -355,12 +349,11 @@ class FlashcardModel(db.Model):
             db.session.flush()
             db.session.commit()
             LOGGER.info(f"Successfully updated flashcard ID: {self.id}")
-            return True
 
         except Exception as e:
             db.session.rollback()
             LOGGER.error(f"An error occurred when updating the flashcard data: {e}")
-            return False
+            raise
     #-----------------------------------------------------------------------------------------------------------
     def delete(self):
         '''
@@ -369,7 +362,7 @@ class FlashcardModel(db.Model):
         Parameter(s): None
         
         Output(s):
-            True if the flashcard data was successfully deleted, else False
+            Nothing if the flashcard is successfully deleted, else raises error
         '''
         try:
             if self.q_figure:
@@ -384,12 +377,11 @@ class FlashcardModel(db.Model):
             db.session.commit()
 
             LOGGER.info(f"Successfully deleted flashcard {self.id} from the database!")
-            return True
 
         except Exception as e:
             db.session.rollback()
             LOGGER.error(f"An error occurred when deleting flashcard {self.id} from the database: {e}")
-            return False
+            raise
     #-----------------------------------------------------------------------------------------------------------
     def __repr__(self):
         return (
