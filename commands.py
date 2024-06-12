@@ -102,7 +102,7 @@ def test_forms(form_name):
 # ============================================================================================================== 
 @cli.command("test_models")
 @click.argument('model_name', required=False)
-def test_forms(model_name):
+def test_models(model_name):
     '''
     Runs the unit tests for models: FlashcardModel, FigureModel
     '''
