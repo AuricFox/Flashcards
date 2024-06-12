@@ -32,8 +32,11 @@ def init_app(configure='config.DevConfig'):
     db.init_app(app)
     CSRFProtect(app)
 
+    from app.models.flashcard_model import view_all_categories
+
     # Custom page not found
-    def page_not_found(error):
+    @app.errorhandler(404)
+    def page_not_found(e):
         '''
         Builds and returns an html page that displays the categories and the number of questions in 
         each category.
@@ -51,7 +54,6 @@ def init_app(configure='config.DevConfig'):
     with app.app_context():
         # NOTE: Include routes and custom modules here
         from . import utils
-        from app.models.flashcard_model import view_all_categories
 
         from app.main import bp as main_bp
         from app.manage import bp as manage_bp
