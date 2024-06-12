@@ -3,3 +3,7 @@ app.log
 
 # Ignore pycache
 __pycache__
+
+# Ignore database files
+app_test.db
+app.db
