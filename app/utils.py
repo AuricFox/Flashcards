@@ -1,10 +1,8 @@
 import logging, os, re, mimetypes, json
 from typing import List
 
-
-
 PATH = os.path.dirname(os.path.abspath(__file__))
-IMAGE_FOLDER = os.path.join(PATH, "./static/images")
+IMAGE_FOLDER = os.path.join(PATH, "./uploads/images")
 DATA_FOLDER = os.path.join(PATH, "../data")
 
 logging.basicConfig(

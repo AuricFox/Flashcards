@@ -37,6 +37,8 @@ class Config:
 
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
+    UPLOAD_FOLDER = path.join(BASEDIR, 'app/uploads/images')
+    MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16 MB max size for uploaded files
 
     SECRET_KEY = environ.get('SECRET_KEY') or 'df0331cefc6c2b9a5dserknvwier726a5d1c0fd37324feba25506'
 
