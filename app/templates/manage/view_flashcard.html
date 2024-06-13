@@ -30,7 +30,7 @@
     {% if flashcard['q_image_example'] %}
         <div class="form-topic">
             <h2>Question Image</h2>
-            <img class="card-image" src="{{ url_for('static', filename='images/' + flashcard['q_image_example']) }}" alt="{{ flashcard['q_image_example'] }}">
+            <img class="card-image" src="{{ url_for('manage.get_image', filename=flashcard['q_image_example']) }}" alt="{{ flashcard['q_image_example'] }}">
         </div>
     {% endif %}
     
@@ -54,7 +54,7 @@
     {% if flashcard['a_image_example'] %}
         <div class="form-topic">
             <h2>Answer Image</h2>
-            <img class="card-image" src="{{ url_for('static', filename='images/' + flashcard['a_image_example']) }}" alt="{{ flashcard['a_image_example'] }}">
+            <img class="card-image" src="{{ url_for('manage.get_image', filename=flashcard['a_image_example']) }}" alt="{{ flashcard['a_image_example'] }}">
         </div>
     {% endif %}
 

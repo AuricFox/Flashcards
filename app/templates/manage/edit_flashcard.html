@@ -70,17 +70,25 @@
             </datalist>
             <div class="title">Question Code Example</div>
             {% if form.q_code_example.errors %}
-                <textarea class="error-element" id="q_code_example" name="q_code_example" rows="6">{{ flashcard['q_code_example'] | escape }}</textarea>
+                {% if flashcard['q_code_example'] %}
+                    <textarea class="error-element" id="q_code_example" name="q_code_example">{{ flashcard['q_code_example'] | escape }}</textarea>
+                {% else %}
+                    <textarea class="error-element" id="q_code_example" name="q_code_example" placeholder="Question Code ..."></textarea>
+                {% endif %}
                 <p class="error-message">{{ form.q_code_example.errors[0] }}</p>
             {% else %}
-                <textarea id="q_code_example" name="q_code_example" rows="6">{{ flashcard['q_code_example'] | escape }}</textarea>
+                {% if flashcard['q_code_example'] %}
+                    <textarea id="q_code_example" name="q_code_example">{{ flashcard['q_code_example'] | escape }}</textarea>
+                {% else %}
+                    <textarea id="q_code_example" name="q_code_example" placeholder="Question Code ..."></textarea>
+                {% endif %}
             {% endif %}
         </div>
         
         <div class="form-topic" id="q-image-section" style="display: none;">
             {% if flashcard['q_image_example'] %}
                 <div class="title">Current Image (Question)</div>
-                <img class="card-image" id="q-card-image" src="{{ url_for('static', filename='images/' + flashcard['q_image_example']) }}"
+                <img class="card-image" id="q-card-image" src="{{ url_for('manage.get_image', filename=flashcard['q_image_example']) }}"
                     alt="{{ flashcard['qeustion_image_example'] }}">
                 <input type="hidden" name="current-q-image" value="{{ flashcard['q_image_example'] }}">
                 {{ form.q_old_image(value=flashcard['q_image_example']) }}
@@ -128,17 +136,25 @@
             </datalist>
             <div class="title">Answer Code Example</div>
             {% if form.a_code_example.errors %}
-                <textarea class="error-element" id="a_code_example" name="a_code_example" rows="6">{{ flashcard['a_code_example'] | escape }}</textarea>
+                {% if flashcard['a_code_example'] %}
+                    <textarea class="error-element" id="a_code_example" name="a_code_example">{{ flashcard['a_code_example'] | escape }}</textarea>
+                {% else %}
+                <textarea class="error-element" id="a_code_example" name="a_code_example" placeholder="Anwser Code ..."></textarea>
+                {% endif %}
                 <p class="error-message">{{ form.a_code_example.errors[0] }}</p>
             {% else %}
-                <textarea id="a_code_example" name="a_code_example" rows="6">{{ flashcard['a_code_example'] | escape }}</textarea>
+                {% if flashcard['a_code_example'] %}
+                    <textarea id="a_code_example" name="a_code_example">{{ flashcard['a_code_example'] | escape }}</textarea>
+                {% else %}
+                    <textarea id="a_code_example" name="a_code_example" placeholder="Answer Code ..."></textarea>
+                {% endif %}
             {% endif %}
         </div>
         
         <div class="form-topic" id="a-image-section" style="display: none;">
             {% if flashcard['a_image_example'] %}
                 <div class="title">Current Image (Answer)</div>
-                <img class="card-image" id="a-card-image" src="{{ url_for('static', filename='images/' + flashcard['a_image_example']) }}"
+                <img class="card-image" id="a-card-image" src="{{ url_for('manage.get_image', filename=flashcard['a_image_example']) }}"
                     alt="{{ flashcard['a_image_example'] }}">
                 {{ form.a_old_image(value=flashcard['a_image_example']) }}
             {% endif %}

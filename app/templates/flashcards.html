@@ -29,7 +29,7 @@
                     <div class="question-window">{{ flashcard['question'] | escape }}</div>
                     {% endif %}
 
-                <img class="card-image" src="{{ url_for('static', filename='images/' + flashcard['q_image_example']) }}" alt="{{ flashcard['q_image_path'] }}">
+                <img class="card-image" src="{{ url_for('manage.get_image', filename=flashcard['q_image_example']) }}" alt="{{ flashcard['q_image_example'] }}">
                 
                 {% elif flashcard['q_code_example'] %}
                 <!-- Display code with question window -->
@@ -59,7 +59,7 @@
                     <div class="question-window">{{ flashcard['answer'] | escape }}</div>
                     {% endif %}
 
-                <img class="card-image" src="{{ url_for('static', filename='images/' + flashcard['a_image_example']) }}" alt="{{ flashcard['a_image_path'] }}">
+                <img class="card-image" src="{{ url_for('manage.get_image', filename=flashcard['a_image_example']) }}" alt="{{ flashcard['a_image_example'] }}">
 
                 {% elif flashcard['a_code_example'] %}
                 <!-- Display code with question window -->
