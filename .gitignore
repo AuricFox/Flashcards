@@ -7,3 +7,6 @@ __pycache__
 # Ignore database files
 app_test.db
 app.db
+
+# Ignore Uploads
+uploads/
