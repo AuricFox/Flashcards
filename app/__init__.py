@@ -18,6 +18,7 @@ LOGGER = logging.getLogger(__name__)
 def init_app(configure='config.DevConfig'):
     '''
     Initializes the flask application
+    NOTE: Configured for development
 
     Parameter(s):
         configure (default='config.DevConfig'): app environment configuration
@@ -26,8 +27,8 @@ def init_app(configure='config.DevConfig'):
         app (Object): flask application object
     '''
     app = Flask(__name__, instance_relative_config=False)
-    # Configured for development
     app.config.from_object(configure)
+    os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
     db.init_app(app)
     CSRFProtect(app)
