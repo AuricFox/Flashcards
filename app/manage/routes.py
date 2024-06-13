@@ -1,4 +1,5 @@
-from flask import render_template, url_for, redirect, request, flash, jsonify
+from flask import render_template, url_for, redirect, request, flash, jsonify, send_from_directory
+from os import path
 
 from app.manage import bp
 from app.extensions import db
@@ -7,6 +8,9 @@ from app.utils import LOGGER
 from app.forms.flashcard_form import FlashcardForm
 from app.forms.search_form import SearchForm
 from app.models.flashcard_model import FlashcardModel, view_all_cards, view_all_categories
+
+PATH = path.dirname(path.abspath(__file__))
+IMAGE_FOLDER = path.join(PATH, "../uploads/images")
 
 # ==============================================================================================================
 @bp.route("/", methods=['GET', 'POST'])
@@ -33,7 +37,8 @@ def index():
     
     except Exception as e:
         LOGGER.error(f"Failed to load manage flashcard page: {e}")
-        return render_template('404.html'), 404
+        categories = view_all_categories()
+        return render_template('404.html', nav_id="home-page", categories=categories), 404
 
 # ==============================================================================================================
 @bp.route('/autocomplete', methods=['GET'])
@@ -71,7 +76,7 @@ def add_flashcard():
         a built html page that enables users to add flashcards to the database
     '''
     try:
-        form = FlashcardForm(request.form)
+        form = FlashcardForm()
         if form.validate_on_submit():
 
             FlashcardModel(
@@ -145,7 +150,7 @@ def edit_flashcard(id):
             categories = view_all_categories()
             return render_template('404.html', nav_id="home-page", categories=categories), 404
         
-        form = FlashcardForm(request.form)
+        form = FlashcardForm()
         if form.validate_on_submit():
 
             # Get image input for question, set it to the old image if there is none
@@ -212,3 +217,8 @@ def delete_flashcard(id):
         flash("Failed to delete flashcard!", 'error')
     
     return redirect(url_for('manage.index'))
+
+# ==============================================================================================================
+@bp.route('/get_image/<filename>')
+def get_image(filename):
+    return send_from_directory(IMAGE_FOLDER, filename)
