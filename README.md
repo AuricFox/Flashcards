@@ -110,7 +110,7 @@ exit()
 
 ### Figure Table
 
-Stores blocks of code, the coding language, or the filename of the image for figures related to any flashcards. Currently, users can 
+The figure table stores blocks of code, language type, or the filename of the image for figures related to any flashcards. Currently, users can 
 only store one type (image or code/type) to prevent the flashcard from getting cluttered.
 
 |**id**|code_example |code_type |image_example |
@@ -123,8 +123,7 @@ only store one type (image or code/type) to prevent the flashcard from getting c
 
 ### Flashcards Table
 
-Stores the flashcard infomation and related figure id's for referencing. Users can create flashcards without a question or answer as long 
-as there is an associated figure id attached, otherwise the card will not be saved.
+The flashcard table stores the flashcard infomation and related figure id's for referencing. Users can create flashcards without a question or answer as long as there is an associated figure id attached, otherwise the card will not be saved.
 
 |**id**|category |question |anwser |q_figure |a_figure |
 |:----:|:-------:|:-------:|:-----:|:-------:|:-------:|
