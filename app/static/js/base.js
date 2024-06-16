@@ -119,7 +119,7 @@ function showFlashcard(index) {
     $(id).show();
 
     // Update question number
-    $('#question-num').text((CURRENT_INDEX + 1) + ' / ' + NUM_FLASHCARDS)
+    $('.question-num').text((CURRENT_INDEX + 1) + ' / ' + NUM_FLASHCARDS)
 };
 
 // Advance to the next flashcard on the page
