@@ -520,7 +520,7 @@ body {
 }
 
 .question, .answer {
-    font-size: 1.25rem;
+    font-size: 2rem;
     margin: 1rem 0;
     white-space: pre-line;
     overflow-y:auto;
@@ -563,6 +563,7 @@ body {
     border-radius: 4px;
     box-shadow: 2px 2px 8px #000;
     white-space: pre-line;
+    font-size: 1.5rem;
 }
 
 .question-button:hover {
